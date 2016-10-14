@@ -1,7 +1,0 @@
-			background-image: url(img/°´Å¥ºÏ¼¯.png);
-			background-repeat: no-repeat;
-			/*background-size: 100% 100%;*/
-			background-position: -69px -9px;
-		}
-		.mac:hover{
-			background-position: -68px -77px;

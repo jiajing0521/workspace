@@ -1,4 +1,0 @@
-dispay:类型转换
-			（1）inline转换为行属性标签
-			（2）block转换为块属性标签
-			（3）inline-block转化为行块属性标签
