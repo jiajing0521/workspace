@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		var div1 = document.getElementById("div1");
+		resultTime();
+		var timer = setInterval(function(){
+			resultTime();
+		},1000);
+		function resultTime(){
+			var nowTime = new Date();
+			var fatureTime = new Date(2020,0,1);
+			var chaTime = fatureTime.getTime() - nowTime.getTime();
+			//换算成秒
+			chaTime = Math.floor(chaTime / 1000);
+			var days = Math.floor(chaTime / (3600*24));
+			chaTime = chaTime % (3600 * 24);
+			var hours = Math.floor(chaTime / 3600);
+			chaTime = chaTime % 3600;
+			var min = Math.floor(chaTime / 60);
+			chaTime = chaTime % 60;
+			var miao = chaTime;
+			
+			div1.innerHTML = "距离2020年1月1日还差"+days+"天"+hours+"小时"+min+"分钟"+miao+"秒";
+		}
+		
+		
+	</script>
+</body>
+</html>

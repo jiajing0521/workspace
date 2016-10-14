@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100度网页制作</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.all{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 auto;
+		}
+		.header{
+			width: 962px;
+			height: 500px;
+			border: 1px solid red;
+			font-size: 10px;
+		}
+		.header .ht_head{
+			width: 962px;
+			height: 30px;
+			border-radius: 5px;
+			background-color: #fbfbfb;
+			/*background-color: skyblue;*/
+			overflow: hidden;
+		}
+		.header .ht_head_left span{
+			color: #666666;
+		}
+		.header .ht_head_left a{
+			width: 30px;
+			height: 20px;			
+			border-radius: 5px;
+			border:1px solid #e5e5e5;
+			margin: 2px;
+			background-color: white;
+			text-decoration: none;
+			color: #999999;
+			display: inline-block;
+			text-align: center;
+			line-height: 20px;
+		}
+		.header .ht_head_right a{
+			text-decoration: none;
+			color: #666666;
+			display: inline-block;
+			text-align: center;
+			line-height: 20px;
+			vertical-align: middle;
+		}
+		/*a标签变色样式设置*/
+		.header .ht_head_left a:hover,.header .ht_head_right a:hover{			
+			color: red;
+		}
+		.header .ht_head_left{
+			float: left;
+			padding-top: 2px;
+			padding-left: 20px;
+		}		
+		.header .ht_head_right{
+			float: right;
+			padding-top: 5px;
+			padding-right: 20px;
+		}
+		/*右浮动纵向对齐*/
+		.ht_head_right img{			
+			vertical-align: middle;
+		}
+
+		/*-----------头部导航样式*/
+		.header_middle a{
+			width: 67px;
+			height: 47px;
+			display: inline-block;
+			background-image: url(img/按钮合集1.png);
+			background-repeat: no-repeat;
+		}
+		/*头部左侧图标*/
+		.header_middle .hm_left_img1{
+			background-position: -1px -6px;
+		}
+		.header_middle .hm_left_img1:hover{
+			background-position: -1px -66px;
+		}
+		.header_middle .hm_left_img2{
+			background-position: -66px -6px;
+		}
+		.header_middle .hm_left_img2:hover{
+			background-position: -66px -66px;
+		}
+		.header_middle .hm_left_img3{
+			background-position: -131px -6px;
+		}
+		.header_middle .hm_left_img3:hover{
+			background-position: -131px -66px;
+		}
+		.header_middle .hm_left_img4{
+			background-position: -196px -6px;
+		}
+		.header_middle .hm_left_img4:hover{
+			background-position: -196px -66px;
+		}
+		.header_middle .hm_left_img5{
+			background-position: -261px -6px;
+		}
+		.header_middle .hm_left_img5:hover{
+			background-position: -261px -66px;
+		}
+		/*头部右侧图标*/
+		.header_middle .hm_right_img1{
+			background-position: -326px -6px;
+		}
+		.header_middle .hm_right_img1:hover{
+			background-position: -326px -66px;
+		}
+		.header_middle .hm_right_img2{
+			background-position: -391px -6px;
+		}
+		.header_middle .hm_right_img2:hover{
+			background-position: -391px -66px;
+		}
+		.header_middle .hm_right_img3{
+			background-position: -456px -6px;
+		}
+		.header_middle .hm_right_img3:hover{
+			background-position: -456px -66px;
+		}
+		.header_middle .hm_right_img4{
+			background-position: -522px -6px;
+		}
+		.header_middle .hm_right_img4:hover{
+			background-position: -522px -66px;
+		}
+		.header_middle .hm_right_img5{
+			background-position: -578px -6px;
+		}
+		.header_middle .hm_right_img5:hover{
+			background-position: -578px -66px;
+		}
+		.header_middle .p1{			
+			width: 47px;
+			height: 20px;
+			color: #333333;
+			text-align: center;
+			line-height: 20px;
+		}
+		.header_middle .p2{			
+			width: 67px;
+			height: 20px;
+			color: #333333;
+			text-align: center;
+			line-height: 20px;
+		}
+		.header_middle .hm_left_img{			
+			width: 47px;
+			height: 67px;
+		}
+		.header_middle .hm_right_img{			
+			width: 47px;
+			height: 67px;
+		}
+		/*头部中间部分左中右浮动*/
+		.hm_left,.hm_center,.hm_left_img,.hm_right_img{
+			float: left;
+		}
+		.hm_right{
+			float: right;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="header">
+
+			<!-- ///头部上部部分 -->
+			<div class="header_top">
+				<div class="ht_head">
+					<!-- 头部上部左侧部分 -->
+					<div class="ht_head_left">
+						<span>切换城市：</span>
+						<a href="###">北京</a>
+						<a href="###">上海</a>
+						<a href="###">福州</a>
+						<a href="###">广州</a>
+						<a href="###">青岛</a>
+					</div>
+					<!-- 头部上部右侧部分 -->
+					<div class="ht_head_right">
+						<img src="img/加盟.png" alt="">
+						<a href="###">加盟100度</a>
+						<img src="img/竖线.png" alt="">
+						<img src="img/店铺管理.png" alt="">
+						<a href="###">店铺管理</a>
+					</div>
+				</div>
+				<!-- <div class="ht_foot"></div> -->
+			</div>
+
+			<!-- ///头部中间部分 -->
+			<div class="header_middle">
+				<!-- 头部中间左侧图标部分 -->
+				<div class="hm_left">
+					<div class="hm_left_img">
+						<a class="hm_left_img1" href="###"></a>
+						<p class="p1">美食</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img2" href="###"></a>
+						<p class="p1">夜店</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img3" href="###"></a>
+						<p class="p1">购物</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img4" href="###"></a>
+						<p class="p1">文化</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img5" href="###"></a>
+						<p class="p1">休闲</p>
+					</div>
+				</div>
+				<!-- 头部中间图标logo部分 -->
+				<div class="hm_center">
+					<img src="img/logo.png" alt="">
+				</div>
+				<!-- 头部中间右侧部分 -->
+				<div class="hm_right">
+					<div class="hm_right_img">
+						<a class="hm_right_img1" href="###"></a>
+						<p class="p">烧客空间</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img2" href="###"></a>
+						<p>知道分子</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img3" href="###"></a>
+						<p>白吃白拿</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img4" href="###"></a>
+						<p>烧客论坛</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img5" href="###"></a>
+						<p>企业俱乐部</p>
+					</div>
+				</div>
+					
+				</div>
+			</div>
+			<div class="header_bottom"></div>
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+	</div>
+</body>
+</html>

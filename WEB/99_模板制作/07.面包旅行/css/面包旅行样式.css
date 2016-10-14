@@ -1,0 +1,348 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.all{
+	width: 100%;
+	margin: 0 auto;
+	font-family: 微软雅黑;
+	background-color: #f5f5f5;
+}
+.header{
+	color: white;
+}
+.h_nav{
+	width: 100%;
+	height: 66px;
+	background-color: #6fc9d3;
+	overflow: hidden;
+	position: fixed;
+	opacity: 0.5;
+	z-index: 99;
+}
+.h_nav_left{
+	height: 66px;
+	float: left;
+	margin-left: 300px;
+	vertical-align: middle;
+}
+.h_nav_right{
+	height: 66px;
+	float: right;
+	margin-right: 300px;
+}
+.hnl_a1,.hnr_a1{
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	line-height: 66px;
+	padding: 0 10px;
+	display: inline-block;
+	height: 66px;
+	margin-top: -10px;
+	vertical-align: middle;
+}
+.hnl_a1:hover,.hnr_a1:hover{
+	background-color: #2e9dab;
+}
+.hnl_logo,.hnr_logo{
+	display: inline-block;
+	vertical-align: middle;
+}
+.h_nav_right input{
+	width: 143px;
+	height: 28px;
+	border: 0;
+	border: 1px solid white;
+	border-radius: 14px;
+	color: white;
+	background-color: rgba(78,190,203,.8);
+	text-indent: 1em;
+}
+.input{
+	vertical-align: middle;
+}
+.h_bg{
+	/*width: 1906px;
+	height: 575px;
+	margin: 0 auto;*/
+	position: relative;
+}
+.hbg_img_link img{
+	width: 100%
+}
+.hbg_move a{
+	width: 36px;
+	height: 75px;
+	display: inline-block;
+	text-decoration: none;
+	line-height: 75px;
+	font-size: 40px;
+	font-weight: bold;
+	background-color: rgba(255,255,255,0.5);
+	color: gray;
+	display: none;
+}
+.hbg_move_link1{
+	position: absolute;
+	left: 2%;
+	top: 40%;
+}
+.hbg_move_link2{
+	position: absolute;
+	right: 2%;
+	top: 40%;
+}
+.h_bg:hover .hbg_move a{
+	display: block;
+}
+.hbg_move_link1:hover,.hbg_move_link2:hover{
+	background-color: white;
+}
+.hbg_title{
+	width: 450px;
+	height: 460px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 17%;
+	margin-left: -225px;
+}
+.hbg_title p{
+	color: white;
+	font-size: 50px;
+}
+.hbg_title a{
+	width: 200px;
+	height: 50px;
+	border: 1px solid white;
+	border-radius: 25px;
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	margin: 50px 10px;
+}
+.hbg_title a:hover{
+	background-color: rgba(255,255,255,0.5);
+}
+.hbg_title .text{
+	width: 350px;
+	height: 50px;
+	color: gray;
+	font-size: 20px;
+	text-indent: 1em;
+	border: 0;
+	border: 3px solid skyblue;
+	border-radius: 25px;
+}
+.hbg_title >div{
+	position: relative;
+}
+/*.hbg_title .submit{
+	width: 30px;
+	height: 30px;
+	background-image: url(img/icon/search.png);
+	position: absolute;
+	top: 0;
+	left: 56%;
+}*/
+/*--------------页面中间内容*/
+/*--------------页面中间内容*/
+/*--------------页面中间内容*/
+.content{
+	width: 1200px;
+	margin: 0 auto;
+	/*border: 1px solid red;*/
+	margin-top: 40px;
+}
+.c_hot,.c_destination,.c_talent{
+	margin-top: 15px;
+	overflow: hidden;
+}
+.ch_title,.cd_title,.ct_title{
+	height: 40px;
+	overflow: hidden;
+}
+.ch_title p,.cd_title p,.ct_title p{
+	font-size: 30px;
+	float: left;
+}
+.ch_title a,.cd_title a,.ct_title a{
+	float: right;
+	font-size: 25px;
+	color: gray;
+	text-decoration: none;
+	margin-right: 15px;
+}
+.ch_text,.cd_text,.ct_text{
+	overflow: hidden;
+}
+.cht_list{
+	width: 285px;
+	height: 372px;
+	float: left;
+	border-radius: 5px;
+	background-color: white;
+	margin-right: 15px;
+	margin-top: 15px;
+}
+.cht_list .img{
+	width: 285px;
+	height: 260px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.chta_right img{
+	width: 38px;
+	height: 38px;
+	border-radius: 19px;
+}
+.cht_name{
+	font-size: 18px;
+	text-decoration: none;
+	color: gray;
+	display: block;
+	padding: 15px 0;
+}
+.cht_name:hover{
+	color: green;
+}
+.cht_author{
+	overflow: hidden;
+}
+.chta_left{
+	float: left;
+}
+.chta_left p{
+	font-size: 12px;
+	color: gray;
+	padding-bottom: 5px;
+}
+.chta_right{
+	float: right;
+	margin-right: 10px;
+}
+.cdt_list{
+	width: 285px;
+	height: 290px;
+	float: left;
+	border-radius: 5px;
+	margin-right: 15px;
+	margin-top: 15px;
+	position: relative;
+}
+.cdt_list img{
+	width: 285px;
+	height: 290px;
+	border-radius: 5px;
+}
+.cdt_list p{
+	font-size: 30px;
+	color: white;
+	text-indent: 1em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: 25px;
+}
+.ctt_left,.ctt_center1,.ctt_center2,.ctt_right{
+	float: left;
+	margin-top: 15px;
+}
+.ctt_left{
+	width: 285px;
+	margin-right: 15px;
+}
+.cttl_list{
+	width: 285px;
+	/*height: 360px;*/
+	border-radius: 5px;
+	background-color: white;
+	margin: 15px 15px 0 0;
+}
+.cttll_author{
+	height: 40px;
+	position: relative;
+	padding: 10px 0 10px 10px;
+}
+.cttlla_left,.cttlla_right{
+	float: left;
+}
+.cttlla_left img{
+	width: 38px;
+	height: 38px;
+	border-radius: 19px;
+}
+.cttlla_right a{
+	color: skyblue;
+	text-decoration: none;
+}
+.cttllar_p2{
+	font-size: 12px;
+}
+.time{
+	position: absolute;
+	top: 15%;
+	right: 5%;
+	overflow: hidden;
+}
+.time img{
+	float: left;
+}
+.time span{
+	font-size: 12px;
+	color: gray;
+	float: right;
+	margin-top: 3px;
+}
+.cttl_list>p{
+	text-indent: 1em;
+	margin-top: 10px;
+}
+.cttl_list .img{
+	width: 285px;
+}
+.cttl_list .img img{
+	width: 285px;
+}
+.like{
+	height: 30px;
+	margin: 10px 0 0 10px;
+}
+.like a{
+	color: gray;
+	text-decoration: none;
+	overflow: hidden;
+}
+.like a img{
+	float: left;
+}
+.like span{
+	font-size: 12px;
+	float: left;
+}
+.c_more{
+	width: 250px;
+	height: 50px;
+	margin: 50px auto;
+	border: 1px solid #999999;
+	border-radius: 25px;
+	text-align: center;
+	line-height: 50px;
+}
+.c_more:hover{
+	border: 1px solid #333333;
+}
+.c_more a{
+	color: #999999;
+	font-size: 20px;
+	text-decoration: none;
+}
+.footer{
+	background-color: #4abdcc;
+	text-align: center;
+}
+.footer img{
+	width: 1200px;
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		function whatDays(year,month,day){
+			var monthArr = [31,28,31,30,31,30,31,31,30,31,30,31];
+			var resultDays = 0;
+			//闰年
+			if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0	){
+				monthArr[1] = 29;
+			}
+			for(var i = 0; i < month - 1; i++){
+				resultDays += monthArr[i];
+			}
+			return resultDays + day;
+		}
+		alert(whatDays(2016,3,10));
+	</script>
+</body>
+</html>

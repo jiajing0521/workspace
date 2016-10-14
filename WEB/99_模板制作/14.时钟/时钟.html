@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1 = document.getElementById("div1");			
+			var timer = setInterval(function(){
+				var div1 = document.getElementById("div1");
+				var myDate = new Date();
+			
+				var year = myDate.getFullYear();
+				var month = myDate.getMonth()+1;
+				var day = myDate.getDate();
+				var week = myDate.getDay();
+				var hour = myDate.getHours();
+				var minute = myDate.getMinutes();
+				var seconds = myDate.getSeconds();
+				var Milliseconds = myDate.getMilliseconds();
+				div1.innerHTML = year + "年" + month + "月" + day + "日" + "星期" + week + "<br>"
+								 + hour + "时" + minute + "分" + seconds + "秒" + Milliseconds + "毫秒";
+			},100);
+		</script>
+	</body>
+</html>

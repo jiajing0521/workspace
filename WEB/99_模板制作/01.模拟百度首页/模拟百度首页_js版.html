@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百度一下，你就知道</title>
+		<link rel="stylesheet" type="text/css" href="css/设置js实现.css" />
+		<script src="js/设置js实现.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			/*导航链接样式设置*/
+			
+			.link {
+				text-align: right;
+				padding: 10px;
+			}
+			
+			.link a {
+				color: #333;
+				font-size: 13px;
+				margin: 0 10px;
+			}
+			
+			.link .more {
+				width: 60px;
+				height: 23px;
+				background-color: #38f;
+				color: white;
+				display: inline-block;
+				text-align: center;
+				line-height: 23px;
+				/*padding: 5px;*/
+				text-decoration: none;
+			}
+			/*百度一下样式设置*/
+			/*整体居中*/
+			
+			.search {
+				text-align: center;
+				padding-top: 150px;
+			}
+			/*文本框*/
+			
+			.search .text {
+				width: 550px;
+				height: 30px;
+			}
+			/*按钮*/
+			
+			.search .button {
+				width: 100px;
+				height: 36px;
+				background-color: #3385ff;
+				color: white;
+				border: 0;
+				font-size: 15px;
+			}
+			/*底部样式设置*/
+			/*底部居中*/
+			
+			.end {
+				margin-top: 450px;
+				text-align: center;
+			}
+			
+			.end .div1 {
+				display: inline-block;
+				color: gray;
+				font-size: 12px;
+				vertical-align: middle;
+			}
+			
+			.end .div2 p {
+				color: gray;
+			}
+			
+			.end a {
+				color: gray;
+				font-size: 1px;
+			}
+			
+			.a,
+			.b {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			.end .div2 {
+				color: gray;
+				padding-left: 50px;
+				font-size: 12px;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 导航栏部分 -->
+		<div class="all">
+			<div class="link">
+				<a href="https://www.nuomi.com/?cid=002540"><strong>糯米</strong></a>
+				<a href="http://news.baidu.com/"><strong>新闻</strong></a>
+				<a href="https://www.hao123.com/?tn=91965616_s_hao_pg"><strong>hao123</strong></a>
+				<a href="http://map.baidu.com/"><strong>地图</strong></a>
+				<a href="http://v.baidu.com/"><strong>视频</strong></a>
+				<a href="http://tieba.baidu.com/"><strong>贴吧</strong></a>
+				<a href="###">登录</a>
+				<a class="l_set" id="ll_set" href="###">设置</a>
+				<!-- <div class="more"><a href="">更多产品</a></div> -->
+				<a class="more" id="more" href="###">更多产品</a>
+			</div>
+
+			<!-- 百度一下 -->
+			<div class="search">
+				<div class="img"><img src="../img/百度图标.png" alt=""></div>
+				<form action="http://www.baidu.com/s">
+					<input class="text" type="text" name="wd"><input class="button" type="submit" value="百度一下">
+				</form>
+			</div>
+
+			<!-- 网页底部 -->
+			<div class="end">
+				<div class="a">
+					<!-- 手机百度二维码 -->
+					<div class="div1">
+						<img class="img1" src="../img/手机百度二维码.png" alt=""></div>
+					<div class="div1">
+						<p><strong>手机百度</strong></p>
+						<p style="padding-bottom:10px;">快人一步</p>
+					</div>
+					<!-- 百度糯米二维码 -->
+					<div class="div1">
+						<img class="img2" src="../img/百度糯米二维码.png" alt="">
+					</div>
+					<div class="div1">
+						<p><strong>百度糯米</strong></p>
+						<p>一元大餐</p>
+					</div>
+
+				</div>
+				<div class="b b1">
+					<div class="div2" style="text-align:left">
+						<a href="https://www.baidu.com/cache/sethelp/help.html">把百度设为首页</a>
+						<a href="http://home.baidu.com/">关于百度</a>
+						<a href="http://home.baidu.com/">About  Baidu</a>
+						<a href="http://home.baidu.com/">百度推广</a>
+
+						<p>©2016 Baidu
+							<a href="https://www.baidu.com/duty/">使用百度前必读</a>
+							<a href="http://jianyi.baidu.com/"> 意见反馈</a> 京ICP证030173号
+						</p>
+
+						<p>京公网安备11000002000001号</p>
+					</div>
+				</div>
+			</div>
+
+			<!--设置js效果-->
+			<div class="c_set" id="id_set">
+				<ul>
+					<li id="set_list1"><a id="sl_link1" href="###">搜索设置</a></li>
+					<li id="set_list2"><a id="sl_link2" href="###">高级搜索</a></li>
+					<li id="set_list3"><a id="sl_link3" href="###">关闭预测</a></li>
+					<li id="set_list4"><a id="sl_link4" href="###">搜索历史</a></li>
+				</ul>
+			</div>
+
+			
+		</div>
+		<!--侧边栏部分-->
+		<div id="sidebar">
+			<a id="sb_more">更多产品</a>
+			<a id="bar1" href="###">
+				<img id="b1_img" src="img/icon1.png" />
+				<p id="bi_text">音乐</p>
+			</a>
+			<a id="bar1" href="###">
+				<img id="b1_img" src="img/icon2.png" />
+				<p id="bi_text">图片</p>
+			</a>
+			<a id="bar1" href="###">
+				<img id="b1_img" src="img/icon3.png" />
+				<p id="bi_text">知道</p>
+			</a>
+			<a id="bar1" href="###">
+				<img id="b1_img" src="img/icon4.png" />
+				<p id="bi_text">风云榜</p>
+			</a>
+			<a id="sb_more1" href="###">更多产品>></a>
+		</div>
+		<script type="text/javascript">
+			var get_llset = document.getElementById("ll_set");
+			get_llset.onmouseover = function() {
+				ll_set.style.color = "blue";
+				id_set.style.display = "block";
+			}
+			get_llset.onmouseout = function() {
+				ll_set.style.color = "#333";
+				id_set.style.display = "none";
+			}
+			var get_link1 = document.getElementById("set_list1");
+			get_link1.onmouseover = function() {
+				id_set.style.display = "block";
+				get_link1.style.backgroundColor = "#38f";
+				sl_link1.style.color = "white";
+			}
+			get_link1.onmouseout = function() {
+				id_set.style.display = "none";
+				get_link1.style.backgroundColor = "";
+				sl_link1.style.color = "";
+			}
+			var get_link2 = document.getElementById("set_list2");
+			get_link2.onmouseover = function() {
+				id_set.style.display = "block";
+				get_link2.style.backgroundColor = "#38f";
+				sl_link2.style.color = "white";
+			}
+			get_link2.onmouseout = function() {
+				id_set.style.display = "none";
+				get_link2.style.backgroundColor = "";
+				sl_link2.style.color = "";
+			}
+			var get_link3 = document.getElementById("set_list3");
+			get_link3.onmouseover = function() {
+				id_set.style.display = "block";
+				get_link3.style.backgroundColor = "#38f";
+				sl_link3.style.color = "white";
+			}
+			get_link3.onmouseout = function() {
+				id_set.style.display = "none";
+				get_link3.style.backgroundColor = "";
+				sl_link3.style.color = "";
+			}
+			var get_link4 = document.getElementById("set_list4");
+			get_link4.onmouseover = function() {
+				id_set.style.display = "block";
+				get_link4.style.backgroundColor = "#38f";
+				sl_link4.style.color = "white";
+			}
+			get_link4.onmouseout = function() {
+				id_set.style.display = "none";
+				get_link4.style.backgroundColor = "";
+				sl_link4.style.color = "black";
+			}
+			var get_set = document.getElementById("id_set");
+			get_set.onmouseover = function() {
+				id_set.style.display = "block";
+			}
+			get_set.onmouseout = function() {
+				id_set.style.display = "none";
+			}
+			
+			
+//		侧边栏部分
+			var get_more = document.getElementById("more");
+			get_more.onmouseover = function(){
+				sidebar.style.display = "block";
+			}
+			var get_sidebar = document.getElementById("sidebar");
+			get_sidebar.onmouseover = function(){
+				get_sidebar.style.display = "block";
+			}
+			get_sidebar.onmouseout = function(){
+				get_sidebar.style.display = "none";
+			}
+			var get_bar1 = document.getElementById("bar1");
+			get_bar1.onmouseover = function(){
+				bar1.style.textDecoration = "underline";
+			}
+		</script>
+
+	</body>
+
+</html>

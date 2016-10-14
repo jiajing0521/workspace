@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100度网页制作</title>
+	<link rel="stylesheet" href="css/header.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.all{
+			width: 1000px;
+			/*height: 1000px;*/
+			margin: 0 auto;
+		}
+		/*-------------头部部分*/
+		@import url(css/header.css);.header{
+			width: 962px;
+			height: 250px;
+			/*border: 1px solid red;*/
+			font-size: 10px;
+		}
+		.header .ht_head{
+			width: 962px;
+			height: 30px;
+			border-radius: 5px;
+			background-color: #fbfbfb;
+			/*background-color: skyblue;*/
+			overflow: hidden;
+		}
+		.header .ht_head_left span{
+			color: #666666;
+		}
+		.header .ht_head_left a{
+			width: 30px;
+			height: 20px;			
+			border-radius: 5px;
+			border:1px solid #e5e5e5;
+			margin: 2px;
+			background-color: white;
+			/*去下划线*/
+			text-decoration: none;
+			color: #999999;
+			display: inline-block;
+			text-align: center;
+			line-height: 20px;
+		}
+		.header .ht_head_right a{
+			text-decoration: none;
+			color: #666666;
+			display: inline-block;
+			text-align: center;
+			line-height: 20px;
+			vertical-align: middle;
+		}
+		/*a标签变色样式设置*/
+		.header .ht_head_left a:hover,.header .ht_head_right a:hover{			
+			color: red;
+		}
+		.header .ht_head_left{
+			float: left;
+			padding-top: 2px;
+			padding-left: 20px;
+		}		
+		.header .ht_head_right{
+			float: right;
+			padding-top: 5px;
+			padding-right: 20px;
+		}
+		/*右浮动纵向对齐*/
+		.ht_head_right img{			
+			vertical-align: middle;
+		}
+
+		/*-----------头部中间样式*/
+		.header_middle{
+			width: 962px;
+			height: 65px;
+			margin-top: 10px;
+			/*border:1px solid red; */
+			overflow: hidden;
+		}
+		.header_middle a{
+			width: 67px;
+			height: 47px;
+			display: inline-block;
+			/*background-image: url(img/按钮合集1.png);*/
+			background-repeat: no-repeat;
+		}
+		/*头部中间左侧图标*/
+		.header_middle .hm_left_img1{
+			background-image: url(img/pig1.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img1{
+			background-image: url(img/pig2.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img:hover p{
+			color: red;
+		}
+		.header_middle .hm_left_img2{
+			background-image: url(img/mic1.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img2:hover{
+			background-image: url(img/mic2.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img3{
+			background-image: url(img/shopping1.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img3:hover{
+			background-image: url(img/shopping2.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img4{
+			background-image: url(img/文化1.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img4:hover{
+			background-image: url(img/文化2.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img5{
+			background-image: url(img/休闲1.png);
+			background-position: center;
+		}
+		.header_middle .hm_left_img5:hover{
+			background-image: url(img/休闲2.png);
+			background-position: center;
+		}
+		/*头部右侧图标*/
+		.header_middle .hm_right_img:hover p{
+			color: red;
+		}
+		.header_middle .hm_right_img1{
+			background-image: url(img/烧客空间1.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img1:hover{
+			background-image: url(img/烧客空间2.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img2{
+			background-image: url(img/知识分子1.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img2:hover{
+			background-image: url(img/知识分子2.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img3{
+			background-image: url(img/白吃白拿1.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img3:hover{
+			background-image: url(img/白吃白拿2.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img4{
+			background-image: url(img/烧客论坛1.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img4:hover{
+			background-image: url(img/烧客论坛2.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img5{
+			background-image: url(img/企业俱乐部1.png);
+			background-position: center;
+		}
+		.header_middle .hm_right_img5:hover{
+			background-image: url(img/企业俱乐部2.png);
+			background-position: center;
+		}
+		.header_middle p{			
+			width: 67px;
+			height: 15px;
+			color: #333333;
+			text-align: center;
+			line-height: 15px;
+		}
+		.header_middle .hm_left_img{
+			width: 67px;
+			height: 62px;
+		}
+		.header_middle .hm_right_img{
+			width: 67px;
+			height: 62px;
+		}
+		/*头部中间部分左中右浮动*/
+		.hm_left,.hm_center,.hm_left_img,.hm_right_img{
+			float: left;
+		}
+		.hm_right{
+			float: right;
+		}
+		.hm_center{
+			margin-left: 35px; 
+		}
+
+
+		/*-----------头部底部样式*/
+		.header_bottom{
+			width: 962px;
+			height: 130px;
+			background-image: url(img/searchBG.png);
+			/*border:1px solid blue;*/
+			margin: 10px auto;
+			padding-top: 1px;
+		}
+		/*///头部底部的顶部样式*/
+		.header .hb_top{
+			width: 410px;
+			height: 26px;
+			margin: 0 auto;
+		}
+		.header .hb_top a{
+			width: 80px;
+			height: 25px;			
+			border-radius: 5px;
+			border-left:1px solid #f8d0bf;
+			border-top:1px solid #f8d0bf;
+			border-right:1px solid #f8d0bf;
+			border-bottom:1px solid #e21c01;
+			background-color: #fafafa;
+			text-decoration: none;
+			color: black;
+			font-size: 15px;
+			display: inline-block;
+			text-align: center;
+			line-height: 25px;
+			padding-bottom: 1px;
+		}
+		.header .hb_top a:hover{
+			background-color: #e21c01;
+			color: white;
+			font-weight:bold;
+		}
+
+		/*///头部底部的中间样式*/
+		.hb_center{
+			width: 962px;
+			height: 30px;
+			margin-top: 20px;
+			overflow: hidden;
+		}
+		.header_bottom .hb_center .text{
+			width: 406px;
+			height: 22px;
+			color: #ea7a7a;
+			border-radius: 5px;
+			line-height: 22px;
+			text-indent: 1em;
+			vertical-align: middle;
+		}
+		.header_bottom .hb_center .submit{
+			width: 63px;
+			height: 26px;
+			background-image: url(img/搜索.png);
+			border: none;
+			border-color: #e21c01;
+			/*border-radius: 5px;*/
+			background-color: #e21c01;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			vertical-align: middle;
+			outline: none;
+
+		}
+		.header_bottom form{
+			width: 480px;
+			height: 26px;
+			margin: 0 auto;
+			float: right;
+			vertical-align: middle;
+		}
+		.header_bottom .hb_center .p{
+			width: 200px;
+			height: 30px;
+			color: white;
+			float: right;
+			vertical-align: middle;
+			padding-right: 10px;
+		}
+		}
+		.header_bottom .hb_center .p>p{
+			padding: 3px auto;
+		}
+
+		/*///头部底部的下面样式*/
+		.header_bottom .hb_foot{
+			text-align: center;
+			margin-top: 25px;
+			width: 962px;
+			height: 30px;
+		}
+		.header_bottom .hb_foot sp{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.header_bottom .hb_foot img{
+			vertical-align: middle;
+		}
+		.header_bottom .hb_foot .sp1{
+			color: #d30703;
+		}
+		.header_bottom .hb_foot .sp2{
+			color: #999999;
+		}
+		.header_bottom .hb_foot .img{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.header_bottom .hb_foot .img .up{
+			width: 7px;
+			height: 4px;
+			background-image: url(img/up.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			margin-bottom:5px; 
+		}
+		.header_bottom .hb_foot .img .down{
+			width: 7px;
+			height: 4px;
+			background-image: url(img/down.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
+		/*-------------中间内容部分*/
+
+		.content{
+			width: 962px;
+			/*height: 1000px;*/
+			border: 1px solid red;
+			font-size: 12px;
+		}
+		/*-----中间内容左侧部分*/
+		.content .ctLeft{
+			width: 710px;
+			/*height: 900px;*/
+			border: 1px solid red;
+		}
+		/*---中间左侧第一部分*/
+		.content .ctLeft .ctLeft_ct1{
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct1Left{
+			width: 350px;
+			height: 420px;
+			background-image: url(img/dog.png);
+			background-repeat: no-repeat;
+			float: left;
+		}
+		.content .ctLeft .ctLeft_ct1Left .p1{
+			color:#d90000; 
+			font-size:20px;
+			padding: 10px 0 10px 25px;
+		}
+		.content .ctLeft .ctLeft_ct1Left iframe{
+			margin-left: 25px;
+		}
+		.content .ctLeft .ctLeft_ct1Left ul{
+			padding-left: 110px;
+    		margin-top: 15px;
+		}
+		.content .ctLeft .ctLeft_ct1Left li{
+			margin: 5px;
+		}
+		.content .ctLeft .ctLeft_ct1Left a{	
+			text-decoration: none;
+			color: black;			
+		}
+
+		.content .ctLeft .ctLeft_ct1Right{
+			width: 350px;
+			height: 420px;
+			border-bottom-left-radius: 15px;
+			border-bottom-right-radius: 15px;
+			border-radius: 15px;
+			border: 1px solid #e5e5e5;
+			border-top: none;
+			float: right;
+	}
+		.content .ctLeft .ctLeft_ct1Right .top p,.content .ctLeft .ctLeft_ct4Left .top p{
+			width: 173px;
+			height: 30px;
+			border-top-left-radius: 15px;
+			border-top-right-radius: 15px;
+			border: 1px solid #e5e5e5;
+			font-size: 16px;
+			float: left;
+			font-weight: bold;
+			background-color: #f4f4f4;
+			line-height: 30px;
+			text-align: center;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top .p1,.content .ctLeft .ctLeft_ct4Left .top .p1{
+			float: left;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top .p2,.content .ctLeft .ctLeft_ct4Left .top .p2{
+			float: right;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top,.content .ctLeft .ctLeft_ct4Left .top{
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top p:hover,.content .ctLeft .ctLeft_ct4Left .top p:hover{				
+			background-color: white;
+			border-bottom: none;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top .span1,.content .ctLeft .ctLeft_ct4Left .top .span1{
+			color: #666666;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top p:hover .span1,.content .ctLeft .ctLeft_ct4Left .top p:hover .span1{			
+			color: #cc0d13;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top .img,.content .ctLeft .ctLeft_ct4Left .top .img,.content .ctLeft .ctLeft_ct6Left .center .img{
+			width: 9px;
+			height: 6px;
+			display: inline-block;			
+			background-image: url(img/down1.png);
+			background-repeat: no-repeat;
+		}
+		.content .ctLeft .ctLeft_ct1Right .top p:hover .img,.content .ctLeft .ctLeft_ct4Left .top p:hover .img,.content .ctLeft .ctLeft_ct6Left .center p:hover .img{
+			background-image: url(img/down.png);
+			background-repeat: no-repeat;
+		}
+		.content .ctLeft .ctLeft_ct1Right .center .link{				
+			width: 320px;
+			height: 108px;
+			background-image: url(img/HOT.png);
+			background-repeat: no-repeat;
+			background-position: right;
+			margin-left: 15px;
+			margin-top: 5px;
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct1Right .center .link .img1{
+			width: 106px;
+			height: 86px;
+			float: left;
+			background-image: url(img/省图.png);
+			margin-top: 9px;
+		}
+		.content .ctLeft .ctLeft_ct1Right .center .link .img2{
+			padding-top: 60px;
+			margin-left: -40px;
+		}
+		.content .ctLeft .ctLeft_ct1Right .center .text{				
+			width: 150px;
+			height: 86px;
+			margin-right: 20px;
+			float: right;
+			padding-top: 10px;
+		}
+		.content .ctLeft .ctLeft_ct1Right .center .text .p1{
+			color: red;
+			padding: 3px;
+		}
+		.content .ctLeft .ctLeft_ct1Right .center .text .p2{
+			padding: 3px;
+		}
+		.content .ctLeft .ctLeft_ct1Right .bottom{
+			width: 37px;
+			height: 13px;
+		}
+		.content .ctLeft .ctLeft_ct1Right .bottom .more{
+			width: 37px;
+			height: 13px;
+			display: block;
+			background-image: url(img/more.png);
+			background-repeat: no-repeat;
+			margin-left: 300px;
+			margin-top: 20px;
+		}
+		/*---中间左侧第二部分*/
+		.content .ctLeft .ctLeft_ct2{
+			width: 710px;
+			height: 90px;
+			background-image: url(img/ad3.png);
+			background-repeat: no-repeat;
+			margin-top: 10px;
+		}
+		/*---中间左侧第三部分*/
+		.content .ctLeft .ctLeft_ct3{
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		/*--左侧*/
+		.content .ctLeft .ctLeft_ct3Left{
+			width: 350px;
+			height: 500px;
+			float: left;
+			background-image: url(img/每日活动.png);
+			background-repeat: no-repeat;
+		}
+		.content .ctLeft .ctLeft_ct3Left .top{
+			overflow: hidden;
+			margin-top: 15px;
+			margin-left: 15px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .top_left{
+			float: left;
+		}
+		.content .ctLeft .ctLeft_ct3Left .top_left .p1{
+			color: red;
+			font-weight: bold;
+			font-size: 16px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .top_left .p2{
+			font-weight: bold;
+			font-size: 25px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .top_right .p3{
+			color: red;
+			font-weight: bold;
+			font-size: 40px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .top_right{
+			float: left;
+			margin-left: 15px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .center{
+			width: 210px;
+			height: 25px;
+			margin-left: 100px;
+			margin-top: 30px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .center .p1{
+			width: 25px;
+			height: 25px;
+			border: 1px solid #e5e5e5;
+			border-radius: 5px;
+			background-color: #fcfcfc;
+			display: inline-block;
+			font-weight: bold;
+			font-size: 18px;
+			color: red;
+			text-align: center;
+			line-height: 25px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .center .p2{			
+			font-weight: bold;
+			font-size: 15px;
+			display: inline-block;
+		}
+		.content .ctLeft .ctLeft_ct3Left .center .bottom{
+			margin-left: 15px;
+			margin-top: 10px;
+		}
+		.content .ctLeft .ctLeft_ct3Left .center .bottom .p3{
+			width: 195px;
+			color: #999999;
+		}
+		/*--右侧*/
+		.content .ctLeft .ctLeft_ct3Right{
+			width: 350px;
+			height: 500px;
+			float: right;
+			background-image: url(img/精彩推荐.png);
+			background-repeat: no-repeat;
+		}
+		.content .ctLeft .ctLeft_ct3Right .up{
+			width: 300px;
+			height: 180px;
+			margin-top: 93px;
+			margin-left: 27px;
+		}
+		.content .ctLeft .ctLeft_ct3Right .up_right{
+			display: inline-block;
+		}
+		.content .ctLeft .ctLeft_ct3Right .up_right img{
+			display: block;
+			margin: 4px;
+		}
+		.content .ctLeft .ctLeft_ct3Right .down .text{
+			margin-left: 55px;
+			margin-bottom: 13px;
+		}
+		.content .ctLeft .ctLeft_ct3Right .down .text .link{
+			color: black;
+			text-decoration: none;
+		}
+		.content .ctLeft .ctLeft_ct3Right .down .text .link:hover{
+			color: red;
+		}
+		/*---中间左侧第四部分*/
+		.content .ctLeft .ctLeft_ct4{
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		/*--左侧*/
+		.content .ctLeft .ctLeft_ct4Left{
+			width: 350px;
+			float: left;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom{
+			width: 350px;
+			height: 316px;
+			background-image: url(img/地铁.png);
+			background-repeat: no-repeat;
+			margin-top: -21px;
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom p{
+			width: 60px;
+			height: 25px;
+			font-size: 16px;
+			font-weight: bold;
+			float: left;
+			margin-top: 270px;
+			margin-left: 5px;
+			text-align: center;
+			line-height: 25px;
+			background-color: #f1f1f1;
+			border-radius: 5px;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p1{
+			border: 2px solid #de0602;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p1:hover{
+			background-color: #de0602;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .span1{
+			color: #de0602;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p1:hover span{
+			color: white;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p2{
+			border: 2px solid #3b61ae;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p2:hover{
+			background-color: #3b61ae;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .span2{
+			color: #3b61ae;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p2:hover span{
+			color: white;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p3{
+			border: 2px solid #ff9900;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p3:hover{
+			background-color: #ff9900;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .span3{
+			color: #ff9900;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p3:hover span{
+			color: white;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p4{
+			border: 2px solid #cc0000;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p4:hover{
+			background-color: #cc0000;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .span4{
+			color: #cc0000;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p4:hover span{
+			color: white;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p5{
+			border: 2px solid #903077;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p5:hover{
+			background-color: #903077;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .span5{
+			color: #903077;
+		}
+		.content .ctLeft .ctLeft_ct4Left .bottom .p5:hover span{
+			color: white;
+		}
+		/*--右侧*/
+		.content .ctLeft .ctLeft_ct4Right{
+			width: 350px;
+			height: 327px;
+			float: right;
+			border-radius: 15px;
+			border: 1px solid #e5e5e5;
+			background-image: url(img/论坛1.png);
+			background-repeat: no-repeat;
+		}
+		.content .ctLeft .ctLeft_ct4Right .more{
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct4Right .more a,.content .ctLeft .ctLeft_ct6Left a,.content .ctLeft .ctLeft_ct6Right a,.content .ctLeft .ctLeft_ct7Right a{
+			width: 37px;
+			height: 13px;
+			float: right;
+			background-image: url(img/more.png);
+			margin-top: 15px;
+			margin-right: 15px;
+		}
+		.content .ctLeft .ctLeft_ct4Right .list{
+			width: 320px;
+			height: 200px;
+			padding-top: 100px;
+			margin: 0 auto;
+		}
+		.content .ctLeft .ctLeft_ct4Right .text{
+			width: 320px;
+			height: 30px;
+			background-color: #f1f1f1;
+			overflow: hidden;
+			border-radius: 5px;
+			margin-bottom: 2px; 
+		}
+		.content .ctLeft .ctLeft_ct4Right .text p{
+			float: left;
+			line-height:30px;
+			margin-left: 20px;
+		}
+		.content .ctLeft .ctLeft_ct4Right .text .p1{
+			font-weight: bold;
+			color: red;
+		}
+		.content .ctLeft .ctLeft_ct4Right .text .p2{
+			color: #333333;
+		}
+		.content .ctLeft .ctLeft_ct4Right .text .p2:hover{
+			color: red;
+		}
+		.content .ctLeft .ctLeft_ct4Right .text .p3{
+			color: #666666;
+			margin-left: 90px;
+		}
+		/*---中间左侧第五部分*/
+		.content .ctLeft .ctLeft_ct5{
+			width: 710px;
+			height: 90px;
+			background-image: url(img/ads3.png);
+			background-repeat: no-repeat;
+			margin-top: 10px;
+		}
+		/*---中间左侧第六部分*/
+		.content .ctLeft .ctLeft_ct6{
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		/*左侧*/
+		.content .ctLeft .ctLeft_ct6Left{
+			width: 350px;
+			height: 320px;
+			border-radius: 15px;
+    		border: 1px solid #e5e5e5;
+			float: left;
+		}
+		.content .ctLeft .ctLeft_ct6Left .top,.content .ctLeft .ctLeft_ct6Right .top,.content .ctLeft .ctLeft_ct7Left .top,.content .ctLeft .ctLeft_ct7Right .top{
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct6Left .top p,.content .ctLeft .ctLeft_ct6Right .top p,.content .ctLeft .ctLeft_ct7Left .top p,.content .ctLeft .ctLeft_ct7Right .top p{
+			font-size: 16px;
+			font-weight: bold;
+			float: left;
+			margin-top: 10px;
+			margin-left: 20px;
+		}
+		.content .ctLeft .ctLeft_ct6Left .top .p1,.content .ctLeft .ctLeft_ct6Right .top .p1,.content .ctLeft .ctLeft_ct7Left .top .p1,.content .ctLeft .ctLeft_ct7Right .top .p1{
+			color: red;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_top{
+			margin-top: 10px;
+			margin-left: 20px;
+			overflow: hidden;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_top p{
+			width: 100px;
+		    height: 20px;
+		    border-top-left-radius: 15px;
+		    border-top-right-radius: 15px;
+		    border: 1px solid #e5e5e5;
+		    float: left;
+		    font-weight: bold;
+		    color: #666666;
+		    background-color: #f4f4f4;
+		    line-height: 20px;
+		    text-align: center;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_top p:hover{
+			color: black;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_middle{
+			overflow: hidden;
+			margin-top: 10px;
+		    color: #666666;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_middle .p1{
+			float: left;
+			margin-left: 150px;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_middle .p2{
+			float: right;
+			margin-right: 25px;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_bottom ul{
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_bottom li{
+			width: 300px;
+			height: 25px;
+			border-top: 1px dotted #666666;
+			border-bottom: 1px dotted #666666;
+			line-height: 25px;
+			background-repeat: no-repeat;
+			background-position: right;
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_bottom .li1{
+			background-image: url(img/yes.png);
+		}
+		.content .ctLeft .ctLeft_ct6Left .center_bottom .li2{
+			background-image: url(img/flag.png);
+		}
+		.content .ctLeft .ctLeft_ct6Left .bottom{
+			margin-top: 30px;
+			margin-left: 20px;
+		}
+		.content .ctLeft .ctLeft_ct6Left .bottom .input{
+			width: 180px;
+			vertical-align: middle;
+		}
+		.content .ctLeft .ctLeft_ct6Left .bottom .submit{
+			width: 32px;
+			height: 28px;
+			background-image: url(img/GO.png);
+			background-repeat: no-repeat;
+			border: none;
+			vertical-align: middle;
+		}
+		/*右侧*/
+		.content .ctLeft .ctLeft_ct6Right{
+			width: 350px;
+			height: 320px;
+			border-radius: 15px;
+    		border: 1px solid #e5e5e5;
+			float: right;
+		}
+		.content .ctLeft .ctLeft_ct6Right .bottom{
+			width: 330px;
+			height: 240px;
+			padding-left: 10px;
+			margin-top: 25px;
+		}
+		/*---中间左侧第七部分*/
+		.content .ctLeft .ctLeft_ct7{
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		/*左侧*/
+		.content .ctLeft .ctLeft_ct7Left{
+			width: 350px;
+			height: 300px;
+			border-radius: 15px;
+    		border: 1px solid #e5e5e5;
+			float: left;
+		}
+		/*右侧*/
+		.content .ctLeft .ctLeft_ct7Right{
+			width: 350px;
+			height: 300px;
+			border-radius: 15px;
+    		border: 1px solid #e5e5e5;
+			float: right;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="all">
+	<!-- //////头部 -->
+		<div class="header">
+
+			<!-- ///头部上部部分 -->
+			<div class="header_top">
+				<div class="ht_head">
+					<!-- 头部上部左侧部分 -->
+					<div class="ht_head_left">
+						<span>切换城市：</span>
+						<a href="###">北京</a>
+						<a href="###">上海</a>
+						<a href="###">福州</a>
+						<a href="###">广州</a>
+						<a href="###">青岛</a>
+					</div>
+					<!-- 头部上部右侧部分 -->
+					<div class="ht_head_right">
+						<img src="img/加盟.png" alt="">
+						<a href="###">加盟100度</a>
+						<img src="img/竖线.png" alt="">
+						<img src="img/店铺管理.png" alt="">
+						<a href="###">店铺管理</a>
+					</div>
+				</div>
+				<!-- <div class="ht_foot"></div> -->
+			</div>
+
+			<!-- ///头部中间部分 -->
+			<div class="header_middle">
+				<!-- 头部中间左侧图标部分 -->
+				<div class="hm_left">
+					<div class="hm_left_img">
+						<a class="hm_left_img1" href="###"></a>
+						<p>美食</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img2" href="###"></a>
+						<p>夜店</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img3" href="###"></a>
+						<p>购物</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img4" href="###"></a>
+						<p>文化</p>
+					</div>
+					<div class="hm_left_img">
+						<a class="hm_left_img5" href="###"></a>
+						<p>休闲</p>
+					</div>
+				</div>
+				<!-- 头部中间图标logo部分 -->
+				<div class="hm_center">
+					<img src="img/logo.png" alt="">
+				</div>
+				<!-- 头部中间右侧部分 -->
+				<div class="hm_right">
+					<div class="hm_right_img">
+						<a class="hm_right_img1" href="###"></a>
+						<p>烧客空间</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img2" href="###"></a>
+						<p>知道分子</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img3" href="###"></a>
+						<p>白吃白拿</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img4" href="###"></a>
+						<p>烧客论坛</p>
+					</div>
+					<div class="hm_right_img">
+						<a class="hm_right_img5" href="###"></a>
+						<p>企业俱乐部</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- ///头部底部部分 -->
+			<div class="header_bottom">
+				<!-- 顶部分 -->
+				<div class="hb_top">
+					<a href="###">搜店</a><a href="###">地址</a><a href="###">优惠券</a><a href="###">全文</a><a href="###">视频</a>
+				</div>
+				<!-- 中间部分 -->
+				<div class="hb_center">
+					<div class="p">
+						<p>金钱豹、大江南、湘水之珠、德瑀楼</p>
+						<p>荷棠鱼坊烤鱼、SOHO尚都、湘味楼...</p>
+					</div>
+					<form>
+						<input class="text" type="text" name="" value="例如：荷棠鱼坊烤鱼 或 樱花日本料理">
+						<input class="submit" type="submit" value="">
+					</form>
+				</div>
+				<!-- 底部部分 -->
+				<div class="hb_foot">
+					<img src="img/update.png">
+					<span class="sp1">萱萱</span>
+					<span class="sp2">五分钟前</span>
+					<span class="sp3">写了一篇新文章：那些灿烂华美的瞬间...</span>
+					<!-- <img class="up" src="img/up.png">
+					<img class="down" src="img/down.png"> -->
+					<div class="img">
+						<div class="up"></div>
+						<div class="down"></div>
+					</div>		
+				</div>
+			</div>
+		</div>
+		<!-- //////中间内容 -->
+		<div class="content">
+			<!-- ///中间左侧部分 -->
+			<div class="ctLeft">
+				<!-- 中间左侧第一部分 -->
+				<div class="ctLeft_ct1">
+					<!-- 左侧 -->
+					<div class="ctLeft_ct1Left">
+						<p class="p1"><strong>WHAT'HOT</strong></p>
+						<iframe src="C:\Users\dllo\Desktop\h5安装\行尸走肉.The.Walking.Dead.S06E11.中英字幕.HDTVrip.1024x576.mp4" width="300" height="290" frameborder="0"></iframe>
+						<ul>
+							<li><a href="###">现场实录：杭州机场国航系统的崩溃</a></li>
+							<li><a href="###">网友自拍国航航班晚点后的遭遇</a></li>
+							<li><a href="###">【拍客】绝对最奢侈的航班 注意第41秒</a></li>
+						</ul>
+					</div>
+					<!-- 右侧 -->
+					<div class="ctLeft_ct1Right">
+						<div class="top">
+							<p class="p1">								
+								<span class="span1">HOT SHOP</span>
+								<span class="span2">红店铺</span>
+								<span class="img"></span>
+							</p>
+							<p class="p2">								
+								<span class="span1">EW SHOP</span>
+								<span class="span2">新开张</span>
+								<span class="img"></span>
+							</p>
+						</div>
+						<div class="center">
+							<div class="link">
+								<a class="img1" href="###"></a>
+								<img class="img2" src="img/省.png" alt="">
+								<div class="text">
+									<p class="p1">御舟和涵珍园国际酒店</p>
+									<p class="p2">区域：朝阳/CBD</p>
+									<p class="p2">人均：180元</p>
+									<p class="p2">人气：12321</p>
+								</div>
+							</div> 
+							<div class="link">
+								<a class="img1" href="###"></a>
+								<div class="text">
+									<p class="p1">御舟和涵珍园国际酒店</p>
+									<p class="p2">区域：朝阳/CBD</p>
+									<p class="p2">人均：180元</p>
+									<p class="p2">人气：12321</p>
+								</div>
+							</div> 
+							<div class="link">
+								<a class="img1" href="###"></a>
+								<div class="text">
+									<p class="p1">御舟和涵珍园国际酒店</p>
+									<p class="p2">区域：朝阳/CBD</p>
+									<p class="p2">人均：180元</p>
+									<p class="p2">人气：12321</p>
+								</div>
+							</div>
+						</div>
+						<div class="bottom">
+							<a class="more" href="###"></a>
+						</div>
+					</div>
+				</div>
+				<!-- 中间左侧第二部分 -->
+				<div class="ctLeft_ct2"></div>
+				<!-- 中间左侧第三部分 -->
+				<div class="ctLeft_ct3">
+					<!-- 左侧 -->
+					<div class="ctLeft_ct3Left">
+						<div class="top">
+							<div class="top_left">
+								<p class="p1">LUKY YODAY</p>
+								<p class="p2">每日活动</p>
+							</div>
+							<div class="top_right">
+								<p class="p3">2014.2</p>
+							</div>
+						</div>
+						<div class="center">
+							<div class="top">
+								<p class="p1">07</p>
+								<p class="p1">21</p>
+								<p class="p2">本日主题XXXXXXXX</p>
+							</div>
+							<div class="bottom">
+								<p class="p3">迟到的荣誉--维尔米的写实主义风俗画迟到的荣誉维米尔画迟到的荣誉维米尔米尔米尔</p>						
+							</div>
+						</div>
+						<div class="bottom"></div>
+					</div>
+					<!-- 右侧 -->
+					<div class="ctLeft_ct3Right">
+						<div class="up">
+							<img class="up_left" src="img/爸爸去哪儿.png" alt="">
+							<div class="up_right">
+								<img src="img/爸爸去哪儿3.png" alt="">
+								<img src="img/爸爸去哪儿4.png" alt="">
+								<img src="img/爸爸去哪儿5.png" alt="">
+							</div>
+							<p class="text">爸爸去哪儿~</p>
+						</div>
+						<div class="down">
+							<div class="text">
+								<a class="link" href="###">老店换新颜，丰泽园野田重张亮相...  &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">生活中哪些商品的包装有缺陷野田... &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">老店换新颜，丰泽园野田重张亮相...  &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">生活中哪些商品的包装有缺陷野田... &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">老店换新颜，丰泽园野田重张亮相...  &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">生活中哪些商品的包装有缺陷野田... &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">老店换新颜，丰泽园野田重张亮相...  &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+							<div class="text">
+								<a class="link" href="###">生活中哪些商品的包装有缺陷野田... &nbsp;&nbsp;</a>
+								<span class="span1">08/07/22</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 中间左侧第四部分 -->
+				<div class="ctLeft_ct4">
+					<!-- 左侧 -->
+					<div class="ctLeft_ct4Left">
+						<div class="top">
+							<p class="p1">
+								<span class="span1">SUBWAY</span>
+								<span class="span2">地铁交通</span>
+								<span class="img"></span>
+							</p>
+							<p class="p2">								
+								<span class="span1">MAP</span>
+								<span class="span2">生活圈</span>
+								<span class="img"></span>
+							</p>
+						</div>
+						<div class="bottom">
+							<p class="p1">
+								<span class="span1">1</span><span class="span0">号线</span>
+							</p>
+							<p class="p2">
+								<span class="span2">2</span><span class="span0">号线</span>
+							</p>
+							<p class="p3">
+								<span class="span3">13</span><span class="span0">号线</span>
+							</p>
+							<p class="p4">
+								<span class="span4">8</span><span class="span0">号线</span>
+							</p>
+							<p class="p5">
+								<span class="span5">5</span><span class="span0">号线</span>
+							</p>
+						</div>
+					</div>
+					<!-- 右侧 -->
+					<div class="ctLeft_ct4Right">
+						<div class="more">
+							<a href="###"></a>
+						</div>
+						<div class="list">
+							<div class="text">
+								<p class="p1">02</p>
+								<p class="p2">保你没见过的古怪餐厅</p>
+								<p class="p3">世说新语</p>
+							</div>
+							<div class="text">
+								<p class="p1">03</p>
+								<p class="p2">保你没见过的古怪餐厅</p>
+								<p class="p3">世说新语</p>
+							</div>
+							<div class="text">
+								<p class="p1">04</p>
+								<p class="p2">保你没见过的古怪餐厅</p>
+								<p class="p3">世说新语</p>
+							</div>
+							<div class="text">
+								<p class="p1">05</p>
+								<p class="p2">保你没见过的古怪餐厅</p>
+								<p class="p3">世说新语</p>
+							</div>
+							<div class="text">
+								<p class="p1">06</p>
+								<p class="p2">保你没见过的古怪餐厅</p>
+								<p class="p3">世说新语</p>
+							</div>
+							<div class="text">
+								<p class="p1">07</p>
+								<p class="p2">保你没见过的古怪餐厅</p>
+								<p class="p3">世说新语</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 中间左侧第五部分 -->
+				<div class="ctLeft_ct5"></div>
+				<!-- 中间左侧第六部分 -->
+				<div class="ctLeft_ct6">
+					<!-- 左侧 -->
+					<div class="ctLeft_ct6Left">
+						<div class="top">
+							<p class="p1">LIFESTYLE ADVICE</p>
+							<p class="p2">知道分子</p>
+							<a class="more" href="###"></a>
+						</div>
+						<div class="center">
+							<div class="center_top">
+								<p class="p1">
+									<span class="span1">有人在问</span>
+									<span class="img"></span>
+								</p>
+								<p class="p2">
+									<span class="span1">有人知道</span>
+									<span class="img"></span>
+								</p>
+								<p class="p3">
+									<span class="span1">热门问题</span>
+									<span class="img"></span>
+								</p>
+							</div>
+							<div class="center_middle">
+								<p class="p1">标题</p>
+								<p class="p2">状态</p>
+							</div>
+							<div class="center_bottom">
+								<ul class="ul">
+									<li class="li1"><span style="color:red;">[美食]</span> 推荐几款性价比比较好的冰箱...</li>
+									<li class="li2"><span style="color:red;">[购物]</span> 生活中那些商品的包装有缺陷...</li>
+									<li class="li1"><span style="color:red;">[休闲]</span> 为什么我第一次进入保姆和宠物...</li>
+									<li class="li2"><span style="color:red;">[美食]</span> 推荐几款性价比比较好的冰箱...</li>
+									<li class="li2"><span style="color:red;">[购物]</span> 生活中那些商品的包装有缺陷...</li>
+								</ul>
+							</div>
+						</div>
+						<div class="bottom">
+							<span class="span1">搜搜谁知道：</span>
+							<input class="input" style="font-size:10px;color:#666666;" type="text" value="输入关键字">
+							<input class="submit" type="submit" value="">
+						</div>						
+					</div>
+					<!-- 右侧 -->
+					<div class="ctLeft_ct6Right">
+						<div class="top">
+							<p class="p1">HOT</p>
+							<p class="p2">红人烧客</p>
+							<a class="more" href="###"></a>
+						</div>
+						<div class="bottom">
+							<img src="img/1.png" alt="">
+							<img src="img/2.png" alt="">
+							<img src="img/3.png" alt="">
+							<img src="img/4.png" alt="">
+							<img src="img/5.png" alt="">
+							<img src="img/6.png" alt="">
+							<img src="img/7.png" alt="">
+							<img src="img/8.png" alt="">
+							<img src="img/9.png" alt="">
+							<img src="img/10.png" alt="">
+							<img src="img/11.png" alt="">
+						</div>
+					</div>
+				</div>
+				<!-- 中间左侧第七部分 -->
+				<div class="ctLeft_ct7">
+					<!-- 左侧 -->
+					<div class="ctLeft_ct7Left">				
+						<div class="top">
+							<p class="p1">HELP</p>
+							<p class="p2">在线帮助</p>
+						</div>
+					</div>
+					<!-- 右侧 -->
+					<div class="ctLeft_ct7Right">				
+						<div class="top">
+							<p class="p1">100DU IN THE MEDIA</p>
+							<p class="p2">媒体声音</p>
+							<a class="more" href="###"></a>
+						</div>
+					</div>
+
+
+
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+	</div>
+</body>
+</html>

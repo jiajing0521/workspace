@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作品列表</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.all{
+			/*height: 5000px;*/
+			margin: 0 auto;
+			font-size: 16px;
+			color: #666666;
+			/*border: 1px solid red;*/
+		}
+		/*-------页面头部*/
+		.header{
+			width: 100%;
+			/*height: 414px;*/
+			color: #ffffff;
+		}
+		.header .top{
+			width: 100%;
+			height: 60px;
+			background-color: rgba(0,0,0,0.5);
+			position: fixed;
+			z-index: 9;
+		}
+		.header .top .logo{
+			float:left; 
+			margin-left: 200px;
+			margin-top: 3px;
+		}
+		.header .top .logo_img{
+			vertical-align: middle;
+		}
+		.header .top .logo_text{
+			height: 54px;
+			display: inline-block;
+			line-height: 54px;
+			vertical-align: middle;
+		}
+		.header .top .link{
+			/*height: 54px;*/
+			float: right;
+			/*line-height: 54px;*/
+			margin-right: 200px;
+		}
+		.header .top .link a{
+			text-decoration: none;
+			color: #ffffff;
+			display: inline-block;
+			padding-left: 20px;
+			margin-top: 20px;
+		}
+		.header .top .link a:hover{
+			color: #0796b7;
+		}
+		.header .top .link .link3{
+			color: #0796b7;
+		}
+		.header .bottom .bgd{
+			width: 100%;
+			z-index: -1;
+		}
+		.header .bottom{
+			position: relative;
+		}
+		.header .bottom .text{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top:-93px;
+			margin-left: -268px;
+			font-size: 18px;
+			text-align: center;
+		}
+		.header .bottom .text a{
+			text-decoration: none;
+			color: #ffffff;
+			display: inline-block;
+			border: 1px solid #ffffff;	
+		}
+		.header .bottom .text .text2{
+			margin: 30px;
+		}
+		.header .bottom .text .text3,.header .bottom .text .text4{
+			margin: 15px;
+		}
+		/*-------页面中间内容*/
+		.content{
+			width: 1000px;
+			height: 850px;
+			margin: 0 auto;
+			margin-top: 30px;
+		}
+		.content .content1{
+			width: 100%;
+			margin-left: 230px;
+		}
+		.content .content1 p{
+			width: 90px;
+			height: 90px;
+			border: 1px solid #cccccc;
+			margin: 0 auto;
+			margin-right: 30px;
+			text-align: center;
+			line-height: 90px;
+			display: inline-block;
+		}
+		.content .content1 p:hover{
+			color: white;
+			background-color: #20a3de;
+		}
+		.content .content2{
+			margin-top: 20px;
+		}
+		.content .content2 .list{
+			display: inline-block;
+			position: relative;
+			text-decoration: none;
+			color: white;
+			margin-top: 10px;
+			margin-right: 10px;
+		}
+		.content .content2 .list:hover p{
+			display: block;
+		}
+		.content .content2 .list p{
+			width: 226px;
+			height: 152px;
+			background-color: #20a3de;
+			border: 1px solid #ababab;
+			position: absolute;
+			top: 0;
+			left: 0;
+			text-align: center;
+			line-height: 152px;
+			display: none;
+		}
+		/*-------页面底部*/
+		.footer .bottom{
+			height: 60px;
+			background-color: #0d0d0d;
+			margin-top: -25px;
+		}
+		.footer .bottom p{
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<!-- ////////////页面头部 -->
+		<div class="header">
+			<div class="top">
+				<div class="logo">
+					<img class="logo_img" src="img/logo.png" alt="">
+					<span class="logo_text">掌恒信息技术有限公司</span>
+				</div>
+				<div class="link">
+					<a href="掌聚官网_首页.html" class="link1" id="">Home</a>
+					<span>&nbsp; ▏</span>
+					<a href="掌聚官网_业务详情.html" class="link2" id="">Abilities</a>
+					<span>&nbsp; ▏</span>
+					<a href="掌聚官网_作品列表.html" class="link3" id="">Portfolio</a>
+					<span>&nbsp; ▏</span>
+					<a href="掌聚官网_关于我们_公司介绍.html" class="link4" id="">About</a>
+				</div>
+			</div>
+			<div class="bottom">
+				<img class="bgd" src="img/background.png" alt="">
+				<div class="text">
+					<h2 class="text1">广州掌恒---专注于数字化营销领域</h2>
+					<p class="text2">
+						<a class="text2_left" href="###">互联营销、研发、运营</a>
+						<a class="text2_right" href="###">网易、联想联合创始人</a>
+					</p>
+					<p class="text3">电商、IM通讯、O2O营销、移动OA办公</p>
+					<p class="text4">服务于地产、餐饮、广告、教育培训、医疗、服装等多个行业</p>
+				</div>
+			</div>
+		</div>
+		<!-- ////////////页面中间内容 -->
+		<div class="content">
+			<!-- 页面中间内容第一部分分类 -->
+			<div class="content1">
+				<p class="p1">平台</p>
+				<p class="p2">新媒体</p>
+				<p class="p3">设计</p>
+				<p class="p4">APP</p>
+			</div>
+			<!-- 页面中间内容第二部分列表 -->
+			<div class="content2">
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表1.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表2.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表3.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表4.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表5.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表6.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表7.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表8.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表9.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+				<a class="list" href="掌聚官网_作品介绍.html">
+					<img src="img/列表10.png" alt="" class="img1">
+					<p class="p1">慕思寝具家居网站</p>
+				</a>
+			</div>
+		</div>
+		<!-- ////////////页面底部 -->
+		<div class="footer">
+			<div class="bottom">
+				<p class="p1">网站建设版权所有©2013广州掌恒信息技术有限公司</p>
+				<p class="p2">粤ICP备11086386COPYHGHT 2011 DESIGN ALL RGHTS RESEHVED</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

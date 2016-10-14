@@ -1,0 +1,211 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.all{
+	width: 1400px;
+	margin: 0 auto;
+}
+/*header*/
+/*header*/
+/*header*/
+.h_up{
+	background-color: rgba(0,0,0,0.5);
+	padding: 10px;
+	position: fixed;
+	z-index: 100;
+	width: 1380px;
+}
+.h_head{
+	overflow: hidden;
+	width: 980px;
+	margin: 0 auto;
+}
+.hu_left{
+	float: left;
+}
+.hu_right{
+	float: right;
+	line-height: 43px;
+}
+.hu_right a{
+	text-decoration: none;
+	color: white;
+	/*padding: 0 10px;*/
+	margin-right: 10px;
+	padding-right: 10px;
+	border-right: 1px solid white;
+	font-weight: 900;
+}
+.hu_right a:hover{
+	color: skyblue;
+}
+.hu_right a.about{
+	/*!important 加在样式后面，该样式优先级最高*/
+	border: none !important;
+}
+.hd_bg img{
+	width: 100%;
+}
+.h_down{
+	position: relative;
+}
+.hd_text{
+	position: absolute;
+	/*576*195*/
+	left: 50%;
+	top: 50%;
+	margin-left: -288px;
+	margin-top: -97.5px;
+	text-align:center;
+}
+.hd_text p{
+	color: white;
+}
+.hd_text .hdt_p1{
+	font-size: 36px;
+}
+.hd_text .hdt_p2{
+	margin-top: 40px;
+}
+.hd_text .hdt_p2 span{
+	/*font-size: 16px;*/
+	border: 1px solid white;
+	padding: 3px;
+	margin: 0 40px;
+}
+.hd_text .hdt_p3{
+	margin-top: 40px;
+}
+.hd_text .hdt_p4{
+	margin-top: 20px;
+}
+/*content*/
+/*content*/
+/*content*/
+.content{
+	margin-top: 20px;
+}
+.ct_label{
+	text-align: center;
+}
+.ct_img>div{
+	width: 160px;
+	text-align: center;
+	float: left;
+	margin: 0 35px;
+}
+.ct_img>div img:hover{
+	background-color: skyblue;
+}
+.ct_img{
+	/*margin-top: 50px;*/
+	overflow: hidden;
+	width: 920px;
+	margin: 50px auto 0;
+}
+.ct_img>div a{
+	display: inline-block;
+	line-height: 0;
+}
+.ct_p1{
+	margin-top: 10px;
+	/*font-size: 16px;*/
+
+	/*字体加粗*/
+	/*1.英文单词bold、bolder、lighter*/
+	/*2.100-900区间*/
+	font-weight: 900;
+
+	/*设置字体，可以为多个字体，用空格连接*/
+	/*font-family: arial;*/
+}
+.ct_p2{
+	margin-top: 50px;
+	color: #333;
+}
+.c_middle img{
+	width: 100%;
+}
+.c_middle{
+	margin-top: 150px;
+}
+.c_bottom{
+	margin-top: 20px;
+}
+.c_bottom .cb_label{
+	text-align: center;
+}
+/*float*/
+
+.float_left,.float_right{
+	float: left;
+	/*margin: 0 5px;*/
+}
+.cb_float{
+	overflow: hidden;
+	width: 978px;
+	margin: 50px auto;
+	/*float: left;*/
+}
+.cb_float a{
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	line-height: 0;
+	margin-right: 5px;
+}
+.cb_float p{
+	line-height: normal;
+	position: absolute;
+	left:0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+}
+.cb_float a:hover p{
+	display: block;
+}
+/*footer*/
+/*footer*/
+/*footer*/
+.footer{
+	margin-top: 70px;
+}
+.f_label{
+	text-align: center;
+}
+.f_foot{
+	margin-top: 50px;
+	position: relative;
+	line-height: 0;
+}
+.f_text{
+	position: absolute;
+	left: 50%;
+	top: 15%;
+	margin-left: -470px;
+	overflow: hidden;
+}
+.f_text p{
+	color: white; 
+	line-height: normal;
+}
+.f_text>div{
+	width: 140px;
+	float: left;
+	margin: 0 45px;
+}
+.f_text .ft_p2{
+	font-size: 12px;
+	margin-top: 30px;
+}
+.f_end{
+	background-color: black;
+	font-size: 13px;
+	color: white;
+	text-align: center;
+}

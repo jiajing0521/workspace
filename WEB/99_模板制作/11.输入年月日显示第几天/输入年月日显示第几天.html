@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>输入年月日显示第几天</title>
+		<style type="text/css">
+			input{
+				width: 30px;
+			}
+			#btn{
+				width: 60px;
+				height: 25px;
+				background-color: #CCCCCC;
+				color:#0000FF;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="year" value="" />
+		<span id="">年</span>
+		<input type="text" name="" id="month" value="" />
+		<span id="">月</span>
+		<input type="text" name="" id="day" value="" />
+		<span id="">日</span>
+		<input type="button" name="" id="btn" value="告诉我" />
+		<div id="div1"></div>
+		<script type="text/javascript">
+			function getID (id){
+				return document.getElementById(id);
+			}
+			var year = getID("year");
+			var month = getID("month");
+			var day = getID("day");
+			var btn = getID("btn");
+			var div1 = getID("div1");
+			
+			var yearNum = year.value;
+			console.log(yearNum);
+			var monthNum = month.value;
+			console.log(monthNum);
+			var dayNum = day.value;
+			console.log(dayNum);
+			var daysCount = 0;
+			
+			btn.onclick = function(){
+				var yearNum = parseInt(year.value);
+				var monthNum = parseInt(month.value);
+				var dayNum = day.value;
+				var daysCount = 0;
+				//判断年,如果是闰年的话
+				if (((yearNum % 4 == 0) && (yearNum % 100 != 0))||(yearNum % 400 == 0)){
+					console.log("闰年");
+					switch(monthNum){
+						case 1 :
+							daysCount = parseInt(dayNum);
+							break;
+						case 2:
+							daysCount = parseInt(dayNum) + 31;
+							break;
+						case 3:
+							daysCount = parseInt(dayNum) + 31 + 29;
+							break;
+						case 4:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31;
+							break;
+						case 5:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30;
+							break;
+						case 6:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31;
+							break;
+						case 7:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31 + 30;
+							break;
+						case 8:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31 + 30 + 31;
+							break;
+						case 9:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31;
+							break;
+						case 10:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30;
+							break;
+						case 11:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31;
+							break;
+						case 12:
+							daysCount = parseInt(dayNum) + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30;
+							break;
+					}
+				}else{
+					console.log("平年");
+					//判断年,如果是平年的话
+					switch(monthNum){
+						case 1 :
+							daysCount = parseInt(dayNum);
+							break;
+						case 2:
+							daysCount = parseInt(dayNum) + 31;
+							break;
+						case 3:
+							daysCount = parseInt(dayNum) + 31 + 28;
+							break;
+						case 4:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31;
+							break;
+						case 5:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30;
+							break;
+						case 6:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31;
+							break;
+						case 7:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31 + 30;
+							break;
+						case 8:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31 + 30 + 31;
+							break;
+						case 9:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31;
+							break;
+						case 10:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30;
+							break;
+						case 11:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31;
+							break;
+						case 12:
+							daysCount = parseInt(dayNum) + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30;
+							break;
+					}
+				}
+				div1.innerHTML = "<p>" + yearNum + "/" + monthNum + "/" + dayNum + "是第" + daysCount + "天" + "</p>";
+			}
+		</script>
+	</body>
+</html>

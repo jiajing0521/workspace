@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>掌聚官网_业务详情</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.all{
+			/*height: 5000px;*/
+			margin: 0 auto;
+			font-size: 16px;
+			color: #666666;
+			/*border: 1px solid red;*/
+		}
+		/*-------页面头部*/
+		.header{
+			width: 100%;
+			/*height: 414px;*/
+			color: #ffffff;
+		}
+		.header .top{
+			width: 100%;
+			height: 60px;
+			background-color: rgba(0,0,0,0.5);
+			position: fixed;
+			z-index: 9;
+		}
+		.header .top .logo{
+			float:left; 
+			margin-left: 200px;
+			margin-top: 3px;
+		}
+		.header .top .logo_img{
+			vertical-align: middle;
+		}
+		.header .top .logo_text{
+			height: 54px;
+			display: inline-block;
+			line-height: 54px;
+			vertical-align: middle;
+		}
+		.header .top .link{
+			/*height: 54px;*/
+			float: right;
+			/*line-height: 54px;*/
+			margin-right: 200px;
+		}
+		.header .top .link a{
+			text-decoration: none;
+			color: #ffffff;
+			display: inline-block;
+			padding-left: 20px;
+			margin-top: 20px;
+		}
+		.header .top .link a:hover{
+			color: #0796b7;
+		}
+		.header .top .link .link2{
+			color: #0796b7;
+		}
+		.header .bottom .bgd{
+			width: 100%;
+			z-index: -1;
+		}
+		.header .bottom{
+			position: relative;
+		}
+		.header .bottom .text{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top:-93px;
+			margin-left: -268px;
+			font-size: 18px;
+			text-align: center;
+		}
+		.header .bottom .text a{
+			text-decoration: none;
+			color: #ffffff;
+			display: inline-block;
+			border: 1px solid #ffffff;	
+		}
+		.header .bottom .text .text2{
+			margin: 30px;
+		}
+		.header .bottom .text .text3,.header .bottom .text .text4{
+			margin: 15px;
+		}
+		/*-------页面中间内容*/
+		.content{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 auto;
+		}
+		.content1{
+			text-align: center;
+			margin: 20px;
+		}
+		.content2{
+			width: 981px;
+			height: 730px;
+			margin: 0 auto;
+			border: 1px solid #aaaaaa;
+			overflow: hidden;
+			position: relative;
+		}
+		.content2 .left{
+			width: 490px;
+			height: 730px;
+			border-right: 1px solid #aaaaaa;
+			float: left;
+		}
+		.content2 .left>div,.content2 .right>div{
+			width: 490px;
+			height: 182px;
+			overflow: hidden;
+		}
+		.content2 .left>div{
+			text-align: center;
+		}
+		.content2 .left1{
+			border-bottom: 1px solid white;
+		}
+		.content2 .left2,.content2 .right1,.content2 .right2,.content2 .right3{
+			border-bottom: 1px solid #aaaaaa;
+		}
+		.content2 .img{
+			width: 108px;
+			height: 143px;
+			border: 1px solid #aaaaaa;
+			text-align: center;
+			float: left;
+			margin-top: 20px;
+			margin-left: 50px;
+		}
+		.content2 .img img,.content2 .img .p1{
+			margin-top: 20px;
+		}
+		.content2 .text1,.content2 .text3{
+			margin:60px; 
+			float: left;
+		}
+		.content2 .text2{
+			margin-top:70px; 
+			margin-left:40px; 
+			float: left;
+		}
+		.content2 .text4{
+			margin-top:50px; 
+			margin-left:40px; 
+			float: left;
+		}
+		.content2 .left p,.content2 .right p{
+			margin-bottom: 5px;
+		}
+		.content2 .right{
+			width: 490px;
+			height: 730px;
+			float: left;
+		}
+		.content2 .right .text{
+			width: 360px;
+			height: 117px;
+			margin: 0 auto;
+			padding-top: 50px;
+		}
+		.content2 .circle1{
+			position: absolute;
+			left: 50%;
+			top: 25%;
+			margin-left: -5px;
+			margin-top: -5px;
+		}
+		.content2 .circle2{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -5px;
+			margin-top: -5px;
+		}
+		.content2 .circle3{
+			position: absolute;
+			left: 50%;
+			top: 75%;
+			margin-left: -5px;
+			margin-top: -5px;
+		}
+		/*-------页面底部*/
+		.footer .bottom{
+			height: 60px;
+			background-color: #0d0d0d;
+			margin-top: -25px;
+		}
+		.footer .bottom p{
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<!-- ////////////页面头部 -->
+		<div class="header">
+			<div class="top">
+				<div class="logo">
+					<img class="logo_img" src="img/logo.png" alt="">
+					<span class="logo_text">掌恒信息技术有限公司</span>
+				</div>
+				<div class="link">
+					<a href="掌聚官网_首页.html" class="link1" id="">Home</a>
+					<span>&nbsp; ▏</span>
+					<a href="掌聚官网_业务详情.html" class="link2" id="">Abilities</a>
+					<span>&nbsp; ▏</span>
+					<a href="掌聚官网_作品列表.html" class="link3" id="">Portfolio</a>
+					<span>&nbsp; ▏</span>
+					<a href="掌聚官网_关于我们_公司介绍.html" class="link4" id="">About</a>
+				</div>
+			</div>
+			<div class="bottom">
+				<img class="bgd" src="img/background.png" alt="">
+				<div class="text">
+					<h2 class="text1">广州掌恒---专注于数字化营销领域</h2>
+					<p class="text2">
+						<a class="text2_left" href="###">互联营销、研发、运营</a>
+						<a class="text2_right" href="###">网易、联想联合创始人</a>
+					</p>
+					<p class="text3">电商、IM通讯、O2O营销、移动OA办公</p>
+					<p class="text4">服务于地产、餐饮、广告、教育培训、医疗、服装等多个行业</p>
+				</div>
+			</div>
+		</div>
+		<!-- ////////////页面中间内容 -->
+		<div class="content">
+			<div class="content1">
+				<img src="img/pic0.png" alt="">
+			</div>
+			<div class="content2">
+				<div class="left">
+					<div class="left1">
+						<div class="img">
+							<img src="img/icon1.png" alt="">
+							<p class="p1">平台建设搭建</p>
+						</div>
+						<div class="text1">
+							<p class="p2">企业官网、项目官网</p>
+							<p class="p3">活动官网，电子商务网站</p>
+							<p class="p4">微官网</p>
+						</div>
+					</div>
+					<div class="left2">
+						<div class="img">
+							<img src="img/icon2.png" alt="">
+							<p class="p1">创意设计</p>
+						</div>
+						<div class="text2">
+							<p class="p2">企业微信代运营、微信二次开发</p>
+							<p class="p3">微信活动策划及推广、无线广告推广</p>
+						</div>
+					</div>
+					<div class="left3">
+						<div class="img">
+							<img src="img/icon3.png" alt="">
+							<p class="p1">新媒体营销</p>
+						</div>
+						<div class="text3">
+							<p class="p2">产品专题、flash动画</p>
+							<p class="p3">平面创意、广告创意</p>
+						</div>
+					</div>
+					<div class="left4">
+						<div class="img">
+							<img src="img/icon4.png" alt="">
+							<p class="p1">APP定制开发</p>
+						</div>
+						<div class="text4">
+							<p class="p2">O2O全案APP定制与运维</p>
+							<p class="p3">电商、只会医疗、地产、企业OA</p>
+							<p class="p4">餐饮、家具等行业定制与运维</p>
+							<p class="p5">APP半年免维护与终身跟踪服务</p>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="right1">
+						<div class="text">
+							<p class="p1">新媒体营销作为掌恒具有战略意义的布局性产品，</p>
+							<p class="p2">灰机来自策划、文案、创意、媒体等领域的精英人</p>
+							<p class="p3">才。如果您认同“高级定制”的价值，掌恒则是你</p>
+							<p class="p4">最好合作伙伴，时间，会证明一切......</p>
+						</div>
+						<!-- <img src="img/circle.png" alt=""> -->
+					</div>
+					<div class="right2">
+						<div class="text">
+							<p class="p1">新媒体营销作为掌恒具有战略意义的布局性产品，</p>
+							<p class="p2">灰机来自策划、文案、创意、媒体等领域的精英人</p>
+							<p class="p3">才。如果您认同“高级定制”的价值，掌恒则是你</p>
+							<p class="p4">最好合作伙伴，时间，会证明一切......</p>
+						</div>
+					</div>
+					<div class="right3">
+						<div class="text">
+							<p class="p1">新媒体营销作为掌恒具有战略意义的布局性产品，</p>
+							<p class="p2">灰机来自策划、文案、创意、媒体等领域的精英人</p>
+							<p class="p3">才。如果您认同“高级定制”的价值，掌恒则是你</p>
+							<p class="p4">最好合作伙伴，时间，会证明一切......</p>
+						</div>
+					</div>
+					<div class="right4">
+						<div class="text">
+							<p class="p1">新媒体营销作为掌恒具有战略意义的布局性产品，</p>
+							<p class="p2">灰机来自策划、文案、创意、媒体等领域的精英人</p>
+							<p class="p3">才。如果您认同“高级定制”的价值，掌恒则是你</p>
+							<p class="p4">最好合作伙伴，时间，会证明一切......</p>
+						</div>
+					</div>
+				</div>
+				<img class="circle1" src="img/circle.png" alt="">
+				<img class="circle2" src="img/circle.png" alt="">
+				<img class="circle3" src="img/circle.png" alt="">
+			</div>
+		</div>
+		<!-- ////////////页面底部 -->
+		<div class="footer">
+			<div class="bottom">
+				<p class="p1">网站建设版权所有©2013广州掌恒信息技术有限公司</p>
+				<p class="p2">粤ICP备11086386COPYHGHT 2011 DESIGN ALL RGHTS RESEHVED</p>
+			</div>
+		</div>	
+	</div>
+</body>
+</html>

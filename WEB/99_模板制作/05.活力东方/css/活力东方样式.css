@@ -1,0 +1,76 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body,.all{
+	width: 100%;
+	height: 100%;
+}
+.bg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -99;
+}
+.header{
+	width:1092px;
+	height:70px;
+	padding-top:115px;
+	margin: 0 auto;
+}
+.h_logo{
+	width: 107px;
+	height: 53px;
+}
+.h_text{
+	width: 212px;	
+	height: 34px;
+}
+.content{
+	width: 900px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.c_left{
+	width: 448px;
+	float: left;
+}
+.c_right{
+	width: 448px;
+	float: right;
+}
+.content img{
+	width: 100%;
+	height: 100%;
+}
+.content .c_left div,.content .c_right div{
+	float: left;
+	margin: 2px;
+}
+.cl_link1,.cl_link3,.cl_link5,.cr_link2,.cr_link4,.cr_link6{
+	width: 278px;
+	height: 140px;
+	
+	animation: shake 1s;
+}
+.cl_link1:hover,.cl_link3:hover,.cl_link5:hover,.cr_link2:hover,.cr_link4:hover,.cr_link6:hover{
+	
+	animation: bounceIn 2s;
+}
+.cl_link2,.cl_link4,.cl_link6,.cr_link1,.cr_link3,.cr_link5{
+	width: 162px;
+	height: 140px;
+	
+	animation: bounceIn 1s;
+}
+.cl_link2:hover,.cl_link4:hover,.cl_link6:hover,.cr_link1:hover,.cr_link3:hover,.cr_link5:hover{
+	width: 162px;
+	height: 140px;
+	
+	animation: shake 2s;
+}
+.footer{
+	width: 886px;
+	margin: 100px auto 0;
+	text-align: center;
+}

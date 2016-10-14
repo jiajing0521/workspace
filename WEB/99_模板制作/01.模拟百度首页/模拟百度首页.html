@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度一下，你就知道</title>
+	<style>
+		/*导航链接样式设置*/
+		.link{
+		text-align: right;
+		padding: 10px;
+		}
+		.link a{
+			color: #333;
+			font-size: 13px;
+			margin: 0 10px;
+		}
+		.link .more{
+			width: 60px;
+			height: 23px;
+			background-color: #38f;
+			color: white;
+			display: inline-block;
+			text-align: center;
+			line-height: 23px;
+			/*padding: 5px;*/
+			text-decoration:none;
+		}
+
+		/*百度一下样式设置*/
+		/*整体居中*/
+		.search{
+			text-align: center;
+			padding-top: 150px;
+			padding-bottom: 450px;
+		}
+		/*文本框*/
+		.search .text{
+			width: 550px;
+			height: 30px;
+		}
+		/*按钮*/
+		.search .button{
+			width: 100px;
+			height: 36px;
+			background-color: #3385ff;
+			color: white;
+			border: 0;
+			font-size: 15px;
+		}
+
+		/*底部样式设置*/
+		/*底部居中*/
+		.end{
+			text-align: center;
+		}
+		.end .div1{
+			display: inline-block;			
+			color: gray;
+			font-size: 12px;
+			vertical-align: middle;
+		}
+
+		.end .div2 p{
+			color: gray;
+		}
+
+		.end a{
+			color: gray;
+			font-size: 1px;
+		}
+		.a,.b{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.end .div2{	
+			color: gray;
+			padding-left: 50px;
+			font-size: 12px;
+			vertical-align: middle;
+		}
+		@media only screen and (max-width: 825px) {
+			.link,.search,.end{
+				width: 700px;
+				margin: 0 auto;
+			}
+		}
+	</style>
+</head>
+<body>	
+	<!-- 导航栏部分 -->
+	<div class="link">
+		<a href="https://www.nuomi.com/?cid=002540"><strong>糯米</strong></a>
+		<a href="http://news.baidu.com/"><strong>新闻</strong></a>
+		<a href="https://www.hao123.com/?tn=91965616_s_hao_pg"><strong>hao123</strong></a>
+		<a href="http://map.baidu.com/"><strong>地图</strong></a>
+		<a href="http://v.baidu.com/"><strong>视频</strong></a>
+		<a href="http://tieba.baidu.com/"><strong>贴吧</strong></a>
+		<a href="###">登录</a>
+		<a href="###">设置</a>
+		<!-- <div class="more"><a href="">更多产品</a></div> -->
+		<a class="more" href="###">更多产品</a>
+	</div>
+
+	<!-- 百度一下 -->
+	<div class="search">
+		<div class="img"><img src="../img/百度图标.png" alt=""></div>
+		<form action="http://www.baidu.com/s">
+			<input class="text" type="text" name="wd"><input class="button" type="submit" value="百度一下">
+		</form>
+	</div>
+	
+	<!-- 网页底部 -->
+	<div class="end">
+		<div class="a">			
+			<!-- 手机百度二维码 -->
+			<div class="div1">
+				<img class="img1" src="../img/手机百度二维码.png" alt=""></div>
+			<div class="div1">			
+				<p><strong>手机百度</strong></p>
+				<p style="padding-bottom:10px;">快人一步</p>
+			</div>
+			<!-- 百度糯米二维码 -->
+			<div class="div1">
+				<img class="img2" src="../img/百度糯米二维码.png" alt="">
+			</div>
+			<div class="div1">
+				<p><strong>百度糯米</strong></p>
+				<p>一元大餐</p>
+			</div>
+
+		</div>
+		<div class="b b1">
+			<div class="div2" style="text-align:left">
+				<a href="https://www.baidu.com/cache/sethelp/help.html" >把百度设为首页</a>
+				<a href="http://home.baidu.com/">关于百度</a>
+				<a href="http://home.baidu.com/">About  Baidu</a>
+				<a href="http://home.baidu.com/">百度推广</a>
+			
+				<p>©2016 Baidu
+				<a href="https://www.baidu.com/duty/">使用百度前必读</a>
+				<a href="http://jianyi.baidu.com/"> 意见反馈</a>
+				京ICP证030173号</p>
+			
+				<p>京公网安备11000002000001号</p>
+			</div>
+		</div> 
+		
+		
+	</div>
+
+
+</body>
+</html>

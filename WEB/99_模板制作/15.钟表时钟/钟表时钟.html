@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.clock {
+				width: 300px;
+				height: 300px;
+				/*background-color: #CCCCCC;*/
+				border-radius: 50%;
+				/*border-radius: 30%;*/
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -150px;
+				margin-top: -150px;
+				box-shadow: inset 0px 5px 10px #a3a9ad;
+			}
+			
+			.pad {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			.pad div {
+				width: 280px;
+				height: 30px;
+				/*background-color: yellow;*/
+				line-height: 30px;
+				text-align: center;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				
+			}
+			
+			.pad span {
+				display: block;
+				width: 30px;
+				height: 30px;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}
+			
+			#hour {
+				width: 6px;
+				height: 70px;
+				background-color: black;
+				opacity: 0.6;
+			}
+			
+			#minute {
+				width: 4px;
+				height: 100px;
+				background: purple;
+				opacity: 0.6;
+				bottom: 150px;
+			}
+			
+			#second {
+				width: 2px;
+				height: 100px;
+				background: red;
+				opacity: 0.6;
+				bottom: 150px;
+			}
+			
+			.point {
+				position: absolute;
+				transform-origin: 50% bottom;
+				bottom: 150px;
+				left: 150px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="clock">
+			<div class="pad">
+				<div id="div1"><span>1</span></div>
+				<div id="div2"><span>2</span></div>
+				<div id="div3"><span>3</span></div>
+				<div id="div4"><span>4</span></div>
+				<div id="div5"><span>5</span></div>
+				<div id="div6"><span>6</span></div>
+				<div id="div7"><span>7</span></div>
+				<div id="div8"><span>8</span></div>
+				<div id="div9"><span>9</span></div>
+				<div id="div10"><span>10</span></div>
+				<div id="div11"><span>11</span></div>
+				<div id="div12"><span>12</span></div>
+			</div>
+			<div class="point" id="hour"></div>
+			<div class="point" id="minute"></div>
+			<div class="point" id="second"></div>
+		</div>
+		<script type="text/javascript">
+			var clockNums = document.querySelectorAll(".pad div");
+			var mySecond = document.getElementById("second");
+			var myMinute = document.getElementById("minute");
+			var myHour = document.getElementById("hour");
+			var timer = null;
+			var timer1 = null;
+			
+			for(var i = 0; i < clockNums.length; i++){
+				var xNum = 120 * (Math.sin((i + 1)*(Math.PI/6)));
+				var yNum = -120 * (Math.cos((i + 1)*(Math.PI/6)));
+				clockNums[i].style.transform = fixedPos(xNum,yNum);
+			}
+			function fixedPos(translateXXX,translateYYY){
+				return "translate(" + translateXXX + "px," +  translateYYY +"px)";
+			}
+			
+			clearInterval(timer);
+			timer = setInterval(function(){
+				//获取当前时间
+				var myClock = new Date();
+				var Hours = myClock.getHours();
+				var Minutes = myClock.getMinutes();
+				var Seconds = myClock.getSeconds();
+				console.log(6*Minutes + "deg分");
+				console.log((720/24*Hours + 30/60*Minutes) + "deg时");
+				//秒针每动一下转360/60度，当前秒数*每秒钟度数，一秒钟动一下
+				mySecond.style.transform = "rotate(" +6*Seconds + "deg)";
+				//分针每动一下转360/60度，当前分钟数*每动一下度数，60秒动一下
+				myMinute.style.transform = "rotate(" +6*Minutes + "deg)";
+				myHour.style.transform = "rotate(" + (720/24*Hours + 30/60*Minutes) + "deg)";
+			},1000);
+		</script>
+	</body>
+</html>

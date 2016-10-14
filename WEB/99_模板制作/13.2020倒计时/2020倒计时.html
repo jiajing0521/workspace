@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2020倒计时</title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1 = document.getElementById("div1");
+			function countTime (){
+				var now = new Date();
+				var endDay = new Date(2020,0,1);
+				//剩余毫秒数
+				var shengYuTime = endDay.getTime()-now.getTime();
+				//剩余天数=剩余毫秒数除以60*60*24*1000取整
+				var Days = Math.floor(shengYuTime/(60*60*24*1000));
+				console.log(Days);
+				//剩余小时数=（剩余毫秒数-剩余天数*60*60*24*1000）除以60*60*1000取整
+				var Hours = Math.floor((shengYuTime-Days*60*60*24*1000)/(60*60*1000));
+				//剩余分钟数=（剩余毫秒数-剩余天数*60*60*24*1000-剩余小时数*60*60*1000）除以60*1000取整
+				var Minutes = Math.floor((shengYuTime-Days*60*60*24*1000-Hours*60*60*1000)/(60*1000));
+				//剩余秒数=剩余毫秒数-剩余天数*60*60*24*1000-剩余小时数*60*60*1000-剩余分钟数*60*1000
+				var Seconds = Math.floor((shengYuTime-Days*60*60*24*1000-Hours*60*60*1000-Minutes*60*1000)/1000);
+				//输出时间
+				div1.innerHTML = "<p>" + "距离2020年还差" + Days + "天" + Hours + "时" + Minutes + "分" + Seconds + "秒";
+			}
+			var timer = setInterval(function(){
+				countTime();
+			},1000)
+		</script>
+	</body>
+</html>

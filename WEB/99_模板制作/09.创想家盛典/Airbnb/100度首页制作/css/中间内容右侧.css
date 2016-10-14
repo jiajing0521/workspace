@@ -1,0 +1,315 @@
+/*中间内容右侧部分*/
+.content .ctRight{
+	float: right;
+}
+/*---------第一部分*/
+.ctR_content1{
+	width: 240px;
+	height: 140px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+}
+.ctR_ct1_top{
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #f4f4f4;
+	line-height: 30px;
+	text-indent: 1em;
+}
+.ctR_ct1_top p,.ctR_ct4_top p,.ctR_ct5_top p,.ctR_ct6_top p,.ctR_ct7_top p,.ctR_ct8_top p{
+	font-weight: bold;
+	font-size: 16px;
+}
+.ctR_ct1_top span,.ctR_ct4_top span,.ctR_ct5_top span,.ctR_ct6_top span,.ctR_ct7top span,.ctR_ct8_top span{
+	color: red;
+}
+.ctR_ct1_middle .text{
+	width: 88px;
+	height: 20px;
+	background-color: #f4f4f4;
+}
+.ctR_ct1_middle span{
+	line-height: 20px;
+}
+.ctR_ct1_middle form{
+	width: 220px;
+	height: 55px;
+	margin: 10px auto;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.ctR_ct1_middle form>div{
+	margin-top: 5px;
+}
+.ctR_ct1_middle .submit{
+	width: 55px;
+	height: 25px;
+	border-radius: 12px;
+	background-color: red;
+	color: white;
+}
+.ctR_ct1_bottom ul{
+	overflow: hidden;
+	margin-left: 10px;
+}
+.ctR_ct1_bottom li{
+	color: red;
+	float: left;
+	margin: 0 25px;
+}
+.ctR_ct1_bottom a{
+	text-decoration: none;
+	color: black;
+}
+.ctR_ct1_bottom a:link{
+	color: black;
+}
+.ctR_ct1_bottom a:visited{
+	color: blue;
+}
+.ctR_ct1_bottom a:hover{
+	color: red;
+}
+.ctR_ct1_bottom a:active{
+	color: green;
+}
+
+/*---------第二部分,第三部分*/
+.ctR_content2,.ctR_content3,.ctR_content4,.ctR_content5,.ctR_content6,.ctR_content7,.ctR_content8{
+	margin-top: 10px;
+}
+/*---------第四部分*/
+.ctR_content4{
+	width: 240px;
+	height: 240px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+}
+.ctR_ct4_top,.ctR_ct5_top,.ctR_ct6_top,.ctR_ct7_top,.ctR_ct8_top{
+	margin: 10px 10px;
+}
+.ctR_ct4_top a,.ctR_ct5_top a,.ctR_ct6_top a,.ctR_ct7_top a,.ctR_ct8_top a{
+	display: inline-block;
+	line-height: 0;
+	margin-left: 40px;
+}
+.ctR_ct4_top p,.ctR_ct5_top p,.ctR_ct6_top p,.ctR_ct7_top p,.ctR_ct8_top p{
+	display: inline-block;
+}
+.ctR_ct4m_top{
+	width: 220px;
+	height: 30px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.ctR_ct4m_top p{
+	width: 70px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	float: left;
+	border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: 1px solid #e5e5e5;
+    font-weight: bold;
+    color: #666666;
+    background-color: #f4f4f4;
+}
+.ctR_ct4m_top p:hover{
+	background-color: white;
+	border-bottom: none;
+	color: black;
+}
+.ctR_ct4m_top .img{
+	width: 9px;
+    height: 6px;
+    display: inline-block;
+    background-image: url(img/down1.png);
+    background-repeat: no-repeat;
+}
+.ctR_ct4m_top p:hover .img{
+    background-image: url(img/down.png);
+    background-repeat: no-repeat;
+}
+.ctR_ct4m_midddle{
+	overflow: hidden;
+}
+.ctR_ct4m_midddle p{
+	float: left;
+	margin-left: 50px;
+	color: #666666;
+}
+.ctR_ct4m_bottom ul{
+	margin-top: 10px;
+	margin-left: 15px;
+}
+.ctR_ct4m_bottom li{
+	width: 220px;
+	height: 18px;
+	line-height: 18px;
+	padding: 5px 0;
+	color: red;
+	border-top: 1px dotted #666666;
+}
+.ctR_ct4m_bottom span{
+	color: black;
+}
+.ctR_ct4m_bottom .span1{
+	color: #666666;
+	margin-left:30px; 
+}
+.ctR_ct4m_bottom .span2{
+	margin-left:40px;
+}
+
+/*---------第五部分*/
+.ctR_content5{
+	width: 240px;
+	height: 420px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+}
+.ctR_content5 .ctR_ct5_bottom>div,.ctR_content7 .ctR_ct7_middle>div{
+	overflow: hidden;
+	position: relative;
+	width: 210px;
+	height: 75px;
+	margin: 20px auto;
+}
+.ctR_ct5b_left,.ctR_ct5b_right,.ctR_ct7m_left,.ctR_ct7m_right{
+	float: left;
+}
+.ctR_ct5b_left a,.ctR_ct7m_left a,.ctR_ct8m_left a,.ctR_ct8m_right a{
+	display: inline-block;
+	line-height: 0;
+	border: 1px solid #666666;
+}
+.ctR_ct5b_left>img,.ctR_ct7m_left>img{
+	position: absolute;
+	left: 70px;
+	bottom: -5px;
+}
+.ctR_ct5b_right,.ctR_ct7m_right{
+	margin-left: 15px;
+}
+.ctR_ct5b_right .p1,.ctR_ct7m_right .p1,.ctR_ct8_middle .p1{
+	color: red;
+	margin: 8px 0;
+}
+.ctR_ct5b_right .p2,.ctR_ct5b_right .p3,.ctR_ct7m_right .p2,.ctR_ct7m_right .p3,.ctR_ct8_middle .p2,.ctR_ct8_middle .p3{
+	margin: 5px 0;
+}
+.ctR_ct5b_right .span1,.ctR_ct7m_right .span1,.ctR_ct8_middle .span1,.ctR_ct8_middle .span2{
+	color: #999999;
+}
+.ctR_ct5b_right .span2,.ctR_ct7m_right .span2,.ctR_ct8_middle .span2{
+	color: #666666;
+}
+/*---------第六部分*/
+.ctR_content6{
+	width: 240px;
+	height: 180px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+}
+.ctR_ct6_bottom{
+	width: 216px;
+	height: 130px;
+	margin: 0 auto;
+}
+.ctR_ct6_bottom p{
+	margin-top: 5px;
+}
+
+/*---------第七部分*/
+.ctR_content7{
+	width: 240px;
+	height: 350px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+}
+.ctR_ct7_bottom{
+	width: 216px;
+	height: 500px;
+	margin: 0 auto;
+}
+.ctR_ct7_bottom li,.ctR_ct8_bottom li{
+	color: red;
+	margin: 10px;
+	border-bottom: 1px dotted #666666;
+}
+.ctR_ct7_bottom a,.ctR_ct8_bottom a{
+	text-decoration: none;
+	color: red;
+}
+.ctR_ct7_bottom .span1,.ctR_ct8_bottom .span1{
+	color: #666666;
+}
+.ctR_ct7_bottom .span2,.ctR_ct8_bottom .span2{
+	/*font-weight: bold;*/
+	color: black;
+}
+
+/*---------第八部分*/
+.ctR_content8{
+	width: 240px;
+	height: 428px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+}
+.ctR_ct8_middle{
+	overflow: hidden;
+}
+.ctR_ct8m_left,.ctR_ct8m_right{
+	float: left;
+	position: relative;
+	margin: 10px;
+}
+.ctR_ct8m_left>img,.ctR_ct8m_right>img{
+	position: absolute;
+	top: 40px;
+	left: 60px;
+}
+.ctR_ct8_bottom{
+	width: 216px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+/*----------页面底部部分*/
+.footer{
+	width: 962px;
+	height: 80px;
+	text-align: center;
+	line-height: 25px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+	margin-top: 10px;
+	background-color: #f9f9f9;
+}
+.footer a{
+	color: black;
+	text-decoration: none;
+	padding: 0 10px;
+	border-right: 1px solid #666666;
+}
+.footer a:link{
+	color: black;
+}
+.footer a:visited{
+	color: blue;
+}
+.footer a:hover{
+	color: red;
+}
+.footer a:active{
+	color: green;
+}
+.footer .a1{
+	border: none;
+}
+.footer p{
+	color: #666666;
+	margin-top: 10px;
+}

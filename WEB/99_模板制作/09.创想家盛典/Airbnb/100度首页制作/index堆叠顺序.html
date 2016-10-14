@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index堆叠顺序</title>
+	<style>
+		.div1{
+			width: 200px;
+			height: 200px;
+			background-color: black;
+			position: absolute;
+			z-index: 1;
+		}
+		.div2{
+			width: 150px;
+			height: 150px;
+			background-color: red;
+			position: absolute;
+			z-index: 2;
+		}
+		.div3{
+			width: 50px;
+			height: 50px;
+			background-color: #ccc;
+			position: absolute;
+
+			/*z-index(兄弟级用
+			)
+			元素堆叠顺序，默认为0，可以为负数，数值大的，在上面
+			注意：如果没有设置position样式，则z-index失效*/
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+</body>
+</html>
