@@ -1,0 +1,6 @@
+public_header  公共头部
+public_content
+index_banner 首页头部导航下面的图片部分 横幅
+index_list
+index_panel   面板，就是 展示区下面那几个版块
+public_footer

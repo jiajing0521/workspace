@@ -1,0 +1,2 @@
+iframe:会嵌入另一个文档的内联框架 -->
+	<iframe src="http://" width="500" height="500" frameborder="10"></iframe>

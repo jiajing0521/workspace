@@ -1,0 +1,11 @@
+	<!-- table标签 -->
+	<!-- tr 表格的行，	th 表头，	td 单元格
+	属性：
+	（1）border：边框
+	（2）cellspacing：表格外间距
+	（3）cellpadding：表格内间距
+	（4）bgcolor:表格的颜色
+	（5）colspan：跨列
+	（6）rowspan：跨行 -->
+	
+	caption标签，为表格添加标题和摘要

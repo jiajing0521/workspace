@@ -1,0 +1,14 @@
+<!-- 横向居中
+	（1）text-align:center;
+	文本横向对其方式，针对行属性标签和行块属性标签，加给需要居中内容的父级
+	（2）margin: 0 auto;
+	快属性标签居中，注意：必须要给设置居中的块元素设置宽度，只能横向居中margin:0 auto若是设置了float或是绝对定位或者fixed就不行 -->
+
+
+<!-- 纵向居中
+	vertical-align:middle;
+	在正常布局样式中，除非必要，否则不推荐使用
+
+	在table布局中，能很好地运行
+	1.父级变成table元素
+	2.子级变成table-cell元素，并使用vertical-align：middle; -->
