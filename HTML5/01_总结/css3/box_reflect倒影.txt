@@ -1,0 +1,9 @@
+box_reflect倒影
+
+-webkit-box-reflect: below 20px;
+
+镜像倒影
+1.倒影的方向，above/below/left/right
+2.元素与倒影的间距
+3.倒影的渐变
+-webkit-box-reflect: left 0 -webkit-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1));

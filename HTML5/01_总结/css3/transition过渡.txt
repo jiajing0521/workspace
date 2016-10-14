@@ -1,0 +1,15 @@
+transition过渡效果
+
+transition: all 1s;
+	值：
+	1.需要过渡的样式，all为所有样式 （transition-property: all;）
+	2.过渡所用的时间，单位为s（秒） transition-duration: 2s;
+	3.过渡效果时间曲线，默认ease（减缓）linear(匀速)  transition-timing-function: ease;
+	4.过渡延时时间，单位为s（秒）transition-delay: 2s;
+
+linear 匀速（相同速度开始至结束）的过渡效果（等于 cubic-bezier(0,0,1,1)）。 
+		ease 慢快慢----（慢速开始，然后变快，然后慢速结束）的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。 
+		ease-in 先慢后快----（慢速开始的过渡效果）（等于 cubic-bezier(0.42,0,1,1)）。 
+		ease-out 先快后慢----（慢速结束）的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。 
+		ease-in-out 慢快慢----（慢速开始和结束）的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。 
+		cubic-bezier(n,n,n,n) 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。

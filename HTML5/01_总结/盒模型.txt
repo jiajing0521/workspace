@@ -1,0 +1,18 @@
+W3C标准:是由国际万维网制定的一系列标准，它倡导结构、样式、行为分离
+1.结构化标准语言（HTML和XML）
+2.表现标准语言（CSS）
+3.行为标准语言（DOM和ECMAScript）
+CSS布局中的3种定位机制：
+1.标准文档流（Normal flow 流动）
+2.浮动（Floats）
+3.绝对定位（Absolute positioning）
+
+
+
+盒模型组成：margin(外间距)+border(边框)+padding（内间距）+content（内容）
+	怪异盒模型：是在IE6以下才会出现的怪异模式
+				其组成是：margin+content
+				让盒模型强制进入怪异模式：box-sizing:border-box; 
+
+盒子模型三围立体图
+从上到下依次是：1.border、2.content+padding、3.background-image、4.background-color、5.margin

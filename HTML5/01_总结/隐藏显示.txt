@@ -1,0 +1,9 @@
+隐藏显示
+1.visibility
+ 默认显示（visible）
+ 隐藏（hidden）透明度会继承给后代
+ visibility: visible;
+ 
+2.display隐藏
+ 隐藏：不占页面内容
+ none为隐藏 block为显示
