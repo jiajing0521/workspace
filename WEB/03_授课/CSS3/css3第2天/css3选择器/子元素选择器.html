@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>子元素选择器</title>
+		<style>
+		/*匹配该选择器父级的第n个子级，如果是该类型元素，则生效，反之不生效
+		 n可以为表达式*/
+			/*.ul1 .li2:nth-child(n){
+				color: red;
+			}*/
+			
+		/*匹配该选择器父级的倒数第n个子级，如果是该类型元素，则生效，反之不生效
+		 n可以为表达式*/
+			/*li:nth-last-child(n){
+				color: greenyellow;
+			}*/
+			
+			
+		/*匹配该选择器父级的首个子元素，如果是该类型元素，则生效，反之不生效
+		 n可以为表达式*/
+			/*li:first-child{
+				color: red;
+			}*/
+			
+		/*匹配该选择器父级的最后一个子元素，如果是该类型元素，则生效，反之不生效
+		 n可以为表达式*/
+			li:last-child{
+				color: red;
+			}
+		/*匹配该选择器父级拥有的唯一一个子元素*/	
+			li:only-child{
+				color: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="ul1">
+			<div>0</div>
+			<li class="li1">1</li>
+			<li class="li2">2</li>
+			<li class="li2">3</li>
+			<p>4</p>
+			<li class="li2">5</li>
+			<span class="li2" id=""> 
+				6
+			</span>
+			
+		</ul>
+		<ul>	
+			<li>7</li>
+		</ul>
+	</body>
+</html>

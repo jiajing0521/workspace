@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机数min到max</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num1 = parseInt(prompt("请输入最小值："));
+			var num2 = parseInt(prompt("请输入最大值："));
+			
+			alert(rand(num1,num2));
+			function rand (min,max){
+				var num = Math.floor(Math.random()*(max-min+1)+min);
+				return num;
+			}
+		</script>
+	</body>
+</html>

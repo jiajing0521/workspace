@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>7_量词</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//量词：
+			//{n,m}最少n个，最多m个
+			//{n,}最少n个，最多不限
+			//{n}正好n个
+			//+:{1,}
+			//*:{0,}不推荐使用
+			//?:{0,1}
+			
+			var str = "aaaabd ddu0-d diaiihqwe dkljgls;dfj k;ldjmgl; jfer5j 3425 4kjnm l ";
+			var re = /a[bc]?/g;
+			console.log(re.test(str));
+			console.log(str.match(re));
+		</script>
+	</body>
+</html>

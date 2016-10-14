@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪元素</title>
+		<style>
+		/*在某个元素前面（before）/后面（after）插入内容，
+		并可以修改其内容样式*/
+			div::after{
+				content:"div";
+				color: red;
+			}
+			div::before{
+				content:"你好，";
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div>我是</div>
+	</body>
+</html>

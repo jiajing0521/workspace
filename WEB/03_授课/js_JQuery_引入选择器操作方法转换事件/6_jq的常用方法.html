@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>6_jq的常用方法</title>
+	</head>
+	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//1.attr:操作属性
+			$("#div1").attr("class","div1");
+			console.log($("#div1").attr("class"));
+			
+			//2.让查找更精确的函数
+			//(1)filter()过滤 \not()与过滤相反
+//			$("li").filter("[class = 'li3']").css("background-color","red");
+			$("li").not("[class = 'li3']").css("background-color","red");
+			//(2)has():匹配到含有某个含有子级元素 的元素
+			$("li").has("span").css("background-color","blue");
+			$("li").has("span.span1").css("background-color","blue");
+			//(3)find():匹配某个元素中的find元素
+			$("ul").find("li.li3").css("background-color","#00BFFF");
+			//has()和find()的区别：
+			//has():一个是含有某子级的话，返回其本身
+			//find():找到某子级的话,返回其子级
+			
+			//3.index:索引。返回其在兄弟元素中的位置 （从0开始）
+			console.log($(".li5").index());
+		});
+	</script>
+	<body>
+		<div id="div1">div1</div>
+		<ul>
+			<div id=""></div>
+			<div id=""></div>
+			<div id=""></div>
+			<li class="li1">li1<span class="span1">
+				123
+			</span></li>
+			<li class="li2">li2
+			<span id="">
+				123
+			</span></li>
+			<li class="li3">li3</li>
+			<li class="li4">li4</li>
+			<li class="li5">li5</li>
+		</ul>
+	</body>
+</html>

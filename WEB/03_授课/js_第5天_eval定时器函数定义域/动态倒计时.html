@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态倒计时</title>
+		<style type="text/css">
+			p{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<p id="p1"></p>
+		
+		<p id="p2"></p>
+		<script type="text/javascript">
+		var p1 = document.getElementById("p1");
+		var p2 = document.getElementById("p2");
+			var count = 10;
+			var timer = setInterval(function(){
+				count--;
+				if (count < 0){
+					clearInterval(timer);
+					p1.innerHTML = "boom!!!";
+				}else{
+					p1.innerHTML = count + ".";
+					var count1 = 99;
+					var timer2 = setInterval(function(){
+					count1=count1-1;
+					if (count1 < 0){
+						clearInterval(timer2);
+						
+						p2.innerHTML = " ";
+					}else{
+						p2.innerHTML = count1;
+					}
+				},10);
+				}
+				
+				
+			},1000);
+			
+		</script>
+	</body>
+</html>

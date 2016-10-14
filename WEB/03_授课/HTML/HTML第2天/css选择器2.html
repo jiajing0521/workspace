@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css2类选择器</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		/*类选择器：通过class属性名查找，选择多个该属性名的标签
+		一个页面中每个class的值不唯一
+		一个标签的class属性值可以为多个*/
+		.changeColor{
+			background-color:green;
+		}
+		.addBorder{
+			border: 1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="changeColor addBorder"></div>
+	<div class="changeColor"></div>
+</body>
+</html>

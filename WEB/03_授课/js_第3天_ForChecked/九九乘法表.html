@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>九九乘法表</title>
+		<style type="text/css">
+			div{
+				width: 70px;
+				height: 20px;
+				background-color: black;
+				border: 1px solid white;
+				color: white;
+				display: inline-block;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			for(var x = 1; x <= 9;x++){
+				for(var y = 1; y <= x; y++){
+					document.write("<div>" + y + "*" + x + "=" + x*y + "</div>");
+				}
+				document.write("<br>");
+			}
+		</script>
+	</body>
+</html>

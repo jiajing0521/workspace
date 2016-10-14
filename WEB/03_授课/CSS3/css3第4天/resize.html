@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>resize</title>
+		<style type="text/css">
+			textarea{
+				width: 200px;
+				height: 200px;
+				/*resize修改元素尺寸大小
+				 none，元素不可被拉动
+				 horizontal横向可以被拉动，纵向不可以
+				 vertical纵向可以被拉伸，横向不可以
+				 both横向纵向都可以被拉动
+				 只能设置块标签和行块标签，加overflow不为visible*/
+				resize: horizontal;
+			}
+			div{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				resize:both;
+				overflow: hidden;
+			}
+			span{
+				background-color: blue;
+				resize: both;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea></textarea>
+		<div>123</div>
+		<span>span</span>
+	</body>
+</html>

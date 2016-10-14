@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1_新建正则表达式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "abcdef";
+			//正则表达式：给计算机字符串制定规则，默认是大小写敏感
+			
+			//第一个参数，正则表示式
+			//第二个参数：正则属性
+			//i:不区分大小写
+			var re = new RegExp("F","i");
+			var re1 = new RegExp("a");
+			var re2 = /a/;
+			var re3 = /D/i;
+			console.log(str.search("a"));
+			//test()检验字符串中是否符合正则的字符串
+			//有返回true
+			//没有返回false
+			console.log(re.test(str));
+			console.log(re1.test(str));
+			console.log(re2.test(str));
+			console.log(re3.test(str));
+			
+		</script>
+	</body>
+</html>

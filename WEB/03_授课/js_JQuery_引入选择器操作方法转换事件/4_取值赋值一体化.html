@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>4_取值赋值一体化</title>
+	</head>
+	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//赋值
+			$("#div1").html("qwer");
+			$("#div1").css("background-color","red");
+			//取值
+			console.log($("#div1").html());
+			console.log($("#div1").css("background-color"));
+			//取值赋值需要注意：
+			//当获取多个元素时
+			//赋值为给多个赋值，可以省略for循环
+			//取值为取首个的值，需要用for循环取出所有
+			$("ul li").css("background-color","blue");
+			console.log($("ul li").css("background-color"));
+			for(var i = 0; i < $("ul li").length; i++){
+				console.log($("ul li").eq(i).css("background-color"));
+			}
+		});
+	</script>
+	<body>
+		<div id="div1">div1</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>

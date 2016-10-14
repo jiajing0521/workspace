@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击变宽</title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			//offsetWidth:获取元素可见的宽度（width + padding + border）
+			//可读不可写（可以获取不可以更改）
+			//想控制动画的运动速率
+			//(1)循环定时器时间（越小动画运动越圆滑）
+			//(2)运动速度speed（控制动画快慢）
+			
+			//注意：定时器定义全局变量，先清除再使用
+			var div1 = document.getElementById("div1");
+			var timer = null;
+			var speed = 11;
+			div1.onclick = function(){
+				//console.log(div1.style.width);获取不到，可写不可读
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if(div1.offsetWidth >= 300){
+						//如果速率不能整除，通过以下来控制
+						div1.style.width = "300px";
+						clearInterval(timer);
+					}else{
+						var w =  div1.offsetWidth + speed;
+						div1.style.width = w + "px";
+					}
+				},1)
+				console.log(div1.offsetWidth);
+				console.log(div1.clientWidth);
+			}
+			//clientWidth:获取元素内容宽度（width+padding）
+			console.log(div1.offsetWidth);
+			console.log(div1.clientWidth);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>4_中括号</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//[]:中括号代表正则表示的一个区间,范围
+			//[a-z]:代表a到z的区间
+			//[a-z_\-]
+			//[0-9] :\d
+			//[0-9a-zA-Z_]
+			//[A-z]
+			//[^0-9] = !取反
+			var str = "aab abbc acc bbc abcd";
+			var re = /a[abc]c/g;
+			var re1 = /a[a-z]+c/g;
+			console.log(str.match(re));
+			console.log(str.match(re1));
+		</script>
+	</body>
+</html>

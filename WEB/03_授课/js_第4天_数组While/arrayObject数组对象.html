@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>arrayObject数组对象</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var arr = new Array(1,"q",3);
+			//push：在数组最后插入元素，可插入多个元素
+			//向数组的末尾添加一个或多个元素，并返回新的长度。
+			arr.push("123",5);
+			
+			//unshift：在数组前面插入元素，可插入多个元素
+			//可向数组的开头添加一个或更多元素，并返回新的长度。
+			arr.unshift("abc",22);
+			
+			//pop：弹出数组最后一个元素，删除并返回数组的最后一个元素，可用变量接受弹出元素
+			//把数组长度减 1，并且返回它删除的元素的值。如果数组已经为空，则 pop() 不改变数组，并返回 undefined 值。
+//			var aaa = arr.pop();
+			
+			//shift：弹出数组第一个元素，删除并返回数组的第一个元素，可用变量接受弹出元素
+			//如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。请注意，该方法不创建新数组，而是直接修改原有的 arrayObject。
+//			var bbb = arr.shift();
+//			console.log(bbb);
+
+			//splice：删除元素
+			//第一个参数代表从哪个位置开始删除splice(0)，全删
+			//  必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。
+			//第二个参数代表删掉多少个数组元素（不写的话，默认删完）
+			//  可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。
+			//后续参数代表从第一个参数位置插入元素
+			var ccc = arr.splice(3,2,111,"qwer",123);
+			
+			//concat：数组拼接
+			//将多个数组或多个元素拼接成一个新的数组
+			//可以是具体的值，也可以是数组对象。可以是任意多个。
+			var arr2 = [1,2,3,4,"w"];
+			var arr3 = arr.concat(arr2,"zxc");
+			arr2 = arr2.concat(1,"zxc");
+			
+			//join:把数组元素以字符隔开，返回值为字符串
+			var arrstr = arr.join("qwer");
+			
+			console.log("arr="+arr);
+			console.log("arr2="+arr2);
+			console.log("arr3="+arr3);
+			console.log("arrstr="+arrstr);
+		</script>
+		
+	</body>
+</html>

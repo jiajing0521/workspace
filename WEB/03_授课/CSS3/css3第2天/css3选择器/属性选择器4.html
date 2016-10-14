@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性选择器4</title>
+		<style type="text/css">
+		/*匹配该属性值以指定值开头的元素
+		 横杠是区分值的符号*/
+			[href|="a"]{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="a">1</a>
+		<a href="aab">2</a>
+		<a href="a-a">3</a>
+		<a href="a a">4</a>
+	</body>
+</html>

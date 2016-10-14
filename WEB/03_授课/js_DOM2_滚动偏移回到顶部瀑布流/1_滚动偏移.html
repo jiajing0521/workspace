@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动偏移</title>
+	</head>
+	<body>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 3333px;
+			}
+		</style>
+		<script type="text/javascript">
+		//滑动条滑动时，页面顶端的偏移量
+		//获取滚动高度（页面偏移量）有兼容问题，所以有以下三种获取方法
+		//页面偏移量+页面高度+默认8像素=body高度
+		//rollHeight1兼容IE版本
+		//rollHeight2兼容谷歌，火狐，safari等主流浏览器版本
+			var rollHeight1 = document.documentElement.scrollTop;
+			var rollHeight2 = document.body.scrollTop;
+			var rollHeight3 = window.pageYOffset;
+		//以上rollHeight1和rollHeight2可以合写成rollHeight
+			var rollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+			console.log(rollHeight1);
+			console.log(rollHeight2);
+			console.log(rollHeight3);
+			console.log(rollHeight);
+		//页面高度
+		//bodyHeight1：页面document高度
+		//bodyHeight2：body总高度
+		//bodyHeight3：页面可见高度
+			var bodyHeight1 = document.documentElement.scrollHeight;
+			var bodyHeight2 = document.body.clientHeight;
+			var bodyHeight3 = document.documentElement.clientHeight;
+			console.log(bodyHeight1);
+			console.log(bodyHeight2);
+			console.log(bodyHeight3);
+			
+			
+			//判断是否到达底部
+			var timer = null;
+			clearInterval(timer);
+			timer = setInterval(function(){
+				//获取当前滑动纵向偏移量
+				var rollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				//获取当前页面的高度
+				var nowScreenHeight = document.documentElement.clientHeight;
+				//获取body的总高度
+				var bodyHeight = document.body.clientHeight;
+				if(rollTop == bodyHeight - nowScreenHeight){
+					console.log("到底了");
+					//如果清除定时器的话，则只显示一次
+				}
+			},100)
+			
+		</script>
+	</body>
+</html>

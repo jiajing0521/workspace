@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window_onload</title>
+		<script type="text/javascript">
+//		预先加载不执行，等页面都加载完毕再执行
+		window.onload = function(){
+			var div1 = document.getElementById("div1");
+			console.log(div1);
+			div1.style.height = "100px";
+			div1.style.backgroundColor = "red";	
+		}
+		</script>
+	</head>
+	<body>
+		<div id="div1" class="div1">
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>formm标签</title>
+</head>
+<body>
+	form表单
+	action：提交表单地址
+	method：传输方式get为默认（地址栏显示获取信息）
+	input的type属性：
+	（1）text：文本框
+	（2）submit：提交表单的按钮
+	（3）password：密码框
+	（4）button：按钮
+	（5）reset：重置
+	（6）radio：单选框（一组单选框name属性要相同）
+	（7）checkbox：复选框
+	（8）file：上传文件
+	<!-- 默认提交 -->
+	<form action="">
+		<input type="text" value="">
+		<input type="submit">
+	</form>
+	<!-- 模拟百度 -->
+	<form action="http://www.baidu.com/s">
+		<input type="text" name="wd" value="">
+		<input type="submit" value="百度一下">
+	</form>
+
+	<form action="http://www.baidu.com/s">
+		账号<input type="text">
+		密码<input type="password">
+		<input type="button" value="登录">
+		<!-- 默认为重置 -->
+		<input type="reset">
+		<input type="reset" value="清空">
+		<br>
+		<!-- 单选框：name必须相同，为单选 -->
+		<input type="radio" name="sex">男
+		<input type="radio" name="sex">女
+		<br>
+		<!-- 复选框 -->
+		<input type="checkbox" name="fruit">香蕉
+		<input type="checkbox" name="fruit">苹果
+		<input type="checkbox" name="fruit">芒果
+		<br>
+		<!-- 上传文件 -->
+		<input type="file">
+	</form>
+
+</body>
+</html>

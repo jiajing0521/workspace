@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>h5新特性</title>
+		<style type="text/css">
+			audio{
+				width: 500px;
+				height: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+		figcaption 定义 figure 的标题（语义化块标签）
+		figure 一组媒体对象以及文字（默认样式margin:1em 40px 间距上下1em，左右40px）
+		新增语义化布局标签：main\header\section\nav\footer\（尽量采取以上结构布局）
+		-->
+		<figcaption>黄埔长江大桥</figcaption>
+		<figure></figure>
+		
+		<!--行标签
+			video 视频(有宽高属性)
+			audio 音频（无宽高属性，可以通过style来设定）
+		属性：
+		autoplay 当多媒体加载完后，自动播放
+		loop 循环播放
+		controls 多媒体控制器
+		
+		-->
+		<video src="暴走.mp4" width="500" height="300" autoplay="autoplay" controls="controls" loop="loop"></video>
+		<audio src="bg.mp3"  controls="controls" loop="loop"></audio>
+		
+		<!--mark定义需要突出显示或高亮显示的文本（行标签）-->
+		我不是mark <mark>我是makr</mark>
+		
+		<form action="">
+			<!--表示必需输入电子邮箱格式的文本框-->
+			<input type="email" name="" id="" value="" />
+			<input type="submit" name="" id=""/>
+			<!--url 表示必须输入网址格式的文本框（http://）-->
+			<input type="url" name="" id="" value="" />
+			<input type="submit" name="" id=""/>
+			<!--number 表示必须输入数字格式的文本框(符号e在数学中代表自然常数)-->
+			<input type="number" name="" id="" value="" />
+			<input type="submit" name="" id=""/>
+			<!--range 表示滑动条，value 代表0-100的区间值（百分比）-->
+			<input type="range" name="" id="" value="" />
+			<input type="submit" name="" id=""/>
+			<!--placeholder input的属性占位符，一半用于文本框，起到提示作用-->
+			<input type="text" placeholder="姓名" name="" id="" value="" />
+			<!--required input的属性此文本框为必填-->
+			<input type="text" required="required" name="" id="" />
+			<input type="submit" name="" id=""/>
+		</form>
+		
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1_事件冒泡</title>
+		<style type="text/css">
+			#all{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="div1"></div>
+		</div>
+		<script type="text/javascript">
+			var all = document.getElementById("all");
+			var div1 = document.getElementById("div1");
+			//事件冒泡：父级子级有相同事件
+			//执行顺序，从内到外，子级会向父级传递事件
+			//阻止事件冒泡：
+			//（1）通过ev对象，ev.cancelBubble = true;来阻止向上冒泡
+			//    兼容ie Google opera Safari Firefox
+			//（2）事件对象.stopPropagation();
+			//    [ˌprɒpə'ɡeɪʃn]最开始用来兼容火狐，但是不兼容ie
+			//点击all时，只弹出all
+			all.onclick = function(ev){
+				e = ev || window.event;
+				alert("all");
+				//兼容ie Google opera Safari Firefox
+				e.cancelBubble = true;
+				//[ˌprɒpə'ɡeɪʃn]最开始用来兼容火狐，但是不兼容ie
+				e.stopPropagation();
+			}
+			//点击div1时，弹出div1后弹出all（div1是all的子级）
+			div1.onclick = function(){
+				alert("div1");
+			}
+			//点击div1时，弹出div1后弹出all,再弹出document（div1是all的子级，all是document子级）
+			document.onclick = function(){
+				alert("document");
+			}
+//			all.onmouseover = function(){
+//				alert("all come");
+//			}
+//			all.onmouseout = function(){
+//				alert("all go");
+//			}
+//			div1.onmouseover = function(){
+//				alert("div1 come");
+//			}
+//			div1.onmouseout = function(){
+//				alert("div1 go");
+//			}
+//			all.onmouseenter = function(){
+//				alert("all come");
+//			}
+//			all.onmouseleave = function(){
+//				alert("all go");
+//			}
+//			div1.onmouseenter = function(){
+//				alert("div1 come");
+//			}
+//			div1.onmouseleave = function(){
+//				alert("div1 go");
+//			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS基础样式</title>
+</head>
+<body style="background-color:skyblue;">
+    <!-- 宽度width和高度height，单位为px（像素） -->
+	<img style="width:100px;height:100px;" src="乔巴.jpg" alt="可爱的乔巴" title="这是乔巴">
+
+	<!-- background-color 背景颜色
+	（1）英文单词，red,yellow,green,gray,pink,skyblue
+	（2）16进制（#ccc等），借助PS滴管
+	（3）rgb三原色，范围从0到255，rgb(0,0,0)黑色，rgb(255,255,255)白色，借助PS滴管 -->
+	<div style="width:100px;height:100px;background-color:green;"></div>
+	<div style="width:100px;height:100px;background-color:#ccc;"></div>
+	<div style="width:100px;height:100px;background-color:rgb(0,0,0);"></div>
+
+	<!-- color:修改文字的颜色 -->
+	<p style="color:blue;">忘记看见机加工覅看奇<span style="color:red;">偶到卡佛诶</span>我靠饭没呢健康否二名粉丝访客哦了的介么多开发及</p>
+
+
+	<!-- border：边框
+	（1）边框宽度px
+	（2）边框样式
+	solid   实线
+	dotted  点虚线
+	dashed  线虚线
+	double  双实线
+	（3）边框颜色（表示方法三种同background-color）
+	*多种样式的集合：分为border-width、border-style、border-color、
+	                上下左右（border-top-color、border-bottom-color、border-left-color、border-right-color） -->
+
+
+	<div style="width:200px;height:200px;background:green;color:red;border:10px solid orange;">div1</div>
+	<div style="width:200px;height:200px;background:green;color:red;border:10px dashed orange;">div1</div>
+	<div style="width:200px;height:200px;background:green;color:red;border:10px dotted orange;">div1</div>
+	<div style="width:200px;height:200px;background:green;color:red;border:10px double orange;">div1</div>
+	
+	<!-- text-align 文本对齐方式（只可以设置行元素）
+	（1）左对齐 left（默认）
+	（2）居中对齐 center
+	（3）右对齐 right --> 
+	<div style="width:200px;height:200px;background:green;color:red;border:10px double orange;text-align:center;">div1</div>
+
+
+	<!-- text-indent 首行缩进，单位em字符或者px像素 -->
+	<p style="width:200px;height:200px;background:#ccc;text-indent:2em;">这是文本字符设置，首行缩进2个字符</p>
+	
+	<!-- line-height：文字行间距（从字中间向上下各分一半）。
+	                  *可以做单行文字纵向居中无法多行居中 -->
+	<div style="width:300px;height:300px;border:1px solid red;text-align:center;line-height:300px;">我是div</div>
+
+	<!-- outline：外轮廓，与border用法相同，区别是outline不占用页面内容 -->
+	<div style="width:100px;height:50px;outline:10px solid red;"></div>
+	<!-- 去掉input自带outline样式 -->
+	<input style="outline:none;" type="text">
+</body>
+</html>

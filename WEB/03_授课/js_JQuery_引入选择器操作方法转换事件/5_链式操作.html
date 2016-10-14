@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5_链式操作</title>
+	</head>
+	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#div1").css("background-color","red");
+			$("#div1").html("div1");
+			$("#div1").click(function(){
+				alert("div1");
+			});
+			$("#div2").css("background-color","blue").html("div2").click(function(){
+				alert("div2");
+			});
+		});
+	</script>
+	<body>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+	</body>
+</html>

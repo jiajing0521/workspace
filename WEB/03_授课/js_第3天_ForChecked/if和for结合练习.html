@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>if和for结合练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//		1到99，进行运算，如果数字能够被3整除，则sum加上这个数字的值
+//			如果数字不能被3整除，则sum在原来的基础上加1
+//			最后弹出sum的值
+
+			var sum=0;
+			for(var i = 1; i < 100; i++){
+				if(i % 3 == 0){
+					sum += i;
+				}else{
+					sum += 1;
+				}
+			}
+			console.log(sum);
+			
+			var i = parseInt(prompt("请输入一个数："));
+			var sum = 0;
+			
+			if (i > 0) {
+				for(var j = i; j > -11; j--){
+					sum += j;
+				}
+			} else if(i < 0){
+				for(var a = i; a < 11; a++){
+					sum += a;
+				}
+			}
+			console.log(sum);
+			
+//			if (i > 0) {
+//				for(j = 0; j > i; j++){
+//					sum += j;
+//				}
+//			} else{
+//				for(j = 0; j < i; j--){
+//					sum += j;
+//				}
+//			}
+//			console.log(sum);
+		</script>
+	</body>
+</html>

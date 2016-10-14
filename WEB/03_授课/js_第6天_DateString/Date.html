@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Date</title>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+		<script type="text/javascript">
+			var newDate1 = new Date();
+			
+			console.log(Date());
+			//getFullYear() 获取年份，方法可返回一个表示年份的 4 位数字。
+			console.log(newDate.getFullYear());
+			//getMonth() 方法可返回表示月份的数字。返回值是 0（一月） 到 11（十二月） 之间的一个整数。
+			console.log(newDate.getMonth());
+			//getDay() 方法可返回表示星期的某一天的数字。(返回值是 0（周日） 到 6（周六） 之间的一个整数。)
+			console.log(newDate.getDay());
+			//getDate() 日期，方法可返回月份的某一天。返回值是 1 ~ 31 之间的一个整数。
+			console.log(newDate.getDate());
+			//getHours() 24小时制。方法可返回时间的小时字段。返回值是 0 （午夜） 到 23 （晚上 11 点）之间的一个整数。
+			console.log(newDate.getHours());
+			//getMinutes() 方法可返回时间的分钟字段。返回值是 0 ~ 59 之间的一个整数。
+			console.log(newDate.getMinutes());
+			//getSeconds() 方法可返回时间的秒。返回值是 0 ~ 59 之间的一个整数。
+			console.log(newDate.getSeconds());
+			//getMilliseconds() 方法可返回时间的毫秒。返回值是 0 ~ 999 之间的一个整数。
+			console.log(newDate.getMilliseconds());
+			//getTime() 方法可返回距 1970 年 1 月 1 日之间的毫秒数。
+			console.log(newDate.getTime());
+			var div1 = document.getElementById("div1");
+			
+
+			var timer = setInterval(function(){
+						
+						var newDate = new Date();
+//						var div1 = document.getElementById("div1");
+						div1.innerHTML = newDate.getFullYear() + "年" + (newDate.getMonth()+1) + "月" + newDate.getDate() + "日" +
+									"星期" + newDate.getDay() + "<br>" + newDate.getHours() + "时" + newDate.getMinutes() + "分" + 
+									newDate.getSeconds() + "秒" + newDate.getMilliseconds() + "毫秒";
+//						document.write(newDate.getFullYear() + "年" + newDate.getMonth() + "月" + newDate.getDate() + "日" +
+//									"星期" + newDate.getDay() + "<br>" + newDate.getHours() + "时" + newDate.getMinutes() + "分" + 
+//									newDate.getSeconds() + "秒" + newDate.getMilliseconds() + "毫秒"); 
+
+					
+				},100)
+			
+			
+		</script>
+	</body>
+</html>

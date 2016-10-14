@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5_滚轮事件</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//鼠标滑轮事件，当鼠标滑轮滚动时，触发的事件
+			document.onmousewheel = function(ev){
+				var e = ev ||window.event;
+				//e.wheelDelta返回120的倍数
+				//默认向上，正值，向下，负值
+				var upDown = e.wheelDelta;
+				console.log(upDown);
+				if(upDown < 0){
+					alert("向下");
+				}else{
+					alert("向上");
+				}
+			}
+			//在火狐浏览器下，需要用事件监听来设置滑轮事件
+			//事件名字：DOMMouseScroll
+			//e.detail获取滑动值，方向与其他浏览器相反
+			//向上为负值，向下为正值
+			document.addEventListener("DOMMouseScroll",ms,false)
+			function ms (ev){
+				var e = ev || window.event;
+				var upDown = e.detail;
+				console.log(upDown);
+				if(upDown < 0){
+					alert("向上");
+				}else if(upDown > 0){
+					alert("向下");
+				}
+			}
+		</script>
+	</body>
+</html>

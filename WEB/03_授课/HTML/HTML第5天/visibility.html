@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>visibility</title>
+	<style>
+		.div1{			
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+
+			/*隐藏显示：默认显示（visible）
+			隐藏（hidden）透明度会继承给后代*/
+			/*visibility: visible;*/
+			visibility: hidden;
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+		}
+		.divvv{
+			width: 50px;
+			height: 50px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="divvv"></div>
+	</div>
+	<div class="div2"></div>
+</body>
+</html>
