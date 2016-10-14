@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>遍历</title>
+	</head>
+	<body>
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		<a href="">4</a>
+		<a href="">5</a>
+		<input type="button" name="" id="btn" value="变" />
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var a5s = document.getElementsByTagName("a");
+			
+			btn.onclick = function(){
+//				遍历 a5s获取到的所有的a标签
+				for(i = 0; i < a5s.length; i++){
+					a5s[i].style.backgroundColor = "red";
+				}
+			}
+			
+			for(i = 0;i < a5s.length;i++){
+				a5s[i].onmouseover = function(){
+//					this永远指向事件或函数的拥有者，一般用于先循环再执行的代码（避免浏览器加载时运行的残留）
+					this.style.backgroundColor = "red";
+				}
+			}
+			
+		</script>
+	</body>
+</html>

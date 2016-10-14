@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5_偷小说</title>
+	</head>
+	<body>
+		<textarea id="txt1" name="" rows="30" cols="80"></textarea>
+		<input type="button" name="btn" id="btn" value="转换" />
+		<textarea id="txt2" name="" rows="30" cols="80"></textarea>
+		<script type="text/javascript">
+			var txt1 = document.getElementById("txt1");
+			var txt2 = document.getElementById("txt2");
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				var str = txt1.value;
+				//.：代表通配符，匹配所有的
+				var re = /<[^<>]+>/g;
+				txt2.value = str.replace(re,"");
+				txt1.value = "";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标事件</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		//按键的执行顺序：onmousedown > onmouseup > onclick > ondblclick
+			//鼠标左键和中键点击时，触发的事件
+			document.onclick = function(){
+				console.log("click");
+			}
+			//鼠标左中右键按下时，触发的事件
+			document.onmousedown = function(){
+				console.log("mousedown");
+			}
+			//鼠标左中右键松开时，触发的事件
+			document.onmouseup = function(){
+				console.log("mouseup");
+			}
+			//鼠标左中双击时，触发的事件
+			document.ondblclick = function(){
+				console.log("ondblclick");
+			}
+			//鼠标移入时，触发的事件
+			document.onmouseover = function(){
+				console.log("onmouseover");
+			}
+			document.onmouseenter = function(){
+				console.log("onmouseenter");
+			}
+			//鼠标移出时，触发的事件
+			document.onmouseout = function(){
+				console.log("onmouseout");
+			}
+			document.onmouseleave = function(){
+				console.log("onmouseleave");
+			}
+			//鼠标移动时，触发的事件
+			document.onmousemove = function(){
+				console.log("onmousemove");
+			}
+		</script>
+	</body>
+</html>

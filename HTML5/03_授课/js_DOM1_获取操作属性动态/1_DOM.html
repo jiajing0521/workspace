@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1_DOM</title>
+	</head>
+	<body>
+		<div id="div1" name="abc">
+			123
+			<p></p>
+		</div>
+		<script type="text/javascript">
+			//1-12类型节点组成DOM树
+			//需要掌握1，2，3，9
+			//每个节点都是node对象，都有一些node属性
+			//IE8-浏览器中的所有DOM对象都是以COM对象的形式实现的。所以，IE8-浏览器并不支持Node对象的写法
+			//1.Document类型（文档类型或根节点类型）
+			//document.nodeType：返回值9
+			//document.nodeName: 返回值#document
+			//document.nodeValue: 返回值null
+			var doc = document.nodeType;
+			var doc1 = document.nodeName;
+			var doc2 = document.nodeValue;
+			console.log(doc);
+			console.log(doc1);
+			console.log(doc2);
+			
+			//2.Element类型（元素类型，标签）
+			//nodeType：返回值1
+			//nodeName: 返回值标签名
+			//nodeValue: 返回值null
+			var div1 = document.getElementById("div1");
+			var p1 = div1.querySelector("p");
+			console.log(div1.nodeType);
+			console.log(div1.nodeName);
+			console.log(div1.nodeValue);
+			console.log(p1.nodeType);
+			console.log(p1.nodeName);
+			console.log(p1.nodeValue);
+			
+			//3.Attribute类型（属性类型）
+			//nodeType：返回值2
+			//nodeName: 返回值属性名
+			//nodeValue: 返回值属性值
+			var attr = div1.attributes.id;
+			var attr1 = div1.attributes.name;
+			console.log("attr=" + attr.nodeType,attr.nodeName,attr.nodeValue,attr);
+			console.log("attr1=" + attr1.nodeType,attr1.nodeName,attr1.nodeValue,attr1);
+			
+			//4.Text类型（文本类型）
+			//nodeType：返回值3
+			//nodeName: 返回值#text
+			//nodeValue: 返回值节点文本内容
+			var textNode = div1.firstChild;
+			console.log("textNode=" + textNode.nodeType,textNode.nodeName,textNode.nodeValue,textNode);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习_添加删除小方块</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 390px;
+				height: 390px;
+				border: 1px solid red;
+				/*装满按钮消失时使用*/
+				overflow: hidden;
+			}
+			#addDiv{
+				line-height: 60px;
+				font-size: 50px;
+				color: white;
+			}
+			#all div{
+				width: 60px;
+				height: 60px;
+				background-color: #ccc;
+				margin-top: 15px;
+				margin-left: 15px;
+				text-align: center;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="addDiv">+</div>
+		</div>
+		<script type="text/javascript">
+			var addDiv = document.getElementById("addDiv");
+			var all = document.getElementById("all");
+			var index = 0;
+			var newDiv;
+			var maxCount = Math.floor(all.offsetWidth/(addDiv.offsetWidth + addDiv.offsetLeft))
+			*Math.floor(all.offsetHeight/(addDiv.offsetHeight + addDiv.offsetTop)) - 1;
+			function rand (min,max){
+				return Math.floor(Math.random()*(max+1-min)+min);
+			}
+			addDiv.onclick = function(){
+				var newDiv = document.createElement("div");
+//				装满不能再点击
+//				if (index <maxCount){
+//					all.insertBefore(newDiv,addDiv);
+//					newDiv.style.backgroundColor = "rgb(" + rand(0,255) + "," + rand(0,255) + "," + rand(0,255) +")";
+//					index++;
+//				}
+//				newDiv.onclick = function(){
+//					newDiv.remove();
+//					index--;
+//				}
+				//装满按钮消失
+				all.insertBefore(newDiv,addDiv);
+				newDiv.style.backgroundColor = "rgb(" + rand(0,255) + "," + rand(0,255) + "," + rand(0,255) +")";
+				newDiv.onclick = function(){
+					newDiv.remove();
+				}
+			}
+		</script>
+	</body>
+</html>

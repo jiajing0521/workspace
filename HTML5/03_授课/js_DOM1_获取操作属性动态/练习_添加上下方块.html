@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习_添加上下方块</title>
+		<style type="text/css">
+			#line{
+				border: 1px solid red;
+			}
+			#up{
+				overflow: hidden;
+			}
+			#up div,#down div{
+				width: 50px;
+				height: 50px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="添加" />
+		<div id="all">
+			<div id="up"></div>
+			<div id="line"></div>
+			<div id="down"></div>
+		</div>
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var up = document.getElementById("up");
+			var down = document.getElementById("down");
+			var index = 0;
+			function rand (min,max){
+				return Math.floor(Math.random()*(max+1-min)+min);
+			}
+			btn.onclick = function (){
+				index++;
+					var newDiv = document.createElement("div");
+					newDiv.style.backgroundColor = "rgb(" + rand(0,255) + "," + rand(0,255) + "," + rand(0,255) +")";
+				if(index%2 == 1){
+					up.appendChild(newDiv);
+				}else{
+					down.appendChild(newDiv);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>background</title>
+	<style>
+		.div1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			/*background-image: 背景图片*/
+			background-image: url(img/pig1.png);
+			/*background-repeat平铺：
+			（1）no-repeat不平铺
+			（2）repeat-x横向平铺
+			（3）repeat-y纵向平铺*/
+			background-repeat: no-repeat;
+			/*background-size: 背景图片尺寸
+			（1）横向尺寸
+			（2）纵向尺寸
+			值可以为px、em、百分比*/
+			/*background-size: 100% 100%;*/
+			background-size: 2em 2em;
+			/*backgroung-position: 背景图片位置
+			写法：
+			（1）横向位置 纵向位置px、
+				 百分比（尺寸百分百不能设置）
+			（2）设置方位 top/bottom/right/left/center*/
+			background-position: 50px 50px;
+			/*background-position: 30% 30%;*/
+			background-position: center right;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">123</div>
+</body>
+</html>

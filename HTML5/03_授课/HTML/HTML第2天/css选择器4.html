@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css4_后代选择器</title>
+	<style>
+		/*后代选择器：通过父级查找其子级元素，中间用空格连接
+		扩展：如果想选择该父级的直系子级元素中间用>连接*/
+		.all>p{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+		<div>
+			<p>p4</p>
+		</div>
+	</div>
+	<p>p5</p>
+</body>
+</html>

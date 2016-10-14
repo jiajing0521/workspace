@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>6_元字符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//元字符：
+			//\d:代表所有的数字 = [0-9]
+			//\w:代表所有的英文 数字 下划线 = [0-9A-z_]
+			//\s:代表空白 空格或tab等
+			//孪生兄弟，代表取反
+			//\D:[^0-9]
+			//\W:[^0-9A-z_]
+			//\S:非空白
+			
+			//\u:匹配中文
+			var str = "你好，Liushengxin，哈哈哈haO(∩_∩)O哈！";
+			//utf-8编码格式4e00：一 u9fa5：龥yu4
+			var re = /[\u4e00-\u9fa5]+/g;
+			console.log(str.match(re));
+		</script>
+	</body>
+</html>

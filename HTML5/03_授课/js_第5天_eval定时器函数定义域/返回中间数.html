@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>返回中间数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = parseInt(prompt("请输入第一个数"));
+			var b = parseInt(prompt("请输入第二个数"));
+			var c = parseInt(prompt("请输入第三个数"));
+			
+//			alert(middle(a,b,c));
+			middle(a,b,c);
+			function middle (num1,num2,num3){
+				var secNum = num1+num2+num3-(num1>num2&&num1>num3?num1:num2>num1&&num2>num3?num2:num3)-(num1<num2&&num1<num3?num1:num2<num1&&num2<num3?num2:num3);
+//				return secNum;
+				alert(secNum);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css6_组合选择器</title>
+	<style>
+		/*组合选择器：通过两种组合器的组合，达到精确查找的目的*/
+		.all p.p1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="p1">div1</div>
+		<p class="p1">p1</p>
+		<div></div>
+		<p></p>
+	</div>
+	<p></p>
+	<p class="p1">p2</p>
+	<div></div>
+</body>
+</html>

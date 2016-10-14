@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>mathObject</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			console.log(Math.PI);
+//			abs:取绝对值
+			console.log(Math.abs(-23));
+			
+//			max:多个数取最大值
+			var maxNum = Math.max(8,6,13,1)
+			console.log(maxNum);
+			
+//			min:多个数取最小值
+			var minNum = Math.min(8,6,13,1)
+			console.log(minNum);
+			
+//			ceil:小数点向上取整  +1
+//			floor:向下取整 -1
+//			around:四舍五入
+			var num1 = Math.ceil(1.1);
+			var num2 = Math.floor(1.9);
+			var num3 = Math.round(1.4);
+			console.log(num1);
+			console.log(num2);
+			console.log(num3);
+			
+			
+//			在0-1之间,随机选取一个数
+			var numRand = Math.random();
+			var numRand = Math.random()*11;
+			alert(numRand);
+			//取区间值[min,max]
+			//var num = Math.floor(Math.random() * (max + 1 - min) + min);
+			
+		</script>
+	</body>
+</html>

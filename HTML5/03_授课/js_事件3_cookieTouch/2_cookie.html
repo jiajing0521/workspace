@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//获取cookie，获取到的是字符串类型
+		//要获取cookie的键和值，需要字符串进行切割
+		var ck = document.cookie;
+		console.log(ck);
+		var ckArr = ck.split("; ");
+		console.log(ckArr);
+//		var ckArr1 = [];
+		//遍历数组中拆分每一个键值对
+		for (var i = 0; i < ckArr.length; i++) {
+			ckArr[i] = ckArr[i].split("=");
+			if (ckArr[i][0] == "username2") {
+				console.log(ckArr[i][1]);
+			}
+//			ckArr1.push(ckArr[i].split("="));
+		}
+		console.log(ckArr);
+//		console.log(ckArr1);
+		
+		//封装获取cookie方法
+		function getCookie(name){
+			//获取cookie
+			var ck = document.cookie;
+			//获取cookie，获取到的是字符串类型
+			//要获取cookie的键和值，需要字符串进行切割
+			//以"; "来拆分（分号+空格）
+			var ckArr = ck.split("; ");
+			for (var i = 0; i < ckArr.length; i++) {
+				ckArr[i] = ckArr[i].split("=");
+				if (ckArr[i][0] == name) {
+					return ckArr[i][1];
+				}
+			}
+			//当没有获取到任何值时,返回false
+			return false;
+		}
+		</script>
+	</body>
+</html>

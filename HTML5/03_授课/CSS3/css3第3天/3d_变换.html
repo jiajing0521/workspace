@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>3d_变换</title>
+		<style>
+			body,html,.all{
+				height: 100%;
+			}
+			.all{
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				
+				/*开透视点(页面到屏幕距离，z轴)，无特殊需求，给最外层一个3d变换元素的父级加透视点*/
+				perspective: 1000px;
+				
+				/*3d变换基点，相对于父级，默认中心*/
+				perspective-origin: left top;
+			}
+			
+			.div1 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				/*position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -100px;
+				margin-top: -100px;*/
+				
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+				
+			}
+			.div1:hover{
+				
+				/*y轴正方向顺时针旋转*/
+				/*-webkit-transform: rotateY(45deg);
+				-moz-transform: rotateY(45deg);
+				-ms-transform: rotateY(45deg);
+				-o-transform: rotateY(45deg);
+				transform: rotateY(45deg);*/
+				
+				/*x轴正方向逆时针旋转*/
+				/*-webkit-transform: rotateX(45deg);
+				-moz-transform: rotateX(45deg);
+				-ms-transform: rotateX(45deg);
+				-o-transform: rotateX(45deg);
+				transform: rotateX(45deg);*/
+				
+				/*沿着z轴正方向移动，可以为负值*/
+				-webkit-transform: translateZ(500px);
+				-moz-transform: translateZ(500px);
+				-ms-transform: translateZ(500px);
+				-o-transform: translateZ(500px);
+				transform: translateZ(500px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--1.告诉父级开3d，给每一个需要3d变换元素的父级加
+		2.给浏览器空间-->
+		<div class="all" id="">
+			<div class="div1" id="">
+
+			</div>
+		</div>
+
+	</body>
+
+</html>

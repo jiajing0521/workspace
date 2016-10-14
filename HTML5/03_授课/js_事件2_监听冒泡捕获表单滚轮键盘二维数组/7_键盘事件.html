@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>7_键盘事件</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//键盘任意键按下时，触发的事件（一直按下可持续触发事件）
+			//会拦截部分系统按键
+			//keyCode返回按键的对应 键码值（参照：http://www.t086.com/article/4315）
+			//keyCode值大小写不敏感
+			document.onkeydown = function(ev){
+				var e = ev || window.event;
+				//参照键盘keyCode对照表
+				console.log(e.keyCode,"onkeydown");
+				if(e.keyCode == 38){
+					alert("上");
+				}
+			}
+			//键盘任意键抬起时，跟down一样，只是不可以连续触发
+			document.onkeyup = function(ev){
+				var e = ev || window.event;
+				console.log(e.keyCode,"onkeyup");
+			}
+			//当键盘按任意键时，触发事件
+			//（一直按下可持续触发事件）
+			//会拦截大部分系统按键（触发的只有 enter,delete,小键盘）
+			//大小写敏感
+			document.onkeypress = function(ev){
+				var e = ev || window.event;
+				console.log(e.keyCode,"onkeypress");
+			}
+		</script>
+	</body>
+</html>

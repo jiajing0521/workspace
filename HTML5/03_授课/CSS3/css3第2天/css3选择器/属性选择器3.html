@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性选择器3</title>
+		<style type="text/css">
+		/*匹配该属性中，包含指定词汇的元素
+		 词汇用空格区分*/
+			[href~="a"]{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="a">1</a>
+		<a href="abc">2</a>
+		<a href="a a">3</a>
+		<a href="a-a">4</a>
+	</body>
+</html>

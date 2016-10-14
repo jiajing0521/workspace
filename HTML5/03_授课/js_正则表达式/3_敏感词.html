@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3_敏感词</title>
+	</head>
+	<body>
+		<textarea id="txt1" name="" rows="20" cols="50"></textarea>
+		<input type="button" name="btn" id="btn" value="发送" />
+		<textarea id="txt2" name="" rows="20" cols="50"></textarea>
+		<script type="text/javascript">
+			var txt1 = document.getElementById("txt1");
+			var txt2 = document.getElementById("txt2");
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				var str = txt1.value;
+				//|：代表逻辑或
+				var re = /鑫鑫|晨晨|峰峰/g;
+				txt2.value = str.replace(re,"***");
+				txt1.value = "";
+			}
+			
+		</script>
+	</body>
+</html>

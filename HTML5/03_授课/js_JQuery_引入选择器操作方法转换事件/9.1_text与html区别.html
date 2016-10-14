@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>9.1_text与html区别</title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				console.log($("#div1").html());
+				//全覆盖
+				//text:不会捕获标签,全时纯文本内容
+				//html:可以捕获标签
+				$("#div1").text("<span>你好啊,div</span>");
+				$("#div1").html("<span>你好啊,div2</span>");
+			});
+		</script>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+	</body>
+</html>

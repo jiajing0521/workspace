@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css_盒模型</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				
+				border: 1px solid blue;
+				padding:20px;
+				
+				/*强制进入怪异盒模型
+				 组成：margin+content*/
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div>div</div>
+	</body>
+</html>

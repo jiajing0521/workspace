@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类</title>
+	<style>
+		/*link:用于a标签，拥有href属性时，显示的样式*/
+		a:link{
+			background-color: red;
+		}
+		/*visited:必须要有link，为访问过 相同地址的a标签 显示的样式*/
+		a:visited{
+			background-color: pink;
+		}
+		/*hover:当鼠标放上去，显示的样式*/
+		a:hover{
+			background-color: green;
+		}
+		/*active:当被点击时，显示的样式*/
+		a:active{
+			background-color: yellow;
+		}
+		/*以上链接伪类是有顺序的：
+		完整的先后顺序：link visited hover active
+		注释：在 CSS 定义中，a:hover 必须位于 a:link 和 a:visited 之后，这样才能生效！
+		注释：在 CSS 定义中，a:active 必须位于 a:hover 之后，这样才能生效！*/
+
+		/*focus:档a标签被激活时，显示的样式*/
+		/*例如 HTML 中一个有文本输入焦点的输入框，
+			其中出现了文本输入光标；也就是说，在用户开始键入时，
+			文本会输入到这个输入框。其他元素（如超链接）也可以有焦点，
+			不过 CSS 没有定义哪些元素可以有焦点。
+			配合visited，链接已被访问过，那么它会显示为visited样式。*/
+		a:focus{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<a href="###########">link</a>
+	<a href="###############">link</a>
+</body>
+</html>

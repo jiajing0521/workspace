@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS引入方式</title>
+	<!-- <link rel="stylesheet" href="CSS引入方式.css"> -->
+	<style>
+		@import url(CSS引入方式.css);
+		body{
+			background-color: red;
+		}
+	</style>
+</head>
+<body style="background-color:green">
+	<div></div>
+	<!-- CSS引入方式：
+	（1）标签内引入
+	优点：优先级最高
+	缺点：多余代码太多，代码太乱，不利于更新维护
+	应用场景：配合js使用
+	（2）头部引入
+	优点：相对于内部引入代码较少，不会对服务器造成压力
+	缺点：不利于更新维护
+	应用场景：浏览量较高的页面（首页，活动页）
+	（3）外部引入
+	优点：一个css可以控制多个html，利于更新维护
+	缺点：会对服务器造成压力，相对于单个页面多余代码多
+	应用场景：浏览量较少的页面 -->
+</body>
+</html>

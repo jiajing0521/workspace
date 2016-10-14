@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function suibian3( canShu1){ 
+			alert(canShu1);
+               } ;
+            suibian3(2);
+            
+            function suiji ( min ,max ) {
+                   return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            alert(suiji( 23 ,34 )); 
+            函数的分类：
+     1.函数名
+          1.1.有名函数
+          1.2.匿名函数(佚名)
+
+     2.返回值/参数
+     把函数当做能做某事的人，想象给一个人钱去买饭，钱就是参数，饭就是反馈结果
+          2.1无参无返回
+                         function func1(){
+                              alert( "呵呵" );
+                        }
+                     函数调用
+                     结构：返回值=函数名(参数);
+                         func1();
+          2.2无参有返回
+                         function func2 () {
+                               return "虽然没给钱，给你点儿饭" ;
+                        }
+                         var a = func2();
+                        alert(a);
+          2.3有参无返回
+                         function func3 ( money ) {
+                              alert( "给了" + money + "块" );
+                        }
+                        func3 ( "100" );
+          2.4有参有返回
+                         function func4 ( meat , vegetable ) {
+                               return meat + "炒" + vegetable;
+                        }
+                         var caiming = func4( "西红柿" , "番茄" );
+                        alert(caiming);
+		</script>
+	</body>
+</html>
