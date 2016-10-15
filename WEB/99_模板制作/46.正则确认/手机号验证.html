@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手机号验证</title>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value=""  placeholder="手机号"/>
+		<input type="button" name="" id="btn" value="保存" />
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+			var txt = document.getElementById("txt");
+			var btn = document.getElementById("btn");
+			var div1 = document.getElementById("div1");
+			btn.onclick = function(){
+				var str = txt.value;
+				//要求输入
+				var re = /^1[34578]\d{9}$/;
+				//^  $: 开头和结尾
+				if(re.test(str)){
+					div1.innerHTML = "恭喜你";
+				}else{
+					div1.innerHTML = "请输入正确的手机号";
+				}
+			}
+		</script>
+	</body>
+</html>

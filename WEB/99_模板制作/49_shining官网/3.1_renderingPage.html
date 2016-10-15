@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3_renderingPage</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
+		<style type="text/css">
+			
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(2).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(2).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+		<!--<script src="js/banner.js" type="text/javascript" charset="utf-8"></script>-->
+		<script type="text/javascript">
+		
+			
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="###">Home</a></li>
+						<li><a href="###">About</a></li>
+						<li><a href="###" class="active">Rendering</a></li>
+						<li><a href="###">3D Animation</a></li>
+						<li><a href="###">Bim</a></li>
+						<li><a href="###">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="###" class="active">Home</a></li>
+						<li><a href="###">About</a></li>
+						<li><a href="###">Rendering</a></li>
+						<li><a href="###">3D Animation</a></li>
+						<li><a href="###">Bim</a></li>
+						<li><a href="###">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div class="c_banner">
+				    <div class="c_banner_main">
+				        <ul class="c_banner_ul">
+				            <li><a href="###" class="img"><img src="img/img3/Banner (1).jpg"  alt="" /></a></li>
+				            <li><a href="###" class="img"><img src="img/img3/Banner (2).jpg"  alt="" /></a></li>
+				            <li><a href="###" class="img"><img src="img/img3/Banner (3).jpg"  alt="" /></a></li>
+				        </ul>
+				    </div>
+				    <!--<p class="c_banner_left"></p>-->
+				    <!--<p class="c_banner_right"></p>-->
+				    <div class="c_banner_span"><p> <span class="c_banner_span_one"></span> <span></span> <span></span></p> </div>
+				</div>
+				    <!--<div class="c_banner_span"><p> <span class="c_banner_span_one"></span> <span></span> <span></span></p> </div>-->
+				<div id="c_pic">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

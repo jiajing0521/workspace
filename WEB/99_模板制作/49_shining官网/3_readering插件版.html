@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>插件版</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<style type="text/css">
+			.swiper-container {
+			    width: 100%;
+			    height: 100%;
+			} 
+			.swiper-slide img{
+				width: 100%;
+				height: 100%;
+			} 
+			.mygallery {
+				margin: 0 5px;
+			}
+			
+			#clear {
+				clear: both;
+			}
+			
+			.chroma-gallery {
+				overflow: hidden;
+			}
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8">
+			
+		</script><script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(2).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(2).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="###">Home</a></li>
+						<li><a href="###">About</a></li>
+						<li><a href="###" class="active">Rendering</a></li>
+						<li><a href="###">3D Animation</a></li>
+						<li><a href="###">Bim</a></li>
+						<li><a href="###">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="###" class="active">Home</a></li>
+						<li><a href="###">About</a></li>
+						<li><a href="###">Rendering</a></li>
+						<li><a href="###">3D Animation</a></li>
+						<li><a href="###">Bim</a></li>
+						<li><a href="###">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide"><img src="img/img3/Banner (1).jpg"/></div>
+				        <div class="swiper-slide"><img src="img/img3/Banner (2).jpg"/></div>
+				        <div class="swiper-slide"><img src="img/img3/Banner (3).jpg"/></div>
+				    </div>
+				    <!-- 如果需要分页器 -->
+				    <div class="swiper-pagination"></div>
+				    
+				    <!-- 如果需要导航按钮 -->
+				    <div class="swiper-button-prev"></div>
+				    <div class="swiper-button-next"></div>
+				    
+				    <!-- 如果需要滚动条 -->
+				    <!--<div class="swiper-scrollbar"></div>-->
+				</div>
+				<div class="chroma-gallery mygallery">
+					<img src="img/室外1021更新-0001.jpg" />
+					<img src="img/室外1021更新-0002.jpg" />
+					<img src="img/室外1021更新-0003.jpg" />
+					<img src="img/室外1021更新-0004.jpg" />
+					<img src="img/室外1021更新-0005.jpg" />
+					<img src="img/室外1021更新-0006.jpg" />
+					<img src="img/室外1021更新-0007.jpg" />
+					<img src="img/室外1021更新-0008.jpg" />
+					<img src="img/室外1021更新-0009.jpg" />
+					<img src="img/室外1021更新-0010.jpg" />
+					<img src="img/室外1021更新-0011.jpg" />
+					<img src="img/室外1021更新-0012.jpg" />
+					<img src="img/室外1021更新-0013.jpg" />
+					<img src="img/室外1021更新-0014.jpg" />
+					<img src="img/室外1021更新-0015.jpg" />
+					<img src="img/室外1021更新-0016.jpg" />
+					<img src="img/室外1021更新-0017.jpg" />
+					<img src="img/室外1021更新-0018.jpg" />
+					<img src="img/室外1021更新-0019.jpg" />
+					<img src="img/室外1021更新-0020.jpg" />
+					<img src="img/室外1021更新-0021.jpg" />
+					<img src="img/室外1021更新-0022.jpg" />
+					<img src="img/室外1021更新-0023.jpg" />
+					<img src="img/室外1021更新-0024.jpg" />
+					<img src="img/SHINING (13).jpg" />
+					<img src="img/SHINING (14).jpg" />
+					<img src="img/SHINING (15).jpg" />
+					<img src="img/SHINING (16).jpg" />
+					<img src="img/SHINING (17).jpg" />
+					<img src="img/SHINING (18).jpg" />
+					<img src="img/SHINING (20).jpg" />
+					<img src="img/SHINING (21).jpg" />
+					<img src="img/SHINING (35).jpg" />
+					<img src="img/SHINING (42).jpg" />
+					<img src="img/SHINING (44).jpg" />
+					<img src="img/SHINING (46).jpg" />
+					<img src="img/SHINING (5).jpg" />
+					<img src="img/SHINING (53).jpg" />
+					<img src="img/SHINING (54).jpg" />
+					<img src="img/SHINING (8).jpg" />
+			</div>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+		<script>        
+			var mySwiper = new Swiper ('.swiper-container', {
+				//自动播放
+				autoplay: 3000,
+//				autoplayDisableOnInteraction : true, 
+				direction: 'horizontal',
+				//循环播放
+				loop: true,
+				
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+				
+				// 如果需要前进后退按钮
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+				//淡入淡出效果
+				effect : 'fade',
+				fade: {
+				  crossFade: true,
+				}
+				// 如果需要滚动条
+//				scrollbar: '.swiper-scrollbar',
+			})        
+		</script>
+		<script type="text/javascript" src="js/aa.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".mygallery").chromaGallery({
+					color: '#000',
+					gridMargin: 10,
+					maxColumns: 4,
+					dof: true,
+					screenOpacity: 0.7
+				});
+			});
+		</script>
+	</body>
+</html>

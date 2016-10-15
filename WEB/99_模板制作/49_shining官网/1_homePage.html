@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1_homePage</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<style type="text/css">
+			#content {
+			    width: 980px;
+			    margin: 0 auto;
+			    /*margin-top: 67.19px;*/
+			    /*border-bottom: 1px solid #e1e1e1;*/
+			    font-family: Arial, sans-serif, Microsoft YaHei;
+			}
+			#content ul{
+				width: 100%;
+				height: 159px;
+				border-bottom: 1px solid #E1E1E1;
+			}
+			#content ul #c_left{
+				width: 588px;
+				height: 100%;
+				float: left;
+			}
+			#content ul li img{
+				width: 588px;
+				height: 159px;
+			}
+			#content ul #c_center{
+				width: 21px;
+				height: 159px;
+				background-color: rgb(176, 176, 176);
+				float: left;
+			}
+			#content ul #c_right{
+				width: 34%;
+				height: 100%;
+				margin-top: 15px;
+				padding-left: 2%;
+				float: left;
+				color: black;
+			}
+			#title{
+				font-size: 30px;
+				font-weight: bold;
+			}
+			#text{
+				margin-top: 10px;
+				line-height: 25px;
+			}
+			.title1{
+				text-align: right;
+				padding-right: 20px;
+			}
+			#content ul #c_center.active{
+				background-color: rgb(207,219,0);
+			}
+			
+			#content .ulRow2 #c_left,#content .ulRow2 #c_center{
+				float: right;
+			}
+			@media only screen and (max-width: 640px) {
+				#content{
+					width: 90%;
+					padding-top: 67.19px;
+				}
+				#content ul{
+					width: 100%;
+					height: 100%;
+				}
+				#content ul #c_center{
+					display: none;
+				}
+				#content ul #c_left{
+					width: 100%;
+					height: 100%;
+					float: none;
+					display: block;
+				}
+				#content ul li img{
+					width: 100%;
+					height: 100%;
+					padding-bottom: 10px;
+				}
+				#content ul #c_right{
+					width: 100%;
+					height: 100%;
+					margin-top: 15px;
+					padding-left: 2%;
+					float: none;
+					display: block;
+					color: black;
+				}
+				#title{
+					font-size: 20px;
+				}
+				#text{
+					font-size: 12px;
+					padding-bottom: 20px;
+				}
+				.title1{
+					text-align: left;
+					padding-right: 0;
+				}
+				.text1{
+					margin-left: 0;
+				}
+			}
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(0).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(0).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+		<script type="text/javascript">
+			//内容部分
+			$(function(){
+				var imgSrcArr = ["home_pic_one","home_pic_two","homes_pic_three"]
+				$("#content ul").mouseover(function(){
+					console.log($(".c_center"));
+					$("#content img").eq($("#content ul").index(this)).attr("src","img/img1/"+imgSrcArr[$("#content ul").index(this)]+"_h.png");
+					$("#content div").eq($("#content ul").index(this)).attr("class","active");
+				});
+				$("#content ul").mouseout(function(){
+					$("#content img").eq($("#content ul").index(this)).attr("src","img/img1/"+imgSrcArr[$("#content ul").index(this)]+".png");
+					$("#content div").eq($("#content ul").index(this)).attr("class","");
+				});
+			});
+		</script>
+	
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="1_homePage.html" class="active">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="1_homePage.html" class="active">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<ul class="clearfloat">
+					<a href="###">
+						<li id="c_left"><img src="img/img1/home_pic_one.png"/></li>
+						<div id="c_center"></div>
+						<li id="c_right"><p id="title">RENDERINGS</p>
+						<p id="text">Masterplan、Public Building、commercial Building、Residential Building、Landscape Design</p></li>
+					</a>
+				</ul>
+				<ul class="clearfloat ulRow2">
+					<a href="###">
+						<li id="c_left"><img src="img/img1/home_pic_two.png"/></li>
+						<div id="c_center"></div>
+						<li id="c_right"><p id="title" class="title1">BIM</p>
+						<p id="text" class="text1">Model Completion、Clash Detection、MEP Integration、Curtain Wall Remedying、BIM Consulting</p></li>
+						
+					</a>
+				</ul>
+				<ul class="clearfloat">
+					<a href="###">
+						<li id="c_left"><img src="img/img1/homes_pic_three.png"/></li>
+						<div id="c_center"></div>
+						<li id="c_right"><p id="title">3D ANIMATION</p>
+						<p id="text">Real estate advertising animation Design scheme Animation Corporate promotional Animation</p></li>
+					</a>
+				</ul>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

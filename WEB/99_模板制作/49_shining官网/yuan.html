@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rendering.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="hidden">
+				<span class="hidden_view">
+					<img src="" alt="" class="hidden_image"/>
+				</span>
+			</div>
+			<div class="head">
+				<div class="nav_wrap">
+					<div class="logo">
+						<a href=""><img src="img/img/shininglogo.png" /></a>
+					</div>
+					<ul class="nav">
+						<li>
+							<a href="home.html">Home</a>
+						</li>
+						<li>
+							<a href="about.html">About</a>
+						</li>
+						<li>
+							<a href="rendering.html" class="home">Rendering</a>
+						</li>
+						<li>
+							<a href="3D_Animation.html">3D Animation</a>
+						</li>
+						<li>
+							<a href="bim.html">Bim</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+					<input type="button" name="navButton" id="navButton" value="" />
+				</div>
+				<ul class="hide_nav">
+					<li><a href="home.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="rendering.html">Rendering</a></li>
+					<li><a href="3D_Animation.html">3D Animation</a></li>
+					<li><a href="bim.html">Bim</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="show">
+					<img src="img/img_Rendering/Banner (1).jpg" alt="" />
+					<img src="img/img_Rendering/Banner (2).jpg" alt="" class="posi" />
+					<img src="img/img_Rendering/Banner (3).jpg" alt=""  class="posi"/>
+					<div class="buttons">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				<div class="imgs">
+					<ul></ul>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="footer1"><a href=""><img src="img/img/mail.jpg"/></a></div>
+				<div class="footer2">
+					<div class="footer_wrap">
+					<a href=""><img src="img/img/facebook.jpg" alt="" /></a>
+					<a href=""><img src="img/img/youtube.jpg" alt="" /></a>
+					<a href=""><img src="img/img/linkedln.jpg" alt="" /></a>
+					<a href=""><img src="img/img/twitter.jpg" alt="" /></a>
+					</div>
+				</div>
+				<div class="footer3"><span>Copyright © 1998-2015 shining Group</span></div>
+			</div>
+		</div>
+
+		
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/commonFooter.js"></script>
+		<script src="js/commonHead.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var timer;
+				//调整show的大小
+//				$(".show").css("height",$(".show>img").eq(0).height());
+//				$(window).on("resize",function(){
+//					$(".show").css("height",$(".show>img").eq(0).height());
+//				})
+				//轮播图
+				var index = 0;
+				//单次
+				function switchImg(){
+					$(".show>img").css("opacity",0);
+					$(".show>img").eq(index).css("opacity",1);
+			
+					$(".show span").css("background-color","#8391a0");
+					 $(".show span").eq(index).css("background-color","#cfdb00");
+				}
+				//点击滚动
+				$(".show span").on("click",function(){
+					index = $(this).index();
+
+					 switchImg();
+					 $(".show span").css("background-color","#8391a0");
+					 $(this).css("background-color","#cfdb00");
+				});
+				//停止和启动自动滚动
+				$(".show").on("mouseover",function(){
+					clearInterval(timer);
+				})
+				$(".show").on("mouseout",function(){
+					autoSwitch();
+				})
+				//自动滚动
+				function autoSwitch(){
+					timer = setInterval(function(){
+
+						switchImg();
+						index++;
+						if(index>2){
+							index=0
+						}
+					},1500);
+				}
+				autoSwitch();
+				
+				
+
+
+				//创建新的li并加入图片
+			for(var i = 0;i<40;i++){
+				var list = $("<li class='list'></li>");
+				var img = $("<img src=''/>");
+				var a = $("<a href='#' class='min_img'></>");
+				var shadow = $("<div class='shadow'></div>");
+				var span = $("<span class='view'>");
+				var logo = $("<img src='img/img_Rendering/view.png' class='view_logo'>");
+				img.attr("src","img/img_Rendering/SHINING ("+(i+1)+").jpg");
+				logo.appendTo(span);
+				span.appendTo(shadow);
+				img.appendTo(a);
+				shadow.appendTo(a);
+				a.appendTo(list);
+				$(".imgs ul").append(list);
+			}
+	
+	
+	
+			});
+		</script>
+	<script type="text/javascript">
+	
+		window.onload=function(){
+			var hs = [];
+			function buju(op,col){
+			var ul1 = document.querySelector(".imgs ul");
+			console.log(ul1);
+			var lis = document.querySelectorAll(".imgs .list");
+			//初始化列高数组
+			var arrH = new Array(col);
+			console.log(arrH.length);
+			for(var i = 0;i<col;i++){
+		
+			arrH[i]=0;
+			}
+			console.log(arrH.length);
+			console.log(arrH);
+			//创建or更新li
+			
+			for(var j = 0;j<40;j++){
+				var li = lis[j];
+				if(op){
+//					console.log(li.offsetHeight);
+				hs.push(li.offsetHeight);
+				}
+			//求最短列
+			var minH = arrH[0];
+			var minI = 0;
+			for(var k = 0;k<arrH.length;k++){
+				if (minH > arrH[k]) {
+					minH = arrH[k];
+					     minI = k;
+//					     console.log(k);
+				}
+			}
+			li.style.left = minI*(ul1.offsetWidth/col)+"px";
+			li.style.top = arrH[minI]+"px";
+				arrH[minI] = arrH[minI]+li.offsetHeight;
+				}
+
+		}
+		
+			if(document.documentElement.clientWidth<495){
+					buju(true,2);
+				}else{
+					buju(true,4);
+				}
+				var total = document.querySelectorAll(".list");		
+				var height = total[total.length-1].offsetTop+total[total.length-1].offsetHeight;
+				
+				$(".imgs").css("height",height);
+			window.onresize=function(){
+				if(document.documentElement.clientWidth<495){
+					buju(true,2);
+				}else{
+					buju(true,4);
+				}
+				var total = document.querySelectorAll(".list");
+				var height = total[total.length-1].offsetTop+total[total.length-1].offsetHeight;
+				$(".imgs").css("height",height);
+				console.log(height);
+			}
+			var count = 0;
+			$(".shadow").on("click",function(){
+				$('.hidden').css("display","block");
+				var index = $(this).index();
+			var src = $(this).prev().attr("src");
+				$('.hidden_image').attr("src",src);
+				var w = $('.hidden_image').width();
+					if(count==0){
+				$('.hidden_image').css("width",w*0.6);	
+						$('.hidden_view').css({
+						"margin-left":w*-0.3,
+						"margin-top":$('.hidden_image').height()*-0.5
+				})
+					}else{
+				$('.hidden_view').css({
+						"margin-left":w*-0.5,
+						"margin-top":$('.hidden_image').height()*-0.5
+				})		
+					}
+				count++;
+				event.preventDefault();
+				$('.hidden').on("click",function(){
+					$(this).hide();
+				})
+			})
+			
+			}
+			
+			
+		</script>
+	</body>
+</html>

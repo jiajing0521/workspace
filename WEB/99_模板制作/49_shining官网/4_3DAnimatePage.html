@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>4_3DAnimatePage.</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<style type="text/css">
+			#content{
+				width: 100%;
+				height: 100%;
+			}
+			#c_top{
+				width: 100%;
+				height: 580px;
+				background-color: rgba(0,0,0,0.9);
+				border: 1px solid white;
+				text-align: center;
+				position: relative;
+			}
+			@media only screen and (max-width: 1127px) {
+				#c_top{
+					width: 100%;
+					height: auto;
+				}
+			}
+			@media only screen and (max-width: 640px){
+				#content{
+					padding-top: 67.19px;
+				}
+			}
+			#ct_link{
+				max-width: 1127px;
+				max-height: 580px;
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+				margin: 0 auto;
+			}
+			#ct_img{
+				width: 100%;
+				height: 100%;
+			}
+			#ct_stop{
+				width: 4%;
+    				left: 48%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50% ,-50%);
+			}
+			#c_text{
+				width: 100%;
+				height: 44px;
+				background-color: rgba(0,0,0,0.7);
+				color: #b4b4b4;
+				font-size: 20px;
+				line-height: 44px;
+				position: absolute;
+				bottom: 0;
+			}
+			#c_bottom{
+				text-align: center;
+			}
+			#c_pic{
+				width: 100%;
+				height: 100%;
+				max-width: 1127px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			#list{
+				width: 31%;
+				height: 30%;
+				float: left;
+				margin: 1%;
+			}
+			#list a{
+				display: inline-block;
+				position: relative;
+				width: 100%;
+				height: 100%;
+				line-height: 0;
+				cursor: pointer;
+			}
+			#list a img{
+				width: 100%;
+				height: 100%;
+			}
+			#list a #c_play{
+				width: 8%;
+				height: 15%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			#list p{
+				padding-top: 25px;
+			}
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(3).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(3).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+		<script type="text/javascript">
+			//内容部分
+			$(function(){
+				$("#c_bottom #list a").mouseover(function(){
+					$("#c_bottom #list a #c_play").eq($("#c_bottom #list a").index(this)).attr("src","img/img4/play_small_b.png");
+				});
+				$("#c_bottom #list a").mouseout(function(){
+					$("#c_bottom #list a #c_play").eq($("#c_bottom #list a").index(this)).attr("src","img/img4/play_small_a.png");
+				});
+				$("#c_bottom #list a").click(function(){
+					$("#ct_img").attr("src","img/img4/"+($("#c_bottom #list a").index(this)+1)+".jpg");
+				});
+			});
+		</script>
+	
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html" class="active">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html" class="active">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div id="c_top">
+					<a href="###" id="ct_link">
+						<img id="ct_img" src="img/img4/2-150Z2105915292.jpg"/>
+						<img id="ct_stop" src="img/img4/play.png"/>
+					</a>
+					<p id="c_text">Sichuan Province-Commercial Rea</p>
+				</div>
+				<div id="c_bottom">
+					<div id="c_pic">
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/1.jpg"/>
+								<img id="c_play" src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/2.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/3.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/4.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/5.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/6.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/7.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+						<div id="list">
+							<a href="###">
+								<img src="img/img4/8.jpg"/>
+								<img id="c_play"  src="img/img4/play_small_a.png"/>
+							</a>
+							<p>Commercial Real Estate-2014-10</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

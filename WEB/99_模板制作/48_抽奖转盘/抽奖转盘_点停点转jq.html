@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖转盘_点停点转jq</title>
+		</script>
+		<!-- 这里是css部分 -->
+		<style>
+			#bg {
+				width: 650px;
+				height: 600px;
+				margin: 0 auto;
+				background: url(img/turntable-bg.jpg) no-repeat;
+				position: relative;
+			}
+			
+			img:nth-of-type(1) {
+				position: absolute;
+				z-index: 10;
+				top: 155px;
+				left: 247px;
+			}
+			
+			img:nth-of-type(2) {
+				position: absolute;
+				z-index: 5;
+				top: 60px;
+				left: 116px;
+			}
+		</style>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		    $(function(){
+			    	var timer = null;
+			    	var timer1 = null;
+			    	var count = 0;
+			    	var nowRotate = 0;
+				var speed = 0;
+			    	$("#img1").click(function(){
+			    		count++;
+				    	var a = $().rand(10,15);
+			    		if(count%2==1){
+			    			clearInterval(timer1);
+				    		clearInterval(timer);
+				    		timer = setInterval(function(){
+				    			speed += a;
+				    			$("#img2").css("transform","rotate("+speed+"deg)");
+				    		},10);
+			    		}else{
+			    			clearInterval(timer);
+			    			console.log(speed);
+			    			var i = a;
+			    			clearInterval(timer1);
+			    			timer1 = setInterval(function(){
+				    			if (i <=0) {
+				    				clearInterval(timer1);
+				    				nowRotate = speed;
+				    				$().panduan(nowRotate);
+				    			} else{
+				    				$("#img2").css("transform","rotate("+speed+"deg)");
+				    				i -=0.03;
+				    				speed += i;
+				    			}
+				    		},10);
+			    		}
+			    	});
+			    	//判断函数
+				$.fn.extend({
+					"panduan": function(du){
+						if (du%360>0&&du%360<=360/7) {
+							alert("恭喜你，免单4999元");
+						} else if ((du%360>360/7) && du%360<=360/7*2) {
+							alert("恭喜你，免单50元");
+						} else if ((du%360>360/7*2) && du%360<=360/7*3) {
+							alert("恭喜你，免单10元");
+						} else if ((du%360>360/7*3) && du%360<=360/7*4) {
+							alert("恭喜你，免单5元");
+						} else if ((du%360>360/7*4) && du%360<=360/7*5) {
+							alert("恭喜你，免分期服务费");
+						} else if ((du%360>360/7*5) && du%360<=360/7*6) {
+							alert("恭喜你，提高白条额度");
+						} else if ((du%360>360/7*6) && du%360<=360/7*7) {
+							alert("很遗憾，未中奖");
+						}
+					}
+				});
+				//万能随机函数
+				$.fn.extend({
+					"rand": function(min,max){
+						return Math.floor(Math.random()*(max+1-min)+min);
+					}
+				});
+		    });
+		</script>
+	</head>
+	<body>
+		<!-- 这里是HTML结构部分 -->
+		<div id="bg">
+			<img src="img/pointer.png" alt="pointer" id="img1">
+			<img src="img/turntable.png" alt="turntable" id="img2">
+		</div>
+	</body>
+</html>

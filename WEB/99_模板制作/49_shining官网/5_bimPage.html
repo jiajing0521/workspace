@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5_bimPage</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<style type="text/css">
+			#content{
+				width: 100%;
+				overflow: hidden;
+			}
+			#content>div{
+				width: 100%;
+				height: 665px;
+			}
+			#part1,#part3,#part5{
+				background-color: #e5e5e5;
+			}
+			#cp1{
+				max-width: 980px;
+			    width: 75%;
+			    height: 100%;
+			    margin: 0 auto;
+			    position: relative;
+			}
+			span{
+				color: #616161;
+			    font-size: 20px;
+			}
+			#content p{
+				font-size: 16px;
+			}
+			.num{
+				color: #616161;
+			    border: 1px solid #616161;
+			    border-radius: 6px;
+			    padding: 0 5px;
+			    margin-right: 5px;
+			}
+			#content p{
+				width: 40%;
+			    margin: 15px 0px;
+			    line-height: 30px;
+			}
+			#cp1_right{
+				position: absolute;
+			    bottom: -5px;
+			    right: 0;
+			    width: 350px;
+			    right: -50px;
+			    /*z-index: -1;*/
+			}
+			#cp1_right img,#cp2_right img,#cp3_right img,#cp3_right img,#cp5_right img{
+				width: 100%;
+			}
+			#cp1_left{
+				zoom: 1;
+			    padding-top: 170px;
+			}
+			#cp1_left div{
+				width: 40%;
+			}
+			#cp1_left div img{
+				width: 30%;
+			}
+			#cp1_left .cp2_img img{
+				width: 45%;
+			}
+			
+			#cp2_right{
+				position: absolute;
+			    top: 0;
+			    right: 0;
+			    width: 350px;
+			    right: -5px;
+			    z-index: -1;
+			}
+			.cp3_left{
+				padding-left: 35%;
+			}
+			#part3 .cp3_img{
+				width: 150%;
+			}
+			#cp3_right{
+				position: absolute;
+			    bottom: -5px;
+			    width: 400px;
+			    left: -95px;
+			    /*z-index: -1;*/
+			}
+			.cp4_left{
+				padding-left: 150px;
+			}
+			#cp4_right{
+				position: absolute;
+			    top: 0;
+			    width: 400px;
+			    left: -43px;
+			    z-index: -99;
+			    z-index: -1;
+			}
+			#part4 .cp4_img{
+				width: 100%;
+			}
+			#part4 .cp4_img img{
+				display: block;
+				padding: 5px;
+			}
+			#part5 .cp5_left{
+				padding-top: 100px;
+			}
+			#part5 #cp5_right{
+				position: absolute;
+			    width: 357px;
+			    right: -3px;
+			    top: 0;
+			}
+			@media screen and (max-width: 960px) and (min-width: 640px){
+				#cp1{
+					max-width: 600px;
+				    width: 85%;
+				    height: 100%;
+				}
+				#cp1_left div {
+				    width: 60%;
+				}
+			}
+			@media screen and (max-width: 639px){
+				#content>div{
+					height: 500px;
+				}
+				#cp1{
+				    width: 95%;
+				}
+				#cp1_left div {
+				    width: 80%;
+				}
+				span{
+					color: #616161;
+				    font-size: 16px;
+				}
+				#content p{
+					font-size: 12px;
+					line-height: 12px;
+				}
+				#cp1_left .cp2_img img {
+				    width: 45%;
+				}
+				#cp1_right{
+				    width: 270px;
+				    right: -80px;
+				}
+				
+				#cp2_right{
+				    width: 270px;
+				    right: -45px;
+				}
+				#cp3_right{
+				    width: 280px;
+				    left: -95px;
+				}
+				#cp4_right{
+				    width: 284px;
+				    left: -60px;
+				}
+				#part5 #cp5_right{
+				    width: 275px;
+				    right: -43px;
+				}
+			}
+				
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(4).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(4).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+		<script type="text/javascript">
+			//内容部分
+			window.onload = function(){
+				var moveTop = 0;
+				var timer = null;
+				document.addEventListener("mousewheel",gunlun,false);
+				document.addEventListener("DOMMouseScroll",gunlun,false);
+				function gunlun(ev){
+					var e = ev || window.event;
+					var h = $("#cp1").height();
+					var upDown = e.wheelDelta ? e.wheelDelta < 0 : e.detail > 0;
+					if(upDown){
+						console.log("向下",moveTop);
+						moveTop = document.body.scrollTop + h;
+					}else{
+						console.log("向上",moveTop);
+						moveTop = document.body.scrollTop - h;
+					}
+					ev.preventDefault();
+					clearTimeout(timer);
+					timer = setTimeout(function(){
+//						document.body.scrollTop = moveTop;
+						$("body").animate({
+							scrollTop : moveTop
+						},500)
+					},500)
+				}
+				
+			}
+			
+		</script>
+	
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html" class="active">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div id="part1">
+					<div id="cp1">
+						<div id="cp1_left">
+							<span class="num">1</span>
+							<span>MODEL COMPLETION</span>
+							<p>Establishing and creating the visible and multi-dimension Architecture, Structural and MEP</p>
+							<div>
+								<img src="img/img5/BIM-p1-1.png"/>
+								<img src="img/img5/BIM-p1-2.png"/>
+								<img src="img/img5/BIM-p1-3.png"/>
+							</div>
+						</div>
+						<div id="cp1_right">
+							<img src="img/img5/building1-half-t.png"/>
+						</div>
+					</div>
+				</div>
+				<div id="part2">
+					<div id="cp1">
+						<div id="cp1_left">
+							<span class="num">2</span>
+							<span>CLASH DETECTION</span>
+							<p>Completing the clash detection among various design parties,engineers and even different organisations in con struction drawings.</p>
+							<div class="cp2_img">
+								<img src="img/img5/BIM-p2-1.jpg"/>
+								<img src="img/img5/BIM-p2-2.jpg"/>
+							</div>
+						</div>
+						<div id="cp2_right">
+							<img src="img/img5/building1-half-b.png"/>
+						</div>
+					</div>
+				</div>
+				<div id="part3">
+					<div id="cp1">
+						<div id="cp1_left" class="cp3_left">
+							<span class="num">3</span>
+							<span>MEP INTEGRATION</span>
+							<p>Profoundly completing the pipeline integration, design coordination and intra-organisational cooperation between Plumbing, HVAC and Electrical engineering.</p>
+							<div class="cp3_img">
+								<img src="img/img5/BIM-p3-1.jpg"/>
+								<img src="img/img5/BIM-p3-2.jpg"/>
+							</div>
+						</div>
+						<div id="cp3_right">
+							<img src="img/img5/building2-half-t.png"/>
+						</div>
+					</div>
+				</div>
+				<div id="part4">
+					<div id="cp1">
+						<div id="cp1_left" class="cp5_left">
+							<span class="num">4</span>
+							<span>CURTAIN WALL REMEDYING</span>
+							<p>Creating the abnormity wall based on parametric design tools, and completing detailed curtain wall nodes visibly.</p>
+							<div class="cp4_img">
+								<img src="img/img5/BIM-p4-1.jpg"/>
+								<img src="img/img5/BIM-p4-2.jpg"/>
+							</div>
+						</div>
+						<div >
+							<img id="cp4_right" src="img/img5/building2-half-b.png"/>
+							<img id="cp1_right"src="img/img5/building3-half-t.png"/>
+						</div>
+					</div>
+					
+				</div>
+				<div id="part5">
+					<div id="cp1">
+						<div id="cp1_left">
+							<span class="num">5</span>
+							<span>BIM CONSULTING</span>
+							<p>To help you to precisely know what is BIM? How BIM use? When and who is suitably to implement BIM?</p>
+						</div>
+						<div id="cp5_right">
+							<img src="img/img5/building3-half-b.png"/>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

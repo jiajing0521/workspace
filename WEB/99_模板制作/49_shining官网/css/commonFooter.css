@@ -1,0 +1,14 @@
+#footer{
+	width: 100%;
+	margin-top: 50px;
+	font-size: 0.8em;
+	text-align: center;
+}
+#f_top,#f_center,#f_bottom{
+	width: 100%;
+	margin-bottom: 10px;
+}
+#f_bottom{
+	width: 100%;
+	padding-bottom: 30px;
+}

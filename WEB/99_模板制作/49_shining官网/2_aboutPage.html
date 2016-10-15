@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2_aboutPage.html</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<style type="text/css">
+			#content{
+				width: 100%;
+				height: 100%;
+				background-image: url(img/img2/world_map.png);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-color: #E3E3E3;
+				overflow: hidden;
+			}
+			#c_text{
+				padding-left: 50px;
+				width: 600px;
+				padding-top: 80px;
+			}
+			#c_text .ct_title{
+				font-size: 25px;
+				margin-left: 20px;
+			}
+			#c_text .ct_text{
+				margin-left: 80px;
+				padding-top: 30px;
+				line-height: 2em;
+			}
+			#c_pic{
+				margin-top: 30px;
+				padding-left: 50px;
+				width: 100%;
+			}
+			#c_pic ul{
+				overflow: hidden;
+			}
+			#c_pic li{
+				float: left;
+				height: 75px;
+				margin-right: 40px;
+				margin-bottom: 20px;
+			}
+			#c_pic li img{
+				width: 100%;
+			}
+			@media only screen and (max-width: 640px){
+				#content{
+					padding-top: 67.19px;
+				}
+				#c_text{
+					padding-left: 0;
+					width: 100%;
+				}
+				#c_pic{
+					padding-left: 0;
+				}
+			}
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(1).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(1).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html" class="active">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div id="c_text">
+					<p class="ct_title">About Us</p>
+					<p class="ct_text">Shanghai Shining is a creative corporation focused on helping architects and owners turn their construction from design stages into visual images or videos, perfectly showing the essence of construction.</p>
+					<p class="ct_text">Since 1998, we have finished more than 20000 architectural 3D visualizations for nearly 2000 architect firms both at home and abroad. We have used 3D technology, photography, graphic art, and architectonic to provide clients with services such as CG images, CG animations, BIM and 3D products.</p>
+				</div>
+				<div id="c_pic">
+					<ul>
+						<li><img src="img/img2/aedas.png"/></li>
+						<li><img src="img/img2/gensler.png"/></li>
+						<li><img src="img/img2/bdp.png"/></li>
+						<li><img src="img/img2/ch2mhill.png"/></li>
+						<li><img src="img/img2/benoy.png"/></li>
+						<li><img src="img/img2/sasaki.png"/></li>
+						<li><img src="img/img2/edsa.png"/></li>
+						<li><img src="img/img2/kpf.png"/></li>
+					</ul>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

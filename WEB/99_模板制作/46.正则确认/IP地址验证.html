@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IP地址验证</title>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value=""  placeholder="IP地址"/>
+		<input type="button" name="" id="btn" value="保存" />
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+			var txt = document.getElementById("txt");
+			var btn = document.getElementById("btn");
+			var div1 = document.getElementById("div1");
+			btn.onclick = function(){
+				var str = txt.value;
+				//要求输入IP地址
+				var re = /^([1-9]|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])(\.([0-9]|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])){3}$/;
+				//^  $: 开头和结尾
+				if(re.test(str)){
+					div1.innerHTML = "恭喜你";
+				}else{
+					div1.innerHTML = "请输入正确的IP地址";
+				}
+			}
+			//方法1：
+//			btn.onclick = function() {
+//				var str = i1.value;
+//				var re = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/
+//				if(re.test(str)) {
+//					if(RegExp.$1 < 256 && RegExp.$2 < 256 && RegExp.$3 < 256 && RegExp.$4 < 256) {
+//						alert("恭喜你");
+//					} else {
+//						alert("请输入正确的IP地址");
+//					}
+//				} else {
+//					alert("请输入正确的IP地址");
+//				}
+//			}
+		</script>
+	</body>
+</html>

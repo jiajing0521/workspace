@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>6_contectPagr</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonHeader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commonFooter.css"/>
+		<style type="text/css">
+			#content{
+				width: 100%;
+				background-image: url(img/img6/contact_point_bg.png);
+				background-repeat: no-repeat;
+				background-color: #E3E3E3;
+				text-align: center;
+			}
+			#content div{
+				padding-top: 40px;
+			}
+			#content p,#content img{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			#content #c_top{
+				padding-top: 40px;
+			}
+			#c_top p:first-child,#c_center p:first-of-type{
+				font-size: 20px;
+				font-weight: bold;
+			}
+			#c_bottom{
+				width: 90%;
+				margin: 0 auto;
+			}
+			#c_bottom div{
+				display: inline-block;
+				margin: 10px;
+			}
+			#c_bottom .div2{
+				padding-left:  80px;
+				padding-right:  40px;
+			}
+			#bg{
+				width: 100%;
+				height: auto;
+			}
+			#bg img{
+				width: 100%;
+				height: 100%;
+			}
+			@media only screen and (max-width: 640px) {
+				#content{
+					padding-top: 67.19px;
+				}
+				#c_bottom .div2{
+					padding-left: 0;
+					padding-right:  0;
+				}
+			}
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				var count = 0;
+				var optionShowTimer;
+				var arr = ["mail","facebook","youtube","linkedln","twitter"]
+				//导航栏事件
+				$("#nav1Right a").mouseover(function(){
+					$("#nav1Right a").attr("class","");
+					$(this).attr("class","active");
+					$("#nav1Right a").eq(5).attr("class","active");
+				});
+				$("#nav1Right a").mouseout(function(){
+					$("#nav1Right a").attr("class","");
+					$("#nav1Right a").eq(5).attr("class","active");
+				});
+				//导航栏点击事件
+				$("#nav2Right a").click(function(){
+					count++;
+					if (count%2==1) {
+						$("#nav2RightOption").show();
+						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption").animate({
+							height:250,
+							transition:"all 2s"
+						})
+					} else{
+						$("#nav2RightOption").hide(1000);
+					}
+				});
+				//底部事件
+				$("#footer img").mouseover(function(){
+					$(this).attr("src","img/public/"+arr[$("#footer img").index(this)]+"_h.jpg");
+				});
+				$("#footer img").mouseout(function(){
+					$(this).eq($(this).index()).attr("src","img/public/"+arr[$("#footer img").index(this)]+".jpg");
+				});
+			});
+			
+		</script>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="wrap">
+			<div id="header">
+				<div id="nav1">
+					<div id="nav1Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<ul id="nav1Right" class="clearfloat">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html" class="active">Contact</a></li>
+					</ul>
+				</div>
+				<div id="nav2">
+					<div id="nav2Logo">
+						<a href="###"><img src="img/public/logo.png"/></a>
+					</div>
+					<div id="nav2Right">
+						<a href="###"><img src="img/public/nav2Right.png"/></a>
+					</div>
+					<ul id="nav2RightOption" class="">
+						<li><a href="1_homePage.html">Home</a></li>
+						<li><a href="2_aboutPage.html">About</a></li>
+						<li><a href="3_renderingPage.html">Rendering</a></li>
+						<li><a href="4_3DAnimatePage.html">3D Animation</a></li>
+						<li><a href="5_bimPage.html">Bim</a></li>
+						<li><a href="6_contectPage.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div id="c_top">
+					<p>Contacts:</p>
+					<p>Yuuya Rin</p>
+				</div>
+				<div id="c_center">
+					<img src="img/img6/contact_mail.jpg"/>
+					<p>Email: </p>
+					<p>feng93115@126.com</p>
+				</div>
+				<div id="c_bottom">
+					<div class="div1">
+						<img src="img/img6/contact_phone.png"/>
+						<p>+86 21 6598 6866-304 </br>+86 21 6598 6866-304</p>
+					</div>
+					<div class="div2">
+						<img src="img/img6/iphone.png"/>
+						<p>+86 138 1690 3400</p>
+					</div>
+					<div class="div3">
+						<img src="img/img6/contact_add.png"/>
+						<p>1-5F.creative center building,No.2,1147 Lane, </br>
+							Siping Road,Yangpu District,Shanghai
+ 						</p>
+					</div>
+				</div>
+				
+				<li id="bg">
+					<img src="img/img6/contact_place.png"/>
+				</li>
+			</div>
+			<div id="footer">
+				<div id="f_top">
+					<a href="###"><img src="img/public/mail.jpg"/></a>
+				</div>
+				<div id="f_center">
+					<a href="###"><img src="img/public/facebook.jpg"/></a>
+					<a href="###"><img src="img/public/youtube.jpg"/></a>
+					<a href="###"><img src="img/public/linkedln.jpg"/></a>
+					<a href="###"><img src="img/public/twitter.jpg"/></a>
+				</div>
+				<div id="f_bottom">
+					<p>Copyright © 1998-2015 shining Group</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
