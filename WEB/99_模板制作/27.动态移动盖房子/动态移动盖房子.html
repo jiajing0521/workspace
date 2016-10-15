@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态移动盖房子</title>
+	</head>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 600px;
+				height: 600px;
+				border: 1px solid #0000FF;
+				margin: 0 auto;
+				position: relative;
+			}
+			li{
+				width: 300px;
+				height: 15px;
+				/*border-left: 1px red solid;*/
+				list-style: none;
+				position: absolute;
+				/*bottom: 0;*/
+				/*left: 0;*/
+				overflow: hidden;
+			}
+			#all div{
+				width: 15px;
+				height: 15px;
+				float: left;
+				border: 1px red solid;
+				border-left: none;
+				box-sizing: border-box;
+			}
+			#all div:first-child{
+				border-left: 1px red solid;
+				box-sizing: border-box;
+			}
+		</style>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var lis = document.getElementsByTagName("li");
+			var all = document.getElementById("all");
+			var divs = document.querySelectorAll("li div");
+			//小块个数
+			var divCount = 20;
+			//当前运动li下标
+			var index = 39;
+			//每条li运动定时器
+			var liMoveTimer = null;
+			var liHeight = 15;
+			var saveLeft;
+			var saveTop;
+			var saveWidth;
+			//1......创建所有
+			createAll();
+			//2......每条li运动函数
+			liMove();
+			//3......点击时屏幕时，当前li运动停止，出现下一个li运动
+			window.onclick = function(){
+				//当前li运动停止
+				clearInterval(lis[index].timer);
+				//获取当前运动li宽度和li+1宽度
+				if(lis[index].offsetWidth == 0){
+					alert("game over");	
+					clearInterval(lis[index].timer);
+					location.replace(document.referrer);
+				}
+				//判断停止的位置和屏幕li位置
+				console.log(index);
+				if(index < 39){
+					
+					var downLeft = lis[index+1].offsetLeft;
+					var upLeft = lis[index].offsetLeft;
+					var cha = downLeft - upLeft;
+					var count = cha/15;
+					//如果下面的左边距大于上面的左边距
+					if(cha > 0){
+						if(downLeft > saveWidth + upLeft){
+							alert("game over");	
+							clearInterval(lis[index].timer);
+							location.replace(document.referrer);
+						}
+						if(lis[index].offsetWidth > lis[index+1].offsetWidth){
+							lis[index].style.width = lis[index+1].clientWidth+ "px";
+						}
+						lis[index].style.left = downLeft + "px";
+						lis[index].style.width = lis[index].offsetWidth - cha + "px";
+//						for(var i = 0; i < count; i++){
+//							divs[i].parentNode.removeChild(divs[0]);
+//						}
+					}else{
+						if(upLeft > saveWidth + downLeft){
+							alert("game over");	
+							clearInterval(lis[index].timer);
+							location.replace(document.referrer);
+						}
+						lis[index].style.width = lis[index+1].clientWidth + cha + "px";
+					}
+					saveLeft = upLeft;
+					saveTop = lis[index].offsetTop;
+					saveWidth = lis[index].offsetWidth;
+					var liWidth = lis[index].offsetWidth;
+//					if(lis[index].offsetWidth == lis[index+1].offsetWidth){
+//						if(lis[index].offsetLeft != lis[index+1].offsetLeft){
+//							alert("game over");
+//							clearInterval(lis[index].timer);
+//							location.replace(document.referrer);
+//						}
+//					}
+				}
+				index--;
+				if(index < 0){
+					alert("game over");
+					location.replace(document.referrer);
+				}else{
+					//出现下一个li运动
+					liMove();
+				}
+			}
+			
+			
+			
+			
+			//随机函数
+			function rand(min,max){
+				return Math.floor(Math.random()*(max + 1 - min) + min);
+			}
+			//创建所有
+			function createAll(){
+				for (var i = 0; i < divCount*2; i++){
+					var newLi = document.createElement("li");
+//					newLi.style.display = "none";
+					all.appendChild(newLi);
+					for(var j = 0; j < divCount; j++){
+						var newDiv = document.createElement("div");
+						newLi.appendChild(newDiv);
+						
+//						newDiv.style.backgroundColor = "rgb("+ rand(1,255) + "," + rand(1,255) + "," + rand(1,255) + ")"; 
+					}
+				}
+			}
+			//遍历所有li
+			for(var i = 39; i >= 0; i--){
+				lis[i].timer = null;
+			}
+			//每条li运动函数
+			function liMove(){
+				var speed = 15;
+				lis[index].style.left = saveLeft + "px";
+				lis[index].style.top = saveTop + "px";
+				lis[index].style.width = saveWidth + "px";
+				clearInterval(lis[index].timer);
+				lis[index].timer = setInterval(function(){
+					lis[index].style.display = "block";
+					lis[index].style.top = liHeight*index +"px";
+					if(lis[index].offsetLeft >= all.clientWidth - lis[index].offsetWidth || lis[index].offsetLeft <= 0){
+						speed = -speed;
+					}
+					lis[index].style.left = lis[index].offsetLeft - speed + "px";
+				},80)
+			}
+		</script>
+	</body>
+</html>

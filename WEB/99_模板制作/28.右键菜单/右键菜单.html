@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>右键菜单</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				position: relative;
+				/*height: 700px;*/
+			}
+			ul,li{
+				list-style: none;
+				width: 100px;
+				height: 20px;
+				background-color: red;
+				color: white;
+				line-height: 20px;
+				text-align: center;
+				transition: all 1s;
+				cursor: pointer;
+			}
+			div{
+				position: absolute;
+			}
+			.active{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ulNum = 4;
+			var listNum = 5;
+			var newMenu;
+			var newBox;
+			var saveLeft;
+			var saveTop;
+			var count = 0;
+			var a;
+			var b;
+			var uls = document.getElementsByTagName("ul");
+			var lis = document.getElementsByTagName("li");
+			
+			//鼠标点击右键时，在鼠标的相应位置创建菜单栏
+			document.oncontextmenu = function(){
+				a = 0;
+				b = 0;
+				count++;
+				//第一次点击右键时创建主菜单和子菜单
+				if(count == 1){
+					//创建ul菜单
+					createMenu();
+					createList();
+				}
+				//设置主菜单位置
+				getUlPos();
+				//子菜单鼠标移入移出时，子菜单显示或隐藏
+				newBox.onmouseover = function(){
+					newBox.style.display = "block";
+				}
+				newBox.onmouseout = function(){
+					newBox.style.display = "none";
+				}
+				//鼠标移到每个主菜单上时，变背景色
+				for(var i = 0; i < ulNum; i++){
+					uls[i].className = "";
+					uls[i].index = i;
+					uls[i].onmouseover = function(){
+						this.className = "active";
+						getLiPos(this.index);
+					}
+					uls[i].onmouseout = function(){
+						this.className = "";
+					}
+				}
+				//主菜单鼠标移入移出时，子菜单显示或隐藏
+				newMenu.onmouseover = function(){
+					newBox.style.display = "block";
+				}
+				newMenu.onmouseout = function(){
+					newBox.style.display = "none";
+				}
+				return false;
+			}
+			//创建ul函数
+			function createMenu(){
+				newMenu = document.createElement("div");
+				document.body.appendChild(newMenu);
+				for(var i = 0; i < ulNum; i++){
+					var newUl = document.createElement("ul");
+					newUl.innerHTML = "菜单" + i;
+					newMenu.appendChild(newUl);
+				}
+			}
+			//获取当前鼠标位置，使新建的菜单在其位置上
+			function getUlPos(){
+				var e = event || window.event;
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+				if(newMenu.offsetWidth > window.innerWidth - mouseX){
+					newMenu.style.left = mouseX - newMenu.offsetWidth + "px";
+					a = 1;
+				}else{
+					newMenu.style.left = mouseX + "px";
+				}
+				if(newMenu.offsetHeight > window.innerHeight - mouseY){
+					newMenu.style.top = mouseY - newMenu.offsetHeight + "px";
+					b = 1;
+				}else{
+					newMenu.style.top = mouseY + "px";
+				}
+				//保存主菜单的位置
+				saveLeft = newMenu.offsetLeft;
+				saveTop = mouseY;
+			}
+			//创建子菜单
+			function createList(){
+				newBox = document.createElement("div");
+				document.body.appendChild(newBox);
+				for(var i = 0; i < listNum; i++){
+					var newLi = document.createElement("li");
+					newLi.innerHTML = "子菜单" + i;
+					newBox.appendChild(newLi);
+					newBox.style.display = "none";
+				}
+			}
+			//使新建的子菜单在其位置上，变背景色
+			function getLiPos(index){
+				newBox.style.position = "absolute";
+				if(a == 1){
+					newBox.style.left = saveLeft - newMenu.offsetWidth + "px";
+				}else{
+					newBox.style.left = saveLeft + newMenu.offsetWidth + "px";
+				}
+				if(b == 1){
+					console.log(1);
+					newBox.style.top = saveTop -newMenu.offsetHeight- uls[index].offsetHeight * (ulNum-index) +"px";
+				}else{
+					console.log(2);
+					console.log(saveTop);
+					newBox.style.top = saveTop + uls[index].offsetHeight * index +"px";
+				}
+				for(var i = 0; i < listNum; i++){
+					lis[i].onmouseover = function(){
+						this.className = "active";
+					}
+					lis[i].onmouseout = function(){
+						this.className = "";
+					}
+				}
+			}
+			//点击左键时，删除主菜单和子菜单
+			document.onclick = function(ev){
+				if(document.body.hasChildNodes){
+					newMenu.remove();
+					newBox.remove();
+					//点击右键次数清空
+					count = 0;
+					a = 0;
+					b = 0;
+				}
+			}
+		</script>
+	</body>
+</html>

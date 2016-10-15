@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>碰壁反弹</title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				border: 20px solid blue;
+				position: relative;
+			}
+			#div2{
+				width: 50px;
+				height: 20px;
+				border-radius: 10px;
+				background-color: red;
+				/*border: 20px solid blue;*/
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2"></div>
+		</div>
+		<script type="text/javascript">
+			function getId (id){
+				return document.getElementById(id);
+			}
+			var div1 = getId("div1");
+			var div2 = getId("div2");
+			
+			var speed = 1;
+			var timer = null;
+			var hMove = true;
+			var vMove = true;
+			console.log(div1.clientWidth - div2.offsetWidth);
+			console.log(div1.clientHeight - div2.offsetHeight);
+			clearInterval(timer);
+			timer = setInterval(function(){
+				if(hMove == true){
+					if(div2.offsetLeft >= div1.clientWidth - div2.offsetWidth){
+						hMove = false;
+					}
+					div2.style.left = div2.offsetLeft + speed + "px";
+				}else{
+					if(div2.offsetLeft <= 0){
+						hMove = true;
+					}
+					div2.style.left = div2.offsetLeft - speed + "px";
+				}
+				if(vMove == true){
+					if(div2.offsetTop >= div1.clientHeight - div2.offsetHeight){
+						vMove = false;
+					}
+					div2.style.top = div2.offsetTop + speed + "px";
+				}else{
+					if(div2.offsetTop <= 0){
+						vMove = true;
+					}
+					div2.style.top = div2.offsetTop - speed + "px";
+				}
+			},1)
+		</script>
+	</body>
+</html>

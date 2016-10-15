@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>动态移动盖房子_老师版</title>
+	<style type="text/css">
+		#all {
+			width: 800px;
+			height: 500px;
+			border: 1px solid royalblue;
+			position: relative;
+			margin: 0 auto;
+		}
+		.row {
+			position: absolute;
+			overflow: hidden;
+		}
+		.box {
+			width: 20px;
+			height: 20px;
+			border: 1px solid red;
+			box-sizing: border-box;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="all"></div>
+	<script type="text/javascript">
+		var all = document.getElementById("all");
+		//每个小块的高度和宽度
+		var boxH = 20;
+		var boxW = 20;
+		//每行默认20块
+		var boxNum = 20;
+		//all的宽度
+		var allWidth = all.clientWidth;
+		//移动的定时器
+		var moveTimer = null;
+		//移动的速度
+		var speed = boxW;
+		//1......新建每行
+		setRow();
+		//2......点击all时
+		all.onclick = function(){
+			//清除当前移动
+			clearInterval(moveTimer);
+			//获取最后一个元素
+			var allLastChild = all.lastChild;
+			//判断最后一个元素是否存在上一个兄弟节点，如果不存在else，第一次创建，直接创建
+			//如果存在if，获取上一个兄弟节点的left值，和最后节点的left值
+			if (allLastChild.previousElementSibling) {
+				var preLeft = allLastChild.previousElementSibling.offsetLeft;
+				var lasLeft = allLastChild.offsetLeft;
+				//当前行和上一行相差多少left
+				var cha = lasLeft - preLeft;
+				//相差多少块
+				var chaBoxNum = Math.abs(cha)/boxW;
+				if(boxNum - chaBoxNum <= 0){
+					alert("game over!!")
+				}else{
+					//删掉相差的块数
+					for(var i = 0; i < chaBoxNum; i++){
+						//从最后一个元素里删掉最后一个box
+						allLastChild.removeChild(allLastChild.lastChild);
+					}
+					//如果差值小于零，说明最后一个元素在上一个元素的左边，先删除再移动到上一个元素的left位置
+					if(cha < 0){
+						allLastChild.style.left =  preLeft + "px";
+					}
+					//更新最新块数
+					boxNum -= chaBoxNum;
+					//以下同上
+					//boxNum = allLastChild.children.length;
+					//生成新的行
+					setRow();
+				}
+			}else{
+				//新建每行
+				setRow();
+			}
+		}
+		//新建每行
+		function setRow(){
+			//1.1......创建row
+			var newRow = document.createElement("div");
+			newRow.className = "row";
+			//获取all下的子元素,加到第几行
+			var allChidLength = all.children.length;
+			//此句同上
+			//var allChidLength = all.getElementsByClassName("row").length;
+			//设置bottom 为行数*高度
+			newRow.style.bottom = allChidLength * boxH + "px";
+			//设置left 如果没有子元素则为0 如果有则前一行left+每块
+			//判断子集数量，是否是第一行
+			//如果不是第一行if，继续判断停止的元素（all.lastChild）进行判断。
+			if(allChidLength){
+				//移动到临界值点（最左或最右）的时候，新生成的left和最后一个元素left相等
+				if(all.lastChild.offsetLeft + all.lastChild.offsetWidth == all.offsetWidth || all.lastChild.offsetLeft == 0){
+					newRow.style.left = all.lastElementChild.offsetLeft + "px";
+				}else{
+					//如果不在临界点时，判断运动方向
+					//向右时，left为最后一个元素的left加上一个box宽度开始运动
+					if(speed < 0){
+						newRow.style.left = all.lastElementChild.offsetLeft + boxW + "px";
+					}
+					//向左时，left为最后一个元素的left减去一个box宽度开始运动
+					if(speed > 0){
+						newRow.style.left = all.lastElementChild.offsetLeft - boxW + "px";
+					}
+				}
+			//如果是第一行else，left从零开始
+			}else{
+				newRow.style.left = "0px";
+			}
+			//1.2......装小块
+			for(var i = 0; i < boxNum; i++){
+				//......创建xiaokuai
+				var newbox = document.createElement("div");
+				newbox.className = "box";
+				//......把小块装进row
+				newRow.appendChild(newbox);
+			}
+			//1.3......把row装进all
+			all.appendChild(newRow);
+			//1.4......让当前创建的row动起来
+			moveAni(newRow);
+		}
+		//让当前创建的row动起来动画
+		function moveAni(who){
+			//向右移动的最大位置
+//			var maxPianYi = allWidth - who.clientWidth;
+			//此句同上
+			var maxPianYi = allWidth - who.offsetWidth;
+			//向左移动的最大位置
+			var minPianYi = 0;
+			clearInterval(moveTimer);
+			moveTimer = setInterval(function(){
+				//判断临界值，速度取负
+				if (who.offsetLeft >= maxPianYi || who.offsetLeft <= minPianYi) {
+					speed = -speed;
+				}
+				//设置who（每行）时时移动
+				who.style.left = who.offsetLeft - speed + "px";
+			},100)
+		}
+	</script>
+	</body>
+</html>

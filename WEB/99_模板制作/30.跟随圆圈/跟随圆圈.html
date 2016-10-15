@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跟随圆圈</title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				border-radius: 25px;
+				background-color: greenyellow;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var divs = document.getElementsByTagName("div");
+			var count = 10;
+			var i = 0;
+			createDiv();
+			console.log(divs);
+			function createDiv(){
+				for(var i = 0; i < count; i++){
+					var newDiv = document.createElement("div");
+					document.body.appendChild(newDiv);
+					newDiv.style.display = "none";
+				}
+			}
+			document.onmousemove = function(ev){
+				var e = ev || window.event;
+				divs[0].style.display = "block";
+				divs[0].style.left = e.clientX - 50 + "px";
+				divs[0].style.top = e.clientY - 50 + "px";
+				for(var i = count - 1; i > 0; i--){
+					divs[i].style.left = divs[i - 1].offsetLeft + "px";
+					divs[i].style.top = divs[i - 1].offsetTop + "px";
+					divs[i].style.display = "block";
+				}
+			}
+		</script>
+	</body>
+</html>

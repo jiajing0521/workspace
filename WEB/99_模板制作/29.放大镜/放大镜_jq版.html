@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜_jq版</title>
+	<style type="text/css">
+		#min_wrap{
+			border: 1px solid #ccc;
+			position: absolute;
+		}
+		#max_wrap{
+			border: 1px solid #ccc;
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			left: 370px;
+			overflow: hidden;
+			display: none;
+		}
+		
+		#slider{
+			width: 175px;
+			height: 175px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+			background-color: rgba(255,255,0,0.3);
+		}
+		
+		#max_wrap img{
+			position: absolute;
+		}
+	</style>
+	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//以下是放大镜的原理：
+			//布局比例：蒙板的大小/左边边框（小图）的大小 = 右边边框的大小/大图的大小
+			//运算比例：蒙板的移动位置/可移动的最大位置 = - 大图的移动位置/大图可移动最大位置
+			$("#min_wrap").mouseover(function(){
+				$("#slider").show();
+				$("#max_wrap").css("display","block")
+			});
+			$("#min_wrap").mouseout(function(){
+				$("#slider").hide();
+				$("#max_wrap").css("display","none")
+			});
+			$("#min_wrap").mousemove(function(ev){
+				var sliderX = ev.clientX - $("#slider").outerWidth()/2;
+				var sliderY = ev.clientY - $("#slider").outerHeight()/2;
+				var maxX = $("#min_wrap").innerWidth()- $("#slider").outerWidth();
+				var minX = 0;
+				var maxY = $("#min_wrap").innerHeight()- $("#slider").outerHeight();
+				var minY = 0;
+				//判断横向边界
+				if (sliderX > maxX) {
+					sliderX = maxX;
+				} else if(sliderX < minX){
+					sliderX = minX;
+				}
+				//判断纵向边界
+				if (sliderY > maxY) {
+					sliderY = maxY;
+				} else if(sliderY < minY){
+					sliderY = minY;
+				}
+				//蒙板跟随鼠标移动
+				$("#slider").css({
+					left:sliderX,
+					top:sliderY
+				});
+				//求比例（蒙板的移动位置/可移动的最大位置）
+				var biliX = sliderX/maxX;
+				var biliY = sliderY/maxY;
+				//大图跟随移动
+				$("#max_wrap img").css({
+					left:-biliX * ($("#max_wrap img").innerWidth() - $("#max_wrap").outerWidth()),
+					top:-biliY * ($("#max_wrap img").innerHeight() - $("#max_wrap").outerHeight())
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="min_wrap">
+		<img src="min.jpg" />
+		<div id="slider">
+		</div>
+	</div>
+	<div id="max_wrap">
+		<img src="max.jpg"/>
+	</div>
+	</body>
+</html>

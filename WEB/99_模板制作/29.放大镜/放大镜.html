@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style type="text/css">
+		/*左边图片的外框*/
+		.min {
+			width: 350px;
+			height: 350px;
+			border: 1px solid black;
+			float: left;
+			position: relative;
+			margin-left: 100px;
+		}
+		/*右边图片的外框*/
+		.max {
+			width: 350px;
+			height: 350px;
+			float: left;
+			border: 1px solid black;
+			display: none;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.max img {
+			position: absolute;
+		}
+		
+		.fd {
+			display: none;
+			width: 153px;
+			height: 153px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0.3;
+			/*background-color: lightcyan;*/
+			background-color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="min">
+		<img src="img/1.jpg" alt="" />
+		<!--蒙板-->
+		<div class="fd"></div>
+	</div>
+	<div class="max">
+		<img src="img/2.jpg" alt="" />
+	</div>
+	<script type="text/javascript">
+	//以下是放大镜的原理：
+	//布局比例：蒙板的大小/左边边框（小图）的大小 = 右边边框的大小/大图的大小
+	//运算比例：蒙板的移动位置/可移动的最大位置 = - 大图的移动位置/大图可移动最大位置
+		//选择器方法获取页面元素
+		function qs(css){
+			return document.querySelector(css);
+		}
+		var leftDiv = qs(".min");
+		var rightDiv = qs(".max");
+		var fd = qs(".fd");
+		var bigImg = qs(".max img");
+		
+		//鼠标移入左边方块时，蒙板和右边的方块出现
+		leftDiv.onmouseover = function(){
+			fd.style.display = "block";
+			rightDiv.style.display = "block";
+		}
+		//鼠标移出左边方块时，蒙板和右边的方块出现
+		leftDiv.onmouseout = function(){
+			fd.style.display = "none";
+			rightDiv.style.display = "none";
+		}
+		//鼠标在左边小块上移动时
+		leftDiv.onmousemove = function(ev){
+			//获取当前鼠标的位置
+			var e = ev || window.event;
+			var mouseX = e.clientX;
+			var mouseY = e.clientY;
+			//当前移动的横向偏移量
+			var moveX = mouseX - (fd.offsetWidth/2) - leftDiv.offsetLeft;
+			//如果移动的X小于0时，停留在0的位置上
+			if(moveX < 0){
+				moveX = 0;
+			//如果移动的X大于可移动最大值时，停留在可移动最大值的位置上
+			}else if(moveX > leftDiv.clientWidth - fd.offsetWidth){
+				moveX = leftDiv.clientWidth - fd.offsetWidth;
+			}
+			//当前移动的纵向偏移量
+			var moveY = mouseY - (fd.offsetHeight/2) - leftDiv.offsetTop;
+			//如果移动的Y小于0时，停留在0的位置上
+			if(moveY < 0){
+				moveY = 0;
+			//如果移动的Y大于可移动最大值时，停留在可移动最大值的位置上
+			}else if(moveY > leftDiv.clientHeight - fd.offsetHeight){
+				moveY = leftDiv.clientHeight - fd.offsetHeight;
+			}
+			//求得的横向，纵向偏移量赋给蒙板的left，top值
+			fd.style.left = moveX + "px";
+			fd.style.top = moveY + "px";
+			//获取比例(偏移量/可移动最大值)
+			var biliX = moveX/(leftDiv.clientWidth - fd.offsetWidth);
+			var biliY = moveY/(leftDiv.clientHeight - fd.offsetHeight);
+			//大图位移的比例和小图蒙板的位移比例相等
+//			bigImg.style.left = -biliX*100 + "%";//有误差，有待考量
+//			bigImg.style.top = -biliY*100 + "%";//有误差，有待考量
+			bigImg.style.left = -biliX*(bigImg.clientWidth-rightDiv.offsetWidth)+"px"; 
+			bigImg.style.top = -biliY*(bigImg.clientHeight-rightDiv.offsetHeight)+"px";
+		}
+	</script>
+	</body>
+</html>
