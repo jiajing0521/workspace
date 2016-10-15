@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>移入移出变宽1</title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1 = document.getElementById("div1");
+			var timer = null;
+			var speed = 1;
+			div1.onmouseover = function(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if(div1.offsetWidth >= 300){
+						clearInterval(timer);
+					}else{
+						var w = div1.offsetWidth + speed;
+						div1.style.width = w + "px";
+					}
+				},1)
+			}
+			div1.onmouseout = function(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if(div1.offsetWidth <= 100){
+						clearInterval(timer);
+					}else{
+						var w = div1.offsetWidth - speed;
+						div1.style.width = w + "px";
+					}
+				},1)
+			}
+		</script>
+	</body>
+</html>

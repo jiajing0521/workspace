@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习_添加上下方块_老师版</title>
+		<style type="text/css">
+			.div {
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+			}
+			#div1 {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="添加" id="btn1" />
+		<div></div>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn1");
+			var div1 = document.getElementById("div1");
+			var count = 0;
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max + 1 - min) + min);
+			}
+			oBtn.onclick = function() {
+				var newDiv = document.createElement("span");
+				newDiv.setAttribute("class", "div");
+				newDiv.style.backgroundColor = "rgb(" + rand(1, 255) + "," + rand(1, 255) + "," + rand(1, 255) + ")";
+				count++;
+				if(count % 2 == 0) {
+					document.body.appendChild(newDiv);
+				} else {
+					document.body.insertBefore(newDiv, div1);
+				}
+			}
+		</script>
+	</body>
+</html>

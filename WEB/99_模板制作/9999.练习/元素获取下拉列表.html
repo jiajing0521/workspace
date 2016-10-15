@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>元素获取下拉列表</title>
+		<style type="text/css">
+			.all{
+				width: 100px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			#settings{
+				display: inline-block
+				/*line-height: 0;*/
+			}
+			.boxFa{
+				padding-top: 20px;
+				display: none;
+				
+			}
+			.box{
+				border: 1px solid #CCCCCC;
+			}
+			.box a{
+				display: inline-block;
+				width: 100%;
+				text-decoration: none;
+				color: black;
+				padding: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<a href="###" id="settings">设置</a>
+			<div id="boxFa" class="boxFa">
+				<div class="box" id="box">
+					<a href="###">列表1</a>
+					<a href="###">列表2</a>
+					<a href="###">列表3</a>
+					<a href="###">列表4</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var settings = document.getElementById("settings");
+			var boxFa = document.getElementById("boxFa");
+			settings.onmouseover = function(){
+				boxFa.style.display = "block";
+			}
+			settings.onmouseout = function(){
+				boxFa.style.display = "none";
+			}
+			boxFa.onmouseover = function(){
+				boxFa.style.display = "block";
+			}
+			boxFa.onmouseout = function(){
+				boxFa.style.display = "none";
+			}
+//			获取下拉列表下的a
+			var aaaa =document.querySelectorAll(".box a")
+			console.log(aaaa[0]);
+			aaaa[0].onmouseover = function(){
+				aaaa[0].style.backgroundColor = "#38f";
+				aaaa[0].style.color = "white";
+			}
+			aaaa[1].onmouseover = function(){
+				aaaa[1].style.backgroundColor = "#38f";
+				aaaa[1].style.color = "white";
+			}
+			aaaa[2].onmouseover = function(){
+				aaaa[2].style.backgroundColor = "#38f";
+				aaaa[2].style.color = "white";
+			}
+			aaaa[3].onmouseover = function(){
+				aaaa[3].style.backgroundColor = "#38f";
+				aaaa[3].style.color = "white";
+			}
+			
+		</script>
+	</body>
+</html>
