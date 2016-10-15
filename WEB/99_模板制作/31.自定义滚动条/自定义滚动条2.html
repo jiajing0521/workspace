@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义滚动条2</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#all {
+				width: 300px;
+				height: 30px;
+				background-color: #ccc;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			#scroll {
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+			}
+			
+			#div1 {
+				width: 0;
+				height: 0;
+				background-color: black;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="scroll"></div>
+		</div>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var all = document.getElementById("all");
+			var scroll = document.getElementById("scroll");
+			var div1 = document.getElementById("div1");
+			//div1的最大宽度和高度
+			var maxWidth = 500;
+			var maxHeight = 700;
+			scroll.onmousedown = function(ev){
+				var e = ev || window.event;
+				var mouseX = e.clientX;
+				var scrollLeft = scroll.offsetLeft;
+				document.onmousemove = function(ev){
+					var e1 = ev || window.event;
+					var mouseMX = e1.clientX;
+					var pianyi = mouseMX- mouseX;
+					var endPos = scrollLeft + pianyi
+					if(endPos < 0){
+						endPos = 0;
+					}else if(endPos > all.clientWidth - scroll.offsetWidth){
+						endPos = all.clientWidth - scroll.offsetWidth;
+					}
+					scroll.style.left = endPos + "px";
+					//比例=移动的位置/可移动的最大距离
+					var bili = endPos/(all.clientWidth - scroll.offsetWidth);
+					//比例乘以最大宽度和高度
+					div1.style.width = bili * maxWidth + "px";
+					div1.style.height = bili * maxHeight + "px";
+				}
+				document.onmouseup = function(){
+					document.onmousemove= function(){
+						return false;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

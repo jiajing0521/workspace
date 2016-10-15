@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义滚动条1</title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#all{
+			width: 300px;
+			height: 25px;
+			background-color: #ccc;
+			position: relative;
+			
+			margin: 0 auto;
+		}
+		#scroll{
+			width: 20px;
+			height: 20px;
+			background-color: red;
+			position:absolute;
+		}
+	</style>
+	<body>
+		<div id="all">
+		<div id="scroll"></div>
+		</div>
+		<script type="text/javascript">
+			var all = document.getElementById("all");
+			var scroll = document.getElementById("scroll");
+			console.log(scroll);
+			scroll.onmousedown = function(ev){
+				//获取按下时的鼠标位置
+				var e = ev || window.event;
+				var mouseX = e.clientX;
+				//获取按下时的小块位置
+				var scrollLeft = scroll.offsetLeft;
+				document.onmousemove = function(ev1){
+					var e1 = ev1 || window.event;
+					//实时获取鼠标的位置
+					var mouseMX = e1.clientX;
+					//实时鼠标偏移量
+					var pianYi = mouseMX - mouseX;
+					//终点位置 = 起点位置 + 偏移量
+					var endPos = scrollLeft + pianYi;
+					//判断两边边界
+					if(endPos < 0){
+						endPos = 0;
+					}else if(endPos > all.clientWidth - scroll.offsetWidth){
+						endPos = all.clientWidth - scroll.offsetWidth;
+					}
+					scroll.style.left = endPos + "px";
+				}
+				//鼠标抬起时，取消移动事件
+				document.onmouseup = function(){
+					document.onmousemove = function(){
+						return false;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
