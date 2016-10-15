@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全选和反选</title>
+	</head>
+	<body>
+		<div id="div">
+			<input type="checkbox" name="ipt" id="ipt0" value="" />
+			<input type="button" name="all" id="btn_all" value="全选" />
+			<input type="button" name="all" id="btn_opposite" value="反选" />
+	
+			<input type="checkbox" name="ipt" id="ipt1" value="" />
+			<input type="checkbox" name="ipt" id="ipt2" value="" />
+			<input type="checkbox" name="ipt" id="ipt3" value="" />
+			<input type="checkbox" name="ipt" id="ipt4" value="" />
+			<input type="checkbox" name="ipt" id="ipt5" value="" />
+		</div>
+		
+		<script type="text/javascript">
+			var ipt0 = document.getElementById("ipt0");
+			var btn_all = document.getElementById("btn_all");
+			var btn_opposite = document.getElementById("btn_opposite");
+			var ipt = document.getElementsByName("ipt");
+			var div = document.getElementById("div");
+			
+//					全选
+			btn_all.onclick = function(){
+				for(i = 0; i < ipt.length; i++){
+					ipt[i].checked = true;
+				}
+				ipt0.checked = true;
+			}
+//				反选
+			btn_opposite.onclick = function(){
+				for(i = 0; i < ipt.length; i++){
+					if(ipt[i].checked == true){
+						ipt[i].checked = false;
+						ipt[0].checked = false;
+					}else {
+						ipt[i].checked = true;
+					}
+				}
+			}
+			
+			
+//			btn_opposite.onclick = function(){
+//				for(i = 0; i < ipt.length; i++){
+//					if(ipt[0].checked == true){
+//						ipt[i].checked = false;
+//					}else{
+//						for(var j = 1; j < ipt.length; j++){
+//							if(ipt[j].checked == true){
+//								ipt[j].checked = false;
+//							}else{
+//								ipt[j].checked = true;
+//							}
+//						}
+//					}
+//				}
+//			}
+			
+			ipt0.onclick = function(){
+				for(i = 0; i < ipt.length; i++){
+					ipt[i].checked = true;
+				}
+			}
+			div.onclick = function(){
+				if(ipt[1].checked == true && ipt[2].checked == true && ipt[3].checked == true && ipt[4].checked == true && ipt[5].checked == true){
+					ipt[0].checked = true;
+				}else{
+					ipt[0].checked = false;
+				}
+			}
+		</script>
+	</body>
+</html>

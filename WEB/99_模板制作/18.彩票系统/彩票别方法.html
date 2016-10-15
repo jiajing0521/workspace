@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>彩票别方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var arr=new Array();
+//			while (arr.length <= 6) {
+//					var rand = Math.floor(Math.random() * 36)
+//					var temp = true;
+//					for (var i = 0; i < arr.length; i++) {
+//						if(rand == arr[i]){
+//					       temp = false;
+//					       break;
+//			    			}
+//			    		}
+//				    	if(temp){
+//				    		arr.push(rand);
+//				    	}
+//			}
+//			alert.log(arr);
+			var arr = new Array();
+			for(i = 0; i < 8; i++){
+				arr.push(i);
+			}
+			var arr1 = new Array();
+			for(j = 0; j < 7; j++){
+				var rand = arr.splice(Math.floor(Math.random() * arr.length),1)
+				arr1=arr1.concat(rand);
+			}
+			console.log(arr1);
+		</script>
+	</body>
+</html>

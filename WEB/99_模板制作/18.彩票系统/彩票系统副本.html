@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>彩票系统</title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			input{
+				width: 200px;
+				height: 50px;
+				font-size: 30px;
+				color: blue;
+				background-color: #74C8F4;
+			}
+			div{
+				width: 300px;
+				height: 100px;
+				color: blue;
+				font-size: 30px;
+				font-weight: bolder;
+				background-color: #ccc;
+				margin: 20px auto;
+				text-align: center;
+				line-height: 50px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="开始抽取彩票" />
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var div1 = document.getElementById("div1");
+			btn.onclick = function(){
+				//声明彩票数组
+				var arr = new Array();
+				//随机0~35的数，放入数组
+				var num = Math.floor(Math.random() * 8);
+				arr = arr.concat(num);
+				var count = arr.length;
+				//直到取到7个数为止，结束循环
+				while(count < 7){
+					//随机0~35的数，放入数组
+					console.log("0.第" + count + "次进入循环");
+					var num = Math.floor(Math.random() * 36);
+					console.log("1.随机数数数数数数数数数数：" + num);
+					arr = arr.concat(num);
+					console.log("2.随机数放入arr：" + arr);
+					console.log("2.arr个数：" + arr.length);
+					//判断是否重复的开关，重复为0，不重复为1
+					var a = 0;
+					console.log("2.初始a=" + a);
+					//判断数组中的数循环比较
+					for(i = 0;i < arr.length - 1; i++){
+						//判断数组中最后一个数和数组中的数循环比较，相等的话，直接删除最后一个数，并跳出比较循环，重新随机数
+						if(arr[i] == arr[arr.length- 1]){
+							console.log("3.arr[" + i +"]=" + arr[i]);
+							console.log("3.arr[" + (arr.length- 1) +"]=" + arr[arr.length- 1]);
+							arr.pop();
+							a = 0;
+							console.log("3.重复，arr还原：" + arr);
+							console.log("3.重复a=" + a);
+							break;
+						}else{
+						//判断数组中最后一个数和数组中的数循环比较，不相等的话，开关为不重复，继续比较下一个数
+							a = 1;
+							console.log("4.arr[" + i +"]=" + arr[i]);
+							console.log("4.arr[" + (arr.length- 1) +"]=" + arr[arr.length- 1]);
+							console.log("4.不重复a=" + a);
+						}
+					}
+					//全部比较完成后，比较结果为不重复的话，条件数=组长度，继续随机下一个数
+					console.log("5.中间判断结束返回a=" + a);
+					if(a == 1){
+						count = arr.length;
+						console.log("6.随机数" + num + "不重复，放入数组");
+						console.log("6.不重复数组为：" +arr);
+					}
+					console.log("6.此时数组arr为：" +arr);
+				}
+				//循环结束，打印显示结果
+				div1.style.display = "block";
+				div1.innerHTML = "本期彩票中奖数字为：" + arr;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>TAB切换</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #ccc;
+			font-size: 100px;
+			text-align: center;
+			line-height: 200px;
+			display: none;
+		}
+		.current{
+			background-color: skyblue;
+		}
+		.show{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<input class="current" type="button" value="A" />
+	<input type="button" value="B" />
+	<input type="button" value="C" />
+	<div class="show">A</div>
+	<div>B</div>
+	<div>C</div>
+	
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("input");
+		var div1 = document.getElementsByTagName("div");
+//		自己方法：
+		for(var i = 0; i < btn.length; i++){
+			console.log(i);
+			console.log(btn[i])
+			btn[i].onclick = function (){
+				for(var j = 0; j < btn.length; j++){
+					btn[j].className = "";
+					div1[j].className = "";
+					if(btn[j] == this){
+						btn[j].className = "current";
+						div1[j].className = "show";
+					}
+				}
+			}
+		}
+//		方法一：
+//		for(var i=0;i<btn.length;i++){
+//			btn[i].onclick=function(){change(this);}
+//		}
+//		
+//		function change(obj){
+//			for(var i=0;i<btn.length;i++){
+//				if(btn[i]==obj){
+//					btn[i].className="current";
+//					div1[i].className="show";
+//				}
+//				else{
+//					btn[i].className="";
+//					div1[i].className="";
+//				}
+//			}
+//		}
+
+//		方法二：
+//			for(var i = 0; i < btn.length; i++){
+//						console.log(i);
+//						btn[i].abc = i;
+//						btn[i].onclick = function(){
+//							for(var j = 0; j < btn.length; j++){
+//								btn[j].className = "";
+//								div1[j].className = "";
+//							}
+//							this.className = "current";
+//							div1[this.abc].className = "show";
+//						}
+//			}
+	</script>
+	</body>
+</html>

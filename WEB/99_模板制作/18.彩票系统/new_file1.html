@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>彩票系统</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var arr = new Array();
+			while(arr.length < 7){
+				var rand = Math.floor(Math.random() *8  );
+				var temp = true;
+				for(i = 0; i < arr.length; i++){
+					if(rand == arr[i]){
+						temp = false;
+						break;
+					}
+				}
+				if(temp){
+					arr.push(rand);
+				}
+			}
+			console.log(arr);
+			
+		</script>
+	</body>
+</html>

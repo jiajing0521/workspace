@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq版tab切换</title>
+		<style type="text/css">
+			#all div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				display: none;
+			}
+			#all .inputAct{
+				background-color: red;
+			}
+			#all .divAct{
+				display: block;
+			}
+		</style>
+		<script src="jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input").click(function(){
+					//将input的classname清空
+					$("input").attr("class","");
+					//将div的classname清空
+					$("#all div").attr("class","");
+					//设置当前input（$(this)）的classname
+					$(this).attr("class","inputAct");
+					//设置当前div（获取当前input的下角标$(this).index()）的classname
+					$("#all div").eq($(this).index()).attr("class","divAct");
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div id="all">
+			<input class="inputAct" type="button" name="btn1" id="btn1" value="1" />
+			<input type="button" name="btn2" id="btn1" value="2" />
+			<input type="button" name="btn3" id="btn1" value="3" />
+			<div class="divAct">div1</div>
+			<div>div2</div>
+			<div>div3</div>
+		</div>
+	</body>
+</html>

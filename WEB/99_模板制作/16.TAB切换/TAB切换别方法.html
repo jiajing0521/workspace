@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>TAB切换别方法</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #ccc;
+			font-size: 100px;
+			text-align: center;
+			line-height: 200px;
+			display: none;
+		}
+		
+		.current {
+			background-color: skyblue;
+		}
+		
+		.show {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<input name="0" class="current" type="button" value="A" />
+	<input name="1" type="button" value="B" />
+	<input name="2" type="button" value="C" />
+	<div class="show">A</div>
+	<div>B</div>
+	<div>C</div>
+	<script type="text/javascript">
+		var btns = document.getElementsByTagName("input");
+		var divs = document.getElementsByTagName("div");
+		for(i = 0; i < btns.length; i++){
+			this.index = i;
+			btns[i].onclick = function{
+				for(j = 0; j < btns.length; j++){
+					btns.[j].className = "";
+					divs.[j].className = "";
+				}
+				this.className = "current";
+				divs[this.index] = "show";
+				
+			}
+		}
+		//方法三：
+//		for(i = 0; i < btns.length; i++){
+//			btns[i].onclick = function{
+//				for(j = 0; j < btns.length; j++){
+//					btns.[j].className = "";
+//					divs.[j].className = "";
+//				}
+//				this.className = "current";
+//				div.[this.name].className = "show";
+//			}
+//		}
+		
+	</script>
+</body>
+</html>

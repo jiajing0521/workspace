@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全选和反选_老师版</title>
+	</head>
+	<body>
+		<div class="all" id="all">
+			
+			<input type="checkbox" name="inputAll" id="inputAll" value="" />
+			<input type="button" name="" id="btn1" value="全选" />
+			<input type="button" name="" id="btn2" value="反选" />
+			<input type="checkbox" class="inputs"/>
+			<input type="checkbox" class="inputs"/>
+			<input type="checkbox" class="inputs"/>
+			<input type="checkbox" class="inputs" />
+			<input type="checkbox" class="inputs"/>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var all = document.getElementById("all");
+			var inputAll = document.getElementById("inputAll");
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var inputs = document.getElementsByClassName("inputs");
+			
+			btn1.onclick = function(){
+				for(var i = 0;i < inputs.length; i++){
+					inputs[i].checked = true;
+				}
+			}
+			
+			btn2.onclick = function(){
+				for(var i = 0;i < inputs.length; i++){
+					inputs[i].checked = !inputs[i].checked;
+					//上下两部分等价
+//					if(inputs[i].checked = false){
+//						inputs[i].checked = true;
+//					}else{
+//						inputs[i].checked = false;
+//					}
+				}
+			}
+			//计数器
+			var trueCount = 0;
+			//当点击任何东西时，都需要一次判断，判断checked为true的个数
+			all.onclick = function(){
+				for(var i = 0;i < inputs.length; i++){
+					//没有一个属性为true的inputs，计数器加一
+					if(inputs[i].checked == true){
+						trueCount++;
+					}
+					//判断计数器的值是否等于所有inputs的数量
+					//相等即都为true,不等即有不为true的
+					//让全选checked做相应的改变
+					if(trueCount ===inputs.length){
+						inputAll.checked = true;
+					}else{
+						inputAll.checked = false;
+					}
+				}
+				//每次计算完毕,都要把计数器清零，才能下次计算
+				trueCount = 0;
+			}
+		</script>
+	</body>
+</html>

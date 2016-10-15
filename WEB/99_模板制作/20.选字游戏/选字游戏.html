@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选字游戏</title>
+		<style type="text/css">
+			.all{
+				width: 400px;
+				height: 600px;
+        		border: 1px solid black;
+        		margin: 0 auto;
+			}
+			.header{
+				overflow: hidden;
+				font-size: 30px;
+				padding: 30px;
+			}
+			.time{
+				float: left;
+			}
+			.score{
+				float: right;
+			}
+			.middle{
+				text-align: center;
+			}
+			.word{
+				font-size: 200px;
+				padding: 20px 0;
+			}
+			.tips{
+				font-size: 40px;
+			}
+			.footer{
+				overflow: hidden;
+				padding: 35px 0;
+			}
+			.option{
+				float: left;
+				font-size: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="header">
+				<div class="time">时间：10</div>
+				<div class="score">分数：0</div>
+			</div>
+			<div class="middle">
+				<div class="word">红</div>
+				<div class="tips">根据上面的字的颜色从下面选择正确的的字，选择正确自动开始</div>
+			</div>
+			<div class="footer">
+				<div class="option">黄</div>
+				<div class="option">绿</div>
+				<div class="option">黑</div>
+				<div class="option">蓝</div>
+				<div class="option">红</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		    var times = document.querySelector(".time");
+		    var scores = document.querySelector(".score");
+		    var word = document.querySelector(".word");
+		    var options = document.querySelectorAll(".option");
+			var words = new Array("红", "绿", "蓝", "黄", "黑");
+   			var colors = new Array("red", "green", "blue", "yellow", "black");
+		    //中间文字颜色下标
+		    var nowColor;
+		    //选项文字下标
+		    var nowWord;
+		    //倒计时总秒数
+		    var timeCount = 10;
+		    //游戏开始按钮,true为开始，false为结束
+//		    var start = false;
+		    //分数初始化
+		    var score = 0;
+		    var timer = null;
+		    
+		    getWord();
+		    getOption();
+		    //随机函数（数组下标）
+		    function rand (min,max){
+		    		return Math.floor(Math.random()*(max-min+1)+min); 
+		    }
+		    //随机生成下标0~4的数组
+		    function getRandArr (){
+		    		var  randArr = new Array();
+		    		while (randArr.length != 5){
+		    			var tempRand = rand(0,4);
+		    			if(randArr.indexOf(tempRand) == -1){
+		    				randArr.push(tempRand);
+		    			}
+		    		}
+		    		return randArr;
+		    }
+		    //随机中间文字和颜色（通过下标进行匹配）
+		    function getWord (){
+		   	 	//随机生成文字
+		    		word.innerHTML = words[rand(0,4)];
+		    		//随机生成文字颜色
+		    		//保存当前文字颜色的下标，用匹配判断选项文字
+		    		nowColor = rand(0,4);
+		    		word.style.color = colors[nowColor];
+		    }
+		    //随机选项文字和颜色（通过下标进行匹配）
+		    function getOption (){
+		    		//随机生成文字和颜色的0~4下标数组
+		    		var optionWords = getRandArr();
+		    		var optionColors = getRandArr();
+		    		//遍历每个选项，使文字和颜色的分别和随机生成的数组相等
+		    		for(i = 0; i < optionWords.length; i++){
+		    			options[i].innerHTML = words[optionWords[i]];
+		    			options[i].style.color = colors[optionColors[i]];
+		    			//保存当前文字的下标，用匹配判断中间文字颜色
+		    			options[i].index = optionWords[i];
+		    		}
+		    }
+		    //遍历所有选项，点击选项时触发
+		    for(i = 0; i < options.length; i++){
+		    		options[i].onclick = function (){
+		    			//选择正确游戏开始
+		    			if(this.index == nowColor){
+		    				start = true;
+		    				//定时器函数
+		    				getTimer();
+		    				//选择正确，分数+1
+		    				score++;
+		    				scores.innerHTML = "分数：" + score;
+		    				//中间大字和选项文字随机
+		    				getWord();
+		    				getOption();
+		    			//选择错误时，计时停止，游戏停止，并重置
+		    			}else{
+		    				alert("game over!!! 您本次的得分为："+ score);
+		    				//重置函数
+			    			restart();
+		    			}
+		    		}
+		    }
+		    //倒计时时间
+			function getTimer(){
+				//先清空定时器
+			    clearInterval(timer);
+			    timer = setInterval(function(){
+			    		//判断游戏是否开始，start为true就开始
+			    		if(start == true){
+				    		timeCount--;
+				    		//倒计时为0时，停止计时，游戏结束，重置
+				    		if(timeCount < 0){
+				    			clearInterval(timer);
+				    			alert("game over!!!您本次的得分为："+ score);
+				    			//重置函数
+				    			restart();
+				    		}else{
+				    			times.innerHTML = "时间：" + timeCount;
+				    		}
+			    		}
+			    },1000);
+			}
+			//重置函数，分数清零，时间重置
+		    function restart (){
+		    		score = 0;
+		    		scores.innerHTML = "分数：" + score;
+		    		timeCount = 10;
+			    	times.innerHTML = "时间：" + timeCount;
+		    		start = false;
+		    }
+		</script>
+	</body>
+</html>

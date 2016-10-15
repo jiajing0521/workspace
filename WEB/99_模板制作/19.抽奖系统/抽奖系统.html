@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖系统</title>
+	</head>
+	<body>
+		<input type="button" name="" id="btn" value="现在开始抽奖" />
+		
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			//定义一个候选人名单
+//			var arr = new Array("a0","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14","a15","a16","a17","a18","a19","a20","a21");
+			var num = 0;
+			var arr= new Array("于鸿飞","王欢","曲建","尹一光","刘晟鑫","董舒羽","李维旭","张博芝","王林轶","冯豪","付雪冰","聂峰峰","于嘉晨","王嘉静","朱宏林","王博浩","葛冠延","王凯旋","常健","邵洪彬","李威","姜为");
+				btn.onclick = function(){
+					num = Math.floor(Math.random() * arr.length);
+					console.log("中奖者下标为：" + num);
+					alert("恭喜" + arr[num] + ",中奖了！！！！");
+					console.log("中奖名单为：" + arr[num]);
+					arr.splice(num,1);
+					console.log("抽奖后，候选人名单为：" + arr);
+				}
+		</script>
+	</body>
+</html>

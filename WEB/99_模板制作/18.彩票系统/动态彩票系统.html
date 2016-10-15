@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态彩票系统</title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="再来一组" />
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var div1 = document.getElementById("div1");
+			var timer = null;
+			getTimer();
+			btn.onclick = function(){
+				getTimer();
+			}
+			function getRandNum(){
+				var arr = new Array();
+				while (arr.length < 7){
+					var rand = Math.ceil(Math.random()*36);
+					var index = true;
+					for(i = 0;i < arr.length;i++){
+						if (rand == arr[i]){
+							index = false;
+							break;
+						}
+					}
+					if (index == true){
+						arr.push(rand);
+					}
+				}
+				div1.innerHTML = "<p>"+ arr + "</p>";
+			}
+			function getTimer(){
+				var count = 30;
+				clearInterval(timer);
+				var timer = setInterval(function (){
+					if (count <= 0){
+						clearInterval(timer);
+					}else{
+						getRandNum();
+					}
+				count--;
+				},100)
+//				var timer = setInterval(function (){
+//						getRandNum();
+//					},100)
+//				setTimeout(function(){
+//					clearTimeout(timer);
+//				},2000)
+			}
+		</script>
+	</body>
+</html>
