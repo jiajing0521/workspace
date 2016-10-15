@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<title>锅打灰太狼</title>
+	</head>
+	<body>
+		<div id="all">
+			<p id="gameStart">START GAME</p>
+			<p id="gameOver">GAME OVER</p>
+			<img id="bg" src="img/game_bg.jpg"/>
+			<img id="progress" src="img/progress.png"/>
+			<p id="score">0</p>
+		</div>
+		<script type="text/javascript">
+			//获取id函数
+			function getID (id){
+				return document.getElementById(id);
+			}
+			//随机函数
+			function rand (min,max){
+				return Math.floor(Math.random()*(max+1-min)+min)
+			}
+			var gameStart = getID("gameStart");
+			var gameOver = getID("gameOver");
+			var progress = getID("progress");
+			var score = getID("score");
+			var all = getID("all");
+			var progressWidth = progress.offsetWidth;
+			var gameTimer = null;
+			var endTime = 60;
+			var t = 0;
+			var d = 60;
+			var startFlag = false;
+			var wolfLeft = ["11%","36%","65%","11%","38%","68%","15%","43%","70%"];
+			var wolfTop = ["39%","30%","35%","52%","46%","50%","67%","63%","67%"];
+			var randWolf = ["h","x","h","h","h","x"];
+			var randHX = "h";
+			var holl = 0;
+			var newLi = document.createElement("li");
+			all.appendChild(newLi);
+			var bigWolf= document.createElement("img");
+			var timer;
+			var timer1;
+			var scores = 0;
+			//点击开始按钮游戏开始
+			gameStart.onclick = function(){
+				gameStart.style.display = "none"
+				//血条减少函数
+				getProgress();
+				//随机在哪个洞口出现
+				randPos();
+				scores = 0;
+				score.innerHTML = scores;
+			}
+			gameOver.onclick = function(){
+				gameOver.style.display = "none";
+				gameStart.style.display = "block";
+				progress.style.width = progressWidth + "px";
+			}
+			//点击出现的灰太狼时
+			newLi.onclick = function(){
+				//清除灰太狼出现定时器
+				clearInterval(timer1);
+				//灰太狼回去
+				backWolf();
+				//判断是大灰灰还是小灰灰
+				//大灰灰加10分，小灰灰减10分
+				if(randHX=="h"){
+					scores += 10;
+					score.innerHTML = scores;
+				}else if(randHX=="x"){
+					scores -=10;
+					score.innerHTML = scores;
+				}
+			}
+			//血条减少函数
+			function getProgress(){
+				var t = 0;
+				var d = 60;
+				var b = progress.offsetWidth;
+				var c = -b;
+				//血条减少函数
+				clearInterval(gameTimer);
+				gameTimer = setInterval(function(){
+					if(t>=d){
+						//游戏结束，清除随机洞口和出现定时器
+						gameOver.style.display = "block";
+						setInterval(gameTimer);
+						clearInterval(timer);
+						clearInterval(timer1);
+						startFlag = false;
+						newLi.style.display = "none";
+					}else{
+						t++;
+						progress.style.width = Tween.Linear(t,b,c,d) + "px";
+					}
+				},1000)
+			}
+			//随机在哪个洞口出现
+			function randPos(){
+				clearInterval(timer);
+				    timer = setInterval(function(){
+					holl = rand(0,8);
+					//狼出洞函数
+					showWolfOut();
+					randHX = randWolf[rand(0,5)];
+					console.log(randHX);
+					newLi.style.left = wolfLeft[holl];
+					newLi.style.top = wolfTop[holl];
+				},2300)
+			}
+			//狼出洞函数
+			function showWolfOut(){
+				var index = 0;
+				var index1 = 5;
+				clearInterval(timer1);
+				timer1 = setInterval(function(){
+					newLi.style.display = "block";
+					if(index < 5){
+						//出洞
+						bigWolf.setAttribute("src","img/" + randHX + index +".png");
+						newLi.appendChild(bigWolf);
+						index++;
+					}else{
+						//回洞
+						bigWolf.setAttribute("src","img/" + randHX + index1 +".png");
+						newLi.appendChild(bigWolf);
+						index1--;
+					}
+					//出洞回洞动作完成后，清除定时器
+					if(index == 5 && index1 ==-1){
+						clearInterval(timer1);
+						newLi.style.display = "none";
+					}	
+				},150)
+			}
+			function backWolf(){
+				var index = 6;
+				var index1 = 5;
+				var timer2 = setInterval(function(){
+					newLi.style.display = "block";
+					//打击动作
+					if(index <= 9){
+						bigWolf.setAttribute("src","img/" + randHX + index +".png");
+						newLi.appendChild(bigWolf);	
+						index++;
+					}else{
+						//回洞
+						bigWolf.setAttribute("src","img/" + randHX + index1 +".png");
+						newLi.appendChild(bigWolf);	
+						index1--;
+					}
+					//动作完成后，清除定时器
+					if(index > 9 && index1 < 0){
+						clearInterval(timer2);
+						newLi.style.display = "none";
+					}
+				},50)
+			}
+		</script>
+	</body>
+</html>

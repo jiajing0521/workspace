@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手机版_拖拽</title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+				background-color: #ccc;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var all = document.getElementById("all");
+			
+			all.addEventListener("touchstart",function(ev){
+				var t = ev.touches[0];
+				var touchX = t.clientX;
+				var touchY = t.clientY;
+				var allX = all.offsetLeft;
+				var allY = all.offsetTop;
+				document.addEventListener("touchmove",function(ev){
+					var t = ev.touches[0];
+					var touchX1 = t.clientX;
+					var touchY1 = t.clientY;
+					var pianYiX = touchX1 - touchX;
+					var pianYiY = touchY1 - touchY;
+					if(pianYiX < 0){
+						pianYiX = 0;
+					}else if(pianYiX > document.documentElement.clientWidth - all.offsetWidth){
+						pianYiX = document.documentElement.clientWidth - all.offsetWidth;
+					}
+					if(pianYiY < 0){
+						pianYiY = 0;
+					}else if(pianYiY > document.documentElement.clientHeight - all.offsetHeight){
+						pianYiY = window.clientHeight - all.offsetHeight;
+					}
+					all.style.left = allX + pianYiX + "px";
+					all.style.top = allY + pianYiY + "px";
+				})
+			})
+		</script>
+	</body>
+</html>

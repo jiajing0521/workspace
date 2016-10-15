@@ -1,0 +1,112 @@
+<script type="text/javascript">
+			function qs(csss) {
+				return document.querySelector(csss);
+			}
+
+			function qsAll(csss) {
+				return document.querySelectorAll(csss);
+			}
+			var gameTime = qs(".timeFa");
+			var gameScore = qs("#score");
+			var gameStart = qs("#start");
+			var gameKengs = qsAll(".all img");
+			//timeTimer血条定时器
+			var timeTimer = null;
+			//出狼时间定时器
+			var chuLangTimer = null;
+			//装所有狼的数组
+			var langs = ["h","h","x","h","h"];
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - 1 - min) + min);
+			}
+
+			gameStart.onclick = function() {
+					gameStart.style.display = "none";
+					//时间条开始走
+					daojishi();
+					//狼开始出来
+					randKengLang();
+				}
+				//倒计时
+				//		function daojishi(){
+				//			//获取时间条的初始值
+				//			var timeWidth = gameTime.offsetWidth;
+				//			var speed = timeWidth/1000;
+				//			clearInterval(timeTimer);
+				//			timeTimer = setInterval(function(){
+				//				if(gameTime.offsetWidth < speed){
+				//					gameTime.style.width = "0";
+				//					clearInterval(timeTimer);
+				//				}else{
+				//					gameTime.style.width = gameTime.offsetWidth - speed +"px";
+				//				}
+				//			},10)
+				//		}
+			function daojishi() {
+				//获取时间条的初始值
+				var timeWidth = 56;
+				//速度为百分比
+				var speed = 1;
+				clearInterval(timeTimer);
+				timeTimer = setInterval(function() {
+					//时间条宽度偏移后的位置
+					timeWidth = timeWidth - speed;
+					//判断偏移后的位置是否小于等于0
+					//（不能用offsetWidth进行判断
+					//因为width不能小于0）
+					if(timeWidth <= 0) {
+						gameTime.style.width = "0px";
+						clearInterval(timeTimer);
+						//游戏结束~~~~~~~~~~~~~~~~
+					} else {
+						gameTime.style.width = timeWidth + "%";
+					}
+				}, 100);
+			}
+			for(var i = 0; i < gameKengs.length;i++){
+				//给每一个坑都加一个timer对象
+				 gameKengs[i].timer = null
+			}
+//			langUp(gameKengs[0]);
+			//狼上去
+			function langUp(keng,who){
+				//显示哪张图片
+				var index = 0;
+				clearInterval(keng.timer);
+				keng.timer = setInterval(function(){
+					if(index > 5){
+						clearInterval(keng.timer);
+						//狼下去
+						langDown(keng,who);
+					}else{
+						keng.src = "img/"+ who + index +".png";
+						index++;
+					}
+				},100)
+			}
+			
+			function langDown(keng,who){
+				index = 5;
+				clearInterval(keng.timer);
+				keng.timer = setInterval(function(){
+					if(index < 0){
+						clearInterval(keng.timer);
+						keng.src = "";
+					}else{
+						keng.src = "img/" + who + index + ".png";
+						index—;
+					}
+				},100)
+			}
+			//随机选坑出🐺
+			function randKengLang(){
+				clearInterval(chuLangTimer);
+				chuLangTimer = setInterval(function(){
+					var randKeng = gameKengs[rand(0,9)];
+					var randLang = langs[rand(0,4)];
+					//开始出狼
+					langUp(randKeng,randLang);
+				},1000)
+			}
+			
+		</script>

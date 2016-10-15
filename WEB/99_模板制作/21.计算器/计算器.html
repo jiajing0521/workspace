@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>计算器</title>
+		<style type="text/css">
+			body {
+				font-size:12px;
+				color:#555;
+				text-align:center;
+				background-color:#e2e2e2;
+			}
+			.all{
+				width:240px;
+				height:auto;
+				overflow:hidden;
+				margin:10px auto;
+				border:#fff 1px solid;
+				padding-bottom:10px;
+				background-color:#f2f2f2;
+			}
+			#txt{
+				width: 200px;
+				height: 24px;
+				line-height: 24px;
+				padding: 4px;
+				border: #e6e6e6 1px solid;
+				border-bottom: #f2f2f2 1px solid;
+				border-right: #f2f2f2 1px solid;
+				margin: 10px auto;
+				direction: ltr;
+				text-align: right;
+				font-size: 16px;
+				color: #999;
+			}
+			ul{
+				padding:0;
+				margin:5px 14px;
+				border:#fff 1px solid;
+				height:auto;
+				overflow:hidden
+			}
+			.cssN{
+			    float: left;
+			    width: 32px;
+			    height: 32px;
+			    margin: 5px;
+			    line-height: 32px;
+			    font-size: 14px;
+			    background-color: #eaeaea;
+			}
+			.cssN:hover {
+				background-color: #f9f9f9;
+			}
+			.cssN:active {
+				background-color: #fc0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all" id="all">
+			<div id="screen">
+				<input type="text" name="txt" id="txt" value="" />
+			</div>
+			<div id="setnum">
+				<ul>
+					<input class="cssN num" id="num" name="1" type="button" value="1">
+					<input class="cssN num" id="num" name="2" type="button" value="2">
+					<input class="cssN num" id="num" name="3" type="button" value="3">
+					<input class="cssN" id="clear" type="button" value="C">
+					<input class="cssN" id="equal" type="button" value="=">
+					<input class="cssN num" id="num" name="4" type="button" value="4">
+					<input class="cssN num" id="num" name="5" type="button" value="5">
+					<input class="cssN num" id="num" name="6" type="button" value="6">
+					<input class="cssN num" id="num" name="+" type="button" value="+">
+					<input class="cssN num" id="num" name="-" type="button" value="-">
+					<input class="cssN num" id="num" name="7" type="button" value="7">
+					<input class="cssN num" id="num" name="8" type="button" value="8">
+					<input class="cssN num" id="num" name="9" type="button" value="9">
+					<input class="cssN num" id="num" name="*" type="button" value="*">
+					<input class="cssN num" id="num" name="/" type="button" value="/">
+					<input class="cssN num" id="num" name="0" type="button" value="0">
+					<input class="cssN num" id="num" name="00" type="button" value="00">
+					<input class="cssN num" id="num" name="%" type="button" value="%">
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var result = 0;
+			var txt = document.getElementById("txt");
+			var clear = document.getElementById("clear");
+			//清空
+			clear.onclick = function(){
+				result=0;
+				txt.value = "";
+				str = "";
+			}
+			//等于
+			var equal = document.getElementById("equal");
+			var str = "";
+			equal.onclick = function(){
+//				var str = 
+			}
+			//录入数字
+			var num = document.getElementsByClassName("num");
+//			function getNum(){
+				for(i = 0;i < num.length; i++){
+					num[i].onclick = function(){
+						console.log(this.name);
+						var temp = this.name;
+						txt.value = this.name;
+						str = str + temp;	
+						txt.value = eval(txt.value);
+					}
+					
+
+				}
+//				return temp;
+//			}
+//			getNum();
+			//字符拼接
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>留言板</title>
+		<script src="tween.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 600px;
+				padding: 10px;
+				border: 5px solid black;
+				margin: 20px auto;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+			#text{
+				width: 500px;
+				height: 100px;
+				margin: 10px;
+			}
+			#maxP{
+				width: 500px;
+				text-align: right;
+				margin: 0 auto;
+				font-size: 12px;
+				color: #4C4C4C;
+			}
+			li{
+				list-style: none;
+				position: relative;
+			}
+			#btn{
+				width: 50px;
+				height: 50px;
+				background-color: orange;
+				color: white;
+				display: block;
+				margin-left: 50px;
+			}
+			#all div{
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				vertical-align: top;
+				background-color: #008000;
+				font-size: 16px;
+				margin-top: 40px;
+				cursor: pointer;
+				transition: all 1s;
+				line-height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<textarea id="text" name="" rows="" cols="" value=""></textarea>
+			<p id="maxP">140字以内</p>
+			<input type="button" name="btn" id="btn" value="发布" />
+		</div>
+		<script type="text/javascript">
+			var all = document.getElementById("all");
+			var textAll = document.getElementById("text");
+			var btn = document.getElementById("btn");
+			var marginTop = 20;
+			var newTextHeight = 150;
+			var timer;
+			//点击发布按钮
+			btn.onclick = function(){
+				if(textAll.value == ""){
+					alert("请输入内容！！！！")
+				}else{
+					var listDiv = getListDiv();
+					var newText = getNewText();
+					var del = getDel();
+					var clock = getClock();
+					listDiv.appendChild(newText);
+					listDiv.appendChild(del);
+					listDiv.appendChild(clock);
+					textAll.value = "";
+					var t = 0;
+					var d =100;
+					var b = -200;
+					var c = 200;
+					clearInterval(timer);
+					timer = setInterval(function(){
+						if(t > d){
+							clearInterval(timer);
+						}else{
+							t++;
+							listDiv.style.left = Tween.Back.easeInOut(t,b,c,d) + "px";
+						}
+					},1)
+					all.insertBefore(listDiv,btn.nextElementSibling);
+					del.onclick = function(){
+						var t = 0;
+						var d =100;
+						var b = 0;
+						var c = -800;
+						clearInterval(timer);
+						timer = setInterval(function(){
+							if(t > d){
+								clearInterval(timer);
+								listDiv.remove();
+							}else{
+								t++;
+								listDiv.style.left = Tween.Back.easeInOut(t,b,c,d) + "px";
+							}
+						},1)
+					}
+				}
+			}
+			function getListDiv(){
+				return document.createElement("li");
+			}
+			function getNewText(){
+				var div1 = document.createElement("textarea");
+				div1.style.width = textAll.offsetWidth + "px";
+				div1.style.height = textAll.offsetHeight + "px";
+				div1.style.marginTop = marginTop + "px";
+				div1.style.marginLeft = marginTop + "px";
+				div1.style.backgroundColor = "#CCCCCC";
+				div1.style.borderRadius = "10px";
+				div1.setAttribute("readonly","false");
+				div1.value = textAll.value;
+				return div1;
+			}
+			function getDel(){
+				var div2 = document.createElement("div");
+				div2.innerHTML = "X";
+				return div2;
+			}
+			function getClock(){
+				var time = new Date();
+				var clock = document.createElement("p");
+				clock.innerHTML =  "发表于" + time.getHours() + ":"+ time.getMinutes() + ":" + time.getSeconds() + "  " +time.getFullYear() + "/"+ (time.getMonth()+1) + "/" + time.getDate();
+				clock.style.fontSize = "12px";
+				clock.style.color = "#4C4C4C";
+				clock.style.marginLeft = "350px";
+				return clock;
+			}
+		</script>
+	</body>
+</html>
