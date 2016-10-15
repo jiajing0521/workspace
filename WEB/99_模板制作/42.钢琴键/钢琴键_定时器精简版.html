@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>钢琴键_定时器精简版</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			#all {
+				width: 500px;
+				margin: 300px auto 0;
+			}
+			#all div{
+				width: 50px;
+				height: 50px;
+				float: left;
+				margin-right: 20px;
+				text-align: center;
+				line-height: 50px;
+				font-weight: bold;
+				position: relative;
+			}
+			
+			#all p{
+				width: 50px;
+				height: 50px;
+				float: left;
+				position: absolute;
+				bottom: 0;
+			}
+			#all span{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			.keyA {
+				background: #e51c55;
+			}
+			
+			.keyS {
+				background: #c926a5;
+			}
+			
+			.keyD {
+				background: #9c4bd5;
+			}
+			
+			.keyJ {
+				background: #4f65c3;
+			}
+			
+			.keyK {
+				background: #6ccab7;
+			}
+			.keyL {
+				background: #33CC33;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div>
+				<p class="keyA"></p>
+				<span class="keyA">A</span>
+				
+			</div>
+			<div>
+				<p class="keyS"></p>
+				<span class="keyS">S</span>
+			</div>
+			<div>
+				<p class="keyD"></p>
+				<span class="keyD">D</span>
+			</div>
+			<div>
+				<p class="keyJ"></p>
+				<span class="keyJ">J</span>
+			</div>
+			<div>
+				<p class="keyK"></p>
+				<span class="keyK">K</span>
+			</div>
+			<div>
+				<p class="keyL"></p>
+				<span class="keyL">L</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var keys = document.getElementsByTagName("p");
+			var spans = document.getElementsByTagName("span");
+			//按键码数组
+			var keyCodes = [65, 83, 68, 74, 75,76];
+			//最大高度
+			var maxHeight = 300;
+			//最小高度
+			var minHeight = 50;
+			//遍历所有按键，给每个按键加一个定时器，和速度值
+			for(var i = 0; i < keys.length; i++){
+					keys[i].timer = null;
+					keys[i].speed = 1;
+			}
+			//键盘按下时，遍历按键码数组，数值匹配的话，相应的钢琴键高度增加
+			document.onkeydown = function(ev) {
+				var e = ev || window.event;
+				for(var i = 0; i < keyCodes.length; i++){
+					if(e.keyCode == keyCodes[i]){
+						//字符，钢琴键透明度样式变化
+						spans[i].style.backgroundColor = "white";
+						spans[i].style.opacity = 0.5;
+						keys[i].style.opacity = 0.5;
+						//高度变换函数
+						changeHeight(keys[i]);
+					}
+				}
+			}
+			//键盘抬起时，遍历按键码数组，数值匹配的话，相应的钢琴键高度减少
+			document.onkeyup = function(ev) {
+				var e = ev || window.event;
+				for(var i = 0; i < keyCodes.length; i++){
+					if(e.keyCode == keyCodes[i]){
+						//高度变换函数
+						changeHeight(keys[i]);
+						//字符，钢琴键透明度样式变化
+						spans[i].style.backgroundColor = "";
+						spans[i].style.opacity = "";
+					}
+				}
+			}
+			//高度变换函数
+			function changeHeight(who){
+				clearInterval(who.timer);
+				who.timer = setInterval(function(){
+					//实时获取当前按键对应的钢琴键高度
+					var height = who.offsetHeight;
+					//判断当前按键对应的钢琴键高度
+					//如果大于最大高度或小于最小高度，则定时器停止，并且速度取反
+					if(height < minHeight || height > maxHeight){
+						clearInterval(who.timer);
+						who.speed = -who.speed;
+					}else{
+						who.style.height = height + who.speed + "px";
+					}
+				},1)
+			}
+		</script>
+	</body>
+</html>

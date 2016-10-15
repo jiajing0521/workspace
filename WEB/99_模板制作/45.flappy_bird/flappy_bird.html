@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>飞行的小鸟</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body,#all{
+				width: 100%;
+				height: 100%;
+			}
+			#all{
+				position: relative;
+				overflow: hidden;
+			}
+			#bgc{
+				width: 100%;
+				height: 100%;
+			}
+			#ground{
+				width: 100%;
+				height: 3%;
+				position: absolute;
+				bottom: 9%;
+				overflow: hidden;
+			}
+			.banner{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			#banner2{
+				position: absolute;
+				left: 100%;
+			}
+			#header{
+				width: 100%;
+				position: absolute;
+				left: 20%;
+				top: 20%;
+				/*上下运动动画*/
+				animation: up 0.5s alternate infinite;
+			}
+			/*上下运动动画*/
+			@-webkit-keyframes up{
+				from{
+					transform: translate(0,0);
+				}
+				to{
+					transform: translate(0,10%);
+				}
+			}
+			.head{
+				width: 63%;
+			}
+			.startbird{
+				width: 10.66667%;
+				position: absolute;
+				left: 55%;
+				top: 30%;
+			}
+			.start{
+				width: 22.66667%;
+				height: 4.34783%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.pipe{
+				width: 16.53333%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 80%;
+				display: none;
+			}
+			.up{
+				height: 50%;
+				position: relative;
+				background-image: url(img/up_mod.png);
+				background-size: 100% 100%;
+				background-repeat-y: repeat;
+			}
+			.up img{
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.down{
+				height: 30%;
+				position: relative;
+				top: 20%;
+				background-image: url(img/down_mod.png);
+				background-size: 100% 100%;
+				background-repeat-y: repeat;
+			}
+			.down img{
+				width: 100%;
+				position: absolute;
+				top: 0;
+			}
+			#bird{
+				width: 10.66667%;
+				position: absolute;
+				left: 25%;
+				top: 40%;
+				display: none;
+			}
+			.gameScore{
+				width: 7.66667%;
+				position: absolute;
+				display: none;
+				z-index: 1;
+			}
+			#gameScore1{
+				left: 50%;
+				top: 10%;
+			}
+			#gameScore2{
+				left: 40%;
+				top: 10%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<img id="bgc" src="img/bg.jpg"/>
+			<div id="ground">
+				<img id="banner1" class="banner" src="img/banner.jpg"/>
+				<img id="banner2" class="banner" src="img/banner.jpg"/>
+			</div>
+			<div id="header">
+				<img class="head" id="head" src="img/head.jpg"/>
+				<img class="startbird" id="startbird" src="img/bird0.png"/>
+			</div>
+			<img class="start" id="start" src="img/start.jpg"/>
+			<img id="bird" src="img/bird0.png"/>
+			<img id="gameScore1" class="gameScore" src="img/0.jpg"/>
+			<img id="gameScore2" class="gameScore" src="img/0.jpg"/>
+			<div class="pipe">
+				<div class="up">
+					<img src="img/up_pipe.png"/>
+				</div>
+				<div class="down">
+					<img src="img/down_pipe.png"/>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var head = document.getElementById("head");
+			var startbird = document.getElementById("startbird");
+			var start = document.getElementById("start");
+			var banners = document.getElementsByClassName("banner");
+			var bird = document.getElementById("bird");
+			var pipe = document.querySelector(".pipe")
+			var up = document.querySelector(".up")
+			var down = document.querySelector(".down")
+			var gameScore1 = document.getElementById("gameScore1")
+			var gameScore2 = document.getElementById("gameScore2")
+			//随机函数
+			function rand(min,max){
+				return Math.floor(Math.random()*(max + 1 - min) + min)
+			}
+			//声明草地动画速度
+			var speedBanner = 1;
+			//声明管道中间间距
+			var flyHeight = 130;
+			//声明管道中间间距
+			var space = 20;
+			//bird向上图片定时器
+			var upImgTimer = null;
+			//bird向下图片定时器
+			var downImgTimer = null;
+			//bird向上飞定时器
+			var upTimer = null;
+			//bird向下飞定时器
+			var downTimer = null;
+			//创建管道定时器
+			var pipeCreateTimer = null;
+			//监听触屏touchend，触摸为1，抬起为0
+			var flagEnd = 0;
+			var flagGameOver = 0;
+			var touchCount = 0;
+			
+			var score1 = 0;
+			var score2 = 0;
+			//1......点击开始按钮，游戏开始
+			start.addEventListener("touchstart",function(ev){
+				//1.1......样式变化
+				changeCss();
+				//1.2......bird向下飞动画
+				birdImgFlyDown();
+				birdFlyDown();
+				//1.3......界面管道运动
+				pipeMove(pipe);
+				//1.4......界面管道碰撞检测
+				peng(pipe,up,down,score1);
+				//1.5......创建管道
+				pipeCreate();
+				//1.6......游戏结束监控
+				gameOver();
+			})
+			//2......触摸屏幕，bird向上飞
+			document.addEventListener("touchstart",function(ev){
+				touchCount++;
+				if(touchCount > 1){
+					flagEnd = 1;
+					//2.1......bird向上飞动画
+					clearInterval(downImgTimer);
+					clearInterval(downTimer);
+					birdImgFlyUp();
+					birdFlyUp();
+				}
+			})
+			//3......抬起手指，bird向下飞
+			document.addEventListener("touchend",function(ev){
+				flagEnd = 0;
+				//3.1......bird向下飞动画
+				clearInterval(upImgTimer);
+				clearInterval(upTimer);
+				birdImgFlyDown();
+				birdFlyDown();
+			})
+			//样式变化
+			function changeCss(){
+				//头部动画和开始按钮隐藏
+				header.style.display = "none";
+				start.style.display = "none";
+				//bird向下的图片显示
+				bird.style.display = "block";
+				//管道显示
+				pipe.style.display = "block";
+				//分数显示
+				gameScore1.style.display = "block";
+				gameScore2.style.display = "block";
+			}
+			//草地动画
+			var timerBanner = setInterval(function(){
+				for(var i = 0; i < banners.length; i++){
+					banners[i].style.left = banners[i].offsetLeft - speedBanner + "px";
+					if(banners[i].offsetLeft == -banners[i].offsetWidth){
+						banners[i].style.left = banners[i].offsetWidth + "px";
+					}
+				}
+			},10);
+			//bird向上图片动画
+			
+			function birdImgFlyUp(){
+				var index = 0;
+				clearInterval(upImgTimer);
+				upImgTimer = setInterval(function(){
+					if(flagEnd == 0){
+						clearInterval(upImgTimer);
+					}else{
+							bird.src = "img/bird" + index + ".png"
+							index++;
+					}
+					if(index == 2){
+						index = 0;
+					}
+				},10)
+			}
+			//bird向下图片动画
+			
+			function birdImgFlyDown(){
+				var index = 0;
+				clearInterval(downImgTimer);
+				downImgTimer = setInterval(function(){
+					if(flagEnd == 1){
+						clearInterval(downImgTimer);
+					}else{
+							bird.src = "img/down_bird" + index + ".png"
+							index++;
+					}
+					if(index == 2){
+						index = 0;
+					}
+				},100)
+			}
+			//bird向上飞动画
+			
+			function birdFlyUp(){
+				var upSpeed = 4;
+				clearInterval(upTimer);
+				upTimer = setInterval(function(){
+					var upY = bird.offsetTop/document.documentElement.clientHeight*100;
+					if(bird.offsetTop < 0){
+						clearInterval(upTimer);
+						clearInterval(upImgTimer);
+						flagGameOver = 1;
+					}else{
+						bird.style.top = upY - upSpeed + "%";
+					}
+				},80)
+			}
+			//bird向下飞动画
+			
+			function birdFlyDown(){
+				var downSpeed = 1;
+				clearInterval(downTimer);
+				downTimer = setInterval(function(){
+					var downY = bird.offsetTop/document.documentElement.clientHeight*100;
+					if(bird.offsetTop > document.documentElement.clientHeight){
+						clearInterval(downTimer);
+						clearInterval(downImgTimer);
+						flagGameOver = 1;
+					}else{
+						bird.style.top = downY + downSpeed + "%";
+					}
+				},80)
+			}
+			//创建管道
+			function pipeCreate(){
+				pipeCreateTimer = setInterval(function(){
+					var newPipe = document.createElement("div");
+					var divUp = document.createElement("div");
+					var divDown = document.createElement("div");
+					var imgUp = document.createElement("img");
+					var imgDown = document.createElement("img");
+					newPipe.className = "pipe";
+					newPipe.style.left = document.documentElement.clientWidth + "px";
+					divUp.className = "up";
+					var divUpHeight = rand(200,400);
+					divUp.style.height = divUpHeight/document.body.clientHeight*100 + "%";
+					divDown.className = "down";
+					var divDownHeight = document.body.clientHeight - divUpHeight - flyHeight;
+					divDown.style.height = divDownHeight/document.body.clientHeight*100 + "%";
+					imgUp.src = "img/up_pipe.png";
+					imgDown.src = "img/down_pipe.png";
+					newPipe.style.display = "block";
+					all.appendChild(newPipe);
+					newPipe.appendChild(divUp);
+					newPipe.appendChild(divDown);
+					divUp.appendChild(imgUp);
+					divDown.appendChild(imgDown);
+					pipeMove(newPipe);
+					pipe = document.querySelector(".pipe");
+					//创建管道的碰撞检测
+					score1++;
+					peng(newPipe,divUp,divDown,score1);
+					
+				},2000)
+			}
+			//管道移动
+			
+			function pipeMove(who){
+				who.speed = 1;
+				var pipeX;
+				clearInterval(who.pipeMoveTimer);
+				who.pipeMoveTimer = setInterval(function(){
+					pipeX = who.offsetLeft;
+					if(pipeX <= -who.offsetWidth || flagGameOver == 1){
+						clearInterval(who.pipeMoveTimer);
+						who.remove();
+					}else{
+						who.style.left = pipeX - who.speed + "px";
+					}
+				},10);
+			}
+			//碰撞检测
+			function peng(who,whoUp,whoDown,whoscore){
+				who.pengTimer = setInterval(function(){
+					if (bird.offsetLeft + bird.offsetWidth >= who.offsetLeft && bird.offsetLeft <= who.offsetLeft + who.offsetWidth) {
+						if(bird.offsetTop <= whoUp.offsetHeight || bird.offsetTop + bird.offsetHeight >= whoDown.offsetTop){
+							flagGameOver = 1;
+							clearInterval(who.pengTimer);
+							clearInterval(who.pipeMoveTimer);
+							who.remove();
+							score1 = whoscore;
+						}
+					}
+				},100)
+				score1 = whoscore;
+			}
+			//监视游戏结束
+			function gameOver(){
+				var gameOverTimer = setInterval(function(){
+					
+					
+					if(flagGameOver == 1){
+						clearInterval(downTimer);
+						clearInterval(downImgTimer);
+						clearInterval(upTimer);
+						clearInterval(upImgTimer);
+						clearInterval(pipeCreateTimer);
+						clearInterval(gameOverTimer);
+						pipe.remove();
+						bird.remove();
+						alert("Game Over!!!");
+					}else{
+						if(score1 > 10){
+						score1 = 1;
+						score2++;
+						}
+						var a = score1 - 1;
+						if (a < 0) {
+							a = 0;
+						}
+						gameScore1.src = "img/" + a + ".jpg";
+						gameScore2.src = "img/" + score2 + ".jpg";
+					}
+				},1)
+			}
+		</script>
+	</body>
+</html>
