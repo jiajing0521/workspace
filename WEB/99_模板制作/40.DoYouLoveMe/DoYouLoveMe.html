@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DoYouLoveMe</title>
+		<style type="text/css">
+			#text{
+				width: 400px;
+				height: 30px;
+				font-size: 30px;
+				font-weight: bolder;
+				position: absolute;
+				left: 200px;
+				top: 100px;
+			}
+			#yes{
+				position: absolute;
+				left: 250px;
+				top: 200px;
+				width: 50px;
+				height: 20px;
+			}
+			#no{
+				position: absolute;
+				left: 400px;
+				top: 200px;
+				width: 50px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="text">💕Do you love me ?💕</p>
+		<input type="button" name="yes" id="yes" value="💖yes" />
+		<input type="button" name="yes" id="no" value="💔no" />
+		<script type="text/javascript">
+			var yes = document.getElementById("yes");
+			var no = document.getElementById("no");
+			var index = 0;
+			function rand (min,max){
+				return Math.floor(Math.random()*(max + 1 - min) + min);
+			}
+			yes.onclick = function(){
+				alert("💖me,too");
+			}
+			no.onmouseover = function(){
+				index++;
+				no.style.left = rand(500,800) + "px";
+				no.style.top = rand(200,800) + "px";
+				if(index == 3){
+					no.style.left = "250px";
+					no.style.top = "200px";
+				}
+				if(index == 4){
+					no.style.left = "400px";
+					no.style.top = "200px";
+					index = 0;
+				}
+			}
+		</script>
+	</body>
+</html>

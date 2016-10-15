@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟坦克</title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				border-right:3px solid red;
+				position: absolute;
+				transition: all 1s;
+			}
+			.pao{
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var box = document.getElementById("box");
+			
+			document.onkeydown = function(ev){
+				var e = ev || window.event;
+				var keyCode = e.keyCode;
+				var boxX = box.offsetLeft;
+				var boxY = box.offsetTop;
+				var speed = 50;
+				var fangXiang;
+				switch(keyCode){
+					case 37:
+						box.style.left = boxX - speed + "px";
+						box.style.transform = "rotate("+180+"deg)";
+						break;
+					case 38:
+						box.style.top = boxY - speed + "px";
+						box.style.transform = "rotate("+270+"deg)";
+						break;
+					case 39:
+						box.style.left = boxX + speed + "px";
+						box.style.transform = "rotate("+0+"deg)";
+						break;
+					case 40:
+						box.style.top = boxY + speed + "px";
+						box.style.transform = "rotate("+90+"deg)";
+						fangXiang = 40;
+						break;
+//					case 8:
+//						var pao = document.createElement("div");
+//						pao.className = "pao";
+//						document.body.appendChild(pao);
+//						pao.style.left = box.offsetLeft + "px";
+//						pao.style.top = box.offsetTop + "px";
+//						if(fangXiang == 40){
+//							var timer = setInterval(function(){
+//								
+//							},100)
+//						}
+						
+				}
+			}
+		</script>
+	</body>
+</html>
