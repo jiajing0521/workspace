@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    //编程将所有“水仙花数”打印出来，并打印其总个数。 “水仙花数”是一个 各个位立方之和等于该整数 的三位数
+    //		var count = 0;
+    //		for (var i = 100; i <= 999; i++) {
+    //			var a =  i % 10;//个位
+    //			var b =  parseInt(i % 100 / 10);//十位
+    //			var c =  parseInt(i / 100);//百位
+    //			var sum = a * a * a + b * b * b + c * c *c;
+    //			if (i == sum) {
+    //				count++;
+    //				console.log(i);
+    //			}
+    //		}
+    //		console.log("水仙花数的个数是：" + count);
+
+    //2.输入两个数，求最大公约数和最小公倍数。（用两种方法：辗转相除法和普通方法）
+    var a = 24;
+    var b = 36;
+    var c = 0;//最大公约数
+    //第一种
+    //		var max = a > b ? a : b;
+    //		for (var i = max; i >= 0; i--) {
+    //			if (a % i == 0 && b % i == 0) {
+    //				console.log("最大公约数：" + i);
+    //				c = i;
+    //				break;
+    //			}
+    //		}
+    //		console.log("最小公倍数" + (a * b)/c);
+
+    //第二种 辗转相除法
+    //		c = a % b;
+    //		console.log(c);
+    //		while (a % b != 0){
+    //			c = a % b;
+    //			a = b;
+    //			b = c;
+    //		}
+    //		console.log("最大公约数：" + b);
+
+
+    //3.一个球从100m高度自由落下，每次落地后反跳回原来高度的一半，再落下，再反弹。求它在第10次落地时，共经过多少米？第10次反弹多高
+    var h = 100;
+    var total = 0;
+    for (var i = 10; i > 0; i--) {
+        total = total + h + h / 2;
+        h /= 2;
+    }
+    total = total - h;
+    //		打印200-300之间十位不为7的数.
+    for (var i = 200; i <= 300; i++) {
+        var a = parseInt(i % 100 / 10);
+        if (a != 7) {
+            console.log(a);
+        }
+    }
+    //打印三个数字(0-9)的组合可能
+    for (var x = 0; x <= 9; x++) {
+        for (var y = 0; y <= 9; y++) {
+            for (var z = 0; z <= 9; z++) {
+                var sum = x * 100 + y * 10 + z;
+                console.log(sum);
+            }
+        }
+    }
+    //		找[0,100]之间的1 4 7 10 13 16  19
+    for (var i = 0; i <= 100; i++) {
+        if (i % 3 == 1) {
+            console.log(i);
+        }
+    }
+
+
+
+
+</script>
+
+</html>

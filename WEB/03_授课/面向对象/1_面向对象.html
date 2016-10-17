@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_面向对象</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //js中基本数据类型有：String Number undefined null NaN boolean
+    //以上类型都是不可变的
+
+    //对象：具有相同行为和特征的事物的集合
+    //创建对象有两种方式
+    //1.通过object创建
+    // ew Object()；
+    //字面量的形式
+    var obj = {};
+    //键值对的形式（key,value）
+    var per ={
+        //属性
+        name: "李维旭",
+        age: 20,
+        //方法
+        sayHi: function () {
+            console.log("hi");
+        }
+    };
+    console.log(per);
+    //获取对象中的属性可以通过 对象.属性名
+    console.log(per.name);
+    per.sayHi();
+
+    //还可以通过 对象["属性名"]
+    var strName = "name";
+    console.log(per["age"]);
+    console.log(per[strName]);
+    //修改对象中的属性
+    per.age = 21;
+    console.log(per.age);
+
+    //删除属性
+    delete per.age;
+
+    var string0 = "abcdefg";
+    var string1 = string0;
+    console.log(string1);
+    string1 = "asdfgjk";
+    console.log(string0);
+    console.log(string1);
+
+    //对象的引用关系，per1 和 per2 指向的是同一个对象，所以修改都是修改这个对象的本身
+    var per1 = per;
+    var qwer = per;
+
+    qwer.name = "jhha";
+    console.log(per.name);
+    var per2 = per1;
+
+    per2.name = "刘晟鑫";
+
+    console.log(per.name);
+    console.log(per1.name);
+
+    //2.构造函数
+    function Student(name,age) {
+        this.name = name;
+        this.age = age;
+        this.sayHi = function () {
+            alert("你好");
+        }
+    }
+    //JS中this的三种不同意义
+    //1.作为window下的函数，函数中的this代表window对象
+    //2.作为DOM元素的事件函数，函数中的this代表这个DOM元素对象
+    //3.作为构造函数，this代表对象本身
+
+
+    var stu = new Student("杨悦",40);
+    console.log(stu.name);
+    stu.sayHi();
+    console.log(stu.name);
+    //遍历对象中所有属性和方法
+    for(var i in stu){
+        console.log(i);
+        //获取 对象["属性名"]
+        console.log(stu[i]);
+    }
+
+    console.log(stu);
+    //对象原型
+    //在js中，每个对象都有一个对象原型prototype，
+    //对象可以把原型上所有的属性和方法复制（继承）过来
+    console.log(per.__proto__);
+    per.__proto__ = {
+        hobby:"男"
+    }
+    console.log(per.hobby);
+    console.log(Student.prototype === stu.__proto__);
+
+    "".toUpperCase();
+    "".toUpperCase();
+
+</script>
+</body>
+</html>

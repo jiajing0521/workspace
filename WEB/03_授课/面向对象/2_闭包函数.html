@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包函数</title>
+    <style>
+        li{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #a526ff;
+            float: left;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script type="text/javascript">
+        var lis = document.getElementsByTagName("li");
+        //精简版，
+        // lis[i].onclick = (function(){})(i)相当于调用函数，传参i
+        for (var i = 0; in < lis.length; i++){
+            lis[i].onclick = (function (a) {
+                return function (){
+                    alert(a+1);
+                }
+            })(i);
+        }
+
+        //以下是具体拆分方法
+        //声明xx()
+//        function xx(a) {
+            //返回值是一个函数
+//            return function () {
+//                alert(a);
+//            }
+//        }
+//        for (var i = 0; i < lis.length; i++){
+            //fn是xx()的return函数
+//            var fn = xx(i+1);
+            //点击时，执行xx()的return函数(onclick是一个事件所以应该返回一个事件)
+//            lis[i].onclick = fn;
+
+//        }
+    </script>
+</body>
+</html>
