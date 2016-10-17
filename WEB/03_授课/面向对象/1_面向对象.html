@@ -14,7 +14,7 @@
     //对象：具有相同行为和特征的事物的集合
     //创建对象有两种方式
     //1.通过object创建
-    // ew Object()；
+    // new Object()；
     //字面量的形式
     var obj = {};
     //键值对的形式（key,value）
@@ -52,13 +52,9 @@
 
     //对象的引用关系，per1 和 per2 指向的是同一个对象，所以修改都是修改这个对象的本身
     var per1 = per;
-    var qwer = per;
 
-    qwer.name = "jhha";
-    console.log(per.name);
-    var per2 = per1;
 
-    per2.name = "刘晟鑫";
+    per1.name = "刘晟鑫";
 
     console.log(per.name);
     console.log(per1.name);
@@ -99,8 +95,7 @@
     console.log(per.hobby);
     console.log(Student.prototype === stu.__proto__);
 
-    "".toUpperCase();
-    "".toUpperCase();
+    
 
 </script>
 </body>
