@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_通讯录</title>
+    <style>
+        table,th,tr,td{
+            /*border: 1px solid black;*/
+            /*position: absolute;*/
+        }
+    </style>
+</head>
+<body>
+    <table>
+    </table>
+
+    <div>
+        姓名：<input type="text" id="username">
+        性别：<input type="text" id="sex">
+        电话：<input type="text" id="tel"> 
+        <input type="button" value="添加" id="addBtn">
+    </div>
+    <script src="js/jquery-2.2.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //talk is cheap, show me the code
+        //显示通讯录
+        var contacts = [
+            {name: "李维旭", sex: "男", tel: "13845612589"},
+            {name: "邵洪彬", sex: "男", tel: "13845612589"},
+            {name: "刘晟鑫", sex: "男", tel: "13845612789"}
+            ];
+
+
+        //第一次，根据默认的通讯录显示表格
+        render();
+        function render() {
+            //绘制表格前，先重置一下表格
+            $("table").html("<th>姓名</th><th>性别</th><th>电话</th><th>操作</th>");
+            //遍历所有联系人
+            for (var i = 0; i < contacts.length; i++){
+                //一个对象是一行
+                var tr = $("<tr></tr>");
+                //遍历每个对象里的元素
+                for (var prop in contacts[i]){
+                    //每个对象是一个td
+                    var td = $("<td></td>");
+                    //书写每一个对象里的值
+                    td.html(contacts[i][prop]);
+                    tr.append(td);
+                }
+                tr.append($("<td><a href='###'>删除</td>"));
+                $("table").append(tr);
+            }
+        }
+        
+        //通讯录操作
+        var contactManager = {
+            //添加联系人
+            add: function () {
+                //根据输入内容创建一个新的联系人对象
+                var newPerson = {
+                    name: $("#username").val(),
+                    sex: $("#sex").val(),
+                    tel: $("#tel").val()
+                };
+                contacts.push(newPerson);
+                //添加完联系人之后，重新绘制表格
+                render();
+            },
+            //删除联系人
+            remove: function (index) {
+                //从对象里删除
+                contacts.splice(index, 1);
+                //重新绘制表格
+                render();
+            },
+            //修改通讯录
+            create: function (nowTd,tdIndex,thIndex) {
+
+                //创建文本框
+                var txt = $("<input class='txt' type='text'>");
+
+                txt.css({
+                    width: nowTd.innerWidth(),
+                    height: nowTd.innerHeight(),
+                    position: "absolute",
+                    left: nowTd.offset().left,
+                    top: nowTd.offset().top
+                });
+                $("table").append(txt);
+
+                $(".txt").on("blur",function () {
+                    var newInf = $(this).val();
+                    console.log(typeof newInf);
+                    if (tdIndex == 0){
+                        contacts[thIndex].name = newInf;
+                    }else if (tdIndex == 1){
+                        contacts[thIndex].sex = newInf;
+                    }else if (tdIndex == 2){
+                        contacts[thIndex].tel = newInf;
+                    }
+                    console.log(contacts);
+                    $(this).remove();
+                    render();
+                })
+
+
+            }
+        };
+
+        $("#addBtn").on("click",function () {
+            contactManager.add();
+        });
+        //为了避免新添加的项目没有click事件，所以是document 下的a的点击事件
+        $(document).on("click","a",function (ev) {
+            var e = ev || window.event;
+            //阻止a标签的默认事件
+            e.preventDefault();
+            //当前a标签的父级元素tr的下标
+//            contactManager.remove($(this).index(this));
+            contactManager.remove($(this).parents("tr").index());
+        });
+
+        $(document).on("dblclick","td",function () {
+            console.log($(this));
+            console.log($(this).index(),$(this).parents("tr").index());
+            console.log($(this).outerWidth());
+            contactManager.create($(this),$(this).index(),$(this).parents("tr").index());
+
+        })
+
+
+
+    </script>
+</body>
+</html>

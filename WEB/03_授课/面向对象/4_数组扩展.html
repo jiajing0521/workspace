@@ -26,8 +26,19 @@
         }
         return max;
     }
-    console.log("max1="+max1([1,3,56,4]));
+    console.log("max1="+window.max1([1,3,56,4]));
 
+
+    function a() {
+
+    }
+    var cv = 0;
+    var window = {
+        a: function () {
+
+        },
+        cv: 0
+    }
     //ie9以下不兼容
     var arr = [1,2,3];
     //map函数是ES5（大致就是js，目前最新的是ES6）之后的API，
@@ -51,7 +62,7 @@
         return "第"+ i +"个元素是" + item;
     }));
 
-    //作用是对数组中每一个元素进行过滤
+    //filter作用是对数组中每一个元素进行过滤，把符合条件的元素筛选出来
     //参数：回调函数(数组元素，下标)
     //产生新的数组的元素
     console.log(arr.filter(function (item,i) {
@@ -62,14 +73,26 @@
         var result = [];
         for (var i = 0; i < this.length; i++){
             //如果fun函数返回值是true时，就将当前的this[i]push到数组里
-            if(fun(this[i])){
+            if(fun(this[i],i)){
                 result.push(this[i]);
             }
         }
         return result;
     };
-    console.log(arr.d_filter(function (item) {
+    console.log(arr.d_filter(function (item,a) {
         return item > 1;
+    }));
+
+    //some函数作用是对数组中的每一个元素进行判断，
+    // 只要有符合条件的就返回true 否则返回false
+    console.log(arr.some(function (item,index) {
+        return item < 0;
+    }));
+
+    //some函数作用是对数组中的每一个元素进行判断，
+    // 必须所有都符合条件才返回true ，只要有一个不符合就返回false
+    console.log(arr.every(function (item,index) {
+        return item < 0;
     }));
 </script>
 </body>

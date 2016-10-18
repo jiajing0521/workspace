@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_大图滚动</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #wrap{
+            width: 800px;
+            height: 360px;
+            border: 2px solid lightgrey;
+            margin: 0 auto;
+        }
+        #screen{
+            width: 800px;
+            height: 360px;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgFa{
+            width: 4800px;
+            height: 360px;
+            position: absolute;
+        }
+        #imgFa img{
+            width: 800px;
+            height: 360px;
+        }
+        #sel{
+            text-align: center;
+        }
+        #inputFa{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="screen">
+            <div id="imgFa">
+                <img src="img/1.jpg" alt=""><img src="img/2.jpg" alt=""><img src="img/3.jpg" alt=""><img src="img/4.jpg" alt=""><img src="img/5.jpg"
+                                                                                                         alt=""><img
+                    src="img/6.jpg" alt="">
+            </div>
+        </div>
+        <div id="sel">
+            <input type="button" id="btnPre" value="上一张">
+                <input type="button" class="btnclass" id="btn1" value="第1张">
+                <input type="button" class="btnclass" id="btn2" value="第2张">
+                <input type="button" class="btnclass" id="btn3" value="第3张">
+                <input type="button" class="btnclass" id="btn4" value="第4张">
+                <input type="button" class="btnclass" id="btn5" value="第5张">
+                <input type="button" class="btnclass" id="btn6" value="第6张">
+            <input type="button" id="btnNext" value="下一张">
+        </div>
+    </div>
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var roll = {
+                //上一张
+                left: function () {
+                    if ($("#imgFa").position().left == 0) {
+                        $("#imgFa").animate({
+                            left: -$("#imgFa img").outerWidth()*($("img").length-1)
+                        })
+                    }else{
+                        $("#imgFa").animate({
+                            left: $("#imgFa").position().left + $("#imgFa img").outerWidth()
+                        })
+                    }
+                },
+                //下一张
+                right: function () {
+                    if ($("#imgFa").position().left == -$("#imgFa img").outerWidth()*($("img").length-1)){
+                        $("#imgFa").animate({
+                            left : 0
+                        })
+                    }else{
+                        $("#imgFa").animate({
+                            left : $("#imgFa").position().left - $("#imgFa img").outerWidth()
+                        })
+                    }
+                },
+                //第几张
+                change: function (index) {
+                    $("#imgFa").animate({
+                        left: -index * $("#imgFa img").outerWidth()
+                    })
+                }
+            }
+            //点击上一张
+            $("input").eq(0).on("click",function () {
+                roll.left();
+            })
+            //点击下一张
+            $("input").eq(7).on("click",function () {
+                roll.right();
+            })
+            //点击第几张
+            $(".btnclass").on("click",function () {
+                roll.change(($(this).index()-1));
+            })
+        })
+
+    </script>
+</body>
+</html>

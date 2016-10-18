@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 240px;
+            height: 220px;
+            border: 2px solid black;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 70px;
+            line-height:200px;
+        }
+        #diva{
+            width:210px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        #div2{
+            width: 100px;
+            height:40px;
+            background-color: deepskyblue;
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            line-height:40px;
+            float: left;
+            margin-right: 10px;
+        }
+        #div3{
+            width: 100px;
+            height:40px;
+            background-color: deepskyblue;
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            line-height:40px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">赵</div>
+<div id="diva">
+    <div id="div2">开始</div>
+    <div id="div3">停止</div>
+</div>
+</body>
+<script type="text/javascript">
+    var  oDiv1 = document.getElementById("div1");
+    var  oDiv2 = document.getElementById("div2");
+    var  oDiv3 = document.getElementById("div3");
+    var arr = ["赵","钱","孙","李","周","吴","郑","王","杨","吕","刘","秦","何"];
+    var timer = null;
+
+    oDiv2.onclick = function () {
+        timer = setInterval(function () {
+            for (var i = 0;i < arr.length;i++) {
+                var numRand = Math.floor(Math.random()*(13 - 1 + 1)+ 1);
+            }
+        },100)
+    }
+    oDiv3.onclick = function () {
+        clearInterval(timer);
+    }
+
+</script>
+</html>

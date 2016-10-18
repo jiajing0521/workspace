@@ -26,7 +26,7 @@
         var lis = document.getElementsByTagName("li");
         //精简版，
         // lis[i].onclick = (function(){})(i)相当于调用函数，传参i
-        for (var i = 0; in < lis.length; i++){
+        for (var i = 0; i < lis.length; i++){
             lis[i].onclick = (function (a) {
                 return function (){
                     alert(a+1);

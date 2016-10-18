@@ -73,12 +73,19 @@
     //3.作为构造函数，this代表对象本身
 
 
+
+    var x = [];
+    for (var i = 0; i < 5; i++){
+        x.push(new Student())''
+    }
+
     var stu = new Student("杨悦",40);
     console.log(stu.name);
     stu.sayHi();
     console.log(stu.name);
     //遍历对象中所有属性和方法
     for(var i in stu){
+        //for in对象的下标i是属性名（键值对中的键）
         console.log(i);
         //获取 对象["属性名"]
         console.log(stu[i]);
@@ -93,9 +100,11 @@
         hobby:"男"
     }
     console.log(per.hobby);
+    //Student.prototype是通过定义object扩展的原型
+    //stu.__proto__是通过变量new得到的扩展原型
     console.log(Student.prototype === stu.__proto__);
 
-    
+
 
 </script>
 </body>

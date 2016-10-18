@@ -131,13 +131,16 @@
 					count++;
 					if (count%2==1) {
 						$("#nav2RightOption").show();
-						$("#nav2RightOption").css("height","0px");
+						$("#nav2RightOption li").css("display","block")
 						$("#nav2RightOption").animate({
-							height:250,
-							transition:"all 2s"
-						})
+							height:230,
+						},1000)
 					} else{
-						$("#nav2RightOption").hide(1000);
+						$("#nav2RightOption").animate({
+							height:0,
+						},1000,function () {
+							$("#nav2RightOption li").css("display","none")
+						})
 					}
 				});
 				//底部事件
