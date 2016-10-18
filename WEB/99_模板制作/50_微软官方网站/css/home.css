@@ -129,23 +129,33 @@
 }
 .shopWrap{
 	position: absolute;
-	/*left: 0;*/
+	left: 112px;
 	top: 48px;
 	border: 1px solid darkgray;
 	z-index: 999;
-	overflow: hidden;
+	/*overflow: hidden;*/
+	height: 0;
+	color: gray;
 }
 .shopList{
-	width: 236px;
+	width: 200px;
 	height: 54px;
-	font-size: 1.2em;
+	font-size: 1em;
 	line-height: 54px;
+	float: none;
+	display: block;
 	color: gray;
 	background-color: rgb(239,239,239);
     cursor: pointer;
     /*padding: 0 20px;*/
-   padding-left: 20px;
+    padding-left: 20px;
+    z-index: 10;
     transition: all 1s;
+    /*display: none;*/
+}
+.shopList:hover{
+	background-color: rgb(230,230,230);
+	transition: all 1s;
 }
 @media only screen and (max-width: 1083px) {
 	#content{

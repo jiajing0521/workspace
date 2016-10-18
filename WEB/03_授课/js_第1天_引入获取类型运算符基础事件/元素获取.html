@@ -41,6 +41,7 @@
 			var qwer = document.getElementsByClassName("aaa");
 			console.log(qwer);
 //			通过name属性获取多个元素
+			//但ie的实现方式和w3c标准有差异：在html文档中，若某节点没有name属性，不能获取到节点数组
 			var df = document.getElementsByName("abc");
 			console.log(df);
 		  
