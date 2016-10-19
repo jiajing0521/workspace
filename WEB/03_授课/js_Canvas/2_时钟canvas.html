@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <title>2_时钟canvas</title>
     <style>
-        canvas{
-            border:1px solid red;
-            display: block;
-            margin: 0 auto;
-        }
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
         #all{
+        	width: 500px;
+        	height: 500px;
+        	margin: 0 auto;
             position: relative;
         }
-        div{
+        #all div{
             position: absolute;
+            font-size: 2em;
+            font-weight: bold;
+        	transform: translate(-50%,0);
+        }
+        #all div:first-of-type{
+        	top: 70px;
+        	left: 250px;
+        }
+        #all div:nth-of-type(2){
+        	top: 230px;
+        	left: 420px;
+        }
+        #all div:nth-of-type(3){
+        	top: 400px;
+        	left: 250px;
+        }
+        #all div:nth-of-type(4){
+        	top: 230px;
+        	left: 80px;
         }
     </style>
 </head>
