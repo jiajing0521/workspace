@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        #canvas{
+            border: 1px solid #a811ff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500">
+        低版本浏览器不支持
+    </canvas>
+
+    <script type="text/javascript">
+        //获取canvas标签
+        var canvas = document.getElementById("canvas");
+        //获取画布上下文,画笔
+        var ctx = canvas.getContext("2d");
+
+
+
+        //开始新路径
+        ctx.beginPath();
+
+        //画笔线宽
+        ctx.lineWidth = "5";
+        //描边样式
+        ctx.strokeStyle = "blue";
+
+        //线的端点样式(butt,round,square)
+        ctx.lineCap = "round";
+        //折点样式
+        ctx.lineJoin = "round";
+
+        //起点
+        ctx.moveTo(100,100);
+        //第二个点
+        ctx.lineTo(200,200);
+        ctx.lineTo(100,200);
+
+        //闭合路径
+        ctx.closePath();
+        //画
+        ctx.stroke();
+
+        //开始新路径
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 2;
+        //arc 圆
+        // 参数：圆心坐标起始点，终点，
+        // 半径，
+        // 起始角度 Math.PI/2 终点角度 Math.PI
+        // true逆时针，false顺时针
+        ctx.arc(300,300,100,Math.PI/2,Math.PI,true);
+        ctx.stroke();
+
+        ctx.beginPath();
+        //strokeRect:
+        //参数：左上角点德坐标，宽，高
+        ctx.strokeRect(100,100,200,100);
+        //填充
+
+        ctx.fillStyle = "yellow";
+
+
+        ctx.fillRect(400,100,50,50);
+
+        ctx.beginPath();
+        ctx.moveTo(300,300);
+        ctx.lineTo(300,400);
+        ctx.lineTo(400,300);
+        ctx.closePath();
+        ctx.fill();
+    </script>
+</body>
+</html>

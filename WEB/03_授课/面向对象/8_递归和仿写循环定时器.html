@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //递归
+    //5*4*3*2*1计算阶乘
+    function jiecheng(num) {
+        if (num == 1){
+            return 1;
+        }else{
+            return num * (num - 1);
+        }
+    }
+    //仿写循环定时器
+    var index = 0;
+    run();
+    function run() {
+        index++;
+        if (index < 10) {
+            setTimeout(run, 1000);
+        }
+    }
+</script>
+</body>
+</html>

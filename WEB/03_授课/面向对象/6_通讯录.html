@@ -30,7 +30,7 @@
             {name: "刘晟鑫", sex: "男", tel: "13845612789"}
             ];
 
-
+        var arr1 = ["name", "sex", "tel"];
         //第一次，根据默认的通讯录显示表格
         render();
         function render() {
@@ -75,7 +75,7 @@
                 render();
             },
             //修改通讯录
-            create: function (nowTd,tdIndex,thIndex) {
+            change: function (nowTd,tdIndex,trIndex) {
 
                 //创建文本框
                 var txt = $("<input class='txt' type='text'>");
@@ -91,14 +91,17 @@
 
                 $(".txt").on("blur",function () {
                     var newInf = $(this).val();
-                    console.log(typeof newInf);
-                    if (tdIndex == 0){
-                        contacts[thIndex].name = newInf;
-                    }else if (tdIndex == 1){
-                        contacts[thIndex].sex = newInf;
-                    }else if (tdIndex == 2){
-                        contacts[thIndex].tel = newInf;
-                    }
+//                    if (tdIndex == 0){
+                    console.log( arr1[tdIndex]);
+                    console.log( contacts[trIndex]);
+                    console.log( newInf);
+                    var a = arr1[tdIndex]
+                        contacts[trIndex][arr1[tdIndex]] = newInf;
+//                    }else if (tdIndex == 1){
+//                        contacts[trIndex].sex = newInf;
+//                    }else if (tdIndex == 2){
+//                        contacts[trIndex].tel = newInf;
+//                    }
                     console.log(contacts);
                     $(this).remove();
                     render();
@@ -125,9 +128,12 @@
             console.log($(this));
             console.log($(this).index(),$(this).parents("tr").index());
             console.log($(this).outerWidth());
-            contactManager.create($(this),$(this).index(),$(this).parents("tr").index());
+            contactManager.change($(this),$(this).index(),$(this).parents("tr").index());
 
         })
+
+
+
 
 
 

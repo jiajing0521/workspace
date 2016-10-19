@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        table,th,td{
+            border:1px solid black;
+            cellspacing:0px;
+            cellpadding:0px;
+        }
+        .modify{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <table></table>
+    <div>
+        姓名：<input type="text" id="username">
+        性别：<input type="text" id="sex">
+        电话：<input type="text" id="tel">
+        <input type="button" value="添加" id="addBtn">
+    </div>
+    <script src="js/jquery-2.2.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var contacts = [
+            {name:"张三",sex:"男",tel:"13511111111"},
+            {name:"李四",sex:"男",tel:"13522222222"},
+            {name:"赵六",sex:"女",tel:"13533333333"}
+        ];
+
+
+        //绘制通讯录
+        refresh();
+        function refresh() {
+            var th = $("<th>姓名</th><th>性别</th><th>联系方式</th><th>操作</th>");
+            $("table").html(th);
+            for (var i = 0; i < contacts.length; i++){
+                var tr = $("<tr></tr>");
+                for (var targat in contacts[i]){
+                    var td = $("<td></td>");
+                    td.html(contacts[i][targat]);
+                    tr.append(td);
+                }
+                tr.append($("<td><a href='###'>删除</td>"));
+                $("table").append(tr);
+            }
+        }
+        //通讯录操作对象
+        var contactsManager = {
+            //添加
+            add: function () {
+                var newContact = {
+                  name: $("#username").val(),
+                  sex: $("#sex").val(),
+                  tel: $("#tel").val()
+                };
+                contacts.push(newContact);
+                refresh();
+            },
+            //删除
+
+            del: function (index) {
+                contacts.splice(index,1);
+                refresh();
+            },
+            //修改
+            /**
+             *
+             * @param index：要修改的联系人的下标
+             * @param type：要修改的具体某一项（name,sex,tel）
+             * @param value：修改后的值
+             */
+            modify: function (index,type,value) {
+                var per = contacts[index];
+                per[type] = value;
+                refresh();
+            }
+        };
+
+        $("#addBtn").on("click",function () {
+            contactsManager.add();
+        });
+
+        $(document).on("click","a",function () {
+            contactsManager.del($(this).parents("tr").index())
+        });
+
+        $(document).on("dblclick","td",function () {
+            $(".modify").remove();
+            var inputText = $("<input class='modify' type='text'/>");
+
+            inputText.val($(this).html());
+            $("table").append(inputText);
+            inputText.get(0).focus();
+            inputText.css({
+                top: $(this).offset().top,
+                left: $(this).offset().left,
+                width: $(this).width(),
+                height: $(this).height()
+            });
+
+            var _this = $(this);
+            //按回车保存
+            $(document).on("keydown",function (ev) {
+                var e = ev || window.event;
+                console.log(e.keyCode);
+                var typeArr = ["name","sex","tel"];
+                if (e.keyCode == 13){
+                    var index = _this.parents("tr").index();
+                    var type = typeArr[_this.index()];
+                    var value = inputText.val();
+                    contactsManager.modify(index,type,value);
+                }
+            });
+        })
+    </script>
+</body>
+</html>

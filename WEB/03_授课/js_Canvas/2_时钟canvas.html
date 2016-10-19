@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_时钟canvas</title>
+    <style>
+        canvas{
+            border:1px solid red;
+            display: block;
+            margin: 0 auto;
+        }
+        #all{
+            position: relative;
+        }
+        div{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="all">
+    <canvas id="canvas" width="500" height="500">
+        低版本浏览器不支持
+
+    </canvas>
+
+    <div class="div12">12</div><div class="div3">3</div><div class="div6">6</div><div class="div9">9</div>
+</div>
+
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    //获取画布上下文,画笔
+    var ctx = canvas.getContext("2d");
+
+    function Line(width,length,color) {
+        this.width = width;
+        this.length = length;
+        this.color = color;
+    }
+
+
+    Line.prototype.draw = function (startPoint,endPoint) {
+        ctx.beginPath();
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = this.width;
+        ctx.moveTo(startPoint.x1,startPoint.y1);
+        ctx.lineTo(endPoint.x,endPoint.y);
+        ctx.stroke();
+    };
+
+
+
+    var hourLine = new Line(5,100,"blue"),
+            minLine = new Line(3,120,"green"),
+            secondLine = new Line(2,150,"red");
+
+    var timer = setInterval(function () {
+        //清空画布(canvas不能单独清除每一笔，
+        // 只能擦除矩形范围内的内容，
+        // 所以每次动的时候都清除画布，重新画)
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        //重新画表盘
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 5;
+        ctx.arc(250,250,200,0,Math.PI*2,true);
+        ctx.closePath();
+        ctx.stroke();
+        //获取当前的时间
+        var date = new Date();
+        var nowHours = date.getHours();
+        var nowMunites = date.getMinutes();
+        var nowSeconds = date.getSeconds();
+
+        hourLine.draw({x1:250,y1:250},{
+            x: 250 + hourLine.length * Math.sin((Math.PI*2/12)*nowHours + (Math.PI*2/60)*nowMunites * 30/360),
+            y: 250 - hourLine.length * Math.cos((Math.PI*2/12)*nowHours + (Math.PI*2/60)*nowMunites * 30/360)
+        });
+
+        minLine.draw({x1:250,y1:250},{
+            x: 250 + minLine.length * Math.sin((Math.PI*2/60)*nowMunites),
+            y: 250 - minLine.length * Math.cos((Math.PI*2/60)*nowMunites)
+        });
+
+        secondLine.draw({x1:250,y1:250},{
+            x: 250 + secondLine.length * Math.sin((Math.PI*2/60)*nowSeconds),
+            y: 250 - secondLine.length * Math.cos((Math.PI*2/60)*nowSeconds)
+        });
+        //时针刻度
+
+        var kedu1 = new Line(5,20,"black"), kedu2 = new Line(2,10,"black");
+
+        for (var i = 1; i < 61; i++){
+            kedu2.draw({
+                x1: 250 + 190 * Math.sin((Math.PI*2/60)*i),
+                y1: 250 - 190 * Math.cos((Math.PI*2/60)*i)
+            },{
+                x: 250 + 200 * Math.sin((Math.PI*2/60)*i),
+                y: 250 - 200 * Math.cos((Math.PI*2/60)*i)
+            })
+        }
+        for (var i = 1; i < 13; i++){
+            kedu1.draw({
+                x1: 250 + 180 * Math.sin((Math.PI*2/12)*i),
+                y1: 250 - 180 * Math.cos((Math.PI*2/12)*i)
+            },{
+                x: 250 + 200 * Math.sin((Math.PI*2/12)*i),
+                y: 250 - 200 * Math.cos((Math.PI*2/12)*i)
+            })
+
+        }
+
+    },1000);
+
+
+
+
+</script>
+</body>
+</html>

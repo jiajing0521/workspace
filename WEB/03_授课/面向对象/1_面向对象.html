@@ -11,7 +11,20 @@
     //js中基本数据类型有：String Number undefined null NaN boolean
     //以上类型都是不可变的
 
-    //对象：具有相同行为和特征的事物的集合
+
+
+    //传统的面向对象语言，把具有相同行为和特征的事物封装成类，
+    // 通过类来创建具体的对象
+
+    //在js中没有类的概念，可以通过构造函数模拟类
+    // 对象：具有相同行为和特征的事物的集合
+    //特点：
+    // 1.封装  把事物归类的过程
+    // 2.继承  对象可以拥有类中所有的属性和方法
+    //        可以通过构造函数模拟继承
+    //        通过对象原型模拟继承
+    // 3.多态  同一种类对象，每一个对象都有其独特的地方，多种表现形式
+
     //创建对象有两种方式
     //1.通过object创建
     // new Object()；
@@ -76,7 +89,7 @@
 
     var x = [];
     for (var i = 0; i < 5; i++){
-        x.push(new Student())''
+        x.push(new Student())
     }
 
     var stu = new Student("杨悦",40);
@@ -100,12 +113,59 @@
         hobby:"男"
     }
     console.log(per.hobby);
-    //Student.prototype是通过定义object扩展的原型
+    //Student.prototype是通过定义object扩展的原型,构造函数
     //stu.__proto__是通过变量new得到的扩展原型
     console.log(Student.prototype === stu.__proto__);
 
+    var obj = {
+        name: "fenghao",
+        age: 20
+    }
+
+    obj.__proto__ = {
+        a:"jglsdj"
+    }
 
 
+    for (var prop in obj){
+        console.log(prop);
+        //判断obj自己原型是否拥有prop属性
+
+        //判断对象原型属性是否是对象本身的，如果是来自原型，返回false
+        console.log(obj.hasOwnProperty(prop));
+    }
+    //继承
+    function Person() {
+        this.name = "liangyue";
+        this.age = 20;
+    }
+    //通过call函数改变person中的this指向，模拟继承man中就可以增加了person中属性和方法
+    function Man() {
+        Person.call(this);//改变了person的调用者，变成了man，man中就有了person中属性和方法
+        this.sex = "男";
+
+    }
+
+    var man = new Man();
+    console.log(man);
+
+
+    function Woman() {
+        this.sex = "女";
+    }
+
+    //call()：改变了函数的调用者
+    //参数：第一个是改变后的调用者，之后是函数的参数
+    function test(a) {
+        console.log(this,a);
+    }
+    test(2);//window 相当于 window.test()
+    test.call(obj,10);//改变了函数的调用者=>obj
+
+    //apply();改变了函数的调用者与call一样
+    //参数：第一个是改变后的调用者，之后是函数的参数必须是数组
+    //数组中填函数的参数
+    test.apply(obj,[10,20,30]);
 </script>
 </body>
 </html>
