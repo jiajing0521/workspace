@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_饼图</title>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+
+    //http://echarts.baidu.com/demo.html#bubble-gradient
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    function rand(min,max) {
+        return Math.floor(Math.random()*(max + 1 - min)+min);
+    }
+
+    //随机个数
+    var count = rand(4,10);
+    //每次的度数
+    var reg = Math.PI *2/count;
+    for (var i = 0; i < count; i++){
+        ctx.beginPath();
+        ctx.fillStyle = "rgb(" + rand(0,255) + "," +  + rand(0,255) + "," + rand(0,255) + ")";
+        ctx.moveTo(250,250);
+        ctx.arc(250,250,rand(150,200),i*reg,(i+1)*reg,false);
+        ctx.fill();
+    }
+</script>
+</body>
+</html>

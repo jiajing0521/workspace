@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10_叠加</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script src="js/jquery-2.2.3.min.js" type="text/javascript">
+
+</script>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0,0,200,200);
+    ctx.globalCompositeOperation = "lighter";
+
+    //http://www.w3school.com.cn/tiy/t.asp?f=html5_canvas_globalcompop_all
+    ctx.fillStyle = "green";
+
+    ctx.arc(100,100,100,0,Math.PI*2,false);
+    ctx.fill();
+</script>
+</body>
+</html>

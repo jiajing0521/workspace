@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4_变换</title>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(0,0,100,100);
+    //画布坐标系平移
+    ctx.translate(200,200);
+    ctx.fillRect(0,0,100,100);
+
+    //旋转画布
+    ctx.rotate(Math.PI/4);
+    ctx.fillRect(0,0,100,100);
+
+    //缩放
+
+    ctx.scale(2,0.5);
+    ctx.fillRect(0,0,100,100);
+
+</script>
+
+</body>
+</html>

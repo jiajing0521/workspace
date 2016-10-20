@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8_图像</title>
+    <style>
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var img = new Image();
+    img.src = "img/26.jpg";
+
+    img.onload = function () {
+        //三个参数：
+        //1.要绘制的图片
+        //2.绘制到画布上的位置，x
+        //3.绘制到画布上的位置，y
+//        ctx.drawImage(this,100,100);
+
+        //五个参数
+        //1.要绘制的图片
+        //2.绘制到画布上的位置，x
+        //3.绘制到画布上的位置，y
+        //4.绘制图片的宽度,w
+        //5.绘制图片的高度,y
+//        ctx.drawImage(this,50,100,300,200);
+        //九个参数
+        //1.要绘制的图片
+        //2.原图上的位置，x
+        //3.原图上的位置，y
+        //4.从原图截取的大小，w
+        //5.从原图截取的大小，h
+        //6.在画布上绘制的位置，x
+        //7.在画布上绘制的位置，y
+        //8.在画布上绘制的宽度,w
+        //9.在画布上绘制的高度,y
+        ctx.drawImage(this,800,800,500,200,100,100,300,300);
+    }
+
+</script>
+</body>
+</html>

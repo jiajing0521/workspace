@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贝塞尔曲线</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    //http://cubic-bezier.com/#.18,.85,.68,.17
+
+    //二次贝塞尔曲线
+
+    //起点坐标
+    ctx.moveTo(0,500);
+    //控制点的坐标，终点的坐标
+    ctx.quadraticCurveTo(500,500,500,0);
+    ctx.stroke();
+
+
+    //完整的贝塞尔曲线
+
+    ctx.beginPath();
+    ctx.moveTo(0,500);
+
+    ctx.bezierCurveTo(0,0,500,500,500,0);
+    ctx.stroke();
+</script>
+</body>
+</html>

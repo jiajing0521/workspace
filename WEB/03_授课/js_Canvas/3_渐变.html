@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_渐变</title>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+
+    var ctx = canvas.getContext("2d");
+
+
+    //线性渐变
+    //渐变的起点和终点的坐标来控制渐变的方向
+//    var linearGradient = ctx.createLinearGradient(0,0,100,100);
+//    var linearGradient = ctx.createLinearGradient(0,0,0,100);
+    var linearGradient = ctx.createLinearGradient(0,0,100,0);
+
+    //给渐变添加颜色和所占的比例，第一个参数0-1；
+    linearGradient.addColorStop(0.2,"black");
+    linearGradient.addColorStop(0.5,"yellow");
+    linearGradient.addColorStop(0.8,"pink");
+
+    ctx.fillStyle = linearGradient;
+    ctx.fillRect(0,0,100,100);
+
+
+    //径向渐变
+    var radiaGradient = ctx.createRadialGradient(200,200,20,200,200,50);
+    radiaGradient.addColorStop(0.3,"pink");
+    radiaGradient.addColorStop(0.5,"yellow");
+    radiaGradient.addColorStop(0.1,"red");
+
+    ctx.fillStyle = radiaGradient;
+    ctx.arc(200,200,100,0,Math.PI*2,true);
+//    ctx.fillRect(100,100,200,200);
+    ctx.fill();
+
+    //阴影
+    ctx.beginPath();
+    ctx.fillStyle = "pink";
+    ctx.shadowOffsetX = 20;
+    ctx.shadowOffsetY = 20;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "red";
+    ctx.fillRect(300,300,100,100);
+
+    //画文字
+    ctx.font = "50px STXingkai-SC-Light";
+    ctx.fillStyle = "black";
+    ctx.fillText("Hi,嘉静",200,200)
+</script>
+
+
+</body>
+</html>

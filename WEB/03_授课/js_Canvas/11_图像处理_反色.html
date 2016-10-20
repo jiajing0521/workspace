@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11_图像处理</title>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var img = new Image();
+    img.src = "img/26.jpg";
+
+    img.onload = function () {
+        ctx.drawImage(this,0,0,500,500);
+
+        var imageData = ctx.getImageData(0,0,500,500);
+        console.log(imageData);
+        //反色
+        var pxs = imageData.data;
+        for (var i = 0; i < pxs.length; i+=4){
+            var r = pxs[i];
+            var g = pxs[i+1];
+            var b = pxs[i+2];
+
+            pxs[i] = 255-r;
+            pxs[i+1] = 255-g;
+            pxs[i+2] = 255-b;
+        }
+        ctx.putImageData(imageData,0,0);
+    };
+
+
+</script>
+</body>
+</html>
