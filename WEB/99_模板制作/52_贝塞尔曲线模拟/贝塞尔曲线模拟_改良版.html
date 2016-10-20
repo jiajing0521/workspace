@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>贝塞尔曲线模拟</title>
+    <title>贝塞尔曲线模拟_改良版</title>
     <style>
         *{
             margin: 0;
             padding: 0;
-        }
-        #canvas{
-            /*border:1px solid red;*/
         }
         #control1,#control2{
             width: 20px;
@@ -18,7 +15,6 @@
             border: 1px solid black;
             position: absolute;
             cursor: pointer;
-            /*transform: translate(-50%,-50%);*/
         }
         #control1{
             background-color: rgb(249,0,119);
@@ -32,10 +28,8 @@
         }
         #all{
             width: 520px;
-            height: 800px;
-            /*border:1px solid red;*/
+            height: 1000px;
             position: relative;
-            /*margin-left: 100px;*/
         }
     </style>
 </head>
@@ -43,12 +37,10 @@
 <div id="all">
     <canvas id="canvas" width="520" height="800">
         低版本浏览器不支持
-
     </canvas>
     <div id="control1"></div>
     <div id="control2"></div>
 </div>
-
 
 <script type="text/javascript">
     var canvas = document.getElementById("canvas");
@@ -56,7 +48,7 @@
     var control1 = document.getElementById("control1");
     var control2 = document.getElementById("control2");
     var all = document.getElementById("all");
-
+	var ctrs = document.querySelectorAll("#all div");
 
     ctx.translate(10,0);
     function line(width,length,color){
@@ -89,7 +81,7 @@
         ctx.strokeStyle = this.color;
         ctx.lineWidth = this.width;
         ctx.moveTo(0,650);
-        console.log("a="+endPos1.x,"b="+endPos1.y,"c="+endPos2.x1,"d="+endPos2.y1);
+//      console.log("a="+endPos1.x,"b="+endPos1.y,"c="+endPos2.x1,"d="+endPos2.y1);
         ctx.bezierCurveTo(endPos1.x,endPos1.y,endPos2.x1,endPos2.y1,500,150);
         ctx.stroke();
     }
@@ -102,12 +94,6 @@
     var ball1Line = new line(5,10,"gray"), ball2Line = new line(5,10,"gray");
     var bezierLine = new line(10,10,"black");
 
-    yuanLine1.drawLine({x:0,y: 650},{x1:0,y1: 150});
-    yuanLine2.drawLine({x:0, y: 650},{x1: 500, y1: 650});
-    yuanLine3.drawLine({x:0, y: 650},{x1: 500, y1: 150});
-    yuanball1.drawBall({x:0, y:650},"white");
-    yuanBall2.drawBall({x:500, y:150},"white");
-
     bezierLine.drawBezier({
         x: control1.offsetLeft +10,
         y: control1.offsetTop+10
@@ -116,45 +102,41 @@
         y1: control2.offsetTop+10
     });
 
-    control1.onmousedown = function (ev) {
+	yuanLine1.drawLine({x:0,y: 650},{x1:0,y1: 150});
+    yuanLine2.drawLine({x:0, y: 650},{x1: 500, y1: 650});
+    yuanLine3.drawLine({x:0, y: 650},{x1: 500, y1: 150});
+    yuanball1.drawBall({x:0, y:650},"white");
+    yuanBall2.drawBall({x:500, y:150},"white");
+	for (var i = 0;i < ctrs.length; i++) {
+		ctrs[i].onmousedown = function(ev){
+			draw(this,ev);
+		}
+	}
+	
+	function draw(who,ev){
         var e = ev || window.event;
-
         var X = e.clientX;
         var Y = e.clientY;
-
-        var ctr1X = control1.offsetLeft;
-        var ctr1Y = control1.offsetTop;
-        console.log("xxxx="+ctr1X);
+        var ctr1X = who.offsetLeft;
+        var ctr1Y = who.offsetTop;
         document.onmousemove = function (ev) {
             var e = ev || window.event;
-
             var nowX = e.clientX;
             var nowY = e.clientY;
-
-            var pianX = nowX - X;
-            var pianY = nowY - Y;
-//            if (control1.offsetLeft < 0){
-//                control1.style.left = 0;
-//            }else if(control1.offsetLeft > all.clientWidth - control1.offsetWidth-1){
-//                console.log(control1.offsetLeft);
-//                console.log(all.clientWidth - control1.offsetWidth);
-//                control1.style.left = all.clientWidth - control1.offsetWidth;
-//            }else{
-//                control1.style.left = ctr1X + pianX + "px";
-//
-//            }
-            control1.style.left = ctr1X + pianX + "px";
-            control1.style.top = ctr1Y + pianY + "px";
-
+            var endPosX = ctr1X + nowX - X;
+            var endPosY = ctr1Y + nowY - Y;
+            
+            if (endPosX < 0) {
+            	endPosX = 0;
+            } else if(endPosX > all.clientWidth - who.offsetWidth){
+            	endPosX = all.clientWidth - who.offsetWidth;
+            }
+            who.style.left = endPosX + "px";
+            who.style.top = endPosY + "px";
 
             setTimeout(function () {
                 ctx.clearRect(-10,0,canvas.width+10,canvas.height);
-                yuanLine1.drawLine({x:0, y: 650},{x1:0, y1: 150});
-                yuanLine2.drawLine({x:0, y: 650},{x1: 500, y1: 650});
-                yuanLine3.drawLine({x:0, y: 650},{x1: 500, y1: 150});
-                yuanball1.drawBall({x:0, y:650},"white");
-                yuanBall2.drawBall({x:500, y:150},"white");
-
+                
                 ball1Line.drawLine({x:0, y: 650},{x1:control1.offsetLeft,y1:control1.offsetTop+10});
                 ball2Line.drawLine({x:500, y: 150},{x1:control2.offsetLeft,y1:control2.offsetTop+10});
                 bezierLine.drawBezier({
@@ -164,74 +146,21 @@
                     x1: control2.offsetLeft +10,
                     y1: control2.offsetTop+10
                 });
-            });
-
-        }
-        control1.onmouseup = function () {
-            document.onmousemove = function () {
-                return false;
-            }
-        }
-    }
-
-    control2.onmousedown = function (ev) {
-        var e = ev || window.event;
-
-        var X = e.clientX;
-        var Y = e.clientY;
-
-        var ctr1X = control2.offsetLeft;
-        var ctr1Y = control2.offsetTop;
-        document.onmousemove = function (ev) {
-            var e = ev || window.event;
-
-            var nowX = e.clientX;
-            var nowY = e.clientY;
-
-            var pianX = nowX - X;
-            var pianY = nowY - Y;
-//            if (control1.offsetLeft < 0){
-//                control1.style.left = 0;
-//            }else if(control1.offsetLeft > all.clientWidth - control1.offsetWidth-1){
-//                console.log(control1.offsetLeft);
-//                console.log(all.clientWidth - control1.offsetWidth);
-//                control1.style.left = all.clientWidth - control1.offsetWidth;
-//            }else{
-//                control1.style.left = ctr1X + pianX + "px";
-//
-//            }
-            control2.style.left = ctr1X + pianX + "px";
-            control2.style.top = ctr1Y + pianY + "px";
-
-            setTimeout(function () {
-                ctx.clearRect(-10,0,canvas.width+10,canvas.height);
+                
                 yuanLine1.drawLine({x:0, y: 650},{x1:0, y1: 150});
                 yuanLine2.drawLine({x:0, y: 650},{x1: 500, y1: 650});
                 yuanLine3.drawLine({x:0, y: 650},{x1: 500, y1: 150});
                 yuanball1.drawBall({x:0, y:650},"white");
                 yuanBall2.drawBall({x:500, y:150},"white");
-
-                ball1Line.drawLine({x:0, y: 650},{x1:control1.offsetLeft,y1:control1.offsetTop+10});
-                ball2Line.drawLine({x:500, y: 150},{x1:control2.offsetLeft,y1:control2.offsetTop+10});
-                bezierLine.drawBezier({
-                    x: control1.offsetLeft +10,
-                    y: control1.offsetTop+10
-                },{
-                    x1: control2.offsetLeft +10,
-                    y1: control2.offsetTop+10
-                });
             });
 
         }
-        control2.onmouseup = function () {
+        who.onmouseup = function () {
             document.onmousemove = function () {
                 return false;
             }
         }
-    }
-
-
-
+    };
 </script>
 </body>
 </html>
