@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>14_运动_两圆碰撞检测</title>
+    <style type="text/css">
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	canvas{
+    		border: 1px solid red;
+    	}
+    </style>
 </head>
 <body>
 <canvas id="canvas" width="500" height="500">
@@ -57,12 +66,36 @@
             var e = e || window.event;
             arcs[currentIndex].x = e.clientX - mouseX;
             arcs[currentIndex].y = e.clientY - mouseY;
+            //判断边界
+            if (arcs[currentIndex].x < arcs[currentIndex].r) {
+            	arcs[currentIndex].x = arcs[currentIndex].r;
+            }else if(arcs[currentIndex].x + arcs[currentIndex].r > canvas.width){
+            	arcs[currentIndex].x = canvas.width - arcs[currentIndex].r;
+            }
+            if (arcs[currentIndex].y < arcs[currentIndex].r) {
+            	arcs[currentIndex].y = arcs[currentIndex].r;
+            }else if(arcs[currentIndex].y + arcs[currentIndex].r > canvas.height){
+            	arcs[currentIndex].y = canvas.height - arcs[currentIndex].r;
+            }
             drawArc();
+            checkP();
         }
         canvas.onmouseup = function () {
             canvas.onmousemove = null;
             currentIndex = -1;
         }
+    }
+    function checkP(){
+    	var chaX = Math.abs(arc1.x - arc2.x);
+    	var chaY = Math.abs(arc1.y - arc2.y);
+    	var R = arc1.r + arc2.r;
+    	if (chaX*chaX + chaY * chaY <= R * R) {
+    		arc1.color = "red";
+    		arc2.color = "red";
+    	}else{
+    		arc1.color = "#ccc";
+    		arc2.color = "pink";
+    	}
     }
 </script>
 </body>

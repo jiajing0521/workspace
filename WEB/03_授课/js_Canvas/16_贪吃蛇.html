@@ -21,73 +21,192 @@
 <script type="text/javascript">
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-
-    var rect1 = {
-        x: 0,
-        y: 0,
-        w: 20,
-        h: 20,
-        color:"black"
+	var gameOver = false;
+	var snakeTails = [];
+	function rand(min,max){
+		return Math.floor(Math.random()*(max+1-min)+min);
+	};
+    
+    var snake = {
+        x:20,
+        y:0,
+        w:20,
+        h:20,
+        color: "red",
+        left: false,
+        right: true,
+        top: false,
+        bottom: false
     };
-    var rect2 = {
-        x: 20,
-        y: 0,
-        w: 20,
-        h: 20,
-        color:"black"
-    };
-    var rect3 = {
-        x: 40,
-        y: 0,
-        w: 20,
-        h: 20,
-        color:"red"
-    };
-    var rects = [rect1,rect2,rect3];
-    var speedX = 0;
-    var speedY = 0;
-    function drawRect(X,Y) {
-
-        //每次绘制之前先清空画布
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        for (var i = 0; i < rects.length; i++){
-            ctx.beginPath();
-            ctx.strokeStyle = rects[i].color;
-            ctx.rect(rects[i].x+X,rects[i].y+Y,rects[i].w,rects[i].h);
-            ctx.stroke();
+	
+    snake.move = function () {
+        if (this.left){
+            this.x -= this.w;
+        }else if (this.right){
+            this.x += this.w;
+        }else if (this.top){
+            this.y -=this.h;
+        }else if (this.bottom){
+            this.y +=this.h;
         }
+    };
+    snake.draw = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.rect(this.x,this.y,this.w,this.h);
+        ctx.fill();
+		ctx.stroke();
+    };
+    snake.die = function () {
+        if (this.x < 0 || this.y < 0 || this.x > canvas.width || this.y > canvas.height) {
+        	
+//      if (this.x < 0 || this.y < 0 || this.x + this.w > canvas.width || this.y + this.h > canvas.height) {
+        	gameOver = true;
+        	alert("game over!!!!!!");
+        }
+    };
+    
+    var food = {
+    	x: rand(0,24)*20,
+    	y: rand(0,24)*20,
+    	w: 20,
+    	h: 20,
     }
-//    drawRect();
+	food.drawFood = function(){
+		ctx.beginPath();
+		ctx.fillStyle = "#00BFFF";
+		ctx.rect(this.x,this.y,this.w,this.h);
+		ctx.fill();
+		ctx.stroke();
+	}
+	var snaketail = new snakeTail();
+    snakeTails.push(snaketail);
+	function snakeTail(){
+		this.x = 0;
+		this.y = 0;
+		this.w = 20;
+		this.h = 20;
+	}
+	snakeTail.prototype.move = function(){
+		//第一块尾巴
+		if (snake.left){
+            snakeTails[0].x = snake.x+20;
+            snakeTails[0].y = snake.y;
+        }else if (snake.right){
+        	console.log(snake.x);
+            snakeTails[0].x = snake.x-20;
+            snakeTails[0].y = snake.y;
+        }else if (snake.top){
+            snakeTails[0].x = snake.x;
+            snakeTails[0].y = snake.y+20;
+        }else if (snake.bottom){
+            snakeTails[0].x = snake.x;
+            snakeTails[0].y = snake.y-20;
+        }
+		for (var i = 1; i < snakeTails.length; i++) {
+			if (snake.left){
+	            snakeTails[i].x = snakeTails[i-1].x + 20;
+	            snakeTails[i].y = snakeTails[i-1].y;
+	       }else if (snake.right){
+	            snakeTails[i].x = snakeTails[i-1].x - 20;
+	            snakeTails[i].y = snakeTails[i-1].y;
+	       }else if (snake.top){
+	            snakeTails[i].x = snakeTails[i-1].x;
+	            snakeTails[i].y = snakeTails[i-1].y + 20;
+	       }else if (snake.bottom){
+	            snakeTails[i].x = snakeTails[i-1].x;
+	            snakeTails[i].y = snakeTails[i-1].y - 20;
+	        }	
+		}
+	}
+	snakeTail.prototype.draw = function(){
+		for (var i = 0; i < snakeTails.length; i++) {
+			ctx.beginPath();
+			ctx.fillStyle = "#87CEEB";
+			ctx.rect(snakeTails[i].x,snakeTails[i].y,this.w,this.h);
+			ctx.fill();
+			ctx.stroke();
+		}
+	}
+    //    var arr = ["left", "top", "right", "bottom"];
+    //    for(var i = 0; i < arr.length; i++){
+    //        snake[arr[i]] = false;
+    //    }
+    //    snake[arr[e.keyCode-37]]= true;
 
-    function move() {
-        setInterval(function () {
-            speedX +=5;
-            speedY = 0
-            drawRect(speedX,speedY);
-        },100);
-    }
-    move();
-
-
-        document.onkeydown = function (e) {
+    document.onkeydown=function(e) {
         var e = e || window.event;
-        console.log(e.keyCode);
-        //39,40,37,38
-        //右
-        if (e.keyCode == 39){
-            ;
-        //下
-        }else if (e.keyCode == 40){
-            ;
-        //左
-        }else if (e.keyCode == 37){
-            ;
-        //上
-        }else if (e.keyCode == 38){
-            ;
+        //37,38,39,40
+        switch(e.keyCode){
+                //左
+            case 37:
+                snake.left = true;
+                snake.right = false;
+                snake.top = false;
+                snake.bottom = false;
+                break;
+                //上
+            case 38:
+                snake.left = false;
+                snake.right = false;
+                snake.top = true;
+                snake.bottom = false;
+                break;
+                //右
+            case 39:
+                snake.left = false;
+                snake.right = true;
+                snake.top = false;
+                snake.bottom = false;
+                break;
+                //下
+            case 40:
+                snake.left = false;
+                snake.right = false;
+                snake.top = false;
+                snake.bottom = true;
+                break;
+            default:
+                break;
         }
     }
 
+    function run() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        
+        snaketail.move();
+        snaketail.draw();
+        snake.draw();
+        snake.move();
+        snake.die();
+        checkP(snake,food);
+        food.drawFood();
+        if (!gameOver) {
+        	
+//      } else{
+        	window.setTimeout(run,300);
+        }
+    }
+    run();
+    
+    function checkP(obj1,obj2){
+    	var P1x = obj1.x+obj1.w/2;
+        var P1y = obj1.y+obj1.h/2;
+        var P2x = obj2.x+obj2.w/2;
+        var P2y = obj2.y+obj2.h/2;
+        
+        var chaX = Math.abs(P1x - P2x);
+        var chaY = Math.abs(P1y - P2y);
+        
+        if (chaX < (obj1.w/2 + obj2.w/2) && chaY < (obj1.h/2 + obj2.h/2)){
+            food.x = rand(0,24)*20;
+            food.y = rand(0,24)*20;
+            snakeX = snake.x;
+            snakeY = snake.y;
+            var snaketail = new snakeTail();
+            snakeTails.push(snaketail);
+        }
+    }
 
 
 </script>
