@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15_madBall</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+
+    function rand(min,max) {
+        return Math.floor(Math.random()*(max+1-min)+min);
+    };
+    function Ball() {
+        //随机球的半径
+        this.r = rand(5,20);
+        //球的中心坐标，控制在画布内应该减去半径
+        this.x = rand(this.r,canvas.width-this.r);
+        this.y = rand(this.r,canvas.height-this.r);
+        //运动的速度，横纵轴(方向正负)
+        this.speedX = rand(1,10)*(rand(1,2)>1?1:-1);
+        this.speedY = rand(1,10)*(rand(1,2)>1?1:-1);
+        this.color = "rgba("+rand(0,255)+","+rand(0,255)+","+rand(0,255)+","+Math.random().toFixed(2)+")";
+    }
+
+    Ball.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2,true);
+        ctx.fill();
+    };
+
+    Ball.prototype.move = function () {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        //判断边界
+        if (this.x >= canvas.width - this.r){
+            this.speedX *=-1;
+        }else if (this.x <= this.r){
+            this.speedX *=-1;
+        }
+        if (this.y >= canvas.height - this.r){
+            this.speedY *=-1;
+        }else if (this.y <= this.r){
+            this.speedY *=-1;
+        }
+    };
+    //装小球的数组
+    var balls = [];
+    for (var i = 0; i < 100; i++){
+        //每个新建的小球都继承属性
+        var ball = new Ball();
+        //新建的小球推到数组里
+        balls.push(ball);
+        //新建的小球画出来
+        ball.draw();
+    }
+
+    function boom() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for (var i = 0; i < balls.length; i++){
+            balls[i].draw();
+            balls[i].move();
+        }
+        //类似递归函数，自己调用自己，达到循环定时器的效果
+        window.requestAnimationFrame(boom);
+    }
+
+    boom();
+
+</script>
+</body>
+</html>

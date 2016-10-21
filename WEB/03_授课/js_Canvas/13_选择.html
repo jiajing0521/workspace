@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_选择</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+//    ctx.beginPath();
+//    //fillRect 和 strokeRect 没有创建路径
+////    ctx.fillRect(0,0,100,100);
+//    ctx.rect(0,0,100,100);
+//    ctx.fill();
+//    //判断点的坐标是不是在范围内
+//    console.log(ctx.isPointInPath(20,20));
+//
+//    ctx.beginPath();
+//    ctx.rect(200,200,100,100);
+//    console.log(ctx.isPointInPath(20,20));
+//    ctx.fill();
+
+
+    var rect1 = {
+        x: 0,
+        y: 0,
+        w: 100,
+        h: 100
+    };
+
+    var rect2 = {
+        x: 200,
+        y: 200,
+        w: 100,
+        h: 100
+    };
+
+    var rects = [rect1,rect2];
+
+    function drawRect() {
+        for (var i = 0; i < rects.length; i++){
+            ctx.beginPath();
+            ctx.rect(rects[i].x,rects[i].y,rects[i].w,rects[i].h);
+            ctx.fill();
+            if (arguments.length > 0){
+                if (ctx.isPointInPath(arguments[0],arguments[1])){
+                    console.log("点中了"+ i);
+                }
+            }
+        }
+    }
+
+    drawRect();
+    //arguments是函数内部的一个隐藏参数的"数组"，里面的元素是这个函数传入的所有参数
+//    function test() {
+//        console.log(arguments);
+//    }
+//    test(1,2);
+    document.onclick = function (e) {
+        var e = e || window.event;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        drawRect(e.clientX,e.clientY);
+
+    }
+</script>
+</body>
+</html>

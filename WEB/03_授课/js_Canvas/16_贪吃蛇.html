@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16_贪吃蛇</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        canvas{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var rect1 = {
+        x: 0,
+        y: 0,
+        w: 20,
+        h: 20,
+        color:"black"
+    };
+    var rect2 = {
+        x: 20,
+        y: 0,
+        w: 20,
+        h: 20,
+        color:"black"
+    };
+    var rect3 = {
+        x: 40,
+        y: 0,
+        w: 20,
+        h: 20,
+        color:"red"
+    };
+    var rects = [rect1,rect2,rect3];
+    var speedX = 0;
+    var speedY = 0;
+    function drawRect(X,Y) {
+
+        //每次绘制之前先清空画布
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for (var i = 0; i < rects.length; i++){
+            ctx.beginPath();
+            ctx.strokeStyle = rects[i].color;
+            ctx.rect(rects[i].x+X,rects[i].y+Y,rects[i].w,rects[i].h);
+            ctx.stroke();
+        }
+    }
+//    drawRect();
+
+    function move() {
+        setInterval(function () {
+            speedX +=5;
+            speedY = 0
+            drawRect(speedX,speedY);
+        },100);
+    }
+    move();
+
+
+        document.onkeydown = function (e) {
+        var e = e || window.event;
+        console.log(e.keyCode);
+        //39,40,37,38
+        //右
+        if (e.keyCode == 39){
+            ;
+        //下
+        }else if (e.keyCode == 40){
+            ;
+        //左
+        }else if (e.keyCode == 37){
+            ;
+        //上
+        }else if (e.keyCode == 38){
+            ;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14_运动</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+    
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    
+    var rect1 = {
+        x: 0,
+        y: 0,
+        w: 100,
+        h: 100
+    };
+    var rect2 = {
+        x: 200,
+        y: 200,
+        w: 100,
+        h: 100
+    };
+    
+    var rects = [rect1,rect2];
+    //用来记录当前点击的是哪一个rect
+    var currentIndex = -1;
+    //先绘制一遍
+    drawRect();
+    function drawRect() {
+        //每次绘制之前先清空画布
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for (var i = 0; i < rects.length; i++){
+            ctx.beginPath();
+            ctx.fillStyle = "pink";
+            ctx.rect(rects[i].x,rects[i].y,rects[i].w,rects[i].h);
+            ctx.fill();
+            //判断函数是否传参数（避免第一次的判断进入，第一次没有参数，以后每次绘制都有参数）
+            if (arguments.length){
+                //判断鼠标点击的位置是否在两个方块上
+                // （arguments[0],arguments[1]）分别是鼠标的横纵坐标
+                if (ctx.isPointInPath(arguments[0],arguments[1])){
+                    //如果在方块上，则知道是点击的第几个方块
+                    currentIndex = i;
+                }
+            }
+        }
+        
+    };
+
+    canvas.onmousedown = function (e) {
+        var e = e || window.event;
+
+        var x = e.clientX;
+        var y = e.clientY;
+
+        //点击时，传鼠标的坐标
+        drawRect(x,y);
+
+        //如果点击的不在方块上，则返回，不运行以下代码
+        //因为没有满足isPointInPath条件，currentIndex没有赋值还是-1
+        if (currentIndex == -1){
+            return;
+        }
+
+        //保存鼠标之前据方块的位置，点击时在以鼠标为中心生成方块
+        var oldX = x - rects[currentIndex].x;
+        var oldY = y - rects[currentIndex].y;
+
+        canvas.onmousemove = function (e) {
+            var e = e || window.event;
+
+            //移动时，方块的坐标=鼠标的坐标-点击时据方块的边距
+            rects[currentIndex].x = e.clientX - oldX;
+            rects[currentIndex].y = e.clientY - oldY;
+
+            //绘制画布
+            drawRect();
+            //碰撞检测
+            checkP(rect1,rect2);
+        };
+        canvas.onmouseup = function () {
+            canvas.onmousemove = null;
+            //鼠标抬起时，复原currentIndex，为了下一次是否点击到方块做判断
+            currentIndex = -1;
+        };
+    };
+
+    //碰撞检测
+    function checkP(obj1,obj2) {
+        //中心点的坐标 = 顶点的坐标 + 宽的一半
+        var r1x = obj1.x+obj1.w/2;
+        var r1y = obj1.y+obj1.h/2;
+        var r2x = obj2.x+obj2.w/2;
+        var r2y = obj2.x+obj2.h/2;
+        
+        //中心点的坐标相减取绝对值
+        var chax = Math.abs(r1x-r2x);
+        var chay = Math.abs(r1y-r2y);
+        
+        //如果差值小于各自宽高的一半的和，则表明撞上了
+        if (chax <= (obj1.w/2 + obj2.w/2) && chay <= (obj1.h/2 + obj2.h/2)){
+            console.log("撞上了");
+        }
+    }
+    
+    
+</script>
+</body>
+</html>

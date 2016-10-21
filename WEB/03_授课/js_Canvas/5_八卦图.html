@@ -21,8 +21,14 @@
     ctx.lineWidth = 1;
 
 
+    //先移动坐标轴到圆心的位置（画布本身位置没有变化）
+
+    ctx.translate(250,250);
+    //画布坐标轴在圆心上后，以后画的每一笔，都是从原点0，0开始
+    //旋转时，只能让画布圆心旋转
     setInterval(function () {
         ctx.clearRect(0,0,canvas.width,canvas.height);
+        //旋转
         ctx.rotate(Math.PI/180);
         //最大的圆
         ctx.beginPath();
@@ -58,11 +64,6 @@
         ctx.fillStyle = "black";
         ctx.fill();
     },10)
-
-
-    ctx.translate(250,250);
-
-
 
 
 </script>
