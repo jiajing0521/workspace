@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16_贪吃蛇New</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        canvas{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var count = 3;
+    var gameOver = false;
+    function rand(min,max){
+        return Math.floor(Math.random()*(max+1-min)+min);
+    };
+    function Food() {
+        this.x= 0;
+        this.y= 0;
+        this.w= 20;
+        this.h= 20;
+    };
+    Food.prototype.move = function () {
+        this.x = rand(0,24)*20;
+        this.y = rand(0,24)*20;
+
+        //判断随机的食物不能在蛇身上
+        var flag = 0;
+        while (flag == 0){
+            flag = 1;
+            for (var i = 0; i < snake.snakeBody.length; i++){
+                if (this.x == snake.snakeBody[i].x && this.y == snake.snakeBody[i].y){
+                    console.log(11111111111);
+                    this.x = rand(1,24)*20;
+                    this.y = rand(1,24)*20;
+                    flag = 0;
+                }
+            }
+        }
+    };
+    Food.prototype.drawFood = function(){
+
+        ctx.beginPath();
+        ctx.fillStyle = "#00BFFF";
+        ctx.rect(this.x,this.y,this.w,this.h);
+        ctx.fill();
+        ctx.stroke();
+    };
+    var snake = new Snake();
+    var food = new Food();
+
+    food.move();
+
+
+    function Snake(){
+        this.x = -20;
+        this.y = 0;
+        this.w = 20;
+        this.h = 20;
+        this.color="#ccc",
+                this.left= false,
+                this.right= true,
+                this.top= false,
+                this.bottom= false,
+                this.snakeBody = []
+    }
+
+    //下一个移动坐标设置
+    Snake.prototype.move = function () {
+        if (this.left){
+            this.x -= this.w;
+        }else if (this.right){
+            this.x += this.w;
+        }else if (this.top){
+            this.y -=this.h;
+        }else if (this.bottom){
+            this.y +=this.h;
+        };
+
+        for (var i = 0; i < snake.snakeBody.length; i++){
+            if (this.x == snake.snakeBody[i].x && this.y == snake.snakeBody[i].y){
+                gameOver = true;
+                alert("game over!!!!!!");
+            }
+        }
+    };
+    //保存当前坐标
+    Snake.prototype.save = function () {
+        var oldSnake = {
+            x: this.x,
+            y: this.y,
+            w: this.w,
+            h: this.h
+        };
+        if (snake.snakeBody.length >= count){
+            snake.snakeBody.shift();
+        }
+        snake.snakeBody.push(oldSnake);
+    };
+    //绘制
+    Snake.prototype.draw = function () {
+        for (var i = 0; i < this.snakeBody.length; i++){
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            if (i == this.snakeBody.length - 1){
+                ctx.fillStyle = "red";
+            }
+            ctx.rect(this.snakeBody[i].x,this.snakeBody[i].y,this.w,this.h);
+            ctx.fill();
+            ctx.stroke();
+        }
+    };
+    //判断边界
+    Snake.prototype.die = function (pan) {
+//        if (pan.x < 0 || pan.y < 0 || pan.x  > canvas.width || pan.y  > canvas.height) {
+        if (pan.x < 0 || pan.y < 0 || pan.x + pan.w > canvas.width || pan.y + pan.h > canvas.height) {
+            gameOver = true;
+            alert("game over!!!!!!");
+        }
+    };
+
+    var snake = new Snake();
+    //main函数
+    setInterval(function () {
+        if (gameOver) {
+            clearInterval();
+        } else{
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //下一个移动坐标设置
+            snake.move();
+            //保存当前坐标
+            snake.save();
+            //判断边界
+            snake.die(snake.snakeBody[snake.snakeBody.length - 1]);
+            //绘制
+
+            snake.draw();
+            //绘制食物
+            food.drawFood();
+            //判断吃食物
+            checkP(snake,food);
+        }
+    },200);
+
+
+    //判断吃食物
+    function checkP(obj1,obj2){
+        var P1x = obj1.x+obj1.w/2;
+        var P1y = obj1.y+obj1.h/2;
+        var P2x = obj2.x+obj2.w/2;
+        var P2y = obj2.y+obj2.h/2;
+
+        var chaX = Math.abs(P1x - P2x);
+        var chaY = Math.abs(P1y - P2y);
+
+        if (chaX < (obj1.w/2 + obj2.w/2) && chaY < (obj1.h/2 + obj2.h/2)){
+            food.move();
+            count++;
+            var snake = new Snake();
+            snake.snakeBody.push(snake);
+
+        }
+    }
+
+
+    document.onkeydown=function(e) {
+        var e = e || window.event;
+        //37,38,39,40
+        switch(e.keyCode){
+                //左
+            case 37:
+//                console.log("左");
+                if (!snake.right){
+                    snake.left = true;
+                    snake.right = false;
+                    snake.top = false;
+                    snake.bottom = false;;
+                }
+                break;
+                //上
+            case 38:
+//                console.log("上");
+                if (!snake.bottom){
+                    snake.left = false;
+                    snake.right = false;
+                    snake.top = true;
+                    snake.bottom = false;
+                }
+
+                break;
+                //右
+            case 39:
+//                console.log("右");
+                if (!snake.left) {
+                    snake.left = false;
+                    snake.right = true;
+                    snake.top = false;
+                    snake.bottom = false;
+                }
+                break;
+                //下
+            case 40:
+//                console.log("下");
+                if (!snake.top) {
+                    snake.left = false;
+                    snake.right = false;
+                    snake.top = false;
+                    snake.bottom = true;
+                }
+                break;
+            default:
+                break;
+        }
+    };
+
+
+
+
+</script>
+</body>
+</html>

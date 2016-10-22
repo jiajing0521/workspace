@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>悬浮弹出</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+            #all{
+                margin-top: 50px;
+            }
+			#all div{
+				width: 100px;
+				height:20px;
+				background-color: #00aabb;
+				border:1px solid black;
+				text-align: center;
+				float: left;
+			}
+			ul{
+                margin-top:5px;
+				background-color: #CCCCCC;
+				list-style-type: none;
+                width: 100px;
+                overflow: hidden;
+                height: 0px;
+                border:1px solid black;
+			}
+            li{
+                /*height: 0px;*/
+            }
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div>首页<ul>
+				<li>hfkjghar</li>
+				<li>;ewjr;we</li>
+				<li>jhgjkwhk</li>
+				<li>fbkdhfkje</li>
+				<li>fgife</li>
+			</ul></div>
+			<div>产品<ul>
+				<li>ndlk</li>
+				<li>jfole</li>
+				<li>fjkpsef</li>
+				<li>dfjs</li>
+				<li>sm;dlf</li>
+			</ul></div>
+			<div>关于<ul>
+				<li>dfgsd</li>
+				<li>sdfgsdgfsd</li>
+				<li>sdfsd</li>
+				<li>sdfsdf</li>
+				<li>sdfsdf</li>
+			</ul></div>
+
+
+
+		</div>
+	<script type="text/javascript">
+	    var divs = document.querySelectorAll("#all div");
+		var uls = document.querySelectorAll("ul");
+        function cre(index) {
+            return index;
+        }
+
+        for (var i = 0; i < divs.length; i++){
+            divs[i].index = i;
+            divs[i].onclick = function () {
+                var count = cre(this.index);
+                console.log(1);
+                alert(count);
+                for (var j = 0; j < uls[j].length; j++){
+                    console.log(2);
+                    uls[j].onclick = function () {
+                        console.log(2);
+                        alert(count);
+                    }
+                }
+
+            }
+        }
+        var speed = 3;
+		for (var i = 0; i < divs.length; i++){
+
+			divs[i].index = i;
+		    divs[i].onmouseover = function () {
+                addH(divs[this.index]);
+			};
+            divs[i].onmouseout = function () {
+                jianH(divs[this.index]);
+            };
+		}
+
+		function addH(who) {
+            clearInterval(who.timer);
+            who.timer = setInterval(function () {
+
+//                alert(cre(this.index));
+                if (uls[who.index].offsetHeight > 100){
+                    clearInterval(who.timer);
+                    uls[who.index].style.height = "100px";
+                }else{
+                    uls[who.index].style.height = uls[who.index].offsetHeight + speed + "px";
+                }
+            },1);
+        }
+
+        function jianH(who) {
+            clearInterval(who.timer);
+            who.timer = setInterval(function () {
+                if (uls[who.index].offsetHeight <= 0){
+                    clearInterval(who.timer);
+                    uls[who.index].style.height = 0;
+                }else{
+                    uls[who.index].style.height = uls[who.index].offsetHeight - speed + "px";
+                }
+            },100);
+        }
+	</script>
+	</body>
+</html>

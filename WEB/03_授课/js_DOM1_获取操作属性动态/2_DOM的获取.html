@@ -5,15 +5,18 @@
 		<title>2_DOM的获取</title>
 	</head>
 	<body>
-		<div id="div1">
+		<div class="div1">
 			<p>1</p>
 			<p>2</p>
 			<p>3</p>
+			<div>22222</div>
 			123
 		</div>
 		<script type="text/javascript">
 			//DOM节点的获取
-			var div1 = document.getElementById("div1");
+			var div1 = document.querySelector(".div1");
+			var ps = div1.getElementsByTagName("p");
+			console.log("1111="+ps);
 			//(1)获取节点下的所有子节点
 			var ps = div1.childNodes;
 			console.log(ps,ps.length,ps[0].nodeType);
