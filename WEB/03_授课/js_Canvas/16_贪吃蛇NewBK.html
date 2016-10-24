@@ -14,6 +14,7 @@
     </style>
 </head>
 <body>
+<div id="scores"></div>
 <canvas id="canvas" width="500" height="500">
     低版本浏览器不支持
 
@@ -21,11 +22,15 @@
 <script type="text/javascript">
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    var count = 3;
-    var gameOver = false;
-    function rand(min,max){
-        return Math.floor(Math.random()*(max+1-min)+min);
-    };
+    var scores = document.getElementById("scores");
+    var count = 5;
+	var gameOver = false;
+    var gameScores = 0;
+    var time = 10;
+    scores.innerHTML = "您当前的得分是："+ gameScores;
+	function rand(min,max){
+		return Math.floor(Math.random()*(max+1-min)+min);
+	};
     function Food() {
         this.x= 0;
         this.y= 0;
@@ -70,11 +75,11 @@
         this.w = 20;
         this.h = 20;
         this.color="#ccc",
-                this.left= false,
-                this.right= true,
-                this.top= false,
-                this.bottom= false,
-                this.snakeBody = []
+        this.left= false,
+        this.right= true,
+        this.top= false,
+        this.bottom= false,
+        this.snakeBody = []
     }
 
     //下一个移动坐标设置
@@ -93,6 +98,7 @@
             if (this.x == snake.snakeBody[i].x && this.y == snake.snakeBody[i].y){
                 gameOver = true;
                 alert("game over!!!!!!");
+                clearInterval(timer);
             }
         }
     };
@@ -125,17 +131,19 @@
     //判断边界
     Snake.prototype.die = function (pan) {
 //        if (pan.x < 0 || pan.y < 0 || pan.x  > canvas.width || pan.y  > canvas.height) {
-        if (pan.x < 0 || pan.y < 0 || pan.x + pan.w > canvas.width || pan.y + pan.h > canvas.height) {
+      if (pan.x < 0 || pan.y < 0 || pan.x + pan.w > canvas.width || pan.y + pan.h > canvas.height) {
             gameOver = true;
             alert("game over!!!!!!");
-        }
+          clearInterval(timer);
+      }
     };
 
     var snake = new Snake();
     //main函数
-    setInterval(function () {
+    clearInterval(timer);
+    var timer = setInterval(function () {
         if (gameOver) {
-            clearInterval();
+            clearInterval(timer);
         } else{
             ctx.clearRect(0,0,canvas.width,canvas.height);
             //下一个移动坐标设置
@@ -152,9 +160,8 @@
             //判断吃食物
             checkP(snake,food);
         }
-    },200);
-
-
+    },100);
+    
     //判断吃食物
     function checkP(obj1,obj2){
         var P1x = obj1.x+obj1.w/2;
@@ -170,7 +177,8 @@
             count++;
             var snake = new Snake();
             snake.snakeBody.push(snake);
-
+            gameScores++;
+            scores.innerHTML = "您当前的得分是："+ gameScores*10;
         }
     }
 

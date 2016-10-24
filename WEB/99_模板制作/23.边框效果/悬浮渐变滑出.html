@@ -15,7 +15,7 @@
 				width: 100px;
 				height:20px;
 				background-color: #00aabb;
-				border:1px solid black;
+				/*border:1px solid black;*/
 				text-align: center;
 				float: left;
 			}
@@ -26,7 +26,7 @@
                 width: 100px;
                 overflow: hidden;
                 height: 0px;
-                border:1px solid black;
+                /*border:1px solid black;*/
 			}
             li{
                 /*height: 0px;*/
@@ -60,66 +60,124 @@
 
 
 		</div>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	    var divs = document.querySelectorAll("#all div");
 		var uls = document.querySelectorAll("ul");
-        function cre(index) {
-            return index;
-        }
 
-        for (var i = 0; i < divs.length; i++){
-            divs[i].index = i;
-            divs[i].onclick = function () {
-                var count = cre(this.index);
-                console.log(1);
-                alert(count);
-                for (var j = 0; j < uls[j].length; j++){
-                    console.log(2);
-                    uls[j].onclick = function () {
-                        console.log(2);
-                        alert(count);
-                    }
-                }
+//        var speed = 3;
 
-            }
-        }
-        var speed = 3;
-		for (var i = 0; i < divs.length; i++){
+		//JS原生方法
+//		for (var i = 0; i < divs.length; i++){
+//
+//			divs[i].index = i;
+//		    divs[i].onmouseover = function () {
+//                addH(divs[this.index]);
+//			};
+//            divs[i].onmouseout = function () {
+//                jianH(divs[this.index]);
+//            };
+//		}
+//
+//		function addH(who) {
+//            clearInterval(who.timer);
+//            who.timer = setInterval(function () {
+//                if (uls[who.index].offsetHeight > 100){
+//                    clearInterval(who.timer);
+//                    uls[who.index].style.height = "100px";
+//                }else{
+//                    uls[who.index].style.height = uls[who.index].offsetHeight + speed + "px";
+//                }
+//            },1);
+//        }
+//
+//        function jianH(who) {
+//            clearInterval(who.timer);
+//            who.timer = setInterval(function () {
+//                if (uls[who.index].offsetHeight <= 0){
+//                    clearInterval(who.timer);
+//                    uls[who.index].style.height = 0;
+//                }else{
+//                    uls[who.index].style.height = uls[who.index].offsetHeight - speed + "px";
+//                }
+//            },100);
+//        }
 
-			divs[i].index = i;
-		    divs[i].onmouseover = function () {
-                addH(divs[this.index]);
-			};
-            divs[i].onmouseout = function () {
-                jianH(divs[this.index]);
-            };
-		}
 
-		function addH(who) {
-            clearInterval(who.timer);
-            who.timer = setInterval(function () {
 
-//                alert(cre(this.index));
-                if (uls[who.index].offsetHeight > 100){
-                    clearInterval(who.timer);
-                    uls[who.index].style.height = "100px";
-                }else{
-                    uls[who.index].style.height = uls[who.index].offsetHeight + speed + "px";
-                }
-            },1);
-        }
+        //闭包方法
 
-        function jianH(who) {
-            clearInterval(who.timer);
-            who.timer = setInterval(function () {
-                if (uls[who.index].offsetHeight <= 0){
-                    clearInterval(who.timer);
-                    uls[who.index].style.height = 0;
-                }else{
-                    uls[who.index].style.height = uls[who.index].offsetHeight - speed + "px";
-                }
-            },100);
-        }
+//		for (var i = 0; i < divs.length; i++){
+//			divs[i].timer = null;
+//		    divs[i].onmouseover = (function (index) {
+//				return function () {
+//					clearInterval(divs[index].timer);
+//					divs[index].timer = setInterval(function () {
+//						if (uls[index].clientHeight >= 100){
+//						    clearInterval(divs[index].timer);
+//						}else{
+//							uls[index].style.height = uls[index].clientHeight + speed + "px";
+//						}
+//					},1)
+//				}
+//			})(i);
+//			divs[i].onmouseout = (function (index) {
+//				return function () {
+//					clearInterval(divs[index].timer);
+//					divs[index].timer = setInterval(function () {
+//						if (uls[index].clientHeight <= 0){
+//							clearInterval(divs[index].timer);
+//						}else{
+//							uls[index].style.height = uls[index].clientHeight - speed + "px";
+//						}
+//					},1)
+//				}
+//			})(i);
+//		}
+
+		//对象+闭包函数
+//		var chageLength = {
+//			change: function (speed, index) {
+//				return function () {
+//					clearInterval(divs[index].timer);
+//					divs[index].timer = setInterval(function () {
+//						if (uls[index].clientHeight > 100 || uls[index].clientHeight < 0) {
+//							clearInterval(divs[index].timer);
+//							if (uls[index].clientHeight > 100){
+//								uls[index].style.height = 100+"px";
+//							}
+//						} else {
+//							console.log(speed);
+//							uls[index].style.height =  uls[index].clientHeight + speed+"px";
+//						}
+//					}, 1)
+//				}
+//			}
+//		};
+//
+//		for (var i = 0; i < divs.length; i++){
+//			divs[i].timer = null;
+//			divs[i].onmouseover = (function (index) {
+//				return chageLength.change(1,index);
+//			})(i);
+//			divs[i].onmouseout = (function (index) {
+//				return chageLength.change(-1,index);
+//			})(i);
+//		}
+
+		$("#all div").on("mouseover",function () {
+
+			$("ul").eq($("#all div").index(this)).animate({
+				height:100
+			})
+		})
+		$("#all div").on("mouseout",function () {
+			console.log($("#all div").index(this));
+			$("ul").eq($("#all div").index(this)).animate({
+				height:0
+			})
+		})
+
 	</script>
 	</body>
 </html>

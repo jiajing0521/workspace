@@ -14,6 +14,7 @@
     </style>
 </head>
 <body>
+<div id="scores"></div>
 <canvas id="canvas" width="500" height="500">
     低版本浏览器不支持
 
@@ -21,12 +22,17 @@
 <script type="text/javascript">
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    var count = 3;
+    var scores = document.getElementById("scores");
+    var count = 5;
 	var gameOver = false;
+    var gameScores = 0;
+    //初始速度
+    var speed =500;
+    var timer;
+    scores.innerHTML = "您当前的得分是："+ gameScores;
 	function rand(min,max){
 		return Math.floor(Math.random()*(max+1-min)+min);
 	};
-
     function Food() {
         this.x= 0;
         this.y= 0;
@@ -36,6 +42,20 @@
     Food.prototype.move = function () {
         this.x = rand(0,24)*20;
         this.y = rand(0,24)*20;
+
+        //判断随机的食物不能在蛇身上
+        var flag = 0;
+        while (flag == 0){
+            flag = 1;
+            for (var i = 0; i < snake.snakeBody.length; i++){
+                if (this.x == snake.snakeBody[i].x && this.y == snake.snakeBody[i].y){
+                    console.log(11111111111);
+                    this.x = rand(1,24)*20;
+                    this.y = rand(1,24)*20;
+                    flag = 0;
+                }
+            }
+        }
     };
     Food.prototype.drawFood = function(){
 
@@ -45,8 +65,12 @@
         ctx.fill();
         ctx.stroke();
     };
+    var snake = new Snake();
     var food = new Food();
+
     food.move();
+
+
     function Snake(){
         this.x = -20;
         this.y = 0;
@@ -59,6 +83,7 @@
         this.bottom= false,
         this.snakeBody = []
     }
+
     //下一个移动坐标设置
     Snake.prototype.move = function () {
         if (this.left){
@@ -70,10 +95,12 @@
         }else if (this.bottom){
             this.y +=this.h;
         };
+
         for (var i = 0; i < snake.snakeBody.length; i++){
             if (this.x == snake.snakeBody[i].x && this.y == snake.snakeBody[i].y){
                 gameOver = true;
                 alert("game over!!!!!!");
+                clearInterval(timer);
             }
         }
     };
@@ -109,31 +136,36 @@
       if (pan.x < 0 || pan.y < 0 || pan.x + pan.w > canvas.width || pan.y + pan.h > canvas.height) {
             gameOver = true;
             alert("game over!!!!!!");
+          clearInterval(timer);
       }
     };
+
     var snake = new Snake();
     //main函数
-    setInterval(function () {
-        if (gameOver) {
-            clearInterval();
-        } else{
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            //下一个移动坐标设置
-            snake.move();
-            //保存当前坐标
-            snake.save();
-            //判断边界
-            snake.die(snake.snakeBody[snake.snakeBody.length - 1]);
-            //绘制
-            snake.draw();
-            //绘制食物
-            food.drawFood();
-            //判断吃食物
-            checkP(snake,food);
-        }
-    },200);
-
-
+    run();
+    function run() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if (gameOver) {
+                clearInterval(timer);
+            } else{
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                //下一个移动坐标设置
+                snake.move();
+                //保存当前坐标
+                snake.save();
+                //判断边界
+                snake.die(snake.snakeBody[snake.snakeBody.length - 1]);
+                //绘制
+                snake.draw();
+                //绘制食物
+                food.drawFood();
+                //判断吃食物
+                checkP(snake,food);
+            }
+        },speed);
+    }
+    
     //判断吃食物
     function checkP(obj1,obj2){
         var P1x = obj1.x+obj1.w/2;
@@ -149,6 +181,15 @@
             count++;
             var snake = new Snake();
             snake.snakeBody.push(snake);
+            gameScores++;
+            scores.innerHTML = "您当前的得分是："+ gameScores*10;
+            clearInterval(timer);
+            if (speed<=100){
+                speed=100;
+            }else{
+                speed -= 50;
+            }
+            run();
         }
     }
 
@@ -159,35 +200,44 @@
         switch(e.keyCode){
                 //左
             case 37:
-                console.log("左");
-                snake.left = true;
-                snake.right = false;
-                snake.top = false;
-                snake.bottom = false;
+//                console.log("左");
+                if (!snake.right){
+                    snake.left = true;
+                    snake.right = false;
+                    snake.top = false;
+                    snake.bottom = false;;
+                }
                 break;
                 //上
             case 38:
-                console.log("上");
-                snake.left = false;
-                snake.right = false;
-                snake.top = true;
-                snake.bottom = false;
+//                console.log("上");
+                if (!snake.bottom){
+                    snake.left = false;
+                    snake.right = false;
+                    snake.top = true;
+                    snake.bottom = false;
+                }
+
                 break;
                 //右
             case 39:
-                console.log("右");
-                snake.left = false;
-                snake.right = true;
-                snake.top = false;
-                snake.bottom = false;
+//                console.log("右");
+                if (!snake.left) {
+                    snake.left = false;
+                    snake.right = true;
+                    snake.top = false;
+                    snake.bottom = false;
+                }
                 break;
                 //下
             case 40:
-                console.log("下");
-                snake.left = false;
-                snake.right = false;
-                snake.top = false;
-                snake.bottom = true;
+//                console.log("下");
+                if (!snake.top) {
+                    snake.left = false;
+                    snake.right = false;
+                    snake.top = false;
+                    snake.bottom = true;
+                }
                 break;
             default:
                 break;

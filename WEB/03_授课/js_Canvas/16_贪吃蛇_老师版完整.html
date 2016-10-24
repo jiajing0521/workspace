@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>老师版贪吃蛇</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500">
+        低版本浏览器不支持
+    </canvas>
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        //
+        var snake = {
+            x: 0,
+            y: 0,
+            w: 50,
+            h: 50,
+            headerColor: "red",
+            bodyColor: "blue",
+            //运动方向
+            direction: "right",
+            score: 0,
+            //因为身体的位置是蛇头走过的位置，所以用一个数组来记录舌头走过的位置
+            //positions：[{x:10,y:10},{x:60,y:10}]
+            positions: []
+        };
+        //运动函数
+        snake.move = function () {
+            if (this.direction == "left"){
+                this.x -= this.w;
+            }else if (this.direction == "right"){
+                this.x += this.w;
+            }else if (this.direction == "top"){
+                this.y -= this.h;
+            }else if (this.direction == "bottom"){
+                this.y += this.h;
+            }
+        };
+        //画图函数
+        snake.draw = function () {
+            //画蛇头
+            ctx.beginPath();
+            ctx.fillStyle = this.headerColor;
+            ctx.fillRect(this.x,this.y,this.w,this.h);
+            //身体
+            for (var i = 0; i < this.positions.length; i++){
+                ctx.beginPath();
+                //body的每一个位置
+                var position = this.positions[i];
+                ctx.fillStyle = this.bodyColor;
+                ctx.fillRect(position.x,position.y,this.w,this.h);
+            }
+        };
+        //保存蛇头位置函数
+        snake.addPosition = function () {
+            //保存蛇头位置到数组里
+            this.positions.push({
+                x:this.x,
+                y:this.y
+            });
+            //限制身体的长度(如果蛇走过身体长度，之前保存过得第一个位置没有用了，删除)
+            //分数没增加一个，身体就长一个，最少有两节，所以当前的长度为2+sore
+            if (this.positions.length > 2+this.score){
+                this.positions.shift();
+            }
+        };
+        snake.eat = function () {
+            if (snake.x == food.x && snake.y == food.y){
+                //分数+1，表示蛇身体长度+1
+                this.score++;
+                //重新生成食物
+                food = new Food();
+                food.setPosition();
+            }
+        };
+
+        function rand(min,max) {
+            return Math.floor(Math.random()*(max + 1 -min) + min);
+        }
+
+        //食物构造函数
+        function Food() {
+            this.x = 0;
+            this.y = 0;
+            this.w = 50;
+            this.h = 50;
+            this.color = "rgb(" + rand(0,255) + "," + rand(0,255) + "," + rand(0,255) + ")";
+        }
+        //画食物函数
+        Food.prototype.draw = function () {
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x,this.y,this.w,this.h);
+        };
+
+        Food.prototype.setPosition = function () {
+            while (true) {
+                //随机生成食物位置
+                var x = rand(0,(canvas.width-this.w)/this.w)*this.w;
+                var y = rand(0,(canvas.height-this.h)/this.h)*this.h;
+
+                //检查有没有在蛇身体上的位置冲突，如果有冲突，结束本次for循环，继续while
+                for (var i = 0; i < snake.positions.length; i++){
+                    var position = snake.positions[i];
+                    if (this.x == position.x && this.y == position.y){
+                        break;
+                    }
+                }
+                //如果没有冲突，for循环结束，条件（i == snake.positions.length）成立
+                if (i == snake.positions.length){
+                    //说明没有冲突,随机的位置保留，结束while循环
+                    this.x = x;
+                    this.y = y;
+                    break;
+                }
+            }
+        };
+        //运行函数
+        var food = new Food();
+        food.setPosition();
+        run();
+        function run() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //通过递归的方式，来模拟循环定时器
+            //画蛇
+//            snake.draw();
+            //保存舍得位置
+            snake.addPosition();
+            //蛇移动
+            snake.move();
+            snake.draw();
+
+            food.draw();
+            //判断吃掉食物
+            snake.eat();
+            setTimeout(run,500);
+        }
+
+        var directinos = ["left","top","right","bottom"];
+        document.onkeydown = function (e) {
+            var e = e || window.event;
+            if (e.keyCode > 36 && e.keyCode < 41){
+                snake.direction = directinos[e.keyCode - 37];
+            }
+        }
+        
+    </script>
+</body>
+</html>

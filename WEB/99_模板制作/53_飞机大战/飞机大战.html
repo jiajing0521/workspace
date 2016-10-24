@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>飞机大战</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    低版本浏览器不支持
+</canvas>
+<script src="loading.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    //1......为了图像使用方便，不用每一个去取名字，所以直接用图像的名字作为obj对象的属性
+    var obj = {
+        "bg1": "img/bg1.png",
+        "bullet1": "img/bullet1.png",
+        "bullet2": "img/bullet2.png"
+    };
+
+    //函数封装,参数为传入图片的对象，函数
+
+    //调用，传入图片对象参数，图片处理函数
+    loading({"background_2":"img/background_2.png","bg1":"img/bg1.png","bomb":"img/bomb.png","bullet1":"img/bullet1.png","bullet2":"img/bullet2.png","enemy1_blowup_1":"img/enemy1_blowup_1.png","enemy1_blowup_2":"img/enemy1_blowup_2.png","enemy1_blowup_3":"img/enemy1_blowup_3.png","enemy1_blowup_4":"img/enemy1_blowup_4.png","enemy1_fly_1":"img/enemy1_fly_1.png","enemy2_blowup_1":"img/enemy2_blowup_1.png","enemy2_blowup_2":"img/enemy2_blowup_2.png","enemy2_blowup_3":"img/enemy2_blowup_3.png","enemy2_blowup_4":"img/enemy2_blowup_4.png","enemy2_blowup_5":"img/enemy2_blowup_5.png","enemy2_blowup_6":"img/enemy2_blowup_6.png","enemy2_blowup_7":"img/enemy2_blowup_7.png","enemy2_fly_1":"img/enemy2_fly_1.png","enemy2_fly_2":"img/enemy2_fly_2.png","enemy2_hit_1":"img/enemy2_hit_1.png","enemy3_blowup_1":"img/enemy3_blowup_1.png","enemy3_blowup_2":"img/enemy3_blowup_2.png","enemy3_blowup_3":"img/enemy3_blowup_3.png","enemy3_blowup_4":"img/enemy3_blowup_4.png","enemy3_fly_1":"img/enemy3_fly_1.png","enemy3_hit_1":"img/enemy3_hit_1.png","enemy3_hit_2":"img/enemy3_hit_2.png","enemy4_fly_1":"img/enemy4_fly_1.png","enemy5_fly_1":"img/enemy5_fly_1.png","gameArts-hd":"img/gameArts-hd.png","gameArts":"img/gameArts.png","game_pause":"img/game_pause.png","game_pause_hl":"img/game_pause_hl.png","hero_blowup_1":"img/hero_blowup_1.png","hero_blowup_2":"img/hero_blowup_2.png","hero_blowup_3":"img/hero_blowup_3.png","hero_blowup_4":"img/hero_blowup_4.png","hero_fly_1":"img/hero_fly_1.png","hero_fly_2":"img/hero_fly_2.png","loading0":"img/loading0.png","loading1":"img/loading1.png","loading2":"img/loading2.png","loading3":"img/loading3.png"},function(a) {
+        //图片加载的进度
+                console.log(a);
+            },function (imgsObj) {
+        //图片加载完成的函数
+                console.log("1111=" + imgsObj,imgsObj["bg1"]);
+            }
+    );
+
+
+
+
+</script>
+</body>
+</html>

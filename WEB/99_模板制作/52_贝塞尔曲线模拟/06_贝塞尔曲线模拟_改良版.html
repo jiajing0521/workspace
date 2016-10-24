@@ -28,8 +28,47 @@
         }
         #all{
             width: 520px;
-            height: 1000px;
+            height: 800px;
             position: relative;
+        }
+        p{
+        	position: absolute;
+        	left: 0;
+        	top: 0;
+        	font-size: 2em;
+        }
+        #divMove{
+            position: relative;
+            margin-top: -700px;
+            margin-left: 600px;
+        }
+        #div1{
+            width: 100px;
+            height:100px;
+            background-color: rgb(249,0,119);
+            margin-top: 50px;
+            position: absolute;
+            left:0;
+            top:0;
+            -webkit-transition: all 2s linear;
+            -moz-transition: all 2s linear;
+            -ms-transition: all 2s linear;
+            -o-transition: all 2s linear;
+            transition: all 2s linear;
+        }
+        #div2{
+            width: 100px;
+            height:100px;
+            background-color: rgb(25,154,174);
+            margin-top: 200px;
+            position: absolute;
+            left:0;
+            top:0;
+            -webkit-transition: all 2s linear;
+            -moz-transition: all 2s linear;
+            -ms-transition: all 2s linear;
+            -o-transition: all 2s linear;
+            transition: all 2s linear;
         }
     </style>
 </head>
@@ -40,8 +79,13 @@
     </canvas>
     <div id="control1"></div>
     <div id="control2"></div>
+    (<p>0,1,1,0</p>)
 </div>
-
+<div id="divMove">
+    <input type="button" value="效果" id="btn">
+    <div id="div1" style="transition: all 2s linear;">bezier</div>
+    <div id="div2">linear</div>
+</div>
 <script type="text/javascript">
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
@@ -49,6 +93,8 @@
     var control2 = document.getElementById("control2");
     var all = document.getElementById("all");
 	var ctrs = document.querySelectorAll("#all div");
+	var text = document.querySelector("p");
+    var btn = document.getElementById("btn");
 
     ctx.translate(10,0);
     function line(width,length,color){
@@ -146,7 +192,11 @@
                     x1: control2.offsetLeft +10,
                     y1: control2.offsetTop+10
                 });
-                
+                var a = ((control1.offsetLeft +10)/500-0.02).toFixed(2);
+                var b = ((650-control1.offsetTop +10)/500-0.04).toFixed(2);
+                var c = ((control2.offsetLeft +10)/500-0.02).toFixed(2);
+                var d = ((650-control2.offsetTop +10)/500-0.04).toFixed(2);
+                text.innerHTML = a+","+b+","+c+","+d;
                 yuanLine1.drawLine({x:0, y: 650},{x1:0, y1: 150});
                 yuanLine2.drawLine({x:0, y: 650},{x1: 500, y1: 650});
                 yuanLine3.drawLine({x:0, y: 650},{x1: 500, y1: 150});
@@ -161,6 +211,22 @@
             }
         }
     };
+    var index = 0;
+    btn.onclick=function(){
+        index++;
+        if(index%2==1){
+            div1.style.left=500+"px";
+            div2.style.left=500+"px";
+            //记得初始值css样式给left和top，transition
+            div1.style.webkitTransition="all 2s cubic-bezier("+text.innerHTML+")";
+//            div2.style.webkitTransition="all 2s linear";
+        }else{
+            div1.style.left=0+"px";
+            div2.style.left=0+"px";
+            div1.style.transition="all 2s cubic-bezier("+text.innerHTML+")";
+//            div2.style.transition="all 2s linear";
+        }
+    }
 </script>
 </body>
 </html>

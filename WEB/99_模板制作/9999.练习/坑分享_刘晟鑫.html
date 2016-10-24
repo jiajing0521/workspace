@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: red;
+            outline: 1px solid black;
+            /*border: 1px solid black;*/
+        }
+    </style>
+    <script src="js/jquery-2.2.3.min.js"></script>
+</head>
+<body>
+<div></div>
+<script type="text/javascript">
+    var divAll = document.querySelector("div");
+    //左边是clientHeight,右边是offsetHeight不可以
+    //解决办法
+    //1.右边应该是divAll.clientHeight
+    //2.去掉border
+    //3.用outline
+    var sayTheSize = {
+        speed:1,
+        timer:null,
+        reduce: function () {
+            if (divAll.offsetHeight <=0){
+                clearInterval(sayTheSize.timer);
+            }else{
+                divAll.style.height = divAll.offsetHeight -sayTheSize.speed+ "px";
+            }
+        }
+    }
+    divAll.onmouseover = function () {
+        sayTheSize.timer = setInterval(sayTheSize.reduce,10);
+    }
+    //模拟循环定时器
+    $.fn.extend({
+        "round": function () {
+            $("div").animate({
+                width:200
+            },function () {
+                console.log(1111);
+                $().round();
+            })
+        }
+    });
+    $().round();
+
+    function a() {
+        console.log(2222);
+        setTimeout(a,1000);
+    }
+    a();
+
+</script>
+</body>
+</html>
