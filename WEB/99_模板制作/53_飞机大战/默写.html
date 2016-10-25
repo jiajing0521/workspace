@@ -79,7 +79,7 @@
             this.h = this.img.height;
             this.x = hero.x + hero.w/2 - this.w/2;
             this.y = hero.y - this.h;
-            this.speed = 5;
+            this.speed = 10;
         }
 
         Bullet.prototype.draw = function () {
@@ -132,7 +132,7 @@
         var scrollY = 0;
         var time = 0;
         var canMove = false;
-
+		var scores = 0;
         function run() {
 
             ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -183,7 +183,17 @@
                     i--;
                 }
             }
-
+            
+            for(var i = 0; i < bullets.length; i++){
+            	for (var j = 0; j < enemys.length; j++) {
+            		if (checkP(bullets[i],enemys[j])) {
+            			scores += 10;
+            			bullets.splice(i,1);
+            			enemys.splice(j,1);
+            		}
+            	}
+            }
+			
             window.requestAnimationFrame(run);
 
 

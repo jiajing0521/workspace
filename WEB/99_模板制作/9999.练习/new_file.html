@@ -1,34 +1,81 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			#ajj{
-				width: 100px;
-				height: 100px;
-				background-color: red;
-				display: -webkit-box;
-				position: relative;
-				/*-webkit-box-align: center;*/
-			}
-			#div1{
-				width: 10px;
-				height: 10px;
-				background-color: yellow;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				
-				transform: translate(-50%,-50%);
-			}
-		</style>
-	</head>
-	<body>
-		<div id="ajj">
-			<div id="div1">
-				
-			</div>
-		</div>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            float: left;
+            background:green;
+            border: 1px solid #CCCCFF;
+            filter: alpha(opacity=30);
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+<div id="div1"></div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function() {
+        var oDiv1 = document.getElementById("div1");
+
+        oDiv1.onmouseover = function() {
+            startMove(this, 'opacity', 100);
+        };
+        oDiv1.onmouseout = function() {
+            startMove(this, 'opacity', 30);
+        };
+
+    }
+
+    function getStyle(obj, name) {
+        if(obj.currentStyle) {
+        	
+            console.log(obj.currentStyle[name])
+            return obj.currentStyle[name];
+        } else {
+        	
+//          console.log(obj.currentStyle[name])
+            console.log(getComputedStyle(obj, null)[name])
+            return getComputedStyle(obj, null)[name];
+        }
+    }
+
+    function startMove(obj, attr, iTarget) {
+        clearInterval(obj.time);
+
+        obj.time = setInterval(function() {
+            var cur = 0;
+
+            if(attr == 'opacity') {
+                cur = parseFloat(getStyle(obj, attr)) * 100;
+            } else {
+                cur = parseInt(getStyle(obj, attr));
+            }
+
+            var speed = (iTarget - cur) / 6;
+
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            if(cur == iTarget) {
+                clearInterval(this.time);
+            } else {
+                if(attr == 'opacity') {
+                    obj.style.filter = 'alpha(opacity=' + cur + speed + ')';
+                    obj.style.opacity = (cur + speed) / 100;
+                } else {
+                    obj.style[attr] = cur + speed + 'px';
+                }
+            }
+        }, 30);
+    }
+</script>
+
 </html>
