@@ -166,16 +166,16 @@
 //		}
 
 		$("#all div").on("mouseover",function () {
-
 			$("ul").eq($("#all div").index(this)).animate({
 				height:100
 			})
+			$("ul").unbind("mouseover");
 		})
 		$("#all div").on("mouseout",function () {
-			console.log($("#all div").index(this));
 			$("ul").eq($("#all div").index(this)).animate({
 				height:0
 			})
+			$("ul").unbind("mouseout");
 		})
 
 	</script>
