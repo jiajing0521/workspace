@@ -29,8 +29,8 @@
       <file leaf-file-name="飞机大战.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/99_模板制作/53_飞机大战/飞机大战.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2300">
-              <caret line="32" column="1437" selection-start-line="32" selection-start-column="1437" selection-end-line="32" selection-end-column="1437" />
+            <state relative-caret-position="340">
+              <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -61,8 +61,8 @@
       <file leaf-file-name="默写.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/99_模板制作/53_飞机大战/默写.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+            <state relative-caret-position="229">
+              <caret line="121" column="41" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -440,12 +440,12 @@
       <workItem from="1477009242803" duration="59131000" />
       <workItem from="1477269683077" duration="13465000" />
       <workItem from="1477292658594" duration="17372000" />
-      <workItem from="1477355732196" duration="29743000" />
+      <workItem from="1477355732196" duration="31191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244009000" />
+    <option name="totallyTimeSpent" value="245457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="190" y="72" width="1569" height="957" extended-state="0" />
@@ -819,16 +819,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/99_模板制作/53_飞机大战/飞机大战.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2300">
-          <caret line="32" column="1437" selection-start-line="32" selection-start-column="1437" selection-end-line="32" selection-end-column="1437" />
+        <state relative-caret-position="340">
+          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/99_模板制作/53_飞机大战/默写.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+        <state relative-caret-position="229">
+          <caret line="121" column="41" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="41" />
           <folding />
         </state>
       </provider>

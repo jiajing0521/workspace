@@ -90,6 +90,44 @@
             this.y -= this.speed;
         };
         var bullets = [];
+        
+        //敌机
+        function rand(min,max) {
+            return Math.floor(Math.random()*(max+1-min)+min);
+        }
+
+        function Enemy() {
+            this.img = imgobj.enemy1_fly_1;
+            this.w = this.img.width;
+            this.h = this.img.height;
+            this.x = rand(0,canvas.width-this.w);
+            this.y = -this.h;
+            this.speed = 1;
+        }
+
+        Enemy.prototype.draw = function () {
+            ctx.drawImage(this.img,this.x,this.y,this.w,this.h);
+        };
+
+        Enemy.prototype.move = function () {
+            this.y += this.speed;
+        };
+        function checkP(obj1,obj2) {
+            var obj1x = obj1.x + obj1.w/2;
+            var obj1y = obj1.y + obj1.h/2;
+            var obj2x = obj2.x + obj2.w/2;
+            var obj2y = obj2.y + obj2.h/2;
+
+            var px = Math.abs(obj1x-obj2x);
+            var py = Math.abs(obj1y-obj2y);
+
+            if (px <= obj1.w/2+obj2.w/2 && py <= obj1.h/2 + obj2.h/2){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        var enemys = [];
 
         var scrollY = 0;
         var time = 0;
@@ -124,6 +162,26 @@
                 var bullet = bullets[i];
                 bullet.draw();
                 bullet.move();
+
+                if (bullet.y <= -bullet.h){
+                    bullets.splice(i,1);
+                    i--;
+                }
+            }
+
+            if (time%50 ==0 ){
+                var enemy = new Enemy();
+                enemys.push(enemy);
+            }
+            for (var i = 0; i < enemys.length; i++){
+                var enemy = enemys[i];
+                enemy.draw();
+                enemy.move();
+
+                if (enemy.y >= canvas.height){
+                    enemys.splice(i,1);
+                    i--;
+                }
             }
 
             window.requestAnimationFrame(run);
