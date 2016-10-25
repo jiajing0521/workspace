@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包实例</title>
+</head>
+<body>
+<script type="text/javascript">
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+        getNameFunc : function(){
+            console.log(this.name);//object
+            return function(){
+                return this.name;//window
+            };
+        }
+    };
+
+    console.log(object.getNameFunc()());  //The Window
+
+    //相当于以下,直接被调用了，是window调用的
+    console.log(function(){return this.name}());  //The Window
+
+    var add = function () {
+       var count = 0;
+        return function () {
+            return count += 1;
+        }
+    }();
+
+    console.log(add());//1
+    console.log(add());//2
+    console.log(add());//3
+
+    //相当于 add = function(){return count += 1;}
+
+    var add = function () {
+        var count = 0;
+        return function () {
+            return count += 1;
+        }
+    };
+
+    console.log(add()());//1
+    console.log(add()());//1
+    console.log(add()());//1
+
+    for (var i = 0; i < 3; i++){
+        (function () {
+           console.log(i);
+        })()
+    }
+
+    function fn() {
+        var name = 4;
+        return function () {
+            var n = 0;
+            alert(++n);
+            alert(++name);
+        }
+    }
+    var fun = fn();
+    fun();//n =>1,name=>5;
+    fun();// n =>1,name=>6;
+</script>
+</body>
+</html>
