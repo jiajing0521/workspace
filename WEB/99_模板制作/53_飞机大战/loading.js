@@ -17,6 +17,7 @@ function loading(obj,progress,fun) {
     for (var prop in obj){
         var img = new Image();
         img.src = obj[prop];
+        console.log("prop="+prop);
         //4（闭包）......因为onload函数不会立刻执行，在图片加载完成之后才会执行，
         // 所以在onload函数内部，只能取到for循环的最后一个值（prop），
         // 想要取到for循环每一次的prop值时，通过函数a可以保存下来

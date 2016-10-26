@@ -47,23 +47,37 @@
             x: (canvas.width-imgobj.hero_fly_1.width)/2,
             y:canvas.height - imgobj.hero_fly_1.height - 20,
             w: imgobj.hero_fly_1.width,
-            h: imgobj.hero_fly_1.height
+            h: imgobj.hero_fly_1.height,
+            die:false,
+            count:4,
+            currentIndex:1,
+            gameOver: false
         };
-        console.log("hero.w="+hero.w);
         //绘制飞机图片
         var a = 0;
         hero.draw = function () {
             //飞机喷射切换图片
             a++;
-            if (a%10 == 0){
-                this.img = imgobj.hero_fly_1;
-            }else{
-                this.img = imgobj.hero_fly_2;
+            if (this.die == false){
+                if (a%10 == 0){
+                    this.img = imgobj.hero_fly_1;
+                }else{
+                    this.img = imgobj.hero_fly_2;
+                }
             }
+
             ctx.drawImage(this.img,this.x,this.y,this.w,this.h);
 
         };
-
+        hero.boom = function () {
+            if (this.die == true){
+                this.img = imgobj["hero"+"_blowup_"+this.currentIndex];
+                this.currentIndex++;
+                if (this.currentIndex == this.count + 1){
+                    this.gameOver = true;
+                }
+            }
+        };
 /************子弹*************/
         //子弹
         function Bullet() {
@@ -73,6 +87,7 @@
             this.x = hero.x + hero.w/2 - this.w/2;
             this.y = hero.y - this.h;
             this.speed = 10;
+            this.power = 1;
         }
         //绘制子弹
         Bullet.prototype.draw = function () {
@@ -102,6 +117,20 @@
             this.x = rand(0,canvas.width-this.w);
             this.y = -this.h;
             this.speed = 2;
+            //飞机类型1，2，3
+            this.type = 1;
+            //飞机爆炸图片的个数
+            this.count = 4;
+            //表示爆炸图片显示完，飞机应该被删除
+            this.die = false;
+            //表示飞机被子弹打中
+            this.canDie = false;
+            //表示爆炸动画中当前飞机图片的下标
+            this.currentIndex = 1;
+            //飞机血量
+            this.blood = 1;
+            //分数
+            this.score = 10;
         }
         Enemy.prototype.draw = function () {
             ctx.drawImage(this.img,this.x,this.y,this.w,this.h);
@@ -111,6 +140,46 @@
         };
         Enemy.prototype.canClear = function () {
             return this.y >= canvas.height;
+        };
+
+        //飞机改变类型
+        Enemy.prototype.changeType = function (type) {
+            this.type = type;
+            switch (this.type){
+                case 1:
+                    break;
+                case 2:
+                    this.img = imgobj.enemy2_fly_1;
+                    this.w = this.img.width;
+                    this.h = this.img.height;
+                    this.x = rand(0,canvas.width-this.w);
+                    this.y = -this.h;
+                    this.count = 7;
+                    this.blood = 15;
+                    this.score = 150;
+                    break;
+                case 3:
+                    this.img = imgobj.enemy3_fly_1;
+                    this.w = this.img.width;
+                    this.h = this.img.height;
+                    this.x = rand(0,canvas.width-this.w);
+                    this.y = -this.h;
+                    this.count = 4;
+                    this.blood = 5;
+                    this.score = 50;
+                    break;
+            }
+        };
+        var gameScores = 0;
+        //如果被子弹打中，飞机张数图片变化，都变完则可以被删除
+        Enemy.prototype.boom = function () {
+            if (this.canDie){
+                this.img = imgobj["enemy"+this.type+"_blowup_"+this.currentIndex];
+                this.currentIndex++;
+                if (this.currentIndex == this.count+1){
+                    this.die = true;
+                }
+            }
         };
 
         //碰撞检测
@@ -157,8 +226,9 @@
 
             //2......绘制飞机
             //绘制飞机图片
-            hero.draw();
 
+            hero.boom();
+            hero.draw();
 
             //3......绘制子弹
             //创建子弹，放到数组中
@@ -183,8 +253,13 @@
 
             //4......绘制敌机
             //创建敌机，放到数组中
-            if (time%50==0){
+            if (time%30==0){
                 var enemy = new Enemy();
+                if (time%310 == 0){
+                    enemy.changeType(2);
+                }else if (time % 9 == 0){
+                    enemy.changeType(3);
+                }
                 enemys.push(enemy);
             }
             //绘制数组中的敌机
@@ -192,8 +267,10 @@
                 var enemy = enemys[i];
                 enemy.draw();
                 enemy.move();
+                enemy.boom();
                 //判断敌机超出屏幕后从数组被删除
-                if (enemy.canClear()){
+                // 两种情况飞机被删除，1：飞机超出屏幕；2：飞机爆炸动画走完
+                if (enemy.canClear() || enemy.die){
                     enemys.splice(i,1);
                     //敌机从数组中删掉后，数组长度也会相应的-1，
                     // 此时数组中后面的对象的下标都会小1，
@@ -205,15 +282,40 @@
             for (var i = 0; i < bullets.length; i++){
                 for (var j = 0; j < enemys.length; j++){
                     if (checkP(bullets[i],enemys[j])){
-                        enemys.splice(j,1);
+                        //如果碰撞了，飞机血量减少子弹的威力
+                        enemys[j].blood-=bullets[i].power;
+                        if (enemys[j].blood == 0){
+                            //如果飞机血量为0，飞机被打中开关打开
+                            enemys[j].canDie = true;
+                            gameScores += enemys[j].score;
+                        }
                         bullets.splice(i,1);
-                        i--;
+                        break;
                     }
                 }
             }
+            for (var i = 0; i < enemys.length; i++){
+                if (checkP(enemys[i],hero)){
+                    enemys[i].canDie = true;
+                    hero.die = true;
+                    break;
+                }
+            }
+
+            //游戏得分
+            ctx.font = "20px STXingkai-SC-Light";
+            ctx.fillStyle = "black";
+            ctx.fillText("当前得分：" + gameScores,10,30);
+            
+            //分数判断
+            if (gameScores == 2000){
+                ;
+            }
 
             //根据屏幕刷新的帧数模拟循环定时器
-            window.requestAnimationFrame(run);
+            if (!hero.gameOver){
+                window.requestAnimationFrame(run);
+            }
         }
         run();
 

@@ -35,15 +35,16 @@
 
     }
 
+    //http://www.cnblogs.com/soulUED/archive/2013/10/09/3358942.html
     function getStyle(obj, name) {
         if(obj.currentStyle) {
         	
-            console.log(obj.currentStyle[name])
+            console.log(obj.currentStyle)
             return obj.currentStyle[name];
         } else {
         	
 //          console.log(obj.currentStyle[name])
-            console.log(getComputedStyle(obj, null)[name])
+            console.log(getComputedStyle(obj, null))
             return getComputedStyle(obj, null)[name];
         }
     }
