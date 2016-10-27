@@ -67,6 +67,7 @@
     );
 
     var bili = 1;
+    biliFlag = false;
     var gameStartbtn = document.getElementById("gameStartbtn");
     var gameOverbtn = document.getElementById("gameOverbtn");
     var gameStartD = document.getElementById("gameStart");
@@ -129,6 +130,7 @@
         };
         //子弹移动
         Bullet.prototype.move = function () {
+            console.log("子弹移动="+this.speed);
             this.y -= this.speed;
         };
         //判断子弹超出屏幕后从数组被删除
@@ -138,6 +140,8 @@
         //变换子弹
         Bullet.prototype.change = function () {
             if (bili >= 2){
+                console.log("换子弹啦"+"power="+this.power);
+
                 this.img = imgobj.bullet2;
                 this.w = this.img.width;
                 this.h = this.img.height;
@@ -145,7 +149,6 @@
                 this.y = hero.y - this.h;
                 this.speed = 10*bili;
                 this.power = 1*bili;
-                console.log(1111111111);
             }
         };
         //用来存放子弹的数组
@@ -178,7 +181,7 @@
             //飞机血量
             this.blood = 1;
             //分数
-            this.score = 10*bili;
+            this.score = 10;
         }
         Enemy.prototype.draw = function () {
             ctx.drawImage(this.img,this.x,this.y,this.w,this.h);
@@ -204,7 +207,7 @@
                     this.y = -this.h;
                     this.count = 7;
                     this.blood = 30;
-                    this.score = 1000*bili;
+                    this.score = 1000;
                     break;
                 case 3:
                     this.img = imgobj.enemy3_fly_1;
@@ -214,7 +217,7 @@
                     this.y = -this.h;
                     this.count = 4;
                     this.blood = 8;
-                    this.score = 100*bili;
+                    this.score = 100;
                     break;
             }
         };
@@ -284,14 +287,14 @@
             //创建子弹，放到数组中
             if (time%5 == 0){
                 var bullet = new Bullet();
+                bullet.change();
                 bullets.push(bullet);
             }
             //绘制数组中的子弹
             for (var i = 0; i < bullets.length; i++){
                 var bullet = bullets[i];
-                bullet.change();
-                bullet.draw();
                 bullet.move();
+                bullet.draw();
                 //判断子弹超出屏幕后从数组被删除
                 if (bullet.canClear()){
                     bullets.splice(i,1);
@@ -339,6 +342,7 @@
                             //如果飞机血量为0，飞机被打中开关打开
                             enemys[j].canDie = true;
                             gameScores += enemys[j].score;
+
                         }
                         bullets.splice(i,1);
                         break;
@@ -357,11 +361,15 @@
             ctx.font = "20px STXingkai-SC-Light";
             ctx.fillStyle = "black";
             ctx.fillText("当前得分：" + gameScores,10,30);
-            
-			if (gameScores == (100*bili)){
-                console.log(222222222222);
+
+
+            console.log("gameScores="+gameScores,"bili="+bili,"100*bili="+100*bili);
+            if (gameScores >= (500*bili)){
+                console.log("该升级啦！！！！！！");
+                bullets = [];
                 bili++;
             }
+
 
             //根据屏幕刷新的帧数模拟循环定时器
             if (!hero.gameOver){
