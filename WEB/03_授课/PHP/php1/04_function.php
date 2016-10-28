@@ -65,6 +65,17 @@ function add($a,$b=10){
 }
 echo add(5);
 echo add(5,3);
+echo "<br>";
+
+
+$str1 = null;
+$str2 = false;
+if ($str1==$str2){
+    echo '相等';
+}else{
+    echo '不相等';
+}
+
 
 
 

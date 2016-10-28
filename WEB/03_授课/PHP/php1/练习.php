@@ -101,4 +101,51 @@ $x = 1;
 ++$x;//2
 $y = $x++;//2
 echo $y;
+echo "<br>";
+
+
+function abc($a,$b=10,$c=10) {
+    return $a+$b+$c;
+}
+echo abc(10,30);
+echo "<br>";
+
+function a(&$a) {
+    $a *= 10;
+}
+$b = 10;
+a($b);
+echo $b;
+echo "<br>";
+
+function fn($i){
+
+    if ($i >= 1000){
+        return 1;
+    }else{
+        return fn($i+5) + $i;
+    }
+}
+echo (fn(1));
+echo "<br>";
+
+$n = 1000;
+$y = 1;
+for($i=1;$i<$n;$i+=5) {
+    $y += $i;
+}
+echo $y;
+
+function keep_val(){
+    static $count = 0;
+    $count++;
+    echo $count;
+}
+keep_val();
+keep_val();
+keep_val();
+
+
+
+
 

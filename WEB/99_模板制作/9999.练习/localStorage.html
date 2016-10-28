@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //增
+    localStorage.name = "豪哥";
+    localStorage["name1"] = "鑫哥";
+    localStorage.setItem("name2","冰冰");
+
+    //改
+    localStorage["name1"] = "李威";
+    //查
+    console.log(localStorage);
+    console.log(localStorage.name);
+    console.log(localStorage["name1"]);
+    //删(逐个删除)
+    localStorage.removeItem("name");
+    //全部删除
+//    localStorage.clear();
+
+    if (window.localStorage){
+        alert("支持");
+    }else{
+        alert("不支持")
+    };
+</script>
+</body>
+</html>

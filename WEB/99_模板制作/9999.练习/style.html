@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #div1{
+            color: red;
+            font-size: 40px;
+        }
+        #div2{
+             color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="color: blue;font-size:40px">我是div1</div>
+<div id="div2">我是div2</div>
+<div id="div3">我是div3</div>
+
+<script type="text/javascript">
+    div1 = document.getElementById("div1");
+    div2 = document.getElementById("div2");
+    div3 = document.getElementById("div3");
+
+    console.log("div1.style.color="+div1.style.color);
+    console.log("div2.style.color="+div2.style.color);
+    console.log("div3.style.color="+div3.style.color);
+
+    console.log(div1.style);
+
+
+    console.log(window.getComputedStyle);
+    console.log("div1的getComputedStyle="+window.getComputedStyle(div1, null)["color"]);
+    console.log("div1的getComputedStyle="+window.getComputedStyle(div1, null).color);
+    console.log("div2的getComputedStyle="+window.getComputedStyle(div2, null)["color"]);
+    console.log("div2的getComputedStyle="+window.getComputedStyle(div2, null).color);
+    console.log("div3的getComputedStyle="+window.getComputedStyle(div3, null)["color"]);
+    console.log("div3的getComputedStyle="+window.getComputedStyle(div3, null).color);
+
+    function getStyle(obj, attr){
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        } else {
+            return getComputedStyle(obj,null)[attr];
+        }
+    }
+
+    console.log(getStyle(div1,'width'));
+
+</script>
+</body>
+</html>
