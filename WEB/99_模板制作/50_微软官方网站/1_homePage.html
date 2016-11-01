@@ -15,47 +15,46 @@
 		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
-				var shopWrap = $("<div class='shopWrap'></div>");
-				var shopList1 = $("<div class='shopList'><a href='###'>微软官方商城</a></div>");
-				var shopList2 = $("<div class='shopList'><a href='###'>寻找店铺</a></div>");
-				
-				var count1 = 0;
-				$(".shop").click(function(){
-					count1++;
+//				$(".shop").click(function(){
+//					var shopWrap = $("<ul class='shopWrap'></ul>");
+//					var shopList1 = $("<li class='shopList'><a href='###'>微软官方商城</a></li>");
+//					var shopList2 = $("<li class='shopList'><a href='###'>寻找店铺</a></li>");
+//					var shopLeft = $(this).offset().left;
+//					
+//					console.log(shopLeft);
 //					shopWrap.appendTo($("#header"));
-					shopWrap.appendTo($(this));
+//					shopWrap.css("left",shopLeft);
+//					shopList1.appendTo(shopWrap);
+//					shopList2.appendTo(shopWrap);
+//					shopWrap.toggle();
+//					$(this).css("background-color","rgb(239,239,239)");
+//					
+//					$("body").click(function(){
+//						
+//					});
+//				});
+					var shopWrap = $("<ul class='shopWrap'></ul>");
+					var shopList1 = $("<li class='shopList'><a href='###'>微软官方商城</a></li>");
+					var shopList2 = $("<li class='shopList'><a href='###'>寻找店铺</a></li>");
+					shopWrap.appendTo($("#header"));
 					shopList1.appendTo(shopWrap);
 					shopList2.appendTo(shopWrap);
 					
-					if(count1%2==1){
-						$(".shopList").show();
-						shopWrap.show();
-						shopWrap.animate({
-							height:108
-						},500)
-					}else{
-						shopWrap.animate({
-							height:0
-						},500,function(){
-							$(".shopList").hide();
-							shopWrap.hide();
-						})
-					}
-				})
-				
-				var proWrap = $("<div class='shopWrap'></div>");
-				var proList1 = $("<div class='shopList'><a href='###'>软件和服务     ></a></div>");
-				var proList2 = $("<div class='shopList'><a href='###'>设备和Xbox</a></div>");
-				var proList3 = $("<div class='shopList'><a href='###'>适用于商业领域</a></div>");
-				var proList4 = $("<div class='shopList'><a href='###'>适用于开发人员和IT专业人士</a></div>");
-				var proList5 = $("<div class='shopList'><a href='###'>适用于学生和教育工作者</a></div>");
-				
-				proWrap.appendTo($(".product"));
-					proList1.appendTo(proWrap);
-					proList2.appendTo(proWrap);
-					proList3.appendTo(proWrap);
-					proList4.appendTo(proWrap);
-					proList5.appendTo(proWrap);
+					$(".shop").on("click",function(){
+						
+						
+						var shopLeft = $(this).offset().left;
+						shopWrap.css("left",shopLeft);
+                        $(".shopWrap").slideToggle("slow");
+					})
+//					
+//					console.log(shopLeft);
+//					shopWrap.appendTo($("#header"));
+//					shopWrap.css("left",shopLeft);
+//					shopList1.appendTo(shopWrap);
+//					shopList2.appendTo(shopWrap);
+//					shopWrap.toggle();
+//					$(this).css("background-color","rgb(239,239,239)");
 			})
 		</script>
 	</head>

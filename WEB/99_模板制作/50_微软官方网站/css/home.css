@@ -134,8 +134,9 @@
 	border: 1px solid darkgray;
 	z-index: 999;
 	/*overflow: hidden;*/
-	height: 0;
+	height: 110px;
 	color: gray;
+	display: none;
 }
 .shopList{
 	width: 200px;

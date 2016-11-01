@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				$("#div1").on("click", function() {
+					$(this).animate({
+						left: 100
+					}).delay(3000).animate({
+						left: 0
+					})
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+	</body>
+
+</html>
