@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>iframe页面</title>
+	</head>
+	<body>
+		<input type="button" name="btnIframe" id="btnIframe" onclick="sayIframe()" value="点击，弹出ifram页面" />
+		<input type="button" name="btnIframe" id="btnIframe" onclick="callMain()" value="点击，弹出main页面" />
+		<script type="text/javascript">
+			function sayIframe(){
+				alert("iframe.html---->我是iframe页面");
+			}
+			function callMain(){
+				parent.sayMain();
+			}
+		</script>
+	</body>
+</html>

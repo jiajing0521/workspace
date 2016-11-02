@@ -5,6 +5,14 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
+			@-webkit-keyframes move{
+				from{
+					transform: translate(0,0);
+				}
+				to{
+					transform: translate(-100px,0);
+				}
+			}
 			#div1 {
 				width: 100px;
 				height: 50px;
@@ -13,25 +21,72 @@
 				left: 0;
 				top: 0;
 			}
+			.div1{
+				animation: move 1s linear 3s forwards;
+			}
+			
 		</style>
 		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(function() {
-
-				$("#div1").on("click", function() {
-					$(this).animate({
-						left: 100
-					}).delay(3000).animate({
-						left: 0
-					})
-				})
-
-			})
+//			$(function() {
+//
+//				$("#div1").on("click", function() {
+//					$(this).animate({
+//						left: 100
+//					}).delay(3000).animate({
+//						left: 0
+//					})
+//				})
+//
+//			})
 		</script>
 	</head>
 
 	<body>
 		<div id="div1"></div>
+		<!--<script type="text/javascript">
+			var div1 = document.getElementById("div1");
+			var timer;
+			var speed = 1;
+			div1.onclick = function(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if (div1.offsetLeft >= 100) {
+						clearInterval(timer);
+						setTimeout(function(){
+							clearInterval(timer);
+							timer = setInterval(function(){
+								if (div1.offsetLeft <= 0) {
+									clearInterval(timer);
+								}else{
+									div1.style.left = div1.offsetLeft - speed + "px";
+								}
+							},10)
+						},3000)
+					} else{
+						div1.style.left = div1.offsetLeft + speed + "px";
+					}
+				},10)
+			}
+			
+		</script>-->
+		<script type="text/javascript">
+			var div1 = document.getElementById("div1");
+			var timer;
+			var speed = 1;
+			div1.onclick = function(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if (div1.offsetLeft >= 100) {
+						clearInterval(timer);
+						div1.setAttribute("class","div1");
+					} else{
+						div1.style.left = div1.offsetLeft + speed + "px";
+					}
+				},10)
+			}
+			
+		</script>
 	</body>
 
 </html>

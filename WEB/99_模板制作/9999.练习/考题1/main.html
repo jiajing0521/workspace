@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btnIframe" id="btnIframe" onclick="sayMain()" value="点击，弹出main页面" />
+		<input type="button" name="btnIframe" id="btnIframe" onclick="callIframe()" value="点击，弹出iframe页面" />
+		<iframe src="ifram.html" width="500" height="500" id="ifr"></iframe>
+		<script type="text/javascript">
+			function sayMain(){
+				alert("main.html---->我是main页面");
+			}
+			function callIframe(){
+				var ifr = document.getElementById("ifr");
+				ifr.contentWindow.sayIframe();
+			}
+		</script>
+	</body>
+</html>
