@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .div1{
+            background-color: #00a0e9;
+        }
+        .div2{
+            font-size: 30px;
+        }
+        .div4{
+            border: 10px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div class="div">我是div</div>
+<!--地址栏没有信息-->
+<a href="javascript:void(0)">大眼</a>
+<script type="text/javascript">
+    var odiv = document.getElementsByClassName("div")[0];
+    //添加class
+    odiv.classList.add("div1");
+    odiv.classList.add("div1","div2");
+    //移除class
+    odiv.classList.remove("div1");
+    //class的索引从0开始
+    console.log(odiv.classList.item(1));
+    //有没有div2的class
+    console.log(odiv.classList.contains("div2"));
+    odiv.classList.toggle("div4");
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .div2{
+            border:10px solid blue;
+        }
+        .div3{
+            font-size: 40px;
+        }
+        .div4{
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="增大字体" onclick="zitida()">
+<input type="button" value="缩小字体" onclick="zitixiao()">
+<input type="button" value="边框" onclick="biankuang()">
+
+<div class="div1">fsdfjdjfl;a</div>
+<script type="text/javascript">
+    var odiv = document.getElementsByTagName("div")[0];
+    function biankuang() {
+        odiv.classList.toggle("div2");
+    }
+    function zitida() {
+        odiv.classList.remove("div4");
+        odiv.classList.toggle("div3");
+    }
+    function zitixiao() {
+        odiv.classList.remove("div3");
+        odiv.classList.toggle("div4");
+    }
+
+</script>
+</body>
+</html>

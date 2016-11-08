@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #item{
+            width: 100px;
+            background-color: red;
+            outline: 1px solid black;
+            text-align: center;
+        }
+        #wrapP{
+            width: 100px;
+            display: none;
+            text-align: center;
+        }
+        p{
+            width: 100px;
+            outline: 1px solid black;
+            background-color: #00a0e9;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js">
+
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#item").on("click",function () {
+                $("#wrapP").slideToggle(1000);
+                $("#wrapP").slideUp("slow");
+                $("#wrapP").slideDown("fast");
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="item">列表</div>
+<div id="wrapP">
+    <p>列表一</p>
+    <p>列表二</p>
+    <p>列表三</p>
+    <p>列表四</p>
+</div>
+</body>
+</html>
