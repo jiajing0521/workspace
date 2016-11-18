@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6新功能</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,2,3];
+			console.log("=>");
+			//参数=>操作或返回值，相当于匿名函数
+			arr.forEach(function(v){
+				console.log(v);
+			})
+			arr.forEach(v=>console.log(v));
+			console.log("``");
+			var num = Math.random();
+			//`字符串模板可以输出${变量}
+			console.log(`这是一个随机数: ${num}`);
+			
+			console.log("for of");
+			var arr1 = ["a","b","c"];
+			for (var i in arr1) {
+				console.log(i);
+			}
+			for (var v of arr1) {
+				console.log(v);
+			}
+			arr1.forEach(function(v){
+				console.log(v);
+			})
+			arr.forEach(v=>console.log(v));
+			
+			//映射
+			var [x,y]=getVal(),[name,,age]=["wayou","male","swcrect"];
+			function getVal(){
+				return [1,2];
+			}
+			console.log("x:"+x+",y:"+y);
+			console.log("name:"+name+",age:"+age);
+			
+			//重复的不要
+			var s = new Set();
+			s.add("hello").add("goodbye").add("hello");
+			console.log(s);
+			console.log(s.size);
+			console.log(s.has("hello"));
+			
+			//定义常量const，定义同时必须赋值
+			const q = 30;
+			console.log(q);
+			
+			//let定义的变量有作用域
+			for (let j = 0;j < 2; j++){
+				console.log(j);
+			}
+			//j有作用域，Uncaught ReferenceError: j is not defined
+			//console.log(j);
+			
+			
+		</script>
+	</body>
+</html>

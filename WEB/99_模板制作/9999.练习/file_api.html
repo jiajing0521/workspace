@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>file_api</title>
+	</head>
+	<body>
+		<!--multiple 支持多选-->
+		<input type="file" name="" id="files" value="" multiple/>
+		<div id="text"></div>
+		<!--是h5新标签，ie8以下不支持，作为计算结果输出显示-->
+		<output id="output1"></output>
+		<script type="text/javascript">
+			var text = document.getElementById("text");
+			var input = document.getElementById("files")
+			function a(e){
+				//返回事件的目标节点
+				var files = e.target.files;
+				var b = [];
+				for (var i = 0,f;f = files[i];i++) {
+					//escape() 函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。
+					//astModified 属性可返回文档最后被修改的日期和时间。
+					//toLocaleDateString() 方法可根据本地时间把 Date 对象的日期部分转换为字符串，并返回结果。
+					b.push("<li>",encodeURI(f.name),"(",f.type,")",f.lastModifiedDate.toLocaleDateString(),"</li>");
+				}
+				text.innerHTML = "<ul>"+b.join("")+"</ul>";
+			}
+			input.addEventListener("change",a,false);
+		</script>
+	</body>
+</html>
