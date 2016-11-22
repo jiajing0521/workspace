@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>impress</title>
+		<link rel="stylesheet" type="text/css" href="css/impress-demo.css"/>
+	</head>
+	<body>
+		<div id="impress">
+			<div class="step" data-x="500">
+				[文稿1]
+			</div>
+			<div class="step" data-x="500" data-y="500">
+				[文稿2]
+			</div>
+			<div class="step" data-x="500" data-y="1000" data-scale ="0.5">
+				[文稿3]
+			</div>
+			<div class="step" data-x="500" data-y="800" data-scale ="0.5" data-rotate="90">
+				[文稿4]
+			</div>
+			<div class="step" data-x="500" data-y="800" data-scale ="4" data-rotate-x="30" data-rotate-x="-30">
+				[文稿5]
+			</div>
+			<div id="overview" class="step" data-x="-20" data-y="500"  data-scale ="3">
+			</div>
+		</div>
+		<script src="js/impress.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			impress().init();
+		</script>
+	</body>
+</html>

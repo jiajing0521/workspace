@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>SVG</title>
+		
+		<style>
+			#c{
+				animation: gg 2s linear infinite;
+			}
+			@keyframes gg{
+				from{stroke-dashoffset: 3149;}
+				to{stroke-dashoffset: 0;}
+			}
+		</style>
+	</head>
+	<body>
+		<svg width="600" height="600">
+			<line x1="200" y1="200" x2="300" y2="400" stroke="pink" stroke-width="10"></line>
+			<!--stroke-dasharray -->
+			<circle id="c" cx="200" cy="200" r="50" fill="yellow" stroke="blue" stroke-width="5" stroke-dasharray="20 20" stroke-dashoffset="30" transform="rotate(-90 200 200)">
+				<!--<animate attributeName="stroke-dashoffset" from="0" to="314" begin="0s" dur="2s" repeatCount="indefinite"></animate>-->
+			</circle>
+			<path d="m300 100 l20 200 l229 234 Z" stroke="green" fill="none"></path>
+			<text x="200" y="300" stroke="red">哈哈</text>
+			<!--<lineargradient></lineargradient>-->
+		</svg>
+</html>

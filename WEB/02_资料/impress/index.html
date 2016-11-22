@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="css/impress-demo.css" rel="stylesheet" />
+		<style type="text/css">
+			.footnote {
+				width: 224px;
+				padding: 30px;
+				font: bold 55px/100% "Lucida Sans";
+				color: #fff;
+				font-size: ;
+				text-transform: uppercase;
+				text-shadow: 0 0 5px #fff,  0 0 5px #fff, 0 0 40px #ff00de, 0 0 50px #ff00de;
+			}
+			.footnote1{
+				color: #fff;
+				font-size: ;
+				text-transform: uppercase;
+				text-shadow: 0 0 5px #fff,  0 0 5px #fff, 0 0 40px #ff00de, 0 0 50px #ff00de;
+				display: block;
+			}
+			#tiny{
+				width: 1200px;
+			}
+			.text1{
+				margin-top: 30px;
+				color:  coral;
+				 box-shadow:0 0 10px 20px red,
+				0 0 10px 5px black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="impress-not-supported"></div>
+		<div id="impress">
+			<div class="step slide" data-x="-1000" data-y="-1500">
+				<q>你是否已经<b>厌倦了用<span style="color: #E4C652;">传统PPT</span>做午分享</b>？</q>
+			</div>
+
+			<div class="step slide" data-x="0" data-y="-1500">
+				<q>你是否也认为在<strong>现代浏览器</strong>里，表现形式<strong>不应该</strong>受‘传统’的幻灯片模式的<strong>限制</strong>？</q>
+			</div>
+
+			<div class="step slide" data-x="1000" data-y="-1500">
+				<q>你是否希望让你的个人简历以<strong>令人震撼</strong>的视觉效果来<strong>打动你的面试官</strong>？</q>
+			</div>
+
+			<div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+				<span class="try">那么，你应该试一试</span>
+				<h1>impress.js<sup>*</sup></h1>
+				<span class="footnote"><sup>*</sup> 装X神器</span>
+			</div>
+
+			<div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+				<p>它是一个<strong>展现工具</strong> <br> 是受
+					<a href="http://prezi.com/">prezi.com</a>的启发 <br> 使用了现代浏览器里支持的
+					<strong>CSS3 transforms 和 transitions</strong>功能。</p>
+			</div>
+
+			<div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+				<p>把你的<b>雄伟</b> <span class="thoughts">思想</span>可视化</p>
+			</div>
+
+			<div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-600" data-rotate="300" data-scale="1">
+				<p>你的<b>小小</b>点子立体化</p>
+				<p class="text1">data-scale = 通过指定一个值来进行缩放，data-scale为5则将会在你幻灯片原始尺寸基础放大5倍</p>
+			</div>
+
+			<div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+				<p>在无限的画布上通过<b class="positioning" style="pink" ;>定位</b>，<b class="rotating">旋转</b>和<b class="scaling">缩放</b>把它们表现出来</p>
+			</div>
+
+			<div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+				<p>唯一的<b>限制</b>是你的<br><b class="imagination">想象力~!</b></p>
+			</div>
+
+			<div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+				<p>想了解更多？</p>
+				<span style="color: red; font-size: 50px;">等会跟着我敲把~</span>
+			</div>
+			<div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+				<p>还有一点...</p>
+			</div>
+			<div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-500" data-rotate-x="-100" data-rotate-y="100" data-scale="5">
+				<p><span class="have">是否</span><span class="you">你</span><span class="noticed">注意到</span><span class="its">它是</span> <span class="in">有</span> <b>3D效果的<sup>*</sup></b>?</p>
+				<span class="footnote1">data-rotate = 通过一个数字度数来确定旋转你的幻灯片</span>
+			</div>
+			<div class="step" data-x="-2000" data-y="-1500" data-z="500" data-rotate-x="300">
+				<a href="http://www.hashdog.com/brochure">demo</a>
+			</div>
+
+			<div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10"></div>
+		</div>
+		<script src="js/impress.js"></script>
+		<script type="text/javascript">
+			impress().init();
+		</script>
+	</body>
+
+</html>
