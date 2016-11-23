@@ -15,10 +15,10 @@
 	.exit
 	
 	
-	//创建package.json
 	npm install jquery
+	//创建package.json
 	npm init
-	//如果手动引入的话，在终端需要执行以下
+	//如果手动引入依赖库的话，在终端需要执行以下
 	npm install
 	npm install bootstrap --save
 
