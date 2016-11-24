@@ -21,4 +21,14 @@
 	//如果手动引入依赖库的话，在终端需要执行以下
 	npm install
 	npm install bootstrap --save
-
+#node 连接mysql
+		cd 路径
+		npm init
+		npm install mysql --save
+#
+		npm install ejs --save
+		
+		npm install gulp --save
+		npm install gulp -g
+		npm install gulp-uglify --save
+		gulp script
