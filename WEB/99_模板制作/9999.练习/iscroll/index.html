@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrapper{
+				position: absolute;
+				width: 100%;
+				top: 45px;
+				bottom: 45px;
+				left: 0;
+				overflow: hidden;
+			}
+			#scroller{
+				position: absolute;
+				width: 500%;
+			}
+			li{
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid #ccc;
+				background-color: #FAFAFA;
+				color: red;
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body onload="loaded()">
+		<div id="wrapper">
+			<div id="scroller">
+				<ul>
+					<li>row1</li>
+					<li>row2</li>
+					<li>row3</li>
+					<li>row4</li>
+					<li>row5</li>
+					<li>row6</li>
+					<li>row7</li>
+					<li>row8</li>
+					<li>row9</li>
+					<li>row10</li>
+					<li>row11</li>
+					<li>row12</li>
+					<li>row13</li>
+					<li>row14</li>
+					<li>row15</li>
+					<li>row16</li>
+					<li>row17</li>
+					<li>row18</li>
+					<li>row19</li>
+					<li>row20</li>
+					<li>row21</li>
+					<li>row22</li>
+					<li>row23</li>
+					<li>row24</li>
+					<li>row25</li>
+					<li>row26</li>
+					<li>row27</li>
+					<li>row28</li>
+					<li>row29</li>
+					<li>row30</li>
+					<li>row31</li>
+					<li>row32</li>
+					<li>row33</li>
+					<li>row34</li>
+					<li>row35</li>
+					<li>row36</li>
+					<li>row37</li>
+					<li>row38</li>
+					<li>row39</li>
+					<li>row40</li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myScroll;
+			function loaded(){
+				myScroll = new IScroll("#wrapper",{
+					mouseWheel:true,//false滚轮失效
+					scrollbars:true,//滚动条显示
+					scrollX:true,//横向拖拽
+					freeScroll: true,//横向纵向同时拖拽
+					bounce:false,//反弹效果
+					fadeScrollbars:true//滚动条淡入淡出
+				});
+				console.dir(myScroll.options);//对象
+			}
+		</script>
+	</body>
+</html>

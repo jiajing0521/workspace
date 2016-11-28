@@ -25,10 +25,34 @@
 		cd 路径
 		npm init
 		npm install mysql --save
-#
+#node 压缩
 		npm install ejs --save
 		
 		npm install gulp --save
 		npm install gulp -g
+		
+		cd 路径
+		npm init
 		npm install gulp-uglify --save
 		gulp script
+#node 框架express
+
+		cd 路径
+		npm init
+		npm install express --save
+
+#node 解析post的body体		
+		npm install body-parser --save
+
+#node formidable 文件file
+		
+		npm install formidable --save
+#node cookie-parser
+		npm install cookie-parser --save
+		
+#node 一个好用的Web包管理器
+		npm install bower -g
+		bower init
+		bower install bootstrap --save
+		bower install jquery --save
+
