@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>history</title>
+	</head>
+	<body>
+		<a href="#1">第1个连接</a>
+		<a href="#2">第2个连接</a>
+		<a href="#3">第3个连接</a>
+		<a href="#4">第4个连接</a>
+		<a href="#5">第5个连接</a>
+		<br>
+		<input type="button" name="btn1"" id="btn1" value="上一页" />
+		<input type="button" name="btn2"" id="btn2" value="下一页" />
+		<input type="button" name="btn3"" id="btn3" value="GO" />
+		<input type="button" name="btn4"" id="btn4" value="111" />
+		<br>
+		
+		<script type="text/javascript">
+		<!--共访问了几个界面-->
+			var HL = window.history.length;
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var btn3 = document.getElementById("btn3");
+			var btn4 = document.getElementById("btn4");
+			btn1.onclick = function(){
+			//返回前一个页面
+				window.history.back();
+			};
+			btn2.onclick = function(){
+			//前进下一个页面
+				window.history.forward();
+			};
+			btn3.onclick = function(){
+			//当n>0时,前往n个页面
+			//当n<0时,返回n个页面
+			//当n=0时,相当于刷新页面
+				window.history.go(n);
+			};
+			btn4.onclick = function(){
+//				history.pushState(state, title, url)
+//
+//				将当前URL和history.state加入到history中，并用新的state和URL替换当前。不会造成页面刷新。
+//				
+//				state：与要跳转到的URL对应的状态信息。
+//				
+//				title：不知道干啥用，传空字符串就行了。
+//				
+//				url：要跳转到的URL地址，不能跨域。
+				window.history.pushState({},"哈哈","111.html");
+			};
+			document.write("<br>"+"你已经访问了"+HL+"个页面");
+		</script>
+	</body>
+</html>
