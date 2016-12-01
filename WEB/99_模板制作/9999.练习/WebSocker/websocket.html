@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" class="btn1" value="传输">
+<input type="button" class="btn2" value="关闭">
+<input type="text" id="txt">
+<script type="text/javascript">
+    //h5新出协议,实时连接,微信游戏,你画我猜
+    //http协议.无状态连接,一次就断了
+//    var url = "ws://172.16.2.185:8080";
+    var url = "ws://localhost:8080";
+    var ws = new WebSocket(url);
+    ws.open = function () {
+        console.log("连接成功");
+    };
+    ws.onmessage = function (ev) {
+        console.log(ev.data);
+    };
+    ws.onclose = function () {
+        console.log("关闭");
+    };
+    ws.onerror = function () {
+        console.log("错误");
+    };
+    var btn1 = document.getElementsByClassName("btn1")[0];
+    var btn2 = document.getElementsByClassName("btn2")[0];
+    var txt = document.getElementById("txt");
+    btn1.onclick = function () {
+        ws.send(txt.value);
+    };
+    btn2.onclick = function () {
+        ws.close();
+    }
+</script>
+</body>
+</html>
