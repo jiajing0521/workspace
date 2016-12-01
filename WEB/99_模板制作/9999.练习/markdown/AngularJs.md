@@ -4,4 +4,4 @@
 	bower install angular --save
 	bower install angular-sanitize --save
 	
-	bower angular-route --save
+	bower install angular-route --save
