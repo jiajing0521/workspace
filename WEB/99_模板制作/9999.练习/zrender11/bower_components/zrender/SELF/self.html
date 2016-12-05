@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../test/esl.js"></script>
+</head>
+<body style="margin:0">
+<div id="main" style="width:1000px;height:600px;margin:0;"></div>
+
+<script type="text/javascript">
+
+//    Storage只是JS对象级别的对于Shape图形的增(add/addHover)删(del,delHover)改(mod)查(get/iterShape/getMaxZlevel等)，更像一个数据结构的东西
+//    Painter负责真正的绘图操作，这里是比较繁重的部分
+//    1.负责canvas及其周边DOM元素的创建与处理
+//    2.负责调用各个Shape（预定义好的）进行绘制
+//    3.提供基本的操作方法，渲染(render)、刷新(refresh)、尺寸变化(resize)、擦除(clear)等
+//    Handler负责事件处理，解决基础的浏览器兼容问题、进行事件的注册与转发、拖动
+    require.config({
+        packages: [
+            {
+                name: 'zrender',
+                location: '../src',
+                main: 'zrender'
+            }
+        ]
+    });
+
+    require(
+        [
+            'zrender',
+            'zrender/graphic/shape/Circle',
+            'zrender/graphic/shape/Heart'
+        ],
+        function(zrender, CircleShape,HeartShape) {
+            var zr = zrender.init(document.getElementById('main'));
+            var cir = new CircleShape({
+                position: [100, 100],
+                scale: [1, 1],
+                shape: {
+                    cx: 50,
+                    cy: 50,
+                    r: 50
+                },
+                style:{
+                    fill:"blue",
+                    strokeColor : "red"
+                },
+                draggable:true
+            });
+            var heart = new HeartShape({
+                shape:{
+                    cx: 350,
+                    cy: 100,
+                    width: 50,
+                    height: 80
+                },
+                style:{
+                    fill:"red"
+                },
+                draggable:true
+            });
+            var line = new Line({
+                shape:{
+                    x1:0,
+                    y1:0,
+                    x2:500,
+                    y2:200
+                },
+                style:{
+                    stroke: "blue"
+                }
+            })
+
+            zr.add(cir);
+            zr.add(heart);
+
+        }
+    );
+</script>
+</body>
+</html>

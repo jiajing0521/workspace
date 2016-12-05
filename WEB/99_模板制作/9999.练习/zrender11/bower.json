@@ -1,0 +1,20 @@
+{
+  "name": "zrender11",
+  "homepage": "https://github.com/jiajing0521/workspace",
+  "authors": [
+    "dllo <757959688@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "zrender": "^3.2.1"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 500px;
+				height: 800px;
+				border: 1px solid hotpink;
+			}
+		</style>
+		<script src="zrender-master/test/esl.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script type="text/javascript">
+			require.config({
+				packages: [{
+					name: 'zrender',
+					location: 'zrender-master/src',
+					main: 'zrender'
+				}]
+			});
+			require(
+				[
+					'zrender',
+					'zrender/graphic/shape/Circle'
+				],
+				function(zrender, CircleShape) {
+					var zr = zrender.init(document.getElementById('main'));
+					var cir = new CircleShape({
+						position: [100, 100],
+						scale: [1, 1],
+						shape: {
+							cx: 50,
+							cy: 50,
+							r: 50
+						},
+						style:{
+							fill:"blue"
+						},
+						draggable:true
+					});
+					zr.add(cir);
+					cir.on('dragend',function(){
+						this.setStyle("fill","red");
+					});
+				}
+			);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		/*Webkit内核的浏览器，必须加上-webkit前缀
+		 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。*/
+			.div1{
+				width: 1000px;
+				display: -webkit-flex;
+				display: flex;
+				/*项目的水平横向排列方向,reverse倒序*/
+      			flex-direction: row ;
+      			/*flex-direction: row-reverse;*/
+				/*项目的垂直纵向排列方向*/
+      			/*flex-direction:  column;*/
+				/*flex-direction:  column-reverse;*/
+				/*水平方向排不下,如何布局
+				 nowrap:默认）：不换行。
+				 wrap:换行，第一行在上方。
+				 wrap-reverse:换行，第一行在下方。*/
+				flex-wrap:nowrap;
+				flex-wrap: wrap;
+				flex-wrap: wrap-reverse;
+				/*flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。*/
+			}
+			/*行内元素*/
+			.span1{
+				width: 1000px;
+				display: -webkit-inline-flex;
+				display: inline-flex;
+				/*项目的水平排列方向*/
+      			flex-direction: row ;
+      			/*flex-direction: row-reverse;*/
+				/*项目的纵向排列方向*/
+      			/*flex-direction:  column;*/
+				/*flex-direction:  column-reverse;*/
+				
+				flex-wrap:nowrap;
+				flex-wrap: wrap;
+				flex-wrap: wrap-reverse;
+			}
+			.div1 p{
+				width: 500px;
+				height: 100px;
+				background-color: red;
+			}
+			.span1 a{
+				width: 500px;
+				height: 100px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+		</div>
+		<span class="span1">
+			<a href="#">a1</a>
+			<a href="#">a2</a>
+			<a href="#">a3</a>
+		</span>
+	</body>
+</html>

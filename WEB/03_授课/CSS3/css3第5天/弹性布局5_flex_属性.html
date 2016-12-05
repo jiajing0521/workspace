@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				background: yellowgreen;
+				display: -webkit-flex;
+				width: 700px;
+				height:500px;
+				
+				align-items: center;
+			}
+			.item{
+				width: 50px;
+				height: 50px;
+				margin: 10px;
+				background-color: deeppink;
+				border: 1px solid black;
+				display: -webkit-flex;
+				justify-content: center;
+				align-items: center;
+				
+				/*order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。*/
+				order: <integer>;
+				/*flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+				属性都为1，则它们将等分剩余空间
+				如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍*/
+				flex-grow: 1;
+				/*flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+				 属性都为1，当空间不足时，都将等比例缩小。
+				 如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="item">div1</div>
+			<div class="item" style="flex-grow:2">div2</div>
+			<div class="item" style="align-self: flex-end">div3</div>
+			<div class="item">div4</div>
+			<div class="item">div5</div>
+		</div>
+	</body>
+</html>
