@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="init()">
+		<div id="result">
+			
+		</div>
+		<script type="text/javascript">
+			function init(){
+				var worker = new Worker('worker.js');
+				worker.onmessage = function(ev){
+					document.getElementById("result").innerHTML+=ev.data+"<br/>";
+				}
+				//开始和init()一起执行
+				document.getElementById("result").innerHTML+="开始"+"<br/>";
+			}
+		</script>
+	</body>
+</html>
