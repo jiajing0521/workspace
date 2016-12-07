@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/99_模板制作/9999.练习/zrender11/bower_components/zrender/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1294">
-              <caret line="98" column="27" lean-forward="true" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
+              <caret line="98" column="27" lean-forward="false" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -487,12 +487,12 @@
       <workItem from="1480572786754" duration="2345000" />
       <workItem from="1480644865612" duration="2761000" />
       <workItem from="1480724664670" duration="1076000" />
-      <workItem from="1480897762230" duration="16997000" />
+      <workItem from="1480897762230" duration="17113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307738000" />
+    <option name="totallyTimeSpent" value="307854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="977" extended-state="6" />
@@ -915,7 +915,7 @@
     <entry file="file://$PROJECT_DIR$/99_模板制作/9999.练习/zrender11/bower_components/zrender/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1294">
-          <caret line="98" column="27" lean-forward="true" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
+          <caret line="98" column="27" lean-forward="false" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
           <folding />
         </state>
       </provider>
