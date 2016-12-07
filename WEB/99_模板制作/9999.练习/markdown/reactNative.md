@@ -7,5 +7,5 @@
 		cd 文件夹
 		react-native init 名字
 		
-		//如果以上安装时间过于长,可以分段安装
+		//如果以上安装时间过于长,可以分段安装,执行后在init
 		brew install yarn
