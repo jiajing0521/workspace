@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="myText1" value="" />
+		<select name="operation" id="mySelect">
+			<option value="1">+</option>
+			<option value="2">-</option>
+			<option value="3">*</option>
+			<option value="4">/</option>
+			<option value="5">%</option>		  		  	
+		</select>
+		<input type="text" name="" id="myText2" value="" />		
+		<input type="button" name="" id="submit" value="提交" />
+		<div id="myDiv"></div>
+	</body>
+	<script>
+		var sub = document.getElementById("submit");
+		sub.onclick = function(){
+		    var text1 = document.getElementById("myText1");
+	     	var a = Number(text1.value); 
+	        	var text2= document.getElementById("myText2");
+	        var b = Number(text2.value);	
+	        var c = document.getElementById("myDiv");
+	     	var sec = document.getElementById("mySelect");
+	     	var d = mySelect.value;
+			if(d == 1){       	
+				var sum = a + b;	 				
+				c.innerHTML = sum;
+			}else if(d == 2){
+				var cha = a - b;	 				
+				c.innerHTML = cha;				
+			}else if(d == 3){
+				var cheng = a * b; 				
+				c.innerHTML = cheng;				
+			}else if(d == 4){
+				var chu = a / b; 				
+				c.innerHTML = chu;					
+			}else{
+				var yu = a % b;				
+				c.innerHTML = yu;				
+			}
+		}
+		var flag = true;
+		if (flag) {
+			var a = 10;
+		}
+		function fn() { 
+			var b = 20;
+			c = 30;
+		}
+		fn(); 
+		console.log(a); 
+		console.log(window.c); 
+//		console.log(b);
+		var timer = setInterval(function(){},1000);
+		console.log(timer);
+		var o = {num:1};var p = {num:2};
+		Object.prototype.he = function(){
+			return {this.num};
+		};
+		console.log(typeof(o+p===3));
+		var a = ((o.he()+p.he())===3);
+		var b = ((o.num+p.num)===3);
+		console.log(a);
+		console.log(b);
+	</script>
+</html>
