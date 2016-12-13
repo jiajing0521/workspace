@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            width: 800px;
+            height: 500px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main"></div>
+
+<script src="./test/esl.js"></script>
+<script type="text/javascript">
+    require.config({
+        packages:[{
+            name:"zrender",
+            location:"src",
+            main:"zrender"
+        }]
+    });
+    require(["zrender","zrender/graphic/shape/Circle","zrender/graphic/shape/Heart"],function (zrender,Circle,Heart) {
+        var zr = zrender.init(document.getElementById("main"));
+
+        var cir = new Circle({
+            shape:{
+                cx: 200,
+                cy: 300,
+                r: 50
+            },
+            style:{
+                fill: "pink",
+                stroke: "yellow",
+                lineWidth: 10,
+//                lineDash: [10,5],
+                text: "circle"
+            },
+            draggable: true,
+            onmouseover: function () {
+                this.setStyle({
+                    fill: "yellow",
+                    stroke: "pink"
+                })
+            },
+            onmouseout: function () {
+                this.setStyle({
+                    fill: "pink",
+                    stroke: "yellow"
+                })
+            }
+        });
+        var heart = new Heart({
+           shape:{
+               cx: 500,
+               cy: 100,
+               width: 50,
+               height: 80
+           },
+            style:{
+               fill: "red"
+            },
+            draggable: true,
+            onclick:function () {
+                alert("Hi,I'm your heart!");
+            }
+        });
+        cir.animate("",true).when(1000,{
+            position:[100,0]
+        }).when(2000,{
+            position:[0,0]
+        }).start();
+        heart.animate("",true).when(500,{
+            scale:[1.05,1.05]
+        }).when(1000,{
+            scale:[1,1]
+        }).start();
+
+        zr.add(cir);
+        zr.add(heart);
+    });
+</script>
+</body>
+</html>

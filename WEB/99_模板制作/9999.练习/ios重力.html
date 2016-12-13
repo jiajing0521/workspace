@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap"></div>
+		<script type="text/javascript">
+		var owrap = document.getElementsByClassName("wrap")[0];
+//		ios重力事件
+			window.addEventListener("orientationchange",function(){
+				alert(window.orientation)
+			},false)
+//			方向传感器事件
+			window.addEventListener("deviceorientation",function(e){
+				owrap.innerHTML= "alpha="+e.alpha+",beta="+e.beta+",gamma="+e.gamma;
+			})
+		</script>
+	</body>
+</html>
