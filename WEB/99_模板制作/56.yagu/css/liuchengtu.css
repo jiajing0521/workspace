@@ -1,0 +1,582 @@
+.liucheng_tit{ text-align:center; margin-top:50px;/* background:url(../images/sign09.png) no-repeat center bottom;*/ padding-bottom:18px;}
+.liucheng_tit h2{ color:#0195dd; font-size:36px; line-height:36px;}
+.liucheng_tit h2 hr{ font-size:12px; line-height:36px; color:#0195dd; width:66px; height:1px; border:none; border-top:1px solid #0195dd; display:inline-block; vertical-align:middle;}
+.liucheng_tit p{ font-size:14px; color:#0195dd; margin-top:5px;}
+
+.liucheng_sign{ margin-top:80px; text-align:center; overflow:hidden;}
+.liucheng_sign li{ float:left; display:inline; margin-left:28px; margin-right:28px; width:160px; height:182px;}
+.liucheng_sign li:first-child{ margin-left:0;}
+.liucheng_sign li:last-child{ margin-right:0;}
+
+.liucheng_sign li p{ color:#0195dd; font-size:16px; margin-top:8px;}
+.liuchengqiu{ text-align:center; width:900px; margin:0 auto; margin-top:15px; position:relative; padding:0 10px; background:url(bg01.png) no-repeat center; background-size:100% auto; height:30px;}
+.liucheng_sign li div{ position:relative; height:90px; margin:0 auto;}
+.liucheng_sign li div img{ position:absolute; top:0; left:0;}
+.liucheng_sign li:nth-child(1) div{ margin:0 auto; width:89px; height:90px; background:#0195dd;
+    animation:li1 5s ease infinite normal;
+    -moz-animation:li1 5s ease infinite normal;
+    -webkit-animation:li1 5s ease infinite normal;
+    -ms-animation:li1 5s ease infinite normal;
+}
+@keyframes li1{
+    0%{ background:#f16421;}
+    10%{ background:#f16421;}
+    11%{ background:#0195dd;}
+    24%{ background:#0195dd;}
+    25%{ background:#0195dd;}
+    50%{ background:#0195dd;}
+    75%{ background:#0195dd;}
+    100%{ background:#0195dd;}
+}
+-webkit-@keyframes li1{
+            0%{ background:#f16421;}
+            10%{ background:#f16421;}
+            11%{ background:#0195dd;}
+            24%{ background:#0195dd;}
+            25%{ background:#0195dd;}
+            50%{ background:#0195dd;}
+            75%{ background:#0195dd;}
+            100%{ background:#0195dd;}
+        }
+
+.liucheng_sign li:nth-child(2) div{
+    background:#0195dd; width:96px;
+    animation:li2 5s ease infinite normal;
+    -moz-animation:li2 5s ease infinite normal;
+    -webkit-animation:li2 5s ease infinite normal;
+    -ms-animation:li2 5s ease infinite normal;
+}
+@keyframes li2{
+    0%{ background:#0195dd;}
+    22%{ background:#0195dd;}
+    23%{ background:#f16421;}
+    33%{ background:#f16421;}
+    34%{ background:#0195dd;}
+    50%{ background:#0195dd;}
+    75%{ background:#0195dd;}
+    100%{ background:#0195dd;}
+}
+-webkit-@keyframes li2{
+            0%{ background:#0195dd;}
+            22%{ background:#0195dd;}
+            23%{ background:#f16421;}
+            33%{ background:#f16421;}
+            34%{ background:#0195dd;}
+            50%{ background:#0195dd;}
+            75%{ background:#0195dd;}
+            100%{ background:#0195dd;}
+        }
+.liucheng_sign li:nth-child(3) div{
+    background:#0195dd; width:88px;
+    animation:li3 5s ease infinite normal;
+    -moz-animation:li3 5s ease infinite normal;
+    -webkit-animation:li3 5s ease infinite normal;
+    -ms-animation:li3 5s ease infinite normal;
+}
+@keyframes li3{
+    0%{background:#0195dd;}
+    25%{background:#0195dd;}
+    32%{background:#0195dd;}
+    33%{background:#f16421;}
+    50%{background:#f16421;}
+    53%{background:#f16421;}
+    54%{background:#0195dd;}
+    75%{background:#0195dd;}
+    100%{background:#0195dd;}
+}
+-webkit-@keyframes li3{
+            0%{background:#0195dd;}
+            25%{background:#0195dd;}
+            32%{background:#0195dd;}
+            33%{background:#f16421;}
+            50%{background:#f16421;}
+            53%{background:#f16421;}
+            54%{background:#0195dd;}
+            75%{background:#0195dd;}
+            100%{background:#0195dd;}
+        }
+.liucheng_sign li:nth-child(4) div{
+    background:#0195dd; width:81px;
+    animation:li4 5s ease infinite normal;
+    -moz-animation:li4 5s ease infinite normal;
+    -webkit-animation:li4 5s ease infinite normal;
+    -ms-animation:li4 5s ease infinite normal;
+}
+@keyframes li4{
+    0%{background:#0195dd;}
+    25%{background:#0195dd;}
+    32%{background:#0195dd;}
+    33%{background:#0195dd;}
+    50%{background:#0195dd;}
+    63%{background:#0195dd;}
+    64%{background:#f16421;}
+    75%{background:#f16421;}
+    82%{background:#f16421;}
+    83%{background:#0195dd;}
+    100%{background:#0195dd;}
+}
+-webkit-@keyframes li4{
+            0%{background:#0195dd;}
+            25%{background:#0195dd;}
+            32%{background:#0195dd;}
+            33%{background:#0195dd;}
+            50%{background:#0195dd;}
+            63%{background:#0195dd;}
+            64%{background:#f16421;}
+            75%{background:#f16421;}
+            82%{background:#f16421;}
+            83%{background:#0195dd;}
+            100%{background:#0195dd;}
+        }
+.liucheng_sign li:nth-child(5) div{ width:87px;
+    background:#0195dd;
+    animation:li5 5s ease infinite normal;
+    -moz-animation:li5 5s ease infinite normal;
+    -webkit-animation:li5 5s ease infinite normal;
+    -ms-animation:li5 5s ease infinite normal;
+
+
+}
+@keyframes li5{
+    0%{background:#0195dd;}
+    25%{background:#0195dd;}
+    32%{background:#0195dd;}
+    33%{background:#0195dd;}
+    50%{background:#0195dd;}
+    75%{background:#0195dd;}
+    89%{background:#0195dd;}
+    90%{background:#f16421;}
+    100%{background:#f16421;}
+}
+-webkit-@keyframes li5{
+            0%{background:#0195dd;}
+            25%{background:#0195dd;}
+            32%{background:#0195dd;}
+            33%{background:#0195dd;}
+            50%{background:#0195dd;}
+            75%{background:#0195dd;}
+            89%{background:#0195dd;}
+            90%{background:#f16421;}
+            100%{background:#f16421;}
+
+        }
+
+
+.liucheng_sign li h2{color:#0195dd; font-size:22px; line-height:30px;  }
+.liucheng_sign li:nth-child(1) h2{  color:#0195dd;
+    animation:zi1 5s ease infinite normal;
+    -moz-animation:zi1 5s ease infinite normal;
+    -webkit-animation:zi1 5s ease infinite normal;
+    -ms-animation:zi1 5s ease infinite normal;
+}
+@keyframes zi1{
+    0%{ color:#f16421;}
+    10%{ color:#f16421;}
+    11%{ color:#0195dd;}
+    24%{ color:#0195dd;}
+    25%{ color:#0195dd;}
+    50%{ color:#0195dd;}
+    75%{ color:#0195dd;}
+    100%{ color:#0195dd;}
+}
+-webkit-@keyframes zi1{
+            0%{ color:#f16421;}
+            10%{ color:#f16421;}
+            11%{ color:#0195dd;}
+            24%{ color:#0195dd;}
+            25%{ color:#0195dd;}
+            50%{ color:#0195dd;}
+            75%{ color:#0195dd;}
+            100%{ color:#0195dd;}
+        }
+
+.liucheng_sign li:nth-child(2) h2{
+    color: #0195dd;
+    animation:zi2 5s ease infinite normal;
+    -moz-animation:zi2 5s ease infinite normal;
+    -webkit-animation:zi2 5s ease infinite normal;
+    -ms-animation:zi2 5s ease infinite normal;
+}
+@keyframes zi2{
+    0%{ color:#0195dd;}
+    22%{ color:#0195dd;}
+    23%{ color:#f16421;}
+    33%{ color:#f16421;}
+    34%{ color:#0195dd;}
+    50%{ color:#0195dd;}
+    75%{ color:#0195dd;}
+    100%{ color:#0195dd;}
+}
+-webkit-@keyframes zi2{
+            0%{ color:#0195dd;}
+            22%{ color:#0195dd;}
+            23%{ color:#f16421;}
+            33%{ color:#f16421;}
+            34%{ color:#0195dd;}
+            50%{ color:#0195dd;}
+            75%{ color:#0195dd;}
+            100%{ color:#0195dd;}
+        }
+.liucheng_sign li:nth-child(3) h2{
+    color: #0195dd;
+    animation:zi3 5s ease infinite normal;
+    -moz-animation:zi3 5s ease infinite normal;
+    -webkit-animation:zi3 5s ease infinite normal;
+    -ms-animation:zi3 5s ease infinite normal;
+}
+@keyframes zi3{
+    0%{color:#0195dd;}
+    25%{color:#0195dd;}
+    32%{color:#0195dd;}
+    33%{color:#f16421;}
+    50%{color:#f16421;}
+    53%{color:#f16421;}
+    54%{color:#0195dd;}
+    75%{color:#0195dd;}
+    100%{color:#0195dd;}
+}
+-webkit-@keyframes zi3{
+            0%{color:#0195dd;}
+            25%{color:#0195dd;}
+            32%{color:#0195dd;}
+            33%{color:#f16421;}
+            50%{color:#f16421;}
+            53%{color:#f16421;}
+            54%{background:#0195dd;}
+            75%{color:#0195dd;}
+            100%{color:#0195dd;}
+        }
+.liucheng_sign li:nth-child(4) h2{
+    color: #0195dd;
+    animation:zi4 5s ease infinite normal;
+    -moz-animation:zi4 5s ease infinite normal;
+    -webkit-animation:zi4 5s ease infinite normal;
+    -ms-animation:zi4 5s ease infinite normal;
+}
+@keyframes zi4{
+    0%{color:#0195dd;}
+    25%{color:#0195dd;}
+    32%{color:#0195dd;}
+    33%{color:#0195dd;}
+    50%{color:#0195dd;}
+    63%{color:#0195dd;}
+    64%{color:#f16421;}
+    75%{color:#f16421;}
+    82%{color:#f16421;}
+    83%{color:#0195dd;}
+    100%{color:#0195dd;}
+}
+-webkit-@keyframes zi4{
+            0%{color:#0195dd;}
+            25%{color:#0195dd;}
+            32%{color:#0195dd;}
+            33%{color:#0195dd;}
+            50%{color:#0195dd;}
+            63%{color:#0195dd;}
+            64%{color:#f16421;}
+            75%{color:#f16421;}
+            82%{color:#f16421;}
+            83%{color:#0195dd;}
+            100%{color:#0195dd;}
+        }
+.liucheng_sign li:nth-child(5) h2{
+    color: #0195dd;
+    animation:zi5 5s ease infinite normal;
+    -moz-animation:zi5 5s ease infinite normal;
+    -webkit-animation:zi5 5s ease infinite normal;
+    -ms-animation:zi5 5s ease infinite normal;
+}
+@keyframes zi5{
+    0%{color:#0195dd;}
+    25%{color:#0195dd;}
+    32%{color:#0195dd;}
+    33%{color:#0195dd;}
+    50%{color:#0195dd;}
+    75%{color:#0195dd;}
+    89%{color:#0195dd;}
+    90%{color:#f16421;}
+    100%{color:#f16421;}
+}
+-webkit-@keyframes zi5{
+            0%{color:#0195dd;}
+            25%{color:#0195dd;}
+            32%{color:#0195dd;}
+            33%{color:#0195dd;}
+            50%{color:#0195dd;}
+            75%{color:#0195dd;}
+            89%{color:#0195dd;}
+            90%{color:#f16421;}
+            100%{color:#f16421;}
+
+        }
+
+.liucheng_sign li:nth-child(1) p{  color:#0195dd;
+    animation:zi1 5s ease infinite normal;
+    -moz-animation:zi1 5s ease infinite normal;
+    -webkit-animation:zi1 5s ease infinite normal;
+    -ms-animation:zi1 5s ease infinite normal;
+}
+@keyframes zi1{
+    0%{ color:#f16421;}
+    10%{ color:#f16421;}
+    11%{ color:#0195dd;}
+    24%{ color:#0195dd;}
+    25%{ color:#0195dd;}
+    50%{ color:#0195dd;}
+    75%{ color:#0195dd;}
+    100%{ color:#0195dd;}
+}
+-webkit-@keyframes zi1{
+            0%{ color:#f16421;}
+            10%{ color:#f16421;}
+            11%{ color:#0195dd;}
+            24%{ color:#0195dd;}
+            25%{ color:#0195dd;}
+            50%{ color:#0195dd;}
+            75%{ color:#0195dd;}
+            100%{ color:#0195dd;}
+        }
+
+.liucheng_sign li:nth-child(2) p{
+    color: #0195dd;
+    animation:zi2 5s ease infinite normal;
+    -moz-animation:zi2 5s ease infinite normal;
+    -webkit-animation:zi2 5s ease infinite normal;
+    -ms-animation:zi2 5s ease infinite normal;
+}
+@keyframes zi2{
+    0%{ color:#0195dd;}
+    22%{ color:#0195dd;}
+    23%{ color:#f16421;}
+    33%{ color:#f16421;}
+    34%{ color:#0195dd;}
+    50%{ color:#0195dd;}
+    75%{ color:#0195dd;}
+    100%{ color:#0195dd;}
+}
+-webkit-@keyframes zi2{
+            0%{ color:#0195dd;}
+            22%{ color:#0195dd;}
+            23%{ color:#f16421;}
+            33%{ color:#f16421;}
+            34%{ color:#0195dd;}
+            50%{ color:#0195dd;}
+            75%{ color:#0195dd;}
+            100%{ color:#0195dd;}
+        }
+.liucheng_sign li:nth-child(3) p{
+    color: #0195dd;
+    animation:zi3 5s ease infinite normal;
+    -moz-animation:zi3 5s ease infinite normal;
+    -webkit-animation:zi3 5s ease infinite normal;
+    -ms-animation:zi3 5s ease infinite normal;
+}
+@keyframes zi3{
+    0%{color:#0195dd;}
+    25%{color:#0195dd;}
+    32%{color:#0195dd;}
+    33%{color:#f16421;}
+    50%{color:#f16421;}
+    53%{color:#f16421;}
+    54%{color:#0195dd;}
+    75%{color:#0195dd;}
+    100%{color:#0195dd;}
+}
+-webkit-@keyframes zi3{
+            0%{color:#0195dd;}
+            25%{color:#0195dd;}
+            32%{color:#0195dd;}
+            33%{color:#f16421;}
+            50%{color:#f16421;}
+            53%{color:#f16421;}
+            54%{background:#0195dd;}
+            75%{color:#0195dd;}
+            100%{color:#0195dd;}
+        }
+.liucheng_sign li:nth-child(4) p{
+    color: #0195dd;
+    animation:zi4 5s ease infinite normal;
+    -moz-animation:zi4 5s ease infinite normal;
+    -webkit-animation:zi4 5s ease infinite normal;
+    -ms-animation:zi4 5s ease infinite normal;
+}
+@keyframes zi4{
+    0%{color:#0195dd;}
+    25%{color:#0195dd;}
+    32%{color:#0195dd;}
+    33%{color:#0195dd;}
+    50%{color:#0195dd;}
+    63%{color:#0195dd;}
+    64%{color:#f16421;}
+    75%{color:#f16421;}
+    82%{color:#f16421;}
+    83%{color:#0195dd;}
+    100%{color:#0195dd;}
+}
+-webkit-@keyframes zi4{
+            0%{color:#0195dd;}
+            25%{color:#0195dd;}
+            32%{color:#0195dd;}
+            33%{color:#0195dd;}
+            50%{color:#0195dd;}
+            63%{color:#0195dd;}
+            64%{color:#f16421;}
+            75%{color:#f16421;}
+            82%{color:#f16421;}
+            83%{color:#0195dd;}
+            100%{color:#0195dd;}
+        }
+.liucheng_sign li:nth-child(5) p{
+    color: #0195dd;
+    animation:zi5 5s ease infinite normal;
+    -moz-animation:zi5 5s ease infinite normal;
+    -webkit-animation:zi5 5s ease infinite normal;
+    -ms-animation:zi5 5s ease infinite normal;
+}
+@keyframes zi5{
+    0%{color:#0195dd;}
+    25%{color:#0195dd;}
+    32%{color:#0195dd;}
+    33%{color:#0195dd;}
+    50%{color:#0195dd;}
+    75%{color:#0195dd;}
+    89%{color:#0195dd;}
+    90%{color:#f16421;}
+    100%{color:#f16421;}
+}
+-webkit-@keyframes zi5{
+            0%{color:#0195dd;}
+            25%{color:#0195dd;}
+            32%{color:#0195dd;}
+            33%{color:#0195dd;}
+            50%{color:#0195dd;}
+            75%{color:#0195dd;}
+            89%{color:#0195dd;}
+            90%{color:#f16421;}
+            100%{color:#f16421;}
+
+        }
+
+.qiu{
+    position:absolute;
+    width:30px;
+    height:30px; border-radius:30px; background:#0195dd;
+    top:0px;
+    left:3px;
+    animation:fei 5s ease infinite normal;
+    -moz-animation:fei 5s ease infinite normal;
+    -webkit-animation:fei 5s ease infinite normal;
+    -ms-animation:fei 5s ease infinite normal;
+}
+@keyframes fei{
+    0%{left:0; background:#f16421;}
+    8%{ background:#f16421;}
+    9%{background:#0195dd;}
+    20%{background:#0195dd;}
+    21%{background:#f16421;}
+    25%{left:225px; background:#f16421;}
+    33%{left:225px; background:#f16421;}
+    34%{background:#0195dd;}
+    45%{background:#0195dd;}
+    46%{background:#f16421;}
+    50%{left:435px;background:#f16421;}
+    56%{left:435px;background:#f16421;}
+    57%{background:#0195dd;}
+    62%{background:#0195dd;}
+    63%{background:#f16421;}
+    75%{left:650px;background:#f16421;}
+    73%{left:650px;background:#f16421;}
+    74%{background:#0195dd;}
+    89%{background:#0195dd;}
+    90%{background:#f16421;}
+    100%{left:880px;background:#f16421;}
+}
+-webkit-@keyframes fei{
+            0%{left:0; background:#f16421;}
+            8%{ background:#f16421;}
+            9%{background:#0195dd;}
+            20%{background:#0195dd;}
+            21%{background:#f16421;}
+            25%{left:258px; background:#f16421;}
+            33%{left:258px; background:#f16421;}
+            34%{background:#0195dd;}
+            45%{background:#0195dd;}
+            46%{background:#f16421;}
+            50%{left:503px;background:#f16421;}
+            56%{left:503px;background:#f16421;}
+            57%{background:#0195dd;}
+            62%{background:#0195dd;}
+            63%{background:#f16421;}
+            75%{left:753px;background:#f16421;}
+            73%{left:753px;background:#f16421;}
+            74%{background:#0195dd;}
+            89%{background:#0195dd;}
+            90%{background:#f16421;}
+            100%{left:1002px;background:#f16421;}
+        }
+@media (min-width: 1351px) {
+    .liucheng_sign li{ float:left; display:inline; margin-left:50px; margin-right:50px;}
+    .liuchengqiu{ text-align:center; width:1021px;}
+
+    .qiu{
+        position:absolute;
+        width:30px;
+        height:30px; border-radius:30px; background:#0195dd;
+        top:0px;
+        left:3px;
+        animation:fei 5s ease infinite normal;
+        -moz-animation:fei 5s ease infinite normal;
+        -webkit-animation:fei 5s ease infinite normal;
+        -ms-animation:fei 5s ease infinite normal;
+    }
+    @keyframes fei{
+        0%{left:0; background:#f16421;}
+        8%{ background:#f16421;}
+        9%{background:#0195dd;}
+        20%{background:#0195dd;}
+        21%{background:#f16421;}
+        25%{left:260px; background:#f16421;}
+        33%{left:260px; background:#f16421;}
+        34%{background:#0195dd;}
+        45%{background:#0195dd;}
+        46%{background:#f16421;}
+        50%{left:509px;background:#f16421;}
+        56%{left:509px;background:#f16421;}
+        57%{background:#0195dd;}
+        62%{background:#0195dd;}
+        63%{background:#f16421;}
+        75%{left:762px;background:#f16421;}
+        73%{left:762px;background:#f16421;}
+        74%{background:#0195dd;}
+        89%{background:#0195dd;}
+        90%{background:#f16421;}
+        100%{left:1015px;background:#f16421;}
+    }
+    -webkit-@keyframes fei{
+                0%{left:0; background:#f16421;}
+                8%{ background:#f16421;}
+                9%{background:#0195dd;}
+                20%{background:#0195dd;}
+                21%{background:#f16421;}
+                25%{left:258px; background:#f16421;}
+                33%{left:258px; background:#f16421;}
+                34%{background:#0195dd;}
+                45%{background:#0195dd;}
+                46%{background:#f16421;}
+                50%{left:503px;background:#f16421;}
+                56%{left:503px;background:#f16421;}
+                57%{background:#0195dd;}
+                62%{background:#0195dd;}
+                63%{background:#f16421;}
+                75%{left:753px;background:#f16421;}
+                73%{left:753px;background:#f16421;}
+                74%{background:#0195dd;}
+                89%{background:#0195dd;}
+                90%{background:#f16421;}
+                100%{left:1002px;background:#f16421;}
+            }
+
+}
+.container liucheng_sign{
+    margin: 0 auto;
+}
