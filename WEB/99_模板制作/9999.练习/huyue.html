@@ -88,14 +88,17 @@
 		var timer = setInterval(function(){},1000);
 		console.log(timer);
 		var o = {num:1};var p = {num:2};
-		Object.prototype.he = function(){
-			return this.num;
-		};
-		console.log(typeof(o+p===3));
-		var a = ((o.he()+p.he())===3);
-		var b = ((o.num+p.num)===3);
-		console.log(a);
-		console.log(b);
+		var cc =o.toString;
+		var a=new Object();
+		console.log(a.__proto__);
+//		Object.prototype.toString = function(){
+//			return this.num;
+//		};
+		console.log(o+p===3);
+//		var a = ((o.toString()+p.he())===3);
+//		var b = ((o.num+p.num)===3);
+//		console.log(a);
+//		console.log(b);
 		console.log(typeof(null))//object
 		console.log(typeof(NaN))//number
 		console.log(typeof(undefined))//undefined
