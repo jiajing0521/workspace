@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<style type="text/css">
+body{margin: 0;padding: 100px;background-color: #000;} div .elem{width: 100px;height: 120px;margin-top: -40px;
+background-color:#FCE5A6;border: 1px solid #FFF; position: absolute;
+}
+div .box{margin-top: -50px;padding: 10px 20px;
+width: 100px;height: 100px;
+background-color: #F97C01;border: 1px solid #FFF; position: relative;
+}
+</style>
+</head>
+<body>
+<div class="box" style="z-index: 2;">
+<div class="elem" id="a" style="z-index: 5;">a</div>
+</div>
+<div class="box" style="margin-left: 60px; z-index: 1;" >
+<div class="elem" id="b" style="z-index: 6;">b</div> </div>
+
+	</body>
+</html>

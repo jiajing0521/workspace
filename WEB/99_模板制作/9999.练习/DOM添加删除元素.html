@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="div1">
+		    <p>姓名1</p>
+		    <p>姓名2</p>
+		    <p>姓名3</p>
+		    <p>姓名4</p>
+		    <p>姓名6</p>
+		    <p>姓名7</p>
+		    <p>姓名8</p>
+		</div>
+		<script type="text/javascript">
+			var oP = document.getElementsByTagName("p");
+			var divAll = document.getElementsByClassName("div1")[0];
+			var newP = document.createElement("p");
+			newP.innerHTML = "姓名5";
+			for(var i= 0; i< oP.length; i++){
+				if (oP[i].innerHTML=="姓名6") {
+					var thisP = oP[i];
+					divAll.insertBefore(newP,thisP);
+				}
+			};
+			divAll.lastElementChild
+			divAll.removeChild(divAll.lastElementChild);
+			
+		</script>
+	</body>
+</html>
