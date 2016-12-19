@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .all{
+            width: 500px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .wrap{
+            position: absolute;
+            width: 1500px;
+            height: 200px;
+            left: 0;
+            top:0;
+        }
+        .wrap div{
+            width: 500px;
+            height: 200px;
+            float: left;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="wrap">
+            <div class="imgs" style="background-color: green;">1</div>
+            <div class="imgs" style="background-color: red;">2</div>
+            <div class="imgs" style="background-color: hotpink;">3</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var all = document.querySelector('.all');
+    var wrap = document.querySelector('.wrap');
+    
+    var index  = 0;
+    var timer  = null;
+    var autoTimer  = null;
+
+//	function gun() {
+//		var speed = 10;
+//      index++;
+//      if(index > 2){
+//          index = 0;
+//          speed = -speed;
+//      }
+//      var endpos = -index * all.offsetWidth;
+//      clearInterval(timer);
+//      timer = setInterval(function () {
+//          if(endpos == wrap.offsetLeft){
+//              clearInterval(timer);
+//          }else{
+//              wrap.style.left = wrap.offsetLeft - speed +"px";
+//          }
+//      },10);
+//      return setTimeout(function(){
+//      		gun();
+//      },2000);
+//  }
+//  setTimeout(function(){
+//      	gun();
+//  },2000);
+    
+    (function () {
+	    function gun(){
+	    		var speed = 10;
+	        index++;
+	        if(index > 2){
+	            index = 0;
+	            speed = -speed;
+	        }
+	        var endpos = -index * all.offsetWidth;
+	        clearInterval(timer);
+	        timer = setInterval(function () {
+	            if(endpos == wrap.offsetLeft){
+	                clearInterval(timer);
+	            }else{
+	                wrap.style.left = wrap.offsetLeft - speed +"px";
+	            }
+	        },10);
+	        
+	    	}
+	    	return setInterval(function(){
+	        	gun();
+	    },2000);
+    })();
+</script>
+</html>

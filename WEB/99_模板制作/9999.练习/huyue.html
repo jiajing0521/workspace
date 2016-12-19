@@ -107,5 +107,32 @@
 		console.log(undefined == null)//true
 		console.log(undefined === null)//true
 		console.log(NaN == NaN)//false
+		
+		var arr = [2,5,1,2,3,5,8,8,7,5];
+		var norepeatArr = [];
+		var repeatArr = [];
+//		for(var i= 0; i< arr.length; i++){
+//			if(norepeatArr.indexOf(arr[i])==-1){
+//				norepeatArr.push(arr[i]);
+//			}else{
+//				repeatArr.push(arr[i]);
+//			}
+//		}
+//		console.log(repeatArr);
+//		console.log(norepeatArr);
+//		var i = 0; 
+//		while( i < arr.length){
+//			i++;
+//		}
+for(var i = 0; i < arr.length - 1; i++){
+   if(arr[i] == arr[i+1]){
+       // 重复
+       repeatArr.push(arr[i]);
+      continue;
+   }else{
+      // 不重复
+   }
+} 
+console.log(repeatArr);
 	</script>
 </html>
