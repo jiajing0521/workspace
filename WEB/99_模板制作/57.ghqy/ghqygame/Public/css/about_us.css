@@ -1,0 +1,130 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+.l_content_one{
+    width: 100%;
+    height:0;
+    overflow: hidden;
+    position: relative;
+    padding-top: 75px;
+    -webkit-animation:la 1s linear forwards;
+    -o-animation:la 1s linear forwards;
+    animation:la 1s linear forwards;
+
+}
+.l_content_one img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.l_content_one p{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+@keyframes la {
+    from {
+        height: 0;
+    }to{
+             height: 288px;
+         }
+}
+.l_content_two{
+    width:100%;
+    height: 655px;
+    background: url("../../Public/img/liu_img/about_head.jpg") no-repeat;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    position: relative;
+    -webkit-animation:tui 1s linear forwards;
+    -o-animation:tui 1s linear forwards;
+    animation:tui 1s linear forwards;
+}
+@keyframes tui {
+    from {
+        width: 0;
+    }to{
+         width: 100%;
+     }
+}
+.l_content_two p:nth-of-type(1){
+    font-size: 35px;
+    color: white;
+    opacity: 0;
+    position: absolute;
+    top:30px;
+    transform: translate(-50%,0);
+    animation: wenzi 1s linear forwards;
+    animation-delay:1s
+}
+.l_content_two p:nth-of-type(2){
+    color: white;
+    position: absolute;
+    bottom:20px;
+    opacity: 0;
+    line-height: 30px;
+    transform: translate(-50%,0);
+    animation: wenzi 1s linear forwards;
+    animation-delay:1s
+}
+@keyframes wenzi {
+   from{
+       opacity: 0;
+       left:-300px;
+   }to{ opacity: 1;
+           left:50%;
+       }
+}
+.l_content_three{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.l_content_three>img{
+    width: 40%;
+    height: 100%;
+    margin:auto;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.l_content_four{
+    width: 100%;
+    min-width: 1200px;
+    background: url("../../Public/img/liu_img/about_lc.jpg") no-repeat;
+    -webkit-background-size:100% 100%;
+    overflow: hidden;
+    position: relative;
+}
+.l_content_four>img{
+    position: absolute;
+    left:70px;
+    top:100px;
+}
+pre{
+    position: absolute;
+    top:430px;
+    left:20px;
+    line-height: 30px;
+    font-size: 17px;
+    color: grey;
+}

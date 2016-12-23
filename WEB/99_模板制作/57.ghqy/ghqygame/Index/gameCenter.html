@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京光合起源网络科技有限公司</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        ol,ul{
+            list-style: none;
+        }
+        .d_header{
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 76px;
+            background: url('http://www.ghqygame.com/Public/ghpc/images/header.png') top left repeat-x;
+            position: fixed;
+        }
+        .d_header_bottom{
+            width: 100%;
+            height: 9px;
+            background: url('../Public/img/liu_img/header_bottom.png') top center no-repeat;
+            position: absolute;
+            top: 70px;
+        }
+        .d_w1000{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .d_logo{
+            width: 156px;
+            height: 56px;
+            margin-top: 10px;
+            float: left;
+        }
+        .nav{
+            position: relative;
+            float: right;
+        }
+        .nav a{
+            width: 86px;
+            height: 76px;
+            line-height: 76px;
+            text-align: center;
+            float: left;
+            font-size: 14px;
+            color: #b3b3b3;
+        }
+        .nav a:hover{
+            background-color: #000000;
+        }
+
+
+        .d_game_video{
+            top: -100px;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            position: relative;
+        }
+        .d_movie_play{
+            bottom: 128px;
+            right: 0;
+            width: 128px;
+            height: 128px;
+            border:none;
+            outline: none;
+            position: absolute;
+            background: url('http://www.ghqygame.com/Public/ghpc/images/paused.png') no-repeat;
+        }
+        .d_game{
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            margin-top: -250px;
+            left: 0;
+            overflow: hidden;
+            padding-bottom: 100px;
+        }
+
+        .d_game li{
+            width: 370px;
+            height: 230px;
+            float: left;
+            overflow: hidden;
+            margin: 15px;
+            position: relative;
+        }
+        .d_game_main{
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .d_game_pic{
+            background-position: center center;
+            background-size: cover;
+            -webkit-transition: all 0.35s;
+            transition: all 0.35s;
+            width: 115%;
+            height: 115%;
+            position: absolute;
+            left: -7.5%;
+            top: -7.5%;
+        }
+        .d_game_pic:hover{
+            background-repeat: no-repeat;
+            background-size: 85%,85%;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        .d_game_box{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            padding: 10px 12px;
+            background: #000;
+            opacity: 0.6;
+        }
+        .d_game_hint{
+            background: #FFF;
+            color: #333333;
+            display: inline-block;
+            font-size: 10px;
+            padding: 0px 4px;
+            text-transform: uppercase;
+        }
+        .d_game_title{
+            color: #FFF;
+            font-size: 24px;
+            background: url("http://www.ghqygame.com/Public/ghpc/images/go-to-detail.png") no-repeat;
+            background-position: 95% center;
+            background-size: auto 16px;
+            padding-right: 40px;
+        }
+        .d_game_descr{
+            margin-top: 5px;
+            color: #FFF;
+            font-size: 12px;
+            padding-right: 20px;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+            margin-bottom: -55px;
+        }
+        .d_bg{
+            background-color: black;
+            width: 100%;
+            height: 250px;
+            margin-top: -215px;
+        }
+        .clear{
+            clear:both;
+        }
+
+        footer{
+            width: 100%;
+            height: 200px;
+            background-color: black;
+            position: relative;
+            bottom:0;
+        }
+        .l_footer_logo{
+            width: 192px;
+            height: 70px;
+            position:absolute;
+            left:10%;
+            top:20%;
+        }
+        .l_txt{
+            width: 747px;
+            height: 100px;
+            font-size: 13px;
+            position:absolute;
+            left:45%;
+            top:20%;
+        }
+        .l_one>a{
+            text-decoration: none;
+            color: grey;
+        }
+        .l_last{
+            margin-top: 10px;
+            color: grey;
+        }
+        .l_last>a{
+            color: grey;
+            text-decoration: none;
+        }
+        .l_bar_warp a:hover{
+            color: red;
+        }
+        footer a:hover{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div class="d_header">
+        <span class="d_header_bottom"></span>
+        <div class="d_w1000">
+            <a href="" class="d_logo">
+                <img src="../Public/img/liu_img/logo.png" alt="">
+            </a>
+            <span class="nav">
+                <a href="./index.html">首页</a>
+                <a href="./about_us.html">关于我们</a>
+                <a href="./newsCenter.php">新闻中心</a>
+                <a href="./gameCenter.html">游戏中心</a>
+                <a href="./joinUs.html">加入我们</a>
+                <a href="./lastPage.html">联系我们</a>
+            </span>
+        </div>
+    </div>
+    <!--视频-->
+    <div class="d_game_video">
+        <video autoplay="true" loop width="100%" id="d_myMovie">
+            <source src="http://www.ghqygame.com/Public/ghpc/images/game_video.webm" type="video/webm">
+            <source src="http://www.ghqygame.com/Public/ghpc/images/game_video.mp4" type="video/mp4">
+            <p>你的浏览器暂不支持HTML5，请更换浏览器。</p>
+        </video>
+        <button class="d_movie_play" id="d_movie_play" onclick="pause()"></button>
+    </div>
+    <div class="d_game">
+        <ul>
+            <li class="d_pr">
+                <a href="http://www.ghqygame.com/Index/news_show/id/12" target="_blank" class="d_game_main">
+                    <div class="d_game_pic" style="background-image:url('http://www.ghqygame.com/Public/ghpc/images/ysq1.jpg');"></div>
+                    <div class="d_game_box">
+                        <div class="d_game_hint">game</div>
+                        <div class="d_game_title">有杀气童话PK推图组合推荐</div>
+                        <div class="d_game_descr">有杀气童话什么组合好，在有杀气童话中，要么是推图的，要么是PK的，</div>
+                    </div>
+                </a>
+            </li>
+            <li class="d_pr">
+                <a href="http://www.ghqygame.com/Index/news_show/id/11" target="_blank" class="d_game_main">
+                    <div class="d_game_pic" style="background-image:url('http://www.ghqygame.com/Public/ghpc/images/ysq2.jpg');"></div>
+                    <div class="d_game_box">
+                        <div class="d_game_hint">game</div>
+                        <div class="d_game_title">有杀气童话新手攻略总汇</div>
+                        <div class="d_game_descr">对于刚入有杀气童话的萌新，一切还属于在探索的阶段!不少前人总结的经验就对于我们的帮助非常大!</div>
+                    </div>
+                </a>
+            </li>
+            <li class="d_pr">
+                <a href="http://www.ghqygame.com/Index/news_show/id/13" target="_blank" class="d_game_main">
+                    <div class="d_game_pic" style="background-image:url('http://www.ghqygame.com/Public/ghpc/images/ysq3.jpg');"></div>
+                    <div class="d_game_box">
+                        <div class="d_game_hint">game</div>
+                        <div class="d_game_title">有杀气童话全能型阵容搭配</div>
+                        <div class="d_game_descr">在有杀气童话中伙伴阵容的搭配是非常重要的，搭配一个好的阵容可以让你事半功倍，</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="d_bg"></div>
+    <!--底部-->
+    <footer>
+        <img src="../Public/img/liu_img/logo.png" alt="" class="l_footer_logo">
+        <div class="l_txt">
+            <p class="l_one">
+                <a href='./index.html'>光合起源&nbsp;|</a>
+                <a href='./about_us.html'>关于我们&nbsp;|</a>
+                <a href='./newsCenter.php'>新闻中心&nbsp;|</a>
+                <a href='./gameCenter.html'>游戏中心&nbsp;|</a>
+                <a href='./joinUs.html'>加入我们&nbsp;|</a>
+                <a href='./lastPage.html'>联系我们&nbsp;|</a>
+            </p>
+            <p class="l_last">
+                京ICP备15038749号-1  Copyright © 2014-2015 北京光合起源网络科技有限公司 All Right Reserved
+            </p>
+            <p class="l_last">
+                联系地址：北京市海淀区花园路甲13号院庚坊国际大厦3层307 电话：010-82257119 <a href="">技术支持：星贺互联</a>
+            </p>
+            <p class="l_last">
+                健康游戏忠告：抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益脑 沉迷游戏伤身 合理安排时间 享受健康生活
+            </p>
+        </div>
+    </footer>
+<script src='../Public/js/jquery-2.2.3.min.js' type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".d_pr").off("mouseover");
+        $(".d_pr").mouseover(function () {
+            $('.d_game_box').eq($(this).index()).animate({
+                height:100
+            })
+        });
+        $(".d_pr").off("mouseout");
+        $(".d_pr").mouseout(function () {
+            $('.d_game_box').eq($(this).index()).animate({
+                height:40
+            })
+        });
+    });
+    function pause() {
+        var video = document.getElementById("d_myMovie");
+        var button = document.getElementById("d_movie_play");
+        if(video.paused){
+            button.style.backgroundImage = "url('http://www.ghqygame.com/Public/ghpc/images/play.png')";
+            video.play();
+        }else{
+            video.pause();
+            button.style.backgroundImage = "url('http://www.ghqygame.com/Public/ghpc/images/paused.png')";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>北京光合起源网络科技有限公司</title>
+    <link rel="stylesheet" href="../Public/css/header&&footer_css.css">
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        body{
+            position: relative;
+            width: 100%;
+            height: 1500px;
+        }
+        #scoll{
+            position: relative;
+            width: 100%;
+            height: 550px;
+            background-image: url("../Public/img/Y_img/slide1_bg.jpg");
+            background-position: center;
+            overflow: hidden;
+        }
+        #tbg2{
+            position: absolute;
+            display: none;
+        }
+        #btnleft{
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            top:200px;
+            left: 0;
+            background-color: white;
+        }
+        #btnright>img{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 14px;
+            height: 28px;
+        }
+        #btnleft>img{
+            transform: translate(-50%,-50%) rotate(180deg);
+            position: absolute;
+            top:50%;
+            left: 50%;
+            width: 14px;
+            height: 28px;
+        }
+        #btnright{
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            top:200px;
+            right: 0;
+            background-color: white;
+        }
+        #slide1{
+            position: relative;
+            width: 900px;
+            margin: 0 auto;
+            display: none;
+        }
+        #s1zi{
+            position: absolute;
+            top: 50px;
+            left: -300px;
+        }
+        #s1ren{
+            position: absolute;
+            top: -50px;
+            left: 130%;
+        }
+        #slide2{
+              position: relative;
+              width: 900px;
+              margin: 0 auto;
+              display: none;
+          }
+        #s2zi{
+            position: absolute;
+            top: -500px;
+            left: -100px;
+        }
+        #s2ren{
+            position: absolute;
+            top: 500px;
+            left: 40%;
+        }
+        #slide3{
+               position: relative;
+               width: 900px;
+               margin: 0 auto;
+               display: none;
+           }
+        #s3zi{
+            position: absolute;
+            top: -50px;
+            left: -500px;
+        }
+        #s3ren{
+            position: absolute;
+            top: -50px;
+            left: 110%;
+        }
+        #slide4{
+            position: relative;
+            width: 900px;
+            margin: 0 auto;
+            display: none;
+        }
+        #s4ren{
+            position: absolute;
+            top: 700px;
+            left: 0;
+        }
+        #bigimg{
+            text-align: center;
+        }
+        #vidplay{
+            position: absolute;
+            top: 147px;
+            right: 225px;
+        }
+        #bigimg-1{
+            display: inline-block;
+            position: relative;
+        }
+        #videomengban{
+            position: absolute;
+            width: 100%;
+            height: 1500px;
+            background-color:rgba(0,0,0,0.7);
+            top:0;
+            left: 0;
+        }
+        #vplay{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #closebtn{
+            position: absolute;
+            top:25%;
+            left: 89%;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="header.html">
+</head>
+<body>
+
+<div class="l_header">
+    <img src="../Public/img/liu_img/header_bottom.png" alt="" class="l_bottom">
+    <img src="../Public/img/liu_img/logo.png" alt="" class="l_logo">
+    <div class="l_header_txt">
+        <a href="./index.html">首页</a>
+        <a href="./about_us.html">关于我们</a>
+        <a href="./newsCenter.php">新闻中心</a>
+        <a href="./gameCenter.html">游戏中心</a>
+        <a href="./joinUs.html">加入我们</a>
+        <a href="./lastPage.html">联系我们</a>
+    </div>
+    <div class="l_bar">
+        <p>&macr;</p>
+        <p>&macr;</p>
+        <p>&macr;</p>
+        <div class="l_bar_warp">
+            <a href="./index.html">首页</a>
+            <a href="./about_us.html">关于我们</a>
+            <a href="./newsCenter.php">新闻中心</a>
+            <a href="./gameCenter.html">游戏中心</a>
+            <a href="./joinUs.html">加入我们</a>
+            <a href="./lastPage.html">联系我们</a>
+        </div>
+    </div>
+</div>
+
+    <div id="center">
+        <div id="scoll">
+            <img src="../Public/img/Y_img/slide2_bg.jpg" alt="" id="tbg2">
+            <div id="btnleft">
+                <img src="../Public/img/Y_img/jiantou.jpg" alt="">
+            </div>
+            <div id="btnright">
+                <img src="../Public/img/Y_img/jiantou.jpg" alt="">
+            </div>
+            <div id="slide1">
+                <img src="../Public/img/Y_img/slide1_text.png" alt="" id="s1zi">
+                <img src="../Public/img/Y_img/slide1.png" alt="" id="s1ren">
+            </div>
+            <div id="slide2">
+                <img src="../Public/img/Y_img/slide2_text.png" alt="" id="s2zi">
+                <img src="../Public/img/Y_img/slide2.png" alt="" id="s2ren">
+            </div>
+            <div id="slide3">
+                <img src="../Public/img/Y_img/slide3_text.png" alt="" id="s3zi">
+                <img src="../Public/img/Y_img/slide3.png" alt="" id="s3ren">
+            </div>
+            <div id="slide4">
+                <img src="../Public/img/Y_img/slide4.png" alt="" id="s4ren">
+            </div>
+        </div>
+        <div id="bigimg">
+            <div id="bigimg-1">
+                <img src="../Public/img/Y_img/C4D63BF4-20D4-42C0-8BAE-B5BD4E9C0A6B.png" alt="">
+                <img src="../Public/img/Y_img/video_play.png" alt="" id="vidplay">
+
+            </div>
+
+
+        </div>
+    </div>
+
+<footer>
+    <img src="../Public/img/liu_img/logo.png" alt="" class="l_footer_logo">
+    <div class="l_txt">
+        <p class="l_one">
+            <a href=>光合起源&brvbar;</a>
+            <a href=>光合起源&brvbar;</a>
+            <a href=>光合起源&brvbar;</a>
+            <a href=>光合起源&brvbar;</a>
+            <a href=>光合起源&brvbar;</a>
+            <a href=>光合起源&brvbar;</a>
+        </p>
+        <p class="l_last">
+            京ICP备15038749号-1  Copyright © 2014-2015 北京光合起源网络科技有限公司 All Right Reserved
+        </p>
+        <p class="l_last">
+            联系地址：北京市海淀区花园路甲13号院庚坊国际大厦3层307 电话：010-82257119 <a href="">技术支持：星贺互联</a>
+        </p>
+        <p class="l_last">
+            健康游戏忠告：抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益脑 沉迷游戏伤身 合理安排时间 享受健康生活
+        </p>
+    </div>
+
+</footer>
+<script src="../Public/js/L_header.js"></script>
+<script src="../Public/js/jquery-2.2.3.min.js"></script>
+<script>
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+    if(!IsPC()){
+        window.location.href="moblie.html";
+    }
+    var y_time=1;
+    var timer1;
+
+    function aa() {
+        console.log(y_time);
+        //清空所有
+        for(var xun=1;xun<5;xun++){
+            $("#slide"+xun).hide();
+        }
+        //背景切换
+        if(y_time==1){
+            $("#tbg2").fadeOut();
+        }else{
+            $("#tbg2").fadeIn();
+        }
+        //初始轮播图里的位置
+        $("#s1zi").css({"top":"50px","left":"-300px"});
+        $("#s1ren").css({ "left": "130%"});
+        $("#s2zi").css({"top":"-500px"});
+        $("#s2ren").css({"top":"500px"});
+        $("#s3zi").css({"left":"-500px"});
+        $("#s3ren").css({"left":"110%"});
+        $("#s4ren").css({"top":"700px"});
+
+
+        $("#slide"+y_time).show();
+        if(y_time==1){
+            $("#s1zi").stop().animate({"top":"50px","left":"0"},300,function () {
+
+            });
+            $("#s1ren").stop().animate({"top":"-50px","left":"40%"},300,function () {
+
+            });
+        }else if (y_time==2){
+            $("#s2zi").stop().animate({"top":"-50px"},500,function () {
+
+            });
+            $("#s2ren").stop().animate({"top":"-50px"},500);
+        }else if(y_time==3){
+            $("#s3zi").stop().animate({"left":"-100px"},500,function () {
+
+            });
+            $("#s3ren").stop().animate({"left":"40%"},500);
+
+        }else if(y_time==4){
+            $("#s4ren").stop().animate({"top":"-100px"},500,function () {
+
+            });
+        }
+
+        //第四个图的时候显示,然后把值变成一
+        if(y_time<4){
+            y_time++;
+        }else{
+            y_time=1;
+        };
+
+    }
+    function dingshi() {
+        timer1=setInterval(aa,2000);
+    }
+    aa();
+
+
+    dingshi();
+
+    $("#scoll").on("mouseenter",function () {
+        $("#btnleft").css("display","block");
+    })
+
+    $("#btnleft").on("click",function () {
+        if(y_time>2&&y_time<=4){
+            y_time-=2;
+        }else if(y_time==2){
+            y_time=4;
+        }
+        else{
+            y_time=3;
+        };
+        clearInterval(timer1);
+        aa();
+        dingshi();
+    });
+    $("#btnright").on("click",function () {
+        clearInterval(timer1);
+        aa();
+        dingshi();
+        console.log("点击上了")
+    })
+    $("#vidplay").on("click",function () {
+        var yvideo=$("<video width='auto' id='vplay' height='auto' src='http://www.ghqygame.com/Public/ghpc/images/game_video.webm' autoplay controls></video>");
+        var ymengban=$("<div id='videomengban'></div>");
+        var close=$("<img src='../Public/img/Y_img/close.png' alt='' id='closebtn'>");
+        $("body").append(ymengban);
+        $("body").append(close);
+        $("#videomengban").append(yvideo);
+    });
+
+
+    $(document).on("click","#closebtn",function () {
+        $("#videomengban").remove();
+        this.remove();
+    })
+</script>
+</body>
+</html>

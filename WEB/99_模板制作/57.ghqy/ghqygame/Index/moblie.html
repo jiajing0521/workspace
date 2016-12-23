@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>北京光合起源网络科技有限公司</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body,html{
+            width:100%;
+            height: 100%;
+            position: relative;
+        }
+        header{
+            width: 100%;
+            height: 75px;
+            background-color: rgb(0,0,0);
+            text-align: center;
+            position:fixed;
+        }
+        nav{
+            width: 100%;
+            background-color: rgb(0,0,0);
+            padding-top: 75px;
+            text-align: center;
+        }
+        nav>a{
+            text-decoration:none;
+            color: gainsboro;
+            font-size: 13px;
+            padding:5px
+        }
+        nav>a:hover{
+            color: red;
+        }
+        content{
+            width: 100%;
+        }
+        .l_slider_one{
+            width: 100%;
+            height:250px;
+            overflow: hidden;
+            position: relative;
+        }
+        .l_bg_one{
+            width: 100%;
+            height:250px;
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: -1;
+
+
+        }
+        .l_bg_two{
+            width: 100%;
+            height:250px;
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: -2;
+
+        }
+
+        #l_txt_logo{
+            width: 62%;
+            position: absolute;
+            /*left:5%;*/
+            right: 100%;
+        }
+        #l_redPerson{
+            width: 62%;
+            position: absolute;
+            /*left:38%;*/
+            left:100%;
+        }
+         #s2zi{
+             width: 50%;
+             position: absolute;
+             bottom:100%;
+         }
+        #s2ren{
+            width: 62%;
+            left:38%;
+            position: absolute;
+            top:100%;
+        }
+        #s3zi{
+            width: 55%;
+            right:100%;
+            position: absolute;
+        }
+        #s3ren{
+            width: 62%;
+            left:100%;
+            /*left:38%;*/
+            position: absolute;
+        }
+        #bigimg{
+            width: 100%;
+            height:42%;
+        }
+        .bgc{
+            width: 100%;
+            height: 100%;
+        }
+        footer{
+            width: 100%;
+            height: 12%;
+            background-color: black;
+            position: relative;
+            bottom:0;
+        }
+        .l_footer_logo{
+            width: 20%;
+            height: 20px;
+            position:absolute;
+            left:10%;
+            top:20%;
+        }
+        .l_txt{
+            width: 55%;
+            height: 12%;
+            font-size: 13px;
+            position:absolute;
+            left:45%;
+            top:20%;
+        }
+        .l_one>a{
+            text-decoration: none;
+            color: grey;
+        }
+
+        .l_last>a{
+            color: grey;
+            text-decoration: none;
+        }
+        .l_bar_warp a:hover{
+            color: red;
+        }
+        footer a:hover{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <img src="../Public/img/liu_img/logo.png" alt="">
+
+</header>
+<nav>
+    <a href="javascript:void(0)">首页</a>
+    <a href="javascript:void(0)">关于我们</a>
+    <a href="javascript:void(0)">新闻中心</a>
+    <a href="javascript:void(0)">游戏中心</a>
+    <a href="javascript:void(0)">加入我们</a>
+    <a href="javascript:void(0)">联系我们</a>
+</nav>
+<content>
+    <div class="l_slider_one">
+        <img src="../Public/img/Y_img/slide1_bg.jpg" alt="" class="l_bg_one" >
+        <img src="../Public/img/Y_img/slide2_bg.jpg" alt="" class="l_bg_two" >
+        <img src="../Public/img/Y_img/slide1_text.png" alt="" id="l_txt_logo">
+        <img src="../Public/img/Y_img/slide1.png" alt="" id="l_redPerson">
+        <img src="../Public/img/Y_img/slide2_text.png" alt="" id="s2zi">
+        <img src="../Public/img/Y_img/slide2.png" alt="" id="s2ren">
+        <img src="../Public/img/Y_img/slide3_text.png" alt="" id="s3zi">
+        <img src="../Public/img/Y_img/slide3.png" alt="" id="s3ren">
+    </div>
+    <div id="bigimg">
+        <img src="../Public/img/Y_img/C4D63BF4-20D4-42C0-8BAE-B5BD4E9C0A6B.png" alt="" class="bgc">
+    </div>
+</content>
+<footer>
+    <img src="../Public/img/liu_img/logo.png" alt="" class="l_footer_logo">
+    <div class="l_txt">
+        <p class="l_one">
+            <a href='./index.html'>光合起源&nbsp;|</a>
+            <a href='./about_us.html'>关于我们&nbsp;|</a>
+            <a href='./newsCenter.php'>新闻中心&nbsp;|</a>
+            <a href='./gameCenter.html'>游戏中心&nbsp;|</a>
+            <a href='./joinUs.html'>加入我们&nbsp;|</a>
+            <a href='./lastPage.html'>联系我们&nbsp;|</a>
+        </p>
+<script src="../Public/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    function scroll() {
+        $("#l_txt_logo").animate({
+            right: "30%"
+        }, 2000);
+        $("#l_redPerson").animate({
+            left: "38%"
+        }, 2000).animate({left: "38%"}, 2000, function () {
+            $("#l_txt_logo").css("right", "100%");
+            $("#l_redPerson").css("left", "100%");
+            $(".l_bg_one").animate({
+                opacity: 0
+            }, 1000, function () {
+                $("#s2zi").animate({
+                    bottom: 0
+                }, 1000).animate({bottom: 0}, 2000, function () {
+                    $("#s2zi").css("bottom", "100%");
+                });
+                $("#s2ren").animate({
+                    top:0
+                },1000).animate({top:0
+                },2000,function () {
+                    $("#s2ren").css("top","100%");
+                    $("#s3zi").animate({
+                        right: "30%"
+                    }, 1000).animate({right: "30%"}, 2000, function () {
+                        $("#s3zi").css("right", "100%");
+                    });
+                    $("#s3ren").animate({
+                        left: "38%"
+                    },1000).animate({left: "38%"
+                    },2000,function () {
+                        $("#s3ren").css("left","100%");
+                        $(".l_bg_one").animate({
+                            opacity: 1},1000,function () {
+                            scroll();
+
+                        })
+                    })
+                })
+            });
+
+        });
+
+
+
+    }
+
+
+
+    scroll();
+})
+</script>
+</body>
+</html>

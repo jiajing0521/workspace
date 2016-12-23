@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+ol,ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: darkgrey;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    font-weight: 100;
+}
+
+.d_news_number{
+    margin-top: 80px;
+    height: 60px;
+    padding: 10px 0 6px 0;
+    border-bottom: 3px solid #ccc;
+}
+.d_w1000{
+    width: 1000px;
+    margin: 0 auto;
+}
+.d_w1000 h2{
+    float: left;
+    font-size: 18px;
+    line-height: 60px;
+    padding-left: 30px;
+}
+.d_w1200xw{
+    width: 1000px;
+    margin: 0 auto;
+}
+.d_pt20{
+    padding-top: 20px;
+}
+.d_film_focus{
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+.d_film_focus  .d_film_focus_desc h3{
+    height: 45px;
+    line-height: 45px;
+    overflow: hidden;
+    position: absolute;
+    left: 232px;
+    bottom: 0;
+    background: #000;
+    opacity: 0.85;
+    filter: alpha(opacity=50);
+    color: #fff;
+    width: 100%;
+    padding-left: 20px;
+    z-index: 99;
+    font-size: 16px;
+}
+.d_film_focus ul.d-film_focus_nav li{
+    height: 47px;
+    background: #d7d7dc;
+    margin: 0px 0px 5px 0;
+    padding: 0px 18px 0 19px;
+    position: relative;
+    width: 190px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    line-height: 47px;
+}
+.d_film_focus ul.d-film_focus_nav li b{
+    display: none;
+}
+.d_film_focus ul.d-film_focus_nav li.d_cur b{
+    display: block;
+    vertical-align: middle;
+    height: 132px;
+    margin-bottom: 10px;
+}
+.d_film_focus ul.d-film_focus_nav li.d_cur img{
+    width: 218px;
+    height: 132px;
+}
+
+.d_film_focus ul.d-film_focus_nav li.d_cur{
+    background: url('../../img/newsCenter/hd_on.png') no-repeat;
+    width: 238px;
+    height: 132px;
+    left: 0;
+    padding: 5px;
+    overflow: hidden;
+    line-height: normal;
+}
+
+img{
+    vertical-align: middle;
+}
+
+.d_film_focus .d_film_focus_imgs_wrap{
+    background: url('../../img/newsCenter/loading-slideshow.gif') no-repeat center center;
+}
+
+
+.d_film_focus ul.d_film_focus_imgs {
+    height: 350px;
+    height: 9999em;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.d_film_focus ul.d_film_focus_imgs li {
+    height: 350px;
+    overflow: hidden;
+}
+
+.d_film_focus ul.d_film_focus_imgs li img {
+    width: 770px;
+}
+
+.d_new_title{
+    overflow: hidden;
+    background: #e5e5e5;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    padding: 5px 0 0 10px;
+    color: #787878;
+    margin-bottom: 20px;
+}
+.d_new_title a{
+    float: left;
+    padding: 0 20px;
+}
+
+.d_new_title a.d_active {
+    background: #f6f6f6;
+    color: black;
+}
+
+.d_news_left{
+    width: 600px;
+    float: left;
+}
+
+.d_new_list li{
+    border-bottom: solid #dcdcdc 1px;
+    height: 173px;
+}
+
+.d_new_list li span{
+    float: right;
+    width: 400px;
+}
+
+.d_new_list li h2 {
+    font-size: 13px;
+    color: #646464;
+    padding: 10px 0;
+}
+
+.d_new_list li h2 :hover{
+    color: red;
+}
+
+.d_new_list li h3 {
+    color: #a7a7a7;
+}
+
+.d_pages{
+    padding: 15px 0;
+    overflow: hidden;
+}
+
+.d_current{
+    width: 20px;
+    background-color: white !important;
+    padding-top: 3px !important;
+    margin: 0 !important;
+    line-height: 21px !important;
+}
+
+.d_current:hover{
+    color: #646464 !important;
+}
+
+.d_pages a{
+    float: left;
+    padding: 0 10px;
+    background: #c4c4c4;
+    line-height: 26px;
+    height: 26px;
+    overflow: hidden;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    margin: 0 5px 0 0;
+    color: #646464;
+}
+
+.d_pages a:hover{
+    background: red;
+    color: white;
+}
+
+.d_display{
+    display: none;
+}
+
+.d_fr{
+    float: right;
+}
+
+.d_tit{
+    height: 48px;
+    font: 24px/48px "Microsoft YaHei";
+    padding: 0 0 0 20px;
+    background: url('../../img/newsCenter/border-left.png') no-repeat 0 16px;
+    color: #272a2c;
+}
+
+.d_remark{
+    color: #a7a8a9;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+}
+
+.d_side-list{
+    margin: 0 0 0 20px;
+}
+
+.d_side-list li{
+    font-size: 14px;
+    color: #272a2c;
+    overflow: hidden;
+    height: 21px;
+    line-height: 14px;
+    margin: 0 0 15px;
+}
+
+.d_kind{
+    float: left;
+    width: 50px;
+    height: 21px;
+    background: url('../../img/newsCenter/kind.png') no-repeat 0 0;
+    text-align: center;
+    line-height: 22px;
+    margin: 0 5px 0 0;
+}
+
+.d_side-list li a{
+    line-height: 22px;
+    color: #272a2c;
+}
+
+.d_clear{
+    padding-top: 50px;
+    clear: both;
+}

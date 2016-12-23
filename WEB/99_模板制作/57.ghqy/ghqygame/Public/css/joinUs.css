@@ -1,0 +1,322 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+
+ol,ul{
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+video {
+    object-fit: contain;
+    display: inline-block;
+}
+.d_header{
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 76px;
+    background: url('http://www.ghqygame.com/Public/ghpc/images/header.png') top left repeat-x;
+    position: fixed;
+}
+.d_header_bottom{
+    width: 100%;
+    height: 9px;
+    background: url('../img/liu_img/header_bottom.png') top center no-repeat;
+    position: absolute;
+    top: 70px;
+}
+.d_w1000{
+    width: 1000px;
+    margin: 0 auto;
+}
+.d_logo{
+    width: 156px;
+    height: 56px;
+    margin-top: 10px;
+    float: left;
+}
+.nav{
+    position: relative;
+    float: right;
+}
+.nav a{
+    width: 86px;
+    height: 76px;
+    line-height: 76px;
+    text-align: center;
+    float: left;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+.nav a:hover{
+    background-color: #000000;
+}
+
+.d_bg{
+    height: 459px;
+    background: url('http://www.ghqygame.com/Public/ghpc/images/hr_banner.png') no-repeat top center;
+    width: 100%;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.d_wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.d_session{
+    min-height: 100px;
+    border: 1px solid #f1f1f1;
+    background: -webkit-linear-gradient(top, #fff, #f7f8f8);
+    padding: 30px;
+    width: 680px;
+    float: left;
+}
+
+.d_hr_search_title{
+    background: url('http://www.ghqygame.com/Public/ghpc/images/hr_search.png') no-repeat;
+    color: #275494;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    background-size: 28px 28px;
+}
+
+.d_sinslt{
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    color: #333;
+    width: 185px;
+    height: 22px;
+    padding: 2px 0 2px 5px;
+    line-height: 18px;
+    outline: none;
+    font-size: 100%;
+}
+
+option{
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0 2px 1px;
+}
+
+.d_sintxt{
+    padding: 0 45px 0 5px;
+    height: 20px;
+    width: 140px;
+}
+
+.d_sinsub{
+    border: 1px solid #929292;
+    width: 43px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #fff;
+    line-height: 16px;
+    margin-left: -44px;
+    vertical-align: 1px;
+    background: #767676;
+    z-index: 10;
+}
+
+.d_hr_hot_title{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    background-size: 28px 28px;
+    background: url('http://www.ghqygame.com/Public/ghpc/images/hr_hot.png') no-repeat;
+    color: #f35655;
+}
+
+.d_hr_hot_title a{
+    float: right;
+    font-size: 13px;
+    color: #666;
+}
+
+.d_hotjob{
+    width: 100%;
+}
+
+.d_hotjob li{
+    height: 26px;
+    width: 320px;
+    overflow: hidden;
+    float: left;
+}
+
+.d_hotjob li span{
+    font-size: 13px;
+    color: #333;
+    line-height: 26px;
+    float: left;
+}
+
+.d_hotjob li span.col1{
+    width: 60px;
+}
+
+.d_hotjob li span.col2{
+    width: 175px;
+}
+
+.d_hotjob li span.col3{
+    width: 85px;
+    text-align: right;
+}
+
+.d_news{
+    width: 430px;
+    float: right;
+}
+
+.d_cominfo{
+    padding: 10px 15px;
+    position: relative;
+    min-height: 100px;
+    border: 1px solid #f1f1f1;
+    background: -webkit-linear-gradient(top, #fff, #f7f8f8);
+}
+
+.d_hr_news_title{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    background-size: 28px 28px;
+    background: url("http://www.ghqygame.com/Public/ghpc/images/hr_news.png") no-repeat;
+    color: #f6853b;
+}
+
+.d_hr_news_title a{
+    float: right;
+    font-size: 13px;
+    color: #666;
+}
+
+.d_newjobbox{
+    height: 100px;
+    overflow: hidden;
+}
+
+.d_newjob{
+    width: 100%;
+}
+
+.comvideo {
+    height: 160px;
+    overflow: hidden;
+    min-height: 100px;
+    border: 1px solid #f1f1f1;
+    background: -webkit-linear-gradient(top, #fff, #f7f8f8);
+    position: relative;
+}
+
+.d_img_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0;
+    background-color: rgba(0,0,0,0.5);
+    background: url("../img/liu_img/video_play.png") center no-repeat;
+}
+
+.layer_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    z-index: 1001;
+    display: none;
+}
+
+.layer_video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -180px;
+    margin-left: -320px;
+    width: 640px;
+    height: 360px;
+    border: solid #FFF 5px;
+    z-index: 1002;
+    display: none;
+}
+
+.close {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 53px;
+    height: 52px;
+    background: url('http://www.ghqygame.com/Public/ghpc/images/close.png') no-repeat;
+    z-index: 1002;
+}
+
+.clear{
+    clear: both;
+    height: 100px;
+}
+
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: black;
+    position: relative;
+    bottom:0;
+}
+.l_footer_logo{
+    width: 192px;
+    height: 70px;
+    position:absolute;
+    left:10%;
+    top:20%;
+}
+.l_txt{
+    width: 747px;
+    height: 100px;
+    font-size: 13px;
+    position:absolute;
+    left:45%;
+    top:20%;
+}
+.l_one>a{
+    text-decoration: none;
+    color: grey;
+}
+.l_last{
+    margin-top: 10px;
+    color: grey;
+}
+.l_last>a{
+    color: grey;
+    text-decoration: none;
+}
+.l_bar_warp a:hover{
+    color: red;
+}
+footer a:hover{
+    color: red;
+}

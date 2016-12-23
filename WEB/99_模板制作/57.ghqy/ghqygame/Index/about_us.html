@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京光合起源网络科技有限公司</title>
+    <link rel="stylesheet" href="../Public/css/header&&footer_css.css">
+    <link rel="stylesheet" href="../Public/css/about_us.css">
+</head>
+<body>
+<div class="l_header">
+    <img src="../Public/img/liu_img/header_bottom.png" alt="" class="l_bottom">
+    <img src="../Public/img/liu_img/logo.png" alt="" class="l_logo">
+    <div class="l_header_txt">
+        <a href="./index.html">首页</a>
+        <a href="./about_us.html">关于我们</a>
+        <a href="./newsCenter.php">新闻中心</a>
+        <a href="./gameCenter.html">游戏中心</a>
+        <a href="./joinUs.html">加入我们</a>
+        <a href="./lastPage.html">联系我们</a>
+    </div>
+    <div class="l_bar">
+        <p>&macr;</p>
+        <p>&macr;</p>
+        <p>&macr;</p>
+        <div class="l_bar_warp">
+            <a href="./index.html">首页</a>
+            <a href="./about_us.html">关于我们</a>
+            <a href="./newsCenter.php">新闻中心</a>
+            <a href="./gameCenter.html">游戏中心</a>
+            <a href="./joinUs.html">加入我们</a>
+            <a href="./lastPage.html">联系我们</a>
+        </div>
+    </div>
+</div>
+<div class="l_content">
+    <div class="l_content_one">
+        <img src="../Public/img/liu_img/about_top.jpg" alt="">
+        <p>关于我们</p>
+    </div>
+    <div class="l_content_two">
+        <p>北京光合起源网络科技有限公司</p>
+        <p>
+            北京光合起源网络科技有限公司致力于研发新一代的3D即时战斗手游。核心团队经历过多款MMOPRG端</br>
+            游洗礼，具备国内顶尖的研发实力。“热爱游戏，打造精品，创造快乐”是我们共同的理念。 《有杀气童</br>
+            话》是我们为玩家献上的第一款游戏，也是光合起源团队集体努力的结晶。但这仅是一个开端，未来的路</br>
+            在我们的脚下，需要我们继续团结努力一步一步踏实前行。我们身处一个飞速发展的行业，稍一松懈，我</br>
+            们就会成为失败的教本。长远有信仰、执念于精品、眼前有目标，踏实前行，创造更棒的游戏。
+        </p>
+    </div>
+    <div class="l_content_three">
+        <img src="../Public/img/liu_img/about_people.jpg" alt="">
+    </div>
+    <div class="l_content_four">
+        <img src="../Public/img/liu_img/about_txt.png" alt="">
+        <pre>
+            2015年7月 《有杀气童话》韩国区正式上线运营，Google Play下载排行榜首长达一个月之久，
+            2015年进入韩国畅销排名Top30为数不多的几款中国游戏之一；
+            2015年11月《有杀气童话》港澳、新马泰区域运营，双榜登顶；
+            2015年12月《有杀气童话》台湾区上线运营，迅速成为台湾双平台霸榜神器，成为台湾国民级精品手游；
+            2016年4月《有杀气童话》越南区上线运营，迅速登顶；
+            精彩即将呈现......
+        </pre>
+    </div>
+</div>
+<footer>
+    <img src="../Public/img/liu_img/logo.png" alt="" class="l_footer_logo">
+    <div class="l_txt">
+        <p class="l_one">
+            <a href='./index.html'>光合起源&nbsp;|</a>
+            <a href='./about_us.html'>关于我们&nbsp;|</a>
+            <a href='./newsCenter.php'>新闻中心&nbsp;|</a>
+            <a href='./gameCenter.html'>游戏中心&nbsp;|</a>
+            <a href='./joinUs.html'>加入我们&nbsp;|</a>
+            <a href=./lastPage.html>联系我们&nbsp;|</a>
+        </p>
+        <p class="l_last">
+            京ICP备15038749号-1  Copyright © 2014-2015 北京光合起源网络科技有限公司 All Right Reserved
+        </p>
+        <p class="l_last">
+            联系地址：北京市海淀区花园路甲13号院庚坊国际大厦3层307 电话：010-82257119 <a href="">技术支持：星贺互联</a>
+        </p>
+        <p class="l_last">
+            健康游戏忠告：抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益脑 沉迷游戏伤身 合理安排时间 享受健康生活
+        </p>
+    </div>
+</footer>
+
+<script src="../Public/js/L_header.js"></script>
+<script src="../Public/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(window).scroll(function () {
+            if ($(document).scrollTop()>=70){
+             $(".l_content_three").animate({
+                 height:1240
+             },1000);
+            }
+            if ($(document).scrollTop()>=1000){
+                $(".l_content_four").animate({
+                    height:700
+                },1000);
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
